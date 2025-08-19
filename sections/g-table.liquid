@@ -1,0 +1,323 @@
+<style>
+    .g-table{
+        background: linear-gradient(180deg, #D9DBF3 0%, #FFFFFF 100%);
+        margin-bottom: 50px;
+    }
+
+    .g-table h2{
+        text-align: center;
+        font-weight: 400;
+        font-size: 45px;
+        color: #060346;
+    }
+
+    .g-table-header,
+    .g-table-row{
+        display: flex;
+    }
+
+    .g-table-30{
+        width: 40%;
+    }
+
+    .g-table-20{
+        width: 30%;
+    }
+
+    .g-table-15{
+        width: 15%;
+    }
+
+    .g-table-15 p{
+        margin: 0;
+        font-size: 22px;
+        line-height: 1;
+        font-weight: 700;
+        color: #251E4C;
+    }
+
+    .g-table-wrap{
+        max-width: 791px;
+        margin: 76px auto 0 auto;
+    }
+
+    .g-table-30,
+    .g-table-20,
+    .g-table-15{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .g-table-fill{
+        background: #251E4C;
+    }
+
+    .g-table-20 p{
+        font-size: 22px;
+        color: #251E4C;
+    }
+
+    .g-table-icons{
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid #FFFFFF30;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .g-table-row .g-table-30,
+    .g-table-row .g-table-20,
+    .g-table-row .g-table-15{
+        background: #F5F5FA;
+        padding-bottom: 0;
+    }
+
+    .g-table-20.g-table-fill{
+        background: #251E4C;
+    }
+
+    .g-table-30 > span{
+        color: #251E4C;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: -3%;
+        text-align: left;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
+    .g-table-20 img{
+        max-width: 100%;
+    }
+
+    .g-table-row .g-table-30,
+    .g-table-row .g-table-20{
+        border-bottom: 1px solid #0000000A
+    }
+
+    .g-table-row:last-child .g-table-30,
+    .g-table-row:last-child .g-table-20,
+    .g-table-row:last-child .g-table-icons{
+        border-bottom: 0;
+    }
+
+    .g-table-body{
+        border-radius: 5px;
+        border: 2px solid #251E4C;
+    }
+
+    .g-table-header .g-table-fill{
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .g-table-row:last-child .g-table-fill{
+        position: relative;
+    }
+
+    .g-table-row:last-child .g-table-fill::after{
+        position: absolute;
+        content: '';
+        width: 100%;
+        left: 0;
+        bottom: -50%;
+        height: 50%;
+        background: #251E4C;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .g-table-logo-top{
+        display: none;
+    }
+
+    .g-table-row .g-table-15:last-child{
+        border-left: 2px solid #060346;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-table h2{
+            font-size: 28px;
+        }
+
+        .g-table-wrap{
+            margin: 40px auto 0 auto;
+        }
+
+        .g-table-logo-top{
+            display: block;
+            margin-top: -50px;
+        }
+
+        .g-table-15 p{
+            font-size: 10px;
+            font-weight: 700;
+            color: #251E4C;
+        }
+
+        .g-table-30, .g-table-20, .g-table-15{
+            padding: 10px;
+        }
+
+        .g-table-icons img{
+            width: 30px;
+            height: 30px;
+        }
+
+        .g-table-row:last-child .g-table-fill::after{
+            bottom: -40%;
+            height: 40%;
+        }
+
+        .g-table-30 > span{
+            text-align: center;
+            font-size: 12px;
+            padding-bottom: 0;
+        }
+
+        .g-table-header{
+            align-items: flex-end;
+        }
+
+        .g-table-header .g-table-15{
+            padding: 0 0 5px 0 !important;
+        }
+
+        .g-table-header .g-table-20.g-table-fill{
+            max-height: 100px;
+        }
+    }
+</style>
+<div class="g-table g-sections">
+    <div class="g-wrap">
+        <h2>{{ section.settings.title }}</h2>
+
+        <div class="g-table-wrap">
+            <div class="g-table-header">
+                <div class="g-table-30" style="display: block"></div>
+                <div class="g-table-20 g-table-fill">
+                    <img src="{{ section.settings.logo_mobile | image_url: width: "500px" }}" class="g-table-logo-top" width="" height="" alt="">
+                    <img src="{{ section.settings.logo | image_url: width: "500px" }}" width="" height="" alt="">
+                </div>
+                <div class="g-table-15" style="padding: 0 0 10px 0;">
+                    <img src="{{ section.settings.others_1_image | image_url: width: "500px" }}" width="" height="41" alt="">
+                    {{ section.settings.others_1 }}
+                </div>
+                <div class="g-table-15" style="padding: 0 0 10px 0;">
+                    <img src="{{ section.settings.others_2_image | image_url: width: "500px" }}" width="" height="41" alt="" style="transform: rotate(63.6deg);">
+                    {{ section.settings.others_2 }}
+                </div>
+            </div>
+            <div class="g-table-body">
+                {% for block in section.blocks %}
+                  <div class="g-table-row">
+                      <div class="g-table-30">
+                          <span>{{ block.settings.content }}</span>
+                      </div>
+                      <div class="g-table-20 g-table-fill">
+                          <span class="g-table-icons">
+                              <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/check-white.png" width="" height="36" alt="">
+                          </span>
+                      </div>
+                      <div class="g-table-15">
+                          <span class="g-table-icons">
+                              {% if block.settings.others_1_checked == true %}
+                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/blue-check.png" width="" height="36" alt="">
+                              {% else %}
+                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/ex.png" width="" height="36" alt="">
+                              {% endif %}
+                          </span>
+                      </div>
+                      <div class="g-table-15">
+                          <span class="g-table-icons">
+                              {% if block.settings.others_2_checked == true %}
+                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/blue-check.png" width="" height="36" alt="">
+                              {% else %}
+                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/ex.png" width="" height="36" alt="">
+                              {% endif %}
+                          </span>
+                      </div>
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Nord Table",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Table Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_mobile",
+        "label": "Table Logo Mobile"
+      },
+      {
+        "type": "richtext",
+        "id": "others_1",
+        "label": "Others 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "others_1_image",
+        "label": "Others 1 Image"
+      },
+      {
+        "type": "richtext",
+        "id": "others_2",
+        "label": "Others 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "others_2_image",
+        "label": "Others 2 Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "rows",
+        "name": "Rows",
+        "settings": [
+          {
+            "type": "text",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "checkbox",
+            "id": "others_1_checked",
+            "label": "Others 1 Checked"
+          },
+          {
+            "type": "checkbox",
+            "id": "others_2_checked",
+            "label": "Others 2 Checked"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Table"
+      }
+    ]
+  }
+{% endschema %}

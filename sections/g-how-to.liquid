@@ -1,0 +1,231 @@
+<style>
+    .g-how-to{
+        background: linear-gradient(0deg, rgba(176, 178, 229, 0.5), rgba(176, 178, 229, 0.5));
+    }
+
+    .g-how-to h2{
+        text-align: center;
+        color: #060346;
+
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 36px;
+        margin: 0 0 36px 0;
+    }
+
+    .g-how-to-subtitle{
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #060346;
+    }
+
+    .g-howto-materials{
+        display: flex;
+        margin-top: 16px;
+        gap: 37px;
+        padding: 20px 50px;
+        border-top: 1px solid #000;
+        border-top-left-radius: 50px;
+    }
+
+    .g-howto-material{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14px;
+        line-height: 21px;
+        color: #060346;
+        flex: 1;
+    }
+
+    .g-howto-tags{
+        display: flex;
+        gap: 15px;
+    }
+
+    .g-howto-tags span{
+        background: #EAECFF;
+        color: #45353E;
+        padding: 2px 5px;
+    }
+
+    .g-howto-material img{
+        border-radius: 100%;
+        border: 1px solid #000;
+    }
+
+    .g-how-to .g-accordion-item{
+        border-top: 1px solid #06034633;
+        border-bottom: 1px solid #06034633;
+    }
+
+    .g-how-to .g-accordion-item span{
+        color: #060346;
+        font-size: 14px;
+    }
+
+    .g-how-to .g-accordion-header{
+        padding: 15px 0;
+    }
+
+    .g-howto-material-image{
+        width: 40px;
+        height: 40px;
+    }
+
+    .g-howto-material-image img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .g-howto-material h4{
+        margin: 0;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-how-to h2{
+            text-align: left;
+            margin-bottom: 16px;
+        }
+
+        .g-how-to-subtitle{
+            text-align: left;
+        }
+
+        .g-howto-materials{
+            border: 0;
+            padding: 0;
+            flex-direction: column;
+        }
+    }
+</style>    
+<div class="g-how-to g-sections">
+    <div class="g-wrap">
+        <h2>{{ section.settings.title }}</h2>
+        <p class="g-how-to-subtitle">{{ section.settings.subtitle }}</p>
+    
+        <div class="g-howto-materials">
+            {% for block in section.blocks %}
+              <div class="g-howto-material">
+                  <div class="g-howto-material-image">
+                    <img src="{{ block.settings.icon | image_url: width: "200px" }}" width="" height="" alt="">
+                  </div>
+                  <h4>{{ block.settings.title }}</h4>
+                  <div class="g-howto-tags">
+                      {% if block.settings.tag_1 != blank %}<span>{{ block.settings.tag_1 }}</span>{% endif %}
+                      {% if block.settings.tag_2 != blank %}<span>{{ block.settings.tag_2 }}</span>{% endif %}
+                      {% if block.settings.tag_3 != blank %}<span>{{ block.settings.tag_3 }}</span>{% endif %}
+                  </div>
+                  <p>{{ block.settings.description }} </p>
+                  <div class="g-accordion">
+                      <div class="g-accordion-item">
+                          <div class="g-accordion-header">
+                              <span>{{ block.settings.question_label }}</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                              </svg>
+                          </div>
+                          <div class="g-accordion-content">
+                             {{ block.settings.question_answer }}
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+    // Select all accordion headers
+    document.querySelectorAll('.g-how-to .g-accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            console.log(content);
+            
+            // Toggle active class for the header
+            header.classList.toggle('g-active');
+    
+            // Show or hide the content with smooth transition
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+            } else {
+                content.classList.add('open');
+            }
+        });
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Nord How To",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "columns",
+        "name": "Columns",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icont"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "tag_1",
+            "label": "Tag 1"
+          },
+          {
+            "type": "text",
+            "id": "tag_2",
+            "label": "Tag 2"
+          },
+          {
+            "type": "text",
+            "id": "tag_3",
+            "label": "Tag 3"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "Description"
+          },
+          {
+            "type": "text",
+            "id": "question_label",
+            "label": "Question Label"
+          },
+          {
+            "type": "richtext",
+            "id": "question_answer",
+            "label": "Question Answer"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord How To"
+      }
+    ]
+  }
+{% endschema %}

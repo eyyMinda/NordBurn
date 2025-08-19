@@ -1,0 +1,231 @@
+<style>
+    .g-faq{
+        background: linear-gradient(180deg, #FFFFFF 0%, #D7D9F2 100%);
+    }
+
+    .g-q-content{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 50px;
+    }
+
+    .g-question-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        font-size: 20px;
+        line-height: 31px;
+        color: #060346;
+        font-weight: 700;
+    }
+
+    .g-question-header svg{
+        width: 20px;
+    }
+
+    .g-faq h2{
+        text-align: center;
+        font-weight: 400;
+        font-size: 45px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #060346;
+    }
+
+    .g-question{
+        background: #fff;
+        border: 2px solid #00000033;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .g-question-content{
+        padding: 0;
+        transition: max-height 0.4s ease, padding 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .g-question-content p,
+    .g-question-content ul li,
+    .g-question-content ol li{
+        font-size: 16px;
+        line-height: 140%;
+        margin: 10px 0;
+        color: #060346;
+    }
+    
+    .g-question.g-question-open .g-question-content{
+        max-height: 2000px;
+        padding: 0 20px 20px 20px;
+    }
+
+    .g-q-title h2{
+        font-size: 60px;
+        line-height: 106%;
+        margin: 0 0 20px 0;
+    }
+
+    .g-faq-sub{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        text-align: center;
+        margin-top: 35px;
+        color: #060346;
+    }
+
+    .g-question-header > span{
+        width: 28px;
+        height: 28px;
+        border-radius: 28px;
+        background: #D7D9F1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .g-question-header > span.g-faq-icon-show{
+        background: #060346;
+        color: #fff;
+    }
+
+    .g-question .g-faq-icon-hide{
+        display: none;
+    }
+
+    .g-question.g-question-open .g-faq-icon-hide{
+        display: flex;
+    }
+
+    .g-question.g-question-open .g-faq-icon-show{
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-faq h2{
+            font-size: 28px;
+        }
+
+        .g-questions-wrap{
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .g-q-title, .g-q-content{
+            width: 100%;
+        }
+
+        .g-q-title h2{
+            font-size: 30px;
+        }
+
+        .g-question-header{
+            font-size: 18px;
+            line-height: 21px;
+            gap: 10px;
+        }
+
+        .g-question-content p{
+            font-size: 14px;
+        }
+
+        .g-questions{
+            padding: 20px;
+        }
+
+        .g-faq-sub{
+            margin-top: 24px;
+            font-size: 16px;
+        }
+
+        .g-q-content{
+            margin-top: 40px;
+        }
+
+        .g-question-header > span{
+            min-width: 28px;
+        }
+    }
+</style>
+<div class="g-faq g-sections">
+    <div class="g-wrap">
+        <h2>{{ section.settings.title }}</h2>
+        <p class="g-faq-sub">{{ section.settings.subtitle }}</p>
+
+        <div class="g-q-content">
+            {% for block in section.blocks %}
+            <div class="g-question{% if forloop.first == true %} g-question-open{% endif %}">
+                <div class="g-question-header">
+                    {{ block.settings.question }}
+                    <span class="g-faq-icon-hide">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+                        </svg>
+                    </span>
+                    <span class="g-faq-icon-show">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="g-question-content">
+                    {{ block.settings.answer }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelectorAll(".g-question").forEach(question => {
+        question.addEventListener("click", function(){
+            document.querySelectorAll(".g-question").forEach(q => { q.classList.remove("g-question-open") });
+            this.classList.add("g-question-open");
+        });
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Nord Faq",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faqs",
+        "name": "Faqs",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Faq"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,340 @@
+<style>
+    .g-header{
+        padding: 20px;
+    }
+
+    .g-header-wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 55px;
+    }
+
+    .g-header-logo{
+        max-width: 151px;
+    }
+
+    .g-header-logo img{
+        max-width: 100%;
+    }
+
+    .g-header-links{
+        display: flex;
+        align-items: center;
+    }
+
+    .g-header-links ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .g-header-links ul li{
+        display: inline-block;
+        gap: 20px;
+    }
+
+    .g-header-links ul li a{
+        text-decoration: none;
+        color: #060346;
+        display: block;
+        padding: 10px;
+    }
+
+    .g-header-links ul li a:hover{
+        background: #f1f1f1;
+    }
+
+
+    .menu-toggle {
+        font-size: 28px;
+        padding: 1rem;
+        cursor: pointer;
+        border: none;
+        background: none;
+    }
+
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 85%;
+        max-width: 340px;
+        height: 100%;
+        background-color: #fff;
+        color: #000;
+        transition: left 0.3s ease;
+        z-index: 999;
+        padding: 2rem 1rem 1rem;
+        box-sizing: border-box;
+    }
+
+    .mobile-nav.open {
+        left: 0;
+    }
+
+    .search-bar {
+        margin-bottom: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .search-bar input {
+        width: 100%;
+        padding: 1rem;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        box-sizing: border-box;
+        border: 1px solid #000;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-nav li {
+        margin-bottom: 1.5rem;
+    }
+
+    .mobile-nav a {
+        color: #000;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 998;
+        display: block !important;
+    }
+
+    .overlay.show {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    /* External Close Button in Overlay */
+    .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: -43px;
+        font-size: 28px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #fff;
+        z-index: 1000;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        line-height: 1;
+    }
+
+    .g-header-mobile{
+        display: none;
+    }
+
+    .g-header-mobile-wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .g-header-mobile-wrap a{
+        display: flex;
+    }
+
+    .g-header-mobile-wrap img{
+        max-height: 46px;
+    }
+
+    .g-header-mobile-wrap .g-header-cart{
+        padding-right: 20px;
+    }
+
+    .g-header-mobile-wrap .g-header-cart svg{
+        width: 25px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-header-mobile{
+            display: block;
+        }
+
+        .g-header-desktop{
+            display: none;
+        }
+
+        .g-header{
+            padding: 0;
+        }
+
+        .g-header-mobile-wrap img{
+            max-height: 34px;
+        }
+    }
+</style>
+<div class="g-header">
+    <div class="g-wrap">
+
+        {% assign leftlinks = section.settings.left_link.links %}
+        {% assign rightlinks = section.settings.right_link.links %}
+        
+        <div class="g-header-wrap g-header-desktop">
+            <div class="g-header-links">
+                <ul>
+                    {% for link in leftlinks %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="g-header-logo">
+                <a href="{{ routes.root_url }}"><img src="{{ section.settings.logo | image_url: width: "1000px" }}" width="" height="" alt=""></a>
+            </div>
+            <div class="g-header-links">
+                <ul>
+                    {% for link in rightlinks %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                  {%- liquid
+                    if cart == empty
+                      render 'icon-cart-empty'
+                    else
+                      render 'icon-cart'
+                    endif
+                  -%}
+                  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+                  {%- if cart != empty -%}
+                    <div class="cart-count-bubble">
+                      {%- if cart.item_count < 100 -%}
+                        <span aria-hidden="true">{{ cart.item_count }}</span>
+                      {%- endif -%}
+                      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                    </div>
+                  {%- endif -%}
+                </a>
+            </div>
+            <!-- <div class="g-header-cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <path d="M13.348 3.41667L8.06885 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.6519 3.41667L27.931 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3.4165 11.9479C3.4165 9.25 4.86025 9.03125 6.654 9.03125H29.3457C31.1394 9.03125 32.5832 9.25 32.5832 11.9479C32.5832 15.0833 31.1394 14.8646 29.3457 14.8646H6.654C4.86025 14.8646 3.4165 15.0833 3.4165 11.9479Z" stroke="black" stroke-width="1.5"/>
+                    <path d="M14.7334 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M21.4419 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M5.604 15.0833L7.66025 27.6833C8.12692 30.5125 9.24984 32.5833 13.4207 32.5833H22.2144C26.7498 32.5833 27.4207 30.6 27.9457 27.8583L30.3957 15.0833" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </div> -->
+        </div>
+
+        <div class="g-header-mobile">
+            <!-- Hamburger Menu Button -->
+            <div class="g-header-mobile-wrap">
+                <button class="menu-toggle" id="openNav">&#9776;</button>
+                <a href="{{ routes.root_url }}"><img src="{{ section.settings.logo | image_url: width: "1000px" }}" width="" height="" alt=""></a>
+                <a class="g-header-cart" href="/cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <path d="M13.348 3.41667L8.06885 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22.6519 3.41667L27.931 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.4165 11.9479C3.4165 9.25 4.86025 9.03125 6.654 9.03125H29.3457C31.1394 9.03125 32.5832 9.25 32.5832 11.9479C32.5832 15.0833 31.1394 14.8646 29.3457 14.8646H6.654C4.86025 14.8646 3.4165 15.0833 3.4165 11.9479Z" stroke="black" stroke-width="1.5"/>
+                        <path d="M14.7334 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M21.4419 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M5.604 15.0833L7.66025 27.6833C8.12692 30.5125 9.24984 32.5833 13.4207 32.5833H22.2144C26.7498 32.5833 27.4207 30.6 27.9457 27.8583L30.3957 15.0833" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Overlay with external close button -->
+            <div class="overlay" id="overlay"></div>
+
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobileNav">
+              <button class="close-btn" id="closeNav">&times;</button>
+              <!-- Search Bar -->
+              <form action="/search" method="get" class="search-bar">
+                <input type="text" name="q" placeholder="Search..." id="navSearch">
+              </form>
+  
+              <ul>
+                  {% for link in leftlinks %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                  {% for link in rightlinks %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+              </ul>
+            </nav>
+
+            <script>
+                const openNavBtn = document.getElementById('openNav');
+                const closeNavBtn = document.getElementById('closeNav');
+                const mobileNav = document.getElementById('mobileNav');
+                const overlay = document.getElementById('overlay');
+
+                openNavBtn.addEventListener('click', () => {
+                    mobileNav.classList.add('open');
+                    overlay.classList.add('show');
+                });
+
+                closeNavBtn.addEventListener('click', () => {
+                    mobileNav.classList.remove('open');
+                    overlay.classList.remove('show');
+                });
+
+                overlay.addEventListener('click', (e) => {
+                    // Prevent closing if user clicks inside the nav itself
+                    if (!mobileNav.contains(e.target) && e.target !== closeNavBtn) {
+                    mobileNav.classList.remove('open');
+                    overlay.classList.remove('show');
+                    }
+                });
+            </script>
+        </div>
+
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "G Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "link_list",
+        "id": "left_link",
+        "label": "Left Link"
+      },
+      {
+        "type": "link_list",
+        "id": "right_link",
+        "label": "Right Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "G Header"
+      }
+    ]
+  }
+{% endschema %}

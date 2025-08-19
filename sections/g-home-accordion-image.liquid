@@ -1,0 +1,224 @@
+<style>
+    .g-accordion-image{
+        padding: 100px 20px;
+    }
+
+    .g-accordion-image h2{
+        text-align: center;
+        font-weight: 400;
+        font-size: 55px;
+        line-height: 120%;
+        letter-spacing: 0%;
+        color: #060346;
+    }
+
+    .accordion-image-wrap {
+        display: flex;
+        gap: 73px;
+        margin-top: 110px;
+    }
+
+    .accordion-image-wrap > div{
+        width: 50%;
+    }
+
+    .g-accordion-image-image{
+        padding-top: 50%;
+        position: relative;
+    }
+
+    .g-accordion-image-image img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-radius: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-position: top;
+    }
+
+    .g-accordion-image .g-accordion-header-count{
+        font-size: 55px;
+        display: block;
+        font-weight: 400;
+        margin-bottom: 24px;
+    }
+
+    .g-accordion-image .g-accordion-header > span{
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 120%;
+    }
+
+    .g-accordion-image .g-accordion-item{
+        border-radius: 21px;
+        border: 2px solid #060346;
+        padding: 34px 23px;
+    }
+
+    .g-accordion-image .g-accordion{
+        gap: 27px;
+    }
+
+    .g-accordion-image .g-accordion-header{
+        padding: 0;
+    }
+
+    .g-accordion-image .g-accordion-content.open{
+        padding: 20px 0 0 0;
+    }
+
+    .g-accordion-image .g-accordion-content.open p{
+        margin-bottom: 0;
+    }
+
+    .g-accordion-image .g-accordion-header svg{
+        width: 39px;
+        color: #060346;
+    }
+
+    .g-accordion-image .g-accordion-header.g-active svg{
+        transform: rotate(45deg);
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-accordion-image{
+            padding: 65px 20px;
+        }
+
+        .accordion-image-wrap{
+            flex-direction: column-reverse;
+            margin-top: 35px;
+        }
+
+        .accordion-image-wrap > div{
+            width: 100%;
+        }
+
+        .g-accordion-image h2{
+            font-size: 28px;
+        }
+
+        .g-accordion-image .g-accordion{
+            margin-top: 0;
+            gap: 15px;
+        }
+
+        .g-accordion-image-image{
+            padding-top: 100%;
+        }
+
+        .accordion-image-wrap{
+            gap: 27px;
+        }
+
+        .g-accordion-image .g-accordion-header > span{
+            font-size: 22px;
+        }
+
+        .g-accordion-image .g-accordion-item{
+            padding: 24px 23px;
+        }
+
+        .g-accordion-image .g-accordion-header-count{
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .g-accordion-image .g-accordion-header svg{
+            width: 24px;
+        }
+    }
+</style>
+<div class="g-sections g-accordion-image">
+    <div class="g-wrap">
+        <h2>{{ section.settings.title }}</h2>
+        <div class="accordion-image-wrap">
+            <div>
+                <div class="g-accordion">
+                    {% for block in section.blocks %}
+                      <div class="g-accordion-item">
+                          <div class="g-accordion-header">
+                              <span><span class="g-accordion-header-count">0{{ forloop.index }}</span>{{ block.settings.question }}?</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                          </div>
+                          <div class="g-accordion-content">
+                            {{ block.settings.answer }}    
+                          </div>
+                      </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="g-accordion-image-image">
+                <img src="{{ section.settings.image | image_url: width: "2000px" }}" width="" height="" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all accordion headers
+        document.querySelectorAll('.g-accordion-image .g-accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                console.log(content);
+                
+                // Toggle active class for the header
+                header.classList.toggle('g-active');
+        
+                // Show or hide the content with smooth transition
+                if (content.classList.contains('open')) {
+                    content.classList.remove('open');
+                } else {
+                    content.classList.add('open');
+                }
+            });
+        });
+
+    });
+</script> 
+
+{% schema %}
+  {
+    "name": "Nord Home Accordion Image",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Meet NordBurn GLP-1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "questions",
+        "name": "Questions",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Home Accordion Image"
+      }
+    ]
+  }
+{% endschema %}

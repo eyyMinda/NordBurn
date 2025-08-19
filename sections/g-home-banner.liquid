@@ -1,0 +1,237 @@
+<style>
+    .g-banner .g-cta a{
+        border-radius: 50px;
+    }
+
+    .g-banner .g-cta{
+        max-width: 325px;
+    }
+
+    .g-banner .g-cta-wrapper{
+        max-width: unset;
+        margin-top: 50px;
+    }
+
+    .g-banner .g-cta-bottom{
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .g-banner-wrap{
+        display: flex;
+        gap: 190px;
+    }
+
+    .g-banner-wrap > div{
+        width: 50%;
+    }
+
+    .g-banner-ratings {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .g-banner-ratings p{
+        color: #211948;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .g-banner-content h1{
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 140%;
+        letter-spacing: -2%;
+        margin: 20px 0;
+        color: #060346;
+    }
+
+    .g-banner-content > p{
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 160%;
+        letter-spacing: 0%;
+        color: #060346;
+    }
+
+    .g-banner-ratings > span{
+        display: flex;
+        gap: 2px;
+    }
+
+    .g-banner-image-mobile{
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-banner-ratings{
+            justify-content: center;
+        }
+      
+        .g-banner-image-desktop{
+            display: none;
+        }
+
+        .g-banner-image-mobile{
+            display: block;
+        }
+
+        .g-banner-wrap{
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .g-banner-wrap > div{
+            width: 100%;
+        }
+
+        .g-banner-content{
+            text-align: center;
+        }
+
+        .g-banner-content h1{
+            font-size: 28px;
+            margin: 13px 0;
+        }
+
+        .g-banner-content img.g-banner-image-mobile{
+            max-width: 241px;
+            margin: 52px auto 32px auto;
+        }
+
+        .g-banner-content > p{
+            font-size: 18px;
+        }
+
+        .g-banner .g-cta-wrapper{
+            margin-top: 41px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+</style>
+<div class="g-banner g-sections">
+    <div class="g-wrap">
+        <div class="g-banner-wrap">
+            <div class="g-banner-content">
+                <div class="g-banner-ratings">
+                    <span>
+                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.88301 12.6667L3.96634 7.98333L0.333008 4.83333L5.13301 4.41667L6.99967 0L8.86634 4.41667L13.6663 4.83333L10.033 7.98333L11.1163 12.6667L6.99967 10.1833L2.88301 12.6667Z" fill="#211948"/>
+                        </svg>
+                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.88301 12.6667L3.96634 7.98333L0.333008 4.83333L5.13301 4.41667L6.99967 0L8.86634 4.41667L13.6663 4.83333L10.033 7.98333L11.1163 12.6667L6.99967 10.1833L2.88301 12.6667Z" fill="#211948"/>
+                        </svg>
+                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.88301 12.6667L3.96634 7.98333L0.333008 4.83333L5.13301 4.41667L6.99967 0L8.86634 4.41667L13.6663 4.83333L10.033 7.98333L11.1163 12.6667L6.99967 10.1833L2.88301 12.6667Z" fill="#211948"/>
+                        </svg>
+                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.88301 12.6667L3.96634 7.98333L0.333008 4.83333L5.13301 4.41667L6.99967 0L8.86634 4.41667L13.6663 4.83333L10.033 7.98333L11.1163 12.6667L6.99967 10.1833L2.88301 12.6667Z" fill="#211948"/>
+                        </svg>
+                        <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.88301 12.6667L3.96634 7.98333L0.333008 4.83333L5.13301 4.41667L6.99967 0L8.86634 4.41667L13.6663 4.83333L10.033 7.98333L11.1163 12.6667L6.99967 10.1833L2.88301 12.6667Z" fill="#211948"/>
+                        </svg>
+                    </span>
+                    {{ section.settings.ratings }}
+                </div>
+                <h1>{{ section.settings.title }}</h1>
+                <img src="{{ section.settings.image | image_url: width: "2000px" }}" width="" height="" alt="" class="g-banner-image-mobile">
+                {{ section.settings.content }}
+
+                <div class="g-cta-wrapper">
+                    <div class="g-cta">
+                        <a href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
+                          </svg>
+                        </a>
+                        <div class="g-cta-bottom">
+                            <div>
+                                <img src="{{ section.settings.cta_bottom_icon | image_url: width: "500px" }}" width="" height="" alt="">
+                                <span>{{ section.settings.cta_bottom_text }}</span>
+                            </div>
+                            {% if section.settings.cta_bottom_image != blank %}
+                              <img src="{{ section.settings.cta_bottom_image | image_url: width: "500px" }}" width="" height="" alt="">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="g-banner-image">
+                <div>
+                    <img src="{{ section.settings.image | image_url: width: "2000px" }}" class="g-banner-image-desktop" width="" height="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Nord Home Banner",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "ratings",
+        "label": "Ratings"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "header",
+        "content": "CTA"
+      },
+      {
+        "type": "text",
+        "id": "cta_top_note",
+        "label": "CTA Top Note"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL"
+      },
+      {
+        "type": "text",
+        "id": "cta_bottom_text",
+        "label": "CTA Bottom Text",
+        "default": "safe & secure checkout"
+      },
+      {
+        "type": "image_picker",
+        "id": "cta_bottom_icon",
+        "label": "CTA Bottom Icon"
+      },
+      {
+        "type": "image_picker",
+        "id": "cta_bottom_image",
+        "label": "CTA Bottom Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Home Banner"
+      }
+    ]
+  }
+{% endschema %}

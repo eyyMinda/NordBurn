@@ -1,0 +1,100 @@
+<style>
+    .g-dual-image-text{
+        background: #F0F2FE;
+        padding: 95px 20px;
+    }
+
+    .g-dual-image-text-wrap{
+        display: flex;
+        align-items: center;
+    }
+
+    .g-dual-image-text-wrap > div{
+        width: 50%;
+    }
+
+    .g-dit--image{
+        display: flex;
+        gap: 16px;
+    }
+
+    .g-dit--image img{
+        border-radius: 10px;
+        border: 2px solid #060346;
+        max-width: 100%;
+    }
+
+    .g-dit--content h2{
+        font-weight: 400;
+        font-size: 55px;
+        line-height: 120%;
+        color: #060346;
+        letter-spacing: 0%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-dual-image-text-wrap{
+            flex-direction: column;
+            gap: 47px;
+        }
+
+        .g-dual-image-text-wrap > div{
+            width: 100%;
+        }
+
+        .g-dual-image-text{
+            padding: 58px 20px;
+        }
+
+        .g-dit--content h2{
+            font-size: 28px;
+            text-align: center;
+        }
+    }
+</style>
+<div class="g-dual-image-text g-sections">
+    <div class="g-wrap">
+        <div class="g-dual-image-text-wrap">
+            <div class="g-dit--content">
+                <h2>{{ section.settings.title }}</h2>
+            </div>
+            <div class="g-dit--image">
+                <div>
+                    <img src="{{ section.settings.image_1 | image_url: width: "2000px" }}" width="" height="" alt="">
+                </div>
+                <div>
+                    <img src="{{ section.settings.image_2 | image_url: width: "2000px" }}" width="" height="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Nord Home Dual Image Text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Clinically studied & patented ingredients. Real, proven results"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image 2"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Home Dual Image Text"
+      }
+    ]
+  }
+{% endschema %}

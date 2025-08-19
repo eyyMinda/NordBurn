@@ -1,0 +1,1231 @@
+{% if section.settings.product != blank %}
+  {% assign product = section.settings.product %}
+{% endif %}
+<style>
+    .g-pdp-wrapper{
+        padding: 50px 20px;
+    }
+
+    .g-pdp-wrap{
+        display: flex;
+        gap: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .g-pdp-wrap > div{
+        width: calc(50% - 25px);
+    }
+
+    .g-pdp-content > ul{
+        list-style: none;
+        padding: 0;
+        margin: 20px 0 0 0;
+    }
+
+    .g-pdp-content > ul li{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        color: #060346;
+        font-size: 16px;
+    }
+
+    .g-pdp-content > ul li:last-child{
+        margin-bottom: 0;
+    }
+
+    .g-pdp-content > ul li::before {
+        content: "";
+        display: inline-block;
+        width: 31px;
+        height: 31px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .g-pdp-content > ul li:nth-child(1):before {
+        background-image: url("https://cdn.shopify.com/s/files/1/0847/3981/7815/files/pdp-icon-1.png");
+    }
+
+    .g-pdp-content > ul li:nth-child(2):before {
+        background-image: url("https://cdn.shopify.com/s/files/1/0847/3981/7815/files/pdp-icon-2.png");
+    }
+
+    .g-pdp-content > ul li:nth-child(3):before {
+        background-image: url("https://cdn.shopify.com/s/files/1/0847/3981/7815/files/pdp-icon-3.png");
+    }
+
+    .g-pdp-content h1{
+        margin: 0;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 140%;
+        letter-spacing: 0%;
+        color: #060346;
+    }
+
+    .g-pdp-content p{
+        color: #060346;
+        font-size: 16px;
+        line-height: 160%;
+        margin: 0;
+    }
+
+    .g-pdp-ratings span{
+        color: #FED83F;
+    }
+
+    .g-pdp-content{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .g-pdp-content-top{
+        font-weight: 400;
+        font-style: italic;
+        font-size: 16px;
+        line-height: 30px;
+        letter-spacing: 0%;
+        color: #152CB1;
+    }
+
+
+    .g-pdp-methods{
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .g-pdp-method{
+        cursor: pointer;
+    }
+
+    .g-pdp-method-content{
+        display: none;
+    }
+
+    .g-pdp-method-header{
+        padding: 18px 12px;
+        border: 2px solid #D7D7D7;
+        border-radius: 8px;
+
+        font-family: Arial;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21.6px;
+        letter-spacing: 0%;
+        vertical-align: middle;
+        color: #060346;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .g-pdp-method-circle{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 16px;
+        border: 1px solid #D7D7D7;
+    }
+
+    .g-pdp-method.g-pdp-method-selected .g-pdp-method-content{
+        display: block;
+    }
+
+    .g-pdp-method.g-pdp-method-selected .g-pdp-method-header{
+        border: 2px solid #060346;
+        background: #DCE0F4;
+        font-weight: bold;
+    }
+
+    .g-pdp-method.g-pdp-method-selected .g-pdp-method-circle{
+        border-color: #060346;
+    }
+
+    .g-pdp-method.g-pdp-method-selected .g-pdp-method-circle::before{
+        content: '';
+        background: #060346;
+        border: 3px solid #DCE0F4;
+        width: 100%;
+        height: 100%;
+        display: block;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .g-pdp-variants{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 27px;
+    }
+
+    .g-pdp-variant.g-pdp-variant-selected{
+        border: 2px solid #060346;
+        background: #152CB126;
+    }
+
+    .g-pdp-variant{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+
+        border: 2px solid #D7D7D7;
+        border-radius: 8px;
+        padding: 17px 22px;
+        cursor: pointer;
+    }
+
+    .g-pdp-variant-note-wrap{
+        position: absolute;
+        width: 100%;
+        top: -10px;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .g-pdp-variant-note{
+        font-size: 10px;
+        line-height: 11px;
+        text-transform: uppercase;
+        padding: 4px 15px;
+        background: #060346;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .g-pdp-variant-image{
+        width: 81px;
+        text-align: left;
+    }
+
+    .g-pdp-variant-image img{
+        object-fit: contain;
+        height: 100%;
+        max-width: 100%;
+    }
+
+    .g-pdp-variant-content{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+    }
+
+    .g-pdp-variant-content *{
+        margin: 0;
+        color: #060346;
+    }
+
+    .g-pdp-variant-content p{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16.8px;
+    }
+
+    .g-pdp-variant-content h3{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28.8px;
+        letter-spacing: -1%;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .g-pdp-variant-pricing{
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .g-pdp-variant-sale{
+        color: #060346;
+    }
+
+    .g-pdp-variant-compare{
+        font-size: 14px;
+        color: #0603464D;
+        text-align: right;
+        text-decoration: line-through;
+    }
+
+
+
+    .g-pdp-review{
+        display: flex;
+        gap: 10px;
+    }
+
+    .g-pdp-review-image{
+        width: 75px;
+        height: 75px;
+    }
+
+    .g-pdp-review-image img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        display: block;
+        border-radius: 100%;
+    }
+
+    .g-pdp-review-content{
+        flex: 1;
+    }
+
+    .g-pdp-review-rating{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        justify-content: space-between;
+    }
+
+    .g-pdp-review-verified,
+    .g-pdp-review-name{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .g-pdp-review-verified svg{
+        width: 20px;
+    }
+
+    .g-pdp-review-verified span{
+        font-size: 12px;
+    }
+
+    .g-pdp-review-name > span{
+        display: flex;
+        gap: 2px;
+        font-size: 18px;
+        color: #080808;
+    }
+
+    .g-pdp-reviews-widget{
+        margin-top: 28px;
+    }
+
+    .g-pdp-review{
+        padding: 15px;
+        border: 1px solid #06034680;
+        border-radius: 15px;
+    }
+
+    .g-pdp-review-content p{
+        font-weight: 400;
+        font-size: 16px;
+        color: #323232;
+        line-height: 22.4px;
+    }
+
+    .swiper.g-pdp-reviews-widget-slider .swiper-button-disabled{
+        opacity: 0.3;
+    }
+
+    .swiper.g-pdp-reviews-widget-slider .swiper-pagination-bullet-active{
+        transform: scale(1.5);
+        background: #1B3854;
+    }
+
+    .g-pagination-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .g-pagination-wrapper .g-next,
+    .g-pagination-wrapper .g-prev{
+        cursor: pointer;
+    }
+
+    .g-pagination-wrapper .g-next svg,
+    .g-pagination-wrapper .g-prev svg{
+        width: 25px;
+    }
+
+    .g-pagination-wrapper .swiper-pagination{
+        position: relative;
+        top: unset;
+        bottom: unset;
+        width: auto;
+        display: flex;
+        align-items: center;
+        margin-top: -2px;
+    }
+
+    .g-pdp-variant-price-perbottle {
+        font-size: 11px;
+        line-height: 14px;
+        text-align: right;
+        background: #c9c9f2;
+        border-radius: 5px;
+    }
+
+    .g-pdp-variant-price-perbottle span{
+        padding: 3px;
+        display: block;
+    }
+
+    .g-pdp-variant-pricing-subscribe,
+    .g-pdp-variant-pricing-onetime{
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        color: #000;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-pdp-variant-pricing-subscribe, .g-pdp-variant-pricing-onetime{
+            gap: 0;
+            flex-direction: column;
+            line-height: 1;
+            align-items: flex-end;
+        }
+      
+        .g-pdp-wrap {
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .g-pdp-wrap > div{
+            width: 100%;
+        }
+
+        .g-pdp-ratings{
+            font-size: 14px;
+        }
+
+        .g-pdp-content h1{
+            font-size: 32px;
+        }
+
+        .g-pdp-method-content ul li{
+            font-size: 11px;
+        }
+
+        .g-desktop{
+            display: none !important;
+        }
+
+        .g-pdp-variant{
+            gap: 5px;
+        }
+
+        .g-pdp-variant-content h3{
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+        .g-pdp-variant-image{
+            width: 60px;
+        }
+
+        .g-pdp-variant-content{
+            gap: 5px;
+        }
+
+        .g-pdp-variant-sale{
+            font-size: 14px;
+        }
+
+        .g-pdp-variant-content p, .g-pdp-variant-price-perbottle span{
+            font-size: 12px;
+        }
+
+       .g-pdp-variant-compare{
+           font-size: 12px;
+           display: block;
+       }
+
+        .g-pdp-variant{
+            padding: 15px;
+        }
+
+        .g-pdp-method-content ul{
+            padding-left: 20px;
+        }
+
+        .g-pdp-review{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
+<div class="g-pdp-wrapper" id="product">
+    <div class="g-pdp-wrap">
+        <div class="g-pdp-images">
+            <!-- Start Product Images Widget -->
+            <style>
+                .g-product-images .swiper-button-next, .g-product-images .swiper-rtl .swiper-button-prev, .g-product-images .swiper-button-prev, .g-product-images .swiper-rtl .swiper-button-next{
+                    background: #fff;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 30px;
+                    display: flex !important;
+                }
+
+                .g-product-images .swiper-button-next::after, .g-product-images .swiper-button-prev::after {
+                    font-size: 12px;
+                    color: #000;
+                }
+
+                .g-pdp-images-main-thumbnail{
+                    padding: 0 0 2px 0;
+                    margin-top: 22px;
+                }
+
+                .g-pdp-images-main-thumbnail .swiper-slide{
+                    height: 100%;
+                }
+
+                .g-pdp-images-main-thumbnail .swiper-slide > div{
+                    padding-top: 100%;
+                }
+
+                .g-pdp-images-slider .swiper-slide img{
+                    border: 2px solid #060346;
+                    border-radius: 10px;
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                }
+
+                .g-pdp-images-main-thumbnail .swiper-slide > div img{
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: 10px;
+                }
+
+                .g-pdp-images-main-thumbnail .swiper-slide-thumb-active img{
+                    border: 2px solid #060346;
+                }
+
+                .g-pdp-images-thumb-wrapper{
+                    padding: 10px 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                }
+
+                .g-pdp-images-thumb-wrapper > div{
+                    width: 100%;
+                }
+
+                .g-pdp-images .g-next,
+                .g-pdp-images .g-prev{
+                    display: flex !important;
+                    cursor: pointer;
+                    z-index: 2;
+                    width: 35px;
+                    height: 35px;
+                    justify-content: center;
+                    align-items: center;
+                    background: #fff;
+                }
+
+                .g-pdp-images .g-prev{
+                    position: absolute;
+                    left: 2px;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+
+                .g-pdp-images .g-next{
+                    position: absolute;
+                    right: 2px;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                }
+
+                .g-pdp-images .g-next.swiper-button-disabled,
+                .g-pdp-images .g-prev.swiper-button-disabled{
+                    opacity: 0.3;
+                    cursor: not-allowed;
+                }
+
+                .g-pdp-images-main-wrapper{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                }
+
+                .g-pdp-images-main-wrapper > div{
+                    width: 100%;
+                }
+
+                
+
+                .pdp-image-widgets{
+                    display: flex;
+                    gap: 16px;
+                    margin-top: 56px;
+                }
+
+                .pdp-image-widgets > div{
+                    width: 50%;
+                }
+
+                .pdp-image-widgets > div img{
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    border-radius: 10px;
+                    border: 2px solid #060346;
+                }
+
+                .g-pdp-method.g-pdp-method-hide{
+                    display: none;
+                }
+
+                .g-ratings > span{
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                }
+
+                .g-ratings > span svg{
+                    width: 20px;
+                    height: 20px;
+                }
+
+                .g-ratings{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .g-ratings p{
+                    font-weight: 400;
+                    margin-top: 2px;
+                    line-height: 1;
+                }
+
+                @media only screen and (max-width: 768px) {
+                    .g-product-images .swiper-button-next,
+                    .g-product-images .swiper-button-prev{
+                        display: none !important;
+                    }
+
+                    .g-pdp-wrapper .g-pdp-wrap{
+                        gap: 10px;
+                    }
+
+                    .g-pdp-images .g-next, .g-pdp-images .g-prev{
+                        width: 30px;
+                        height: 30px;
+                    }
+
+                    .pdp-image-widgets{
+                        margin-top: 20px;
+                    }
+
+                    .g-ratings p{
+                        font-size: 14px;
+                    }
+
+                    .g-ratings > span svg{
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+            </style>
+            <div class="g-pdp-images-main-wrapper">
+                <span class="g-prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="24" viewBox="0 0 14 24" fill="none">
+                        <path d="M11.7378 21.2991L1.9999 12.1964L11.7378 3.09284" stroke="#FF2277" stroke-width="3.07313" stroke-linecap="square" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <div>
+                    <div class="swiper g-pdp-images-slider">
+                        <div class="swiper-wrapper">
+                            {% for image in product.images %}
+                            <div class="swiper-slide">
+                                <img src="{{ image | image_url: width: "800px" }}" alt="" width="" height="">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <span class="g-next">
+                    <svg width="8" height="24" viewBox="0 0 14 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.26221 21.2991L12.0001 12.1964L2.26221 3.09284" stroke="#FF2277" stroke-width="3.07313" stroke-linecap="square" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
+            <div class="swiper g-pdp-images-main-thumbnail">
+                <div class="swiper-wrapper">
+                    {% for image in product.images %}
+                      <div class="swiper-slide">
+                          <div>
+                               <img src="{{ image | image_url: width: "500px" }}" alt="" width="" height="">
+                          </div>
+                      </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const mainThumb = new Swiper('.g-pdp-images-main-thumbnail', {
+                        watchSlidesVisibility: true,
+                        watchSlidesProgress: true,
+                        spaceBetween: 16,
+                        slidesPerView: 5
+                    });
+
+                    new Swiper('.g-pdp-images-slider', {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                        navigation: {
+                            nextEl: '.g-pdp-images-main-wrapper .g-next',
+                            prevEl: '.g-pdp-images-main-wrapper .g-prev',
+                        },
+                        thumbs: {
+                            swiper: mainThumb,
+                        }
+                    });
+                });
+            </script>
+            <!-- End Product Images Widget -->
+
+            <div class="pdp-image-widgets">
+                <div>
+                    <img src="{{ section.settings.image_1 | image_url: width: "1000px" }}" width="" height="" alt="">
+                </div>
+                <div>
+                    <img src="{{ section.settings.image_2 | image_url: width: "1000px" }}" width="" height="" alt="">
+                </div>
+            </div>
+        </div>  
+        <div class="g-pdp-content">
+            <div class="g-pdp-content-top">{{ section.settings.top_note }}</div>
+            <h1>{{ product.title }}
+            <div class="g-ratings">
+              <span>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
+                  </svg>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
+                  </svg>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
+                  </svg>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
+                  </svg>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
+                  </svg>
+              </span>
+              {{ section.settings.ratings }}
+            </div>
+            </h1>
+            {{ section.settings.short_desc }}
+            <ul>
+                <li>{{ section.settings.list_icon_1 }}</li>
+                <li>{{ section.settings.list_icon_2 }}</li>
+                <li>{{ section.settings.list_icon_3 }}</li>
+            </ul>
+            <!-- PDP WIDGET -->
+            
+            
+            
+            
+            <div class="g-pdp-variants"{% if product.has_only_default_variant == true %} style="margin: 0"{% endif %}>
+                {% for variant in product.variants %}
+                  <div class="g-pdp-variant{% if forloop.last == true %} g-pdp-variant-selected{% endif %}" data-vid="{{ variant.id }}" data-sp="{{ variant.selling_plan_allocations.first.selling_plan.id }}"{% if product.has_only_default_variant == true %} style="display: none"{% endif %}>
+                      {% if variant.metafields.custom.supply_top_note.value != blank %}
+                        <div class="g-pdp-variant-note-wrap">
+                            <span class="g-pdp-variant-note">{{ variant.metafields.custom.supply_top_note.value }}</span>
+                        </div>
+                      {% endif %}
+                      <div class="g-pdp-variant-image">
+                          <img src="{{ variant.metafields.custom.supply_image.value | image_url: width: "500px" }}" width="" height="" alt="">
+                      </div>
+                      <div class="g-pdp-variant-content">
+                          <h3>
+                            {{ variant.title }}
+                            {% if variant.metafields.custom.price_per_bottle_divider.value != blank %}
+                              <div class="g-pdp-variant-price-perbottle variant-pp-subscribe">
+                                
+                                  {% comment %}<span>{{ variant.selling_plan_allocations.first.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle{% endcomment %}
+                                  {% if variant.selling_plan_allocations.first.compare_at_price > variant.selling_plan_allocations.first.price %}  
+                                    <span>Save {{ variant.selling_plan_allocations.first.compare_at_price | minus: variant.selling_plan_allocations.first.price | money }}</span>
+                                  {% endif %}
+                              </div>
+                              <div class="g-pdp-variant-price-perbottle variant-pp-onetime" style="display: none">
+                                
+                                  {% comment %}<span>{{ variant.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle{% endcomment %}
+                                  {% if variant.compare_at_price > variant.price %}
+                                    <span>Save {{ variant.compare_at_price | minus: variant.price | money }}</span>
+                                  {% endif %}
+                              </div>
+                            {% endif %}
+                          </h3>
+                          <p>{{ variant.metafields.custom.supply_description.value }}</p>
+                      </div>
+                      <div class="g-pdp-variant-pricing">
+                          <div class="g-pdp-variant-pricing-subscribe">
+                            {% comment %}
+                            <span class="g-pdp-variant-sale">{{ variant.selling_plan_allocations.first.price | money }}</span>
+                            <span class="g-pdp-variant-compare">{{ variant.selling_plan_allocations.first.compare_at_price | money }}</span>
+                            {% endcomment %}
+                            <span>{{ variant.selling_plan_allocations.first.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle
+                          </div>
+                          <div class="g-pdp-variant-pricing-onetime" style="display: none">
+                            {% comment %}
+                            <span class="g-pdp-variant-sale">{{ variant.price | money }}</span>
+                            <span class="g-pdp-variant-compare">{{ variant.compare_at_price | money }}</span>
+                            {% endcomment %}
+                            <span>{{ variant.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle
+                          </div>
+                      </div>
+                  </div>
+                {% endfor %}
+
+            </div>
+
+
+            <div class="g-pdp-methods"{% if product.selling_plan_groups.size == 0 %} style="margin: 0"{% endif %}>
+                {% if product.selling_plan_groups.size > 0 %}
+                <div class="g-pdp-method g-pdp-method-selected" data-method="subscribe">
+                    <div class="g-pdp-method-header">
+                        <span class="g-pdp-method-circle"></span>
+                        <span>{{ section.settings.sub_label }}</span>
+                    </div>
+                    <div class="g-pdp-method-content">
+                        {{ section.settings.sub_lists }}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="g-pdp-method{% if product.selling_plan_groups.size == 0 %} g-pdp-method-selected g-pdp-method-hide{% endif %}" data-method="onetime">
+                    <div class="g-pdp-method-header">
+                        <span class="g-pdp-method-circle"></span>
+                        <span>One-time purchase</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- END PDP WIDGET -->
+
+
+            <!-- FORM BUTTON -->
+            <div class="g-cta">
+                <form action="">
+                    <button type="button">ADD TO CART <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                      </svg>
+                    </button>
+                </form>
+                <div class="g-cta-bottom">
+                    <div>
+                        <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/lock.png" width="" height="" alt="">
+                        <span>safe & secure checkout</span>
+                    </div>
+                    <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/btn_payments.png" width="" height="" alt="">
+                </div>
+            </div>
+            <!-- END FORM BUTTON -->
+
+
+            <!-- REVIEWS WIDGET -->
+            <div class="g-pdp-reviews-widget">
+                <div class="swiper g-pdp-reviews-widget-slider">
+                    <div class="swiper-wrapper">
+                        {% for block in section.blocks %}
+                          {% case block.type %}
+                            {% when 'reviews' %}
+                              <div class="swiper-slide">
+                                  <div class="g-pdp-review">
+                                      <div class="g-pdp-review-image">
+                                          <img src="{{ block.settings.image | image_url: width: "200px" }}" width="" height="" alt="">
+                                      </div>
+                                      <div class="g-pdp-review-content">
+                                          <p>{{ block.settings.review_text }}</p>
+                                          <div class="g-pdp-review-rating">
+                                              <div class="g-pdp-review-name">
+                                                  <span>
+                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+                                                      </svg>
+                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+                                                      </svg>
+                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+                                                      </svg>
+                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+                                                      </svg>
+                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+                                                      </svg>
+                                                  </span>
+                                                  <span>{{ block.settings.name }}</span>
+                                              </div>
+                                              <div class="g-pdp-review-verified">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                                      <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                  </svg>
+                                                  <span>Verified Customer</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          {% endcase %}
+                        {% endfor %}
+                    </div>
+                    <!-- Pagination bullets -->
+                    <div class="g-pagination-wrapper">
+                        <div class="g-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd" />
+                            </svg>                                  
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="g-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                <path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" />
+                            </svg>                                  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    new Swiper('.g-pdp-reviews-widget-slider', {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                        grabCursor: false,
+                        navigation: {
+                            nextEl: '.g-pdp-reviews-widget-slider .g-next',
+                            prevEl: '.g-pdp-reviews-widget-slider .g-prev'
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true
+                        }
+                    });
+                });
+            </script>
+            <!-- END REVIEWS WIDGET -->
+
+            <div class="g-accordion">
+                <div class="g-accordion-item">
+                    <div class="g-accordion-header">
+                        <span>Description</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </div>
+                    <div class="g-accordion-content">
+                        {{ product.description }}
+                    </div>
+                </div>
+                {% for block in section.blocks %}
+                  {% case block.type %}
+                    {% when 'dropdowns' %}
+                      <div class="g-accordion-item">
+                          <div class="g-accordion-header">
+                              <span>{{ block.settings.title }}</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                              </svg>
+                          </div>
+                          <div class="g-accordion-content">
+                              {{ block.settings.content }}
+                          </div>
+                      </div>
+                  {% endcase %}
+                {% endfor %}
+            </div>
+            <!-- END VARIANTS -->
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        document.querySelector(".g-cta button").addEventListener("click", function(){
+          const vid = document.querySelector(".g-pdp-variant-selected").getAttribute("data-vid");
+          const method = document.querySelector(".g-pdp-method-selected").getAttribute("data-method");
+          let selling_plan = document.querySelector(".g-pdp-variant-selected").getAttribute("data-sp");
+          if(method == "onetime")
+            selling_plan = "";
+          addToCart(vid, 1, selling_plan);
+        });
+
+        async function addToCart(variantId, quantity = 1, selling_plan = "") {
+          try {
+            const response = await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                id: variantId,
+                quantity: quantity,
+                selling_plan: selling_plan
+              })
+            });
+        
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+        
+            const data = await response.json();
+            console.log('Added to cart:', data);
+
+            const sectionsResponse = await fetch('/?sections=cart-drawer,cart-icon-bubble');
+            const sectionsData = await sectionsResponse.json();
+            
+            // 🧠 Prepare parsed state
+            const parsedState = {
+              id: data.key, // optional, just like your renderContents expects
+              sections: {
+                'cart-drawer': sectionsData['cart-drawer'],
+                'cart-icon-bubble': sectionsData['cart-icon-bubble']
+              }
+            };
+
+            console.log(parsedState);
+            // const cartDrawerHTML = parsedState.sections['cart-drawer'];
+            // const parserCart = new DOMParser();
+            // const doc = parserCart.parseFromString(cartDrawerHTML, 'text/html');
+            
+            // const cartDrawerElement = doc.querySelector('#CartDrawer');
+            
+            // if (cartDrawerElement) {
+            //   const outerHTML = cartDrawerElement.outerHTML;
+            //   console.log('Inner HTML inside #CartDrawer:', outerHTML);
+            //   openCartDrawer(outerHTML);
+            // } else {
+            //   console.log('No #CartDrawer element found in the parsed HTML.');
+            // }
+            
+            
+            // 🔄 Render updated cart and open it
+            document.querySelector('cart-drawer').renderContents(parsedState);
+            
+            
+            const parser = new DOMParser();
+            const bubbleDoc = parser.parseFromString(parsedState.sections['cart-icon-bubble'], 'text/html');
+            const newBubbleContent = bubbleDoc.querySelector('#cart-icon-bubble')?.innerHTML;
+            
+            if (newBubbleContent !== undefined) {
+              const cartBubble = document.querySelector('#cart-icon-bubble');
+              if (cartBubble) {
+                cartBubble.innerHTML = newBubbleContent;
+              }
+            }
+          } catch (error) {
+            console.error('Add to cart failed:', error);
+          }
+      }
+
+      function openCartDrawer(cartContent) {
+        // Fetch the cart drawer element
+        const cartDrawer = document.querySelector('cart-drawer');
+        cartDrawer.innerHTML = cartContent;
+        
+        // Check if the cart drawer exists
+        if (cartDrawer) {
+          // Add a class to open the cart drawer
+          cartDrawer.classList.add('animate');
+          cartDrawer.classList.add('active');
+        }
+      }
+
+        
+        document.querySelectorAll(".g-pdp-method").forEach(method => {
+            method.addEventListener("click", function(){
+                document.querySelectorAll(".g-pdp-method").forEach(e => { e.classList.remove("g-pdp-method-selected")});
+                this.classList.add("g-pdp-method-selected");
+
+                const method = this.getAttribute("data-method");
+                if(method == "onetime"){
+                  document.querySelectorAll(".variant-pp-onetime").forEach(e => { e.style.display = "block"; })
+                  document.querySelectorAll(".g-pdp-variant-pricing-onetime").forEach(e => { e.style.display = "block"; })
+                  document.querySelectorAll(".variant-pp-subscribe").forEach(e => { e.style.display = "none"; })
+                  document.querySelectorAll(".g-pdp-variant-pricing-subscribe").forEach(e => { e.style.display = "none"; })
+                }else{
+                  document.querySelectorAll(".variant-pp-onetime").forEach(e => { e.style.display = "none"; })
+                  document.querySelectorAll(".g-pdp-variant-pricing-onetime").forEach(e => { e.style.display = "none"; })
+                  document.querySelectorAll(".variant-pp-subscribe").forEach(e => { e.style.display = "block"; })
+                  document.querySelectorAll(".g-pdp-variant-pricing-subscribe").forEach(e => { e.style.display = "block"; })
+                }
+            });
+        });
+
+        document.querySelectorAll(".g-pdp-variant").forEach(method => {
+            method.addEventListener("click", function(){
+                document.querySelectorAll(".g-pdp-variant").forEach(e => { e.classList.remove("g-pdp-variant-selected")});
+                this.classList.add("g-pdp-variant-selected");
+            });
+        });
+
+        // Select all accordion headers
+        document.querySelectorAll('.g-pdp-wrapper .g-accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                console.log(content);
+                
+                // Toggle active class for the header
+                header.classList.toggle('g-active');
+        
+                // Show or hide the content with smooth transition
+                if (content.classList.contains('open')) {
+                    content.classList.remove('open');
+                } else {
+                    content.classList.add('open');
+                }
+            });
+        });
+
+    });
+</script> 
+
+{% schema %}
+  {
+    "name": "Nord Product Information",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "Product",
+        "info": "NOTE: Fill this in the other pages except Product Pages"
+      },
+      {
+        "type": "text",
+        "id": "top_note",
+        "label": "Top Note",
+        "default": "Pharmacist-Formulated Appetite & Weight Loss Support Capsule"
+      },
+      {
+        "type": "richtext",
+        "id": "ratings",
+        "label": "Ratings",
+        "default": "<p>Excellent <strong>4.9/5</strong> | <strong>50,000+ </strong>bottles sold</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "short_desc",
+        "label": "Short Description"
+      },
+      {
+        "type": "text",
+        "id": "list_icon_1",
+        "label": "List Icon 1"
+      },
+      {
+        "type": "text",
+        "id": "list_icon_2",
+        "label": "List Icon 2"
+      },
+      {
+        "type": "text",
+        "id": "list_icon_3",
+        "label": "List Icon 3"
+      },
+      {
+        "type": "text",
+        "id": "sub_label",
+        "label": "Subscribe and Save Label",
+        "default": "Subscribe & Save 20%"
+      },
+      {
+        "type": "richtext",
+        "id": "sub_lists",
+        "label": "Subscribe and Save Lists"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Image 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_2",
+        "label": "Image 2"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "reviews",
+        "name": "Reviews",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "review_text",
+            "label": "Review Text"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name"
+          }
+        ]
+      },
+      {
+        "type": "dropdowns",
+        "name": "Dropdowns",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Product Information"
+      }
+    ]
+  }
+{% endschema %}

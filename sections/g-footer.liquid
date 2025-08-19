@@ -1,0 +1,485 @@
+<style>
+    .g-footer{
+        padding: 50px 20px;
+        background: #D8DAF2;
+        border-top: 1px solid #fff;
+    }
+
+    .g-footer-main{
+        display: flex;
+    }
+
+    .g-footer-main > div{
+        width: 50%;
+    }
+
+    .g-footer-links{
+        display: flex;
+        gap: 20px;
+    }
+
+    .g-footer-link {
+        width: 33%;
+    }
+
+    .g-footer-link label{
+        font-size: 14px;
+        font-weight: 600;
+        color: #214A88;
+    }
+
+    .g-footer-link ul{
+        margin: 12px 0 0 0;
+        padding: 0;
+    }
+
+    .g-footer-link ul li{
+        list-style: none;
+    }
+
+    .g-footer-link ul li a{
+        color: #214A88;
+        text-decoration: none;
+        display: block;
+        padding: 5px 0;
+        font-size: 13.22px;
+    }
+
+    .g-footer-newsletter h2{
+        font-weight: 900;
+        font-size: 19.03px;
+        line-height: 35px;
+        letter-spacing: 0%;
+        color: #214A88;
+        margin: 0 0 13.75px 0;
+    }
+
+    .g-footer-newsletter p{
+        font-size: 12px;
+        margin: 0 0 13.75px 0;
+        color: #214A88;
+    }
+
+    .g-footer-input{
+        display: flex;
+        gap: 20px;
+        margin: 0 0 13.75px 0;
+    }
+
+    .g-footer-input input{
+        width: 70%;
+        border: 2px solid #10069C;
+        border-radius: 100px;
+        background: #fff;
+        outline: none;
+        padding: 10px 20px;
+    }
+
+    .g-footer-input button{
+        width: 30%;
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff;
+        background: #10069C;
+        border: 0;
+        border-radius: 100px;
+    }
+
+    .g-footer-socials{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .g-footer-bottom {
+        margin-top: 80px;
+        padding: 20px 0;
+        border-top: 1px solid #5EADB866;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .g-footer-bottom img{
+        max-width: 200px;
+    }
+
+    .g-footer-bottom p{
+        color: #181818BF;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .g-footer-bottom-links ul{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
+    .g-footer-bottom-links ul li{
+        list-style: none;
+    }
+
+    .g-footer-bottom-links ul li a{
+        text-decoration: none;
+        color: #214A88;
+        font-size: 13px;
+    }
+
+    .g-footer-mobile img{
+        max-width: 174px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .g-footer-mobile .g-accordion-header span{
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .g-accordion-content ul li{
+        list-style: list;
+    }
+
+    .g-accordion-content ul li a{
+        color: #fff;
+        font-weight: 400;
+    }
+
+    .g-footer .g-accordion-content{
+        padding: 0;
+    }
+
+    .g-footer .g-accordion-content ul{
+        margin: 0;
+    }
+
+    .g-footer .g-accordion-content ul li::before{
+        background: unset;
+        content: unset;
+    }
+
+    .g-footer .g-accordion-item{
+        border-bottom: 1px solid #fff;
+    }
+
+    .g-footer .g-accordion-content.open{
+        padding-bottom: 10px;
+    }
+
+    .g-footer-mobile-links ul{
+        margin: 0;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .g-footer-mobile-links ul li{
+        display: inline-block;
+    }
+
+    .g-footer-mobile-links ul li a{
+        color: #fff;
+        text-decoration: none;
+        padding: 5px;
+        display: block;
+    }
+
+    .g-footer-mobile.g-mobile p{
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .g-footer-mobile.g-mobile{
+        display: none;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .g-footer{
+            background: #06034680;
+        }
+
+        .g-footer-mobile.g-mobile{
+            display: block;
+        }
+    }
+</style>
+<div class="g-footer">
+    <div class="g-wrap">
+        <div class="g-footer-main g-desktop">
+            <div>
+                <div class="g-footer-links">
+                    <div class="g-footer-link">
+                        {% assign desktop_menu_1 = linklists[section.settings.deskop_link_1] %}
+                        {% if desktop_menu_1 %}
+                          <label for="{{ desktop_menu_1.title }}">{{ desktop_menu_1.title }}</label>
+                          <ul>
+                            {% for link in desktop_menu_1.links %}
+                              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                    </div>
+                    <div class="g-footer-link">
+                        {% assign desktop_menu_2 = linklists[section.settings.deskop_link_2] %}
+                        {% if desktop_menu_2 %}
+                          <label for="{{ desktop_menu_2.title }}">{{ desktop_menu_2.title }}</label>
+                          <ul>
+                            {% for link in desktop_menu_2.links %}
+                              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="g-footer-newsletter">
+                <h2>{{ section.settings.newsletter_title }}</h2>
+                <p>{{ section.settings.newsletter_desc }}</p>
+                <form action="">
+                    <div class="g-footer-input">
+                        <input type="email" placeholder="E-mail" name="email">
+                        <button>Subscribe</button>
+                    </div>
+                </form>
+                <div class="g-footer-socials">
+                    <a href="{{ section.settings.fb }}"><img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/fb.png" width="" height="" alt=""></a>
+                    <a href="{{ section.settings.instagram }}"><img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/instagram.png" width="" height="" alt=""></a>
+                    <a href="{{ section.settings.tiktok }}"><img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/tiktok.png" width="" height="" alt=""></a>
+                </div>  
+            </div>
+        </div>
+        <div class="g-footer-bottom g-desktop">
+            <img src="{{ section.settings.footer_logo | image_url: width: "500px" }}" width="" height="" alt="">
+            {{ section.settings.footer_dec }}
+            <div class="g-footer-bottom-links">
+              {% assign desktop_menu_bottom = linklists[section.settings.footer_bottom_link] %}
+              {% if desktop_menu_bottom %}
+                <ul>
+                  {% for link in desktop_menu_bottom.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+        </div>
+
+
+        <div class="g-footer-mobile g-mobile">
+            <img src="{{ section.settings.footer_logo | image_url: width: "500px" }}" width="" height="" alt="">
+            <div class="g-accordion">
+                <div class="g-accordion-item">
+                    <div class="g-accordion-header">
+                        <span>{{ section.settings.mobile_text_1 }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                        </svg>
+                    </div>
+                    <div class="g-accordion-content">
+                        {% assign mobile_menu_1 = linklists[section.settings.mobile_link_1] %}
+                        {% if mobile_menu_1 %}
+                          <ul>
+                            {% for link in mobile_menu_1.links %}
+                              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="g-accordion-item">
+                    <div class="g-accordion-header">
+                        <span>{{ section.settings.mobile_text_2 }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                        </svg>
+                    </div>
+                    <div class="g-accordion-content">
+                        {% assign mobile_menu_2 = linklists[section.settings.mobile_link_2] %}
+                        {% if mobile_menu_2 %}
+                          <ul>
+                            {% for link in mobile_menu_2.links %}
+                              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="g-accordion-item">
+                    <div class="g-accordion-header">
+                        <span>{{ section.settings.mobile_text_3 }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+                        </svg>
+                    </div>
+                    <div class="g-accordion-content">
+                        {% assign mobile_menu_3 = linklists[section.settings.mobile_link_3] %}
+                        {% if mobile_menu_3 %}
+                          <ul>
+                            {% for link in mobile_menu_3.links %}
+                              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="g-footer-mobile-links">
+                <ul>
+                    <li><a href="{{ section.settings.terms }}">Terms</a></li>
+                    <li><a href="{{ section.settings.privacy }}">Privacy</a></li>
+                    <li><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></li>
+                </ul>
+            </div>
+            <p>{{ section.settings.mobile_bottom_text }}</p>
+        </div>
+
+        <script>
+            // Select all accordion headers
+            document.querySelectorAll('.g-footer-mobile .g-accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    console.log(content);
+                    
+                    // Toggle active class for the header
+                    header.classList.toggle('g-active');
+            
+                    // Show or hide the content with smooth transition
+                    if (content.classList.contains('open')) {
+                        content.classList.remove('open');
+                    } else {
+                        content.classList.add('open');
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Nord Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Desktop"
+      },
+      {
+        "type": "link_list",
+        "id": "deskop_link_1",
+        "label": "Desktop Link 1"
+      },
+      {
+        "type": "link_list",
+        "id": "deskop_link_2",
+        "label": "Desktop Link 2"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_title",
+        "label": "Newsletter Title"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_desc",
+        "label": "Newsletter Description"
+      },
+      {
+        "type": "url",
+        "id": "fb",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "url",
+        "id": "instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "tiktok",
+        "label": "Tiktok URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Footer Logo"
+      },
+      {
+        "type": "richtext",
+        "id": "footer_dec",
+        "label": "Footer Description"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_bottom_link",
+        "label": "Desktop Bottom Link"
+      },
+      {
+        "type": "header",
+        "content": "Mobile"
+      },
+      {
+        "type": "text",
+        "id": "mobile_text_1",
+        "label": "Mobile Text 1"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile_link_1",
+        "label": "Mobile Link 1"
+      },
+      {
+        "type": "text",
+        "id": "mobile_text_2",
+        "label": "Mobile Text 2"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile_link_2",
+        "label": "Mobile Link 2"
+      },
+      {
+        "type": "text",
+        "id": "mobile_text_3",
+        "label": "Mobile Text 3"
+      },
+      {
+        "type": "link_list",
+        "id": "mobile_link_3",
+        "label": "Mobile Link 3"
+      },
+      {
+        "type": "url",
+        "id": "terms",
+        "label": "Terms URL"
+      },
+      {
+        "type": "url",
+        "id": "privacy",
+        "label": "Privacy URL"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email"
+      },
+      {
+        "type": "text",
+        "id": "mobile_bottom_text",
+        "label": "Bottom Text"
+      }
+    ],
+    "blocks": [
+      
+    ],
+    "presets": [
+      {
+        "name": "Nord Footer"
+      }
+    ]
+  }
+{% endschema %}

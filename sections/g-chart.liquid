@@ -1,0 +1,487 @@
+<style>
+    .g-chart h2{
+        font-weight: 400;
+        font-size: 45px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #060346;
+        margin: 0 0 35px 0;
+    }
+
+    .g-chart-sub{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 130%;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #060346;
+    }
+
+    /* canvas {
+        width: 100% !important;
+    } */
+
+    .g-chart-wrap{
+        display: flex;
+        gap: 44px;
+        margin-top: 40px;
+    }
+
+    .g-chart-wrap > div{
+        width: 50%;
+    }
+
+    .g-chart-inputs{
+        background: #F0F2FE;
+        border-radius: 5px;
+        border: 2px solid #060346;
+        padding: 40px 14.5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .g-chart-input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #383635;
+        font-size: 18px;
+    }
+
+    .g-chart-input span:last-child{
+        font-weight: bold;
+        font-size: 21px;
+    }
+
+    .fatloss-zone{
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid #060346;
+    }
+
+    .fatloss-zone > span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 10px;
+        background: #060346;
+        color: #fff;
+    }
+
+    .fatloss-zone > span svg{
+        width: 25px;
+    }
+
+    .fatloss-zone > p{
+        padding: 20px;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 22.5px;
+        letter-spacing: 0%;
+    }
+
+    .fatloss-zone > p span{
+        font-weight: 700;
+    }
+
+    .g-chart-inputs > p{
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        border-radius: 4px;
+        background: linear-gradient(to right, #060346 50%, #B6BCDB 50%);
+        outline: none;
+        transition: background 0.3s;
+    }
+
+    /* Thumb (Chrome/Safari/Edge) */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        border: 2px solid #060346;
+        cursor: pointer;
+        margin-top: -6px;
+        z-index: 2;
+        position: relative;
+    }
+
+    /* Track (Firefox) */
+    input[type="range"]::-moz-range-track {
+        height: 8px;
+        border-radius: 4px;
+        background: #B6BCDB;
+    }
+    input[type="range"]::-moz-range-progress {
+        background-color: #060346;
+        height: 8px;
+        border-radius: 4px;
+    }
+
+    /* Thumb (Firefox) */
+    input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        border: 2px solid #060346;
+        cursor: pointer;
+    }
+
+    .g-chart-content{
+        position: relative;
+    }
+
+    .chartjs-fixed-tooltip {
+        transform: translate(-55%, -35%);
+        white-space: nowrap;
+        z-index: 10;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-chart h2{
+            font-size: 28px;
+        }
+
+        .g-chart-sub{
+            font-size: 14px;
+        }
+
+        .g-chart-wrap{
+            flex-direction: column-reverse;
+        }
+
+        .g-chart-wrap > div{
+            width: 100%;
+        }
+
+        .g-chart-input > span:first-child{
+            font-size: 14px;
+        }
+
+        .fatloss-zone > p{
+            font-size: 16px;
+        }
+    }
+</style>
+<div class="g-chart g-sections">
+    <div class="g-wrap">    
+        <h2>{{ section.settings.title }}</h2>
+        <p class="g-chart-sub">{{ section.settings.subtitle }}</p>
+    
+        <div class="g-chart-wrap">
+            <div class="g-chart-inputs">
+                <div class="g-chart-input">
+                    <span>{{ section.settings.q1_label }}</span>
+                    <span id="g-chart-input-weight">165 lbs</span>
+                </div>
+                <input id="weight-range" type="range" min="100" max="300" value="165" step="1">
+
+                <div class="g-chart-input">
+                    <span>{{ section.settings.q2_label }}</span>
+                    <span id="g-chart-input-height">5ft 3in</span>
+                </div>
+                <input id="height-range" type="range" min="0" max="43" value="15">
+                <p>Your BMI is <span id="g-bmi">28</span>.</p>
+                <div class="fatloss-zone">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
+                        </svg>
+                        {{ section.settings.fat_label }}</span>
+                    <p>{{ section.settings.bmi_2 }}</p>
+                </div>
+            </div>
+            <div class="g-chart-content">
+                <canvas id="weightChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // CHART
+    const ctx = document.getElementById('weightChart').getContext('2d');
+    
+    const gradient = ctx.createLinearGradient(0, 0, 0, 4);
+    gradient.addColorStop(0, '#613DE4');
+    gradient.addColorStop(1, '#613DE429');
+
+    const initialValues = [165, 160, 145, 135, 130];
+    
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Week 0', 'Week 4', 'Week 8', 'Week 12', ''],
+        datasets: [{
+            label: 'Weight (kg)',
+            data: initialValues, // example downward values
+            fill: true,
+            backgroundColor: gradient,
+            borderColor: '#060346',
+            tension: 0.4, // curve
+            pointRadius: [0, 0, 0, 7],
+            pointBackgroundColor: '#fff',
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        animation: false,
+        scales: {
+          y: {
+            max: 169,
+            min: 120,
+            title: {
+              display: false,
+              text: 'Weight (kg)'
+            },
+            ticks: {
+                callback: function(value) {
+                    return value === 165 ? '165 lbs' : '';
+                },
+                stepSize: 10
+            }
+          },
+          x: {
+            title: {
+              display: false,
+              text: 'Weeks'
+            },
+            grid: {
+                display: false
+            }
+          }
+        },
+        plugins: {
+            tooltip: {
+                enabled: false, // disable the default tooltips
+                external: function(context) {
+                    const chart = context.chart;
+                    let tooltipEl = chart.canvas.parentNode.querySelector('.chartjs-fixed-tooltip');
+
+                    // Create the tooltip element if it doesn't exist
+                    if (!tooltipEl) {
+                        tooltipEl = document.createElement('div');
+                        tooltipEl.className = 'chartjs-fixed-tooltip';
+                        tooltipEl.style.position = 'absolute';
+                        tooltipEl.style.background = '#fff';
+                        tooltipEl.style.border = '1px solid #ccc';
+                        tooltipEl.style.borderRadius = '6px';
+                        tooltipEl.style.padding = '6px 10px';
+                        tooltipEl.style.fontSize = '12px';
+                        tooltipEl.style.color = '#000';
+                        tooltipEl.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
+                        tooltipEl.style.pointerEvents = 'none';
+                        chart.canvas.parentNode.appendChild(tooltipEl);
+                    }
+
+                    const point = chart.getDatasetMeta(0).data[3]; // Week 12 point
+
+                    if (point) {
+                        const position = point.tooltipPosition();
+                        tooltipEl.style.opacity = 1;
+                        tooltipEl.style.left = position.x + 'px';
+                        tooltipEl.style.top = (position.y - 40) + 'px';
+                        tooltipEl.innerHTML = '145.2 lbs<br>(12% drop)';
+                    }
+                },
+                displayColors: false,
+                callbacks: {
+                label: function(context) {
+                    // Only for last point (index 3 in your case)
+                    if (context.dataIndex === 3) {
+                        return ['145.2 lbs', '(12% drop)'];
+                    } else {
+                        return ''; // No tooltip for other points
+                    }
+                },
+                title: function() {
+                    return ''; // Keep the week label
+                }
+                },
+                filter: function(context) {
+                    // Only show tooltip for Week 12 (index 3)
+                    return context.dataIndex === 3;
+                }
+            },
+            legend: {
+                display: false
+            }
+        }
+      }
+    });
+
+    // After chart is initialized
+    chart.options.plugins.tooltip.enabled = false;
+
+    // Wait until the chart is fully rendered, then manually show the tooltip
+    setTimeout(() => {
+    const point = chart.getDatasetMeta(0).data[3]; // Week 12
+
+    if (point) {
+        const position = point.tooltipPosition();
+        const tooltipEl = document.createElement('div');
+        tooltipEl.className = 'chartjs-fixed-tooltip';
+        tooltipEl.style.position = 'absolute';
+        tooltipEl.style.background = '#060346';
+        tooltipEl.style.border = '1px solid #ccc';
+        tooltipEl.style.borderRadius = '6px';
+        tooltipEl.style.padding = '6px 10px';
+        tooltipEl.style.fontSize = '12px';
+        tooltipEl.style.color = '#fff';
+        tooltipEl.style.textAlign = 'center';
+        tooltipEl.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
+        tooltipEl.style.pointerEvents = 'none';
+        tooltipEl.style.left = position.x + 'px';
+        tooltipEl.style.top = (position.y - 40) + 'px';
+        tooltipEl.innerHTML = '145.2 lbs<br>(12% drop)';
+        chart.canvas.parentNode.appendChild(tooltipEl);
+    }
+    }, 100);
+    chart.update();
+
+
+    const weightRange = document.getElementById('weight-range');
+    const weightLabel = document.getElementById('g-chart-input-weight');
+
+    const heightRange = document.getElementById('height-range');
+    const heightLabel = document.getElementById('g-chart-input-height');
+
+    const bmiLabel = document.getElementById('g-bmi');
+
+    function updateLabelsAndBMI() {
+        const weight = parseInt(weightRange.value);
+        const heightIndex = parseInt(heightRange.value);
+        const totalInches = 53 + heightIndex; // 4ft 5in = 53 inches
+
+        const weightDrop = weight * 0.86;
+
+        // Update labels
+        weightLabel.textContent = `${weight} lbs`;
+        const feet = Math.floor(totalInches / 12);
+        const inches = totalInches % 12;
+        heightLabel.textContent = `${feet}ft ${inches}in`;
+
+        // Compute BMI
+        const bmi = (weight * 703) / (totalInches * totalInches);
+        bmiLabel.textContent = bmi.toFixed(1);
+
+        if(bmi >= 26){
+            const fatLossValue = weight * 0.14;
+            document.querySelector(".fatloss-zone p").innerHTML = `{{ section.settings.bmi_3 }} <span>${fatLossValue.toFixed(2)}lbs in 3 months*†</span>`;
+            if(document.querySelector(".chartjs-fixed-tooltip"))
+                document.querySelector(".chartjs-fixed-tooltip").innerHTML = `${weightDrop.toFixed(2)} lbs<br>(14% drop)`;
+
+            // Randomize points
+            // chart.data.datasets[0].data[2] = initialValues[2] + (Math.random() * 2 - 1);
+            // chart.data.datasets[0].data[3] = initialValues[2] + (Math.random() * 2 - 1);
+            // chart.update();
+        }else{
+            if(document.querySelector(".chartjs-fixed-tooltip"))
+                document.querySelector(".chartjs-fixed-tooltip").innerHTML = `${weight} lbs`;
+
+            if(bmi < 18){
+                document.querySelector(".fatloss-zone p").innerHTML = `{{ section.settings.bmi_1 }}`;
+            }
+
+            if(bmi >= 18 && bmi < 26){
+                document.querySelector(".fatloss-zone p").innerHTML = `{{ section.settings.bmi_2 }}`;
+            }
+        }
+    }
+
+    // Listen for input changes
+    weightRange.addEventListener('input', updateLabelsAndBMI);
+    heightRange.addEventListener('input', updateLabelsAndBMI);
+
+    // Initial update
+    updateLabelsAndBMI();
+
+
+
+    function updateSliderBackground(input) {
+      const min = parseFloat(input.min) || 0;
+      const max = parseFloat(input.max) || 100;
+      const value = parseFloat(input.value);
+    
+      const percent = ((value - min) / (max - min)) * 100;
+      input.style.background = `linear-gradient(to right, #060346 ${percent}%, #B6BCDB ${percent}%)`;
+    }
+    
+    // Select all range inputs and initialize
+    document.querySelectorAll('input[type="range"]').forEach((input) => {
+      updateSliderBackground(input);
+      input.addEventListener('input', () => updateSliderBackground(input));
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Nord Chart",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      },
+      {
+        "type": "text",
+        "id": "q1_label",
+        "label": "Question 1 Label",
+        "default": "What's your current weight?"
+      },
+      {
+        "type": "text",
+        "id": "q2_label",
+        "label": "Question 2 Label",
+        "default": "How tall are you?"
+      },
+      {
+        "type": "text",
+        "id": "fat_label",
+        "label": "Fat Loss Label",
+        "default": "FAT LOSS ZONE"
+      },
+      {
+        "type": "text",
+        "id": "bmi_1",
+        "label": "BMI < 18 Label",
+        "default": "Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use"
+      },
+      {
+        "type": "text",
+        "id": "bmi_2",
+        "label": "BMI > 18 and < 26 Label",
+        "default": "You’re already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance"
+      },
+      {
+        "type": "text",
+        "id": "bmi_3",
+        "label": "BMI >= 26 Label",
+        "default": "Based on clinical trials, you could lose up to 14% of your body weight in 3 months you could lose up to"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Chart"
+      }
+    ]
+  }
+{% endschema %}

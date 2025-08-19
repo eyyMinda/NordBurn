@@ -1,0 +1,365 @@
+<style>
+    .g-videos{
+        position: relative;
+        background: linear-gradient(0deg, #FFFFFF 0%, #B0B2E5 100%);
+        overflow: hidden;
+    }
+
+    .g-videos h2{
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 52px;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #211948;
+        margin: 0 0 10px 0;
+    }
+
+    .g-videos-sub{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #211948;
+        font-weight: 700;
+    }
+
+    .g-videos-sub span{
+        display: flex;
+    }
+
+    .g-videos-sub span svg{
+        width: 14px;
+    }
+
+
+    .g-video-controls{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        background: #fff;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-sizing: border-box;
+    }
+
+    .g-video-controls div{
+        display: flex;
+        gap: 10px;
+    }
+
+    .g-video-controls div svg{
+        width: 25px;
+        cursor: pointer;
+    }
+
+    .g-video{
+        height: 463px;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0px 4px 16.6px 0px #0000001A;
+        margin-bottom: 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .g-video video{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .g-videos-wrap{
+        margin-top: 60px;
+    }
+
+    .swiper.g-videos-slider{
+        overflow: unset;
+    }
+
+    .g-video.playing .g-video-play {
+        opacity: 0.5; /* or use display: none; if you want to hide play button */
+    }
+
+    .g-video-fullscreen{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        height: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .g-video-fullscreen-overlay{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .g-video-fullscreen-content{
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .g-video-fullscreen-content video{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .g-videos h2{
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        .g-videos-wrap{
+            margin-top: 37px;
+        }
+
+        .swiper.g-videos-slider{
+            padding: 0 10%;
+        }
+    }
+</style>
+<div class="g-videos g-sections">
+    <div class="g-video-fullscreen">
+        <div class="g-video-fullscreen-overlay"></div>
+        <div class="g-video-fullscreen-content g-video">
+            <video id="full-video" src="" muted></video>
+            <div class="g-video-controls">
+                <div>
+                    <svg class="g-video-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                        <path d="M3 3.732a1.5 1.5 0 0 1 2.305-1.265l6.706 4.267a1.5 1.5 0 0 1 0 2.531l-6.706 4.268A1.5 1.5 0 0 1 3 12.267V3.732Z" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="g-mute-wrap">
+                        <svg class="g-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                            <path d="M7.557 2.066A.75.75 0 0 1 8 2.75v10.5a.75.75 0 0 1-1.248.56L3.59 11H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.59l3.162-2.81a.75.75 0 0 1 .805-.124ZM11.28 5.72a.75.75 0 1 0-1.06 1.06L11.44 8l-1.22 1.22a.75.75 0 1 0 1.06 1.06l1.22-1.22 1.22 1.22a.75.75 0 1 0 1.06-1.06L13.56 8l1.22-1.22a.75.75 0 0 0-1.06-1.06L12.5 6.94l-1.22-1.22Z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.querySelector(".g-video-fullscreen-overlay").addEventListener("click", function(){
+                document.querySelector(".g-video-fullscreen").style.display = "none";
+
+                const fullVideo = document.querySelector("#full-video");
+                fullVideo.pause();
+            });
+        </script>
+    </div>
+    <div class="g-wrap">
+        <h2>{{ section.settings.title }}</h2>
+        <p class="g-videos-sub">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#211948" class="size-4">
+                    <path fill-rule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#211948" class="size-4">
+                    <path fill-rule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#211948" class="size-4">
+                    <path fill-rule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#211948" class="size-4">
+                    <path fill-rule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#211948" class="size-4">
+                    <path fill-rule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clip-rule="evenodd" />
+                </svg>
+            </span>
+            {{ section.settings.ratings }}
+        </p>
+
+        <div class="g-videos-wrap">
+            <div class="swiper g-videos-slider">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                    <div class="swiper-slide">
+                        <div class="g-video">
+                            <video src="{{ block.settings.video.sources[1].url }}" muted></video>
+                            <div class="g-video-controls">
+                                <div>
+                                    <svg class="g-video-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                        <path d="M3 3.732a1.5 1.5 0 0 1 2.305-1.265l6.706 4.267a1.5 1.5 0 0 1 0 2.531l-6.706 4.268A1.5 1.5 0 0 1 3 12.267V3.732Z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="g-mute-wrap">
+                                        <svg class="g-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                                            <path d="M7.557 2.066A.75.75 0 0 1 8 2.75v10.5a.75.75 0 0 1-1.248.56L3.59 11H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.59l3.162-2.81a.75.75 0 0 1 .805-.124ZM11.28 5.72a.75.75 0 1 0-1.06 1.06L11.44 8l-1.22 1.22a.75.75 0 1 0 1.06 1.06l1.22-1.22 1.22 1.22a.75.75 0 1 0 1.06-1.06L13.56 8l1.22-1.22a.75.75 0 0 0-1.06-1.06L12.5 6.94l-1.22-1.22Z" />
+                                        </svg>
+                                    </span>
+                                    <svg version="1.1" class="g-expand" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 122.87" style="enable-background:new 0 0 122.88 122.87" xml:space="preserve"><g><path d="M122.88,77.63v41.12c0,2.28-1.85,4.12-4.12,4.12H77.33v-9.62h35.95c0-12.34,0-23.27,0-35.62H122.88L122.88,77.63z M77.39,9.53V0h41.37c2.28,0,4.12,1.85,4.12,4.12v41.18h-9.63V9.53H77.39L77.39,9.53z M9.63,45.24H0V4.12C0,1.85,1.85,0,4.12,0h41 v9.64H9.63V45.24L9.63,45.24z M45.07,113.27v9.6H4.12c-2.28,0-4.12-1.85-4.12-4.13V77.57h9.63v35.71H45.07L45.07,113.27z"/></g></svg>                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        new Swiper('.g-videos-slider', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            grabCursor: false,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            breakpoints: {
+                769: {
+                    slidesPerView: 5
+                }
+            }
+        });
+
+        const videoWrappers = document.querySelectorAll('.g-video');
+        const playIcon = `
+            <svg class="g-video-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                <path d="M3 3.732a1.5 1.5 0 0 1 2.305-1.265l6.706 4.267a1.5 1.5 0 0 1 0 2.531l-6.706 4.268A1.5 1.5 0 0 1 3 12.267V3.732Z" />
+            </svg>`;
+
+        const pauseIcon = `
+            <svg class="g-video-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                <path d="M4.5 2a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5h-1ZM10.5 2a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5h-1Z" />
+            </svg>`;
+
+        // Optional: different icons for mute/unmute
+        const unmuteIcon = `
+            <svg class="g-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                <path d="M7.557 2.066A.75.75 0 0 1 8 2.75v10.5a.75.75 0 0 1-1.248.56L3.59 11H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.59l3.162-2.81a.75.75 0 0 1 .805-.124ZM11.28 5.72a.75.75 0 1 0-1.06 1.06L11.44 8l-1.22 1.22a.75.75 0 1 0 1.06 1.06l1.22-1.22 1.22 1.22a.75.75 0 1 0 1.06-1.06L13.56 8l1.22-1.22a.75.75 0 0 0-1.06-1.06L12.5 6.94l-1.22-1.22Z" />
+            </svg>`;
+
+        const muteIcon = `
+            <svg class="g-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+                <path d="M7.557 2.066A.75.75 0 0 1 8 2.75v10.5a.75.75 0 0 1-1.248.56L3.59 11H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.59l3.162-2.81a.75.75 0 0 1 .805-.124Z" />
+            </svg>`;
+
+        videoWrappers.forEach(wrapper => {
+            const video = wrapper.querySelector('video');
+            const videoSrc = wrapper.querySelector('video').src;
+            const playButtonContainer = wrapper.querySelector('.g-video-play')?.parentElement;
+            const muteButton = wrapper.querySelector('.g-mute')?.parentElement;
+            const expandButton = wrapper.querySelector(".g-expand");
+
+            if(expandButton){
+                expandButton.addEventListener('click', function () {
+                    document.querySelector(".g-video-fullscreen").style.display = "flex";
+                    document.querySelector("#full-video").src = videoSrc;
+
+                    const fvPlayContainer = document.querySelector(".g-video-fullscreen-content.g-video .g-video-play").parentElement;
+
+                    if (video.paused) {
+                        fvPlayContainer.innerHTML = playIcon;
+                    } else {
+                        const currentTime = video.currentTime;
+                        video.pause();
+                        playButtonContainer.innerHTML = playIcon;
+
+                        const fullVideo = document.querySelector("#full-video");
+                        fullVideo.currentTime = currentTime;   // set the time
+                        fullVideo.play();
+                        fvPlayContainer.innerHTML = pauseIcon;
+                    }
+                });
+            }
+
+            // Play toggle
+            if (playButtonContainer) {
+                playButtonContainer.addEventListener('click', function () {
+                    // Pause all others
+                    videoWrappers.forEach(otherWrapper => {
+                        const otherVideo = otherWrapper.querySelector('video');
+                        const otherBtn = otherWrapper.querySelector('.g-video-play')?.parentElement;
+                        if (otherVideo !== video) {
+                            otherVideo.pause();
+                            if (otherBtn) {
+                                otherBtn.innerHTML = playIcon;
+                            }
+                        }
+                    });
+
+                    if (video.paused) {
+                        video.play();
+                        playButtonContainer.innerHTML = pauseIcon;
+                    } else {
+                        video.pause();
+                        playButtonContainer.innerHTML = playIcon;
+                    }
+                });
+
+                video.addEventListener('ended', () => {
+                    playButtonContainer.innerHTML = playIcon;
+                });
+            }
+
+            // Mute toggle
+            if (muteButton) {
+                muteButton.addEventListener('click', function () {
+                    video.muted = !video.muted;
+                    muteButton.innerHTML = video.muted ? unmuteIcon : muteIcon;
+                });
+            }
+        });
+    });
+</script>
+
+{% schema %}
+  {
+    "name": "Nord Videos",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "ratings",
+        "label": "Ratings",
+        "default": "4.9/5 (3493+ Happy Reviews)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "videos",
+        "name": "Videos",
+        "settings": [
+          {
+            "type": "video",
+            "id": "video",
+            "label": "Video"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Nord Videos"
+      }
+    ]
+  }
+{% endschema %}
