@@ -1,0 +1,239 @@
+.g-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.g-sections {
+  padding: 50px 20px;
+}
+
+.g-sections-cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.g-sections-cta a {
+  display: inline-block;
+  background: #c9d5b7;
+  padding: 20px 40px;
+  color: #000;
+  text-decoration: none;
+  font-size: 25px;
+  width: 100%;
+  max-width: 447px;
+  border-radius: 10px;
+}
+
+.g-sections-cta span {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.g-cta-wrapper {
+  margin: 20px auto;
+  max-width: 534px;
+}
+
+.g-cta form button,
+.g-cta a {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #060346;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 4px;
+  width: 100%;
+  padding: 25px 0;
+  cursor: pointer;
+}
+
+.g-cta a {
+  text-decoration: none;
+}
+
+.g-cta form button svg,
+.g-cta a svg {
+  width: 30px;
+}
+
+.g-cta-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.g-cta-bottom > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.g-cta-bottom > div span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: capitalize;
+}
+
+.g-accordion {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.g-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.g-accordion-header > span {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+  text-align: left;
+  color: #060346;
+}
+
+.g-accordion-header svg {
+  transition: transform 0.3s ease;
+  width: 20px;
+}
+
+.g-accordion-header.g-active svg {
+  transform: rotate(180deg);
+}
+
+.g-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 10px;
+}
+
+.g-accordion-content h3 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: #060346;
+  margin: 0 0 20px 0;
+}
+
+.g-accordion-content p {
+  font-size: 14px;
+  line-height: 21.6px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.g-accordion-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.g-pdp-method-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0 0 0;
+}
+
+.g-accordion-content ul li,
+.g-pdp-method-content ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 21.6px;
+  font-weight: 700;
+  color: #060346;
+}
+
+.g-pdp-method-content ul li {
+  width: 50%;
+}
+
+.g-accordion-content ul li:last-child {
+  margin-bottom: 0;
+}
+
+.g-accordion-content ul li::before,
+.g-pdp-method-content ul li::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0847/3981/7815/files/check.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.g-accordion-content.open {
+  max-height: 3000px; /* Adjust according to the expected content size */
+}
+
+.g-accordion-content img {
+  max-width: 100%;
+}
+
+.g-accordion-icon {
+  color: #000;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 300 !important;
+}
+
+.g-accordion-header img {
+  transition: 0.1s ease-out;
+}
+
+.g-accordion-header.g-active img {
+  transform: rotate(-180deg);
+}
+
+#weightChart {
+  object-fit: cover;
+  height: 100% !important;
+}
+
+.swiper-slide {
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 768px) {
+  .g-sections {
+    padding: 20px;
+  }
+
+  .g-cta-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .g-cta form button,
+  .g-cta a {
+    font-size: 20px;
+    line-height: 30px;
+    padding: 20px 0;
+  }
+}
