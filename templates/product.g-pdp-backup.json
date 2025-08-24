@@ -93,7 +93,12 @@
         "image_1": "shopify://shop_images/boostglp.png",
         "image_2": "shopify://shop_images/bodyfat-nordburn.png",
         "variants_radio": false,
-        "save_tag_after_title": true
+        "save_tag_after_title": true,
+        "atc_rounded": false,
+        "below_atc_content_icon": "shopify://shop_images/lock.png",
+        "below_atc_content_text": "safe & secure checkout",
+        "below_atc_content_payments": "shopify://shop_images/btn_payments.png",
+        "accordion_icon": "checkmark"
       }
     },
     "g_as_seen_wDWb4x": {
