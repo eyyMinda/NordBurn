@@ -1,1 +1,45 @@
-{"layout":"theme.gempages.footer","sections":{"gp_section_527413011342689304":{"type":"gp-section-527413011342689304","settings":{"section_preload":"true","checksum":"a87bf510bed740ccf4fc53c7b644ecfa9e2d058965c7ab28b95d2c50ced5d7e0"}},"gp_section_527413011359466389":{"type":"gp-section-527413011359466389","settings":{"checksum":"e578bec01fe672c7cc692d3a72fb60feae6398698692a192c76acb54b81e0f29"}},"gp_section_527413011124585585":{"type":"gp-section-527413011124585585","settings":{"checksum":"e670cea819b540fbec4708856f269ec5837470d7fd63aa8cf306445c06780c0e"}},"gp_section_527413011124585365":{"type":"gp-section-527413011124585365","settings":{"checksum":"2926fcf272655d958e4d5c206ba212fc5dc713bc9de1b600a182e6817fd06d2c"}}},"order":["gp_section_527413011342689304","gp_section_527413011359466389","gp_section_527413011124585585","gp_section_527413011124585365"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_527413011124585365": {
+      "settings": {
+        "checksum": "deea62b5daa6426ab47e3c528629f5077be2bea2293d44f9fdde7c62d0f8b495_1_1_0_0_"
+      },
+      "type": "gp-section-527413011124585365"
+    },
+    "gp_section_527413011124585585": {
+      "settings": {
+        "checksum": "2e2c3df7f538be7c2a42377b0e0bf23710d513807b16ce466809dae5157d4891_1_1_0_0_"
+      },
+      "type": "gp-section-527413011124585585"
+    },
+    "gp_section_527413011342689304": {
+      "settings": {
+        "checksum": "81f62da206103a229e8e66e4288427ec919fe34074890dafc2e1e27d7fd1b76a_1_1_0_0_",
+        "section_preload": "true"
+      },
+      "type": "gp-section-527413011342689304"
+    },
+    "gp_section_527413011359466389": {
+      "settings": {
+        "checksum": "498c48a87f613053c5f63cd2f2832da268a840e84dee1f495a6b6ba7f1596e4d_1_1_0_0_"
+      },
+      "type": "gp-section-527413011359466389"
+    }
+  },
+  "order": [
+    "gp_section_527413011342689304",
+    "gp_section_527413011359466389",
+    "gp_section_527413011124585585",
+    "gp_section_527413011124585365"
+  ],
+  "layout": "theme.gempages.footer"
+}
