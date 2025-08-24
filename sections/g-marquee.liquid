@@ -104,51 +104,14 @@
     </div>
 
     <div class="marquee-content">
-
-        {% for block in section.blocks %}
-        <div class="marquee-item">
-            <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
-            <span>{{ block.settings.text }}</span>
-        </div>
+        {% for i in (1..5) %}
+            {% for block in section.blocks %}
+            <div class="marquee-item">
+                <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
+                <span>{{ block.settings.text }}</span>
+            </div>
+            {% endfor %}
         {% endfor %}
-
-        {% for block in section.blocks %}
-        <div class="marquee-item">
-            <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
-            <span>{{ block.settings.text }}</span>
-        </div>
-        {% endfor %}
-
-        {% for block in section.blocks %}
-        <div class="marquee-item">
-            <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
-            <span>{{ block.settings.text }}</span>
-        </div>
-        {% endfor %}
-    
-
-
-        {% for block in section.blocks %}
-        <div class="marquee-item">
-            <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
-            <span>{{ block.settings.text }}</span>
-        </div>
-        {% endfor %}
-
-        {% for block in section.blocks %}
-        <div class="marquee-item">
-            <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
-            <span>{{ block.settings.text }}</span>
-        </div>
-        {% endfor %}
-
-        {% for block in section.blocks %}
-        <div class="marquee-item">
-            <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
-            <span>{{ block.settings.text }}</span>
-        </div>
-        {% endfor %}
-
     </div>
 </div>
 

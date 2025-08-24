@@ -169,6 +169,8 @@
       "block_order": ["marquee_kVcyam", "marquee_Qfp6BQ", "marquee_fRgXMK", "marquee_rgk69G"],
       "name": "G As Seen",
       "settings": {
+        "bg_color": "#C9C9F2",
+        "title_inline": true,
         "title": "As Seen In:"
       }
     },
@@ -220,8 +222,8 @@
       "type": "g-chart",
       "name": "Nord Chart",
       "settings": {
-        "title": "Your Transformation Starts Here",
-        "subtitle": "Slide your weight and find out how much weight you could lose over 3 months.",
+        "heading_title": "Your Transformation Starts Here",
+        "heading_text": "Slide your weight and find out how much weight you could lose over 3 months.",
         "q1_label": "What's your current weight?",
         "q2_label": "How tall are you?",
         "fat_label": "FAT LOSS ZONE",
@@ -276,16 +278,15 @@
       "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
       "name": "Nord How To",
       "settings": {
-        "title": "How It Works?",
-        "subtitle": "Indulge in science-backed metabolic support, powered by your body’s natural “un-hunger” hormone"
+        "heading_title": "It Works For A Reason",
+        "heading_text": "Indulge in science-backed metabolic support, powered by your body’s natural “un-hunger” hormone"
       }
     },
     "g_journey_jjEicx": {
       "type": "g-journey",
       "name": "Nord Journey",
       "settings": {
-        "title": "What should I expect from consistent use of Nordburn",
-        "subtitle": "",
+        "heading_title": "What Should I Expect from Consistent Use of nordburn©",
         "title_1": "2 Months",
         "desc_1": "<p><strong>Results are here - clinical study shows:</strong></p><ul><li>GLP-1 levels +56%</li><li>Weight loss -14%</li><li>Fat loss -27%</li></ul>",
         "title_2": "2 Weeks",
@@ -406,8 +407,8 @@
       ],
       "name": "Nord Benefits",
       "settings": {
-        "title": "Real Benefits. Backed by Science.",
-        "subtitle": "clinically studied ingredients.",
+        "heading_title": "Real Benefits. Backed by Science.",
+        "heading_text": "Clinically studied ingredients.",
         "image": "shopify://shop_images/benefits.png"
       }
     },
