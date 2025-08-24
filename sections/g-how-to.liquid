@@ -1,26 +1,11 @@
+{% assign ss = section.settings %}
 <style>
     .g-how-to{
         background: linear-gradient(0deg, rgba(176, 178, 229, 0.5), rgba(176, 178, 229, 0.5));
     }
-
-    .g-how-to h2{
-        text-align: center;
-        color: #060346;
-
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 36px;
-        margin: 0 0 36px 0;
+    .g-how-to .heading-wrapper {
+        padding: 0;
     }
-
-    .g-how-to-subtitle{
-        text-align: center;
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 400;
-        color: #060346;
-    }
-
     .g-howto-materials{
         display: flex;
         margin-top: 16px;
@@ -87,15 +72,6 @@
     }
 
     @media only screen and (max-width: 768px) {
-        .g-how-to h2{
-            text-align: left;
-            margin-bottom: 16px;
-        }
-
-        .g-how-to-subtitle{
-            text-align: left;
-        }
-
         .g-howto-materials{
             border: 0;
             padding: 0;
@@ -105,8 +81,8 @@
 </style>    
 <div class="g-how-to g-sections">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
-        <p class="g-how-to-subtitle">{{ section.settings.subtitle }}</p>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
     
         <div class="g-howto-materials">
             {% for block in section.blocks %}
@@ -164,14 +140,72 @@
     "name": "Nord How To",
     "settings": [
       {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "How It Works?"
+      }, {
         "type": "text",
-        "id": "subtitle",
-        "label": "Sub Title"
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "Indulge in science-backed metabolic support, powered by your body’s natural “un-hunger” hormone"
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
       }
     ],
     "blocks": [

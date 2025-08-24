@@ -1,16 +1,12 @@
+{% assign ss = section.settings %}
 <style>
     .g-table{
-        background: linear-gradient(180deg, #D9DBF3 0%, #FFFFFF 100%);
-        margin-bottom: 50px;
+      background: linear-gradient(180deg, #D9DBF3 0%, #FFFFFF 100%);
+      margin-bottom: 50px;
     }
-
-    .g-table h2{
-        text-align: center;
-        font-weight: 400;
-        font-size: 45px;
-        color: #060346;
+    .g-table .heading-wrapper {
+      padding: 0;
     }
-
     .g-table-header,
     .g-table-row{
         display: flex;
@@ -50,6 +46,9 @@
         justify-content: center;
         text-align: center;
         padding: 20px;
+    }
+    .g-table-30 img, .g-table-20 img, .g-table-15 img{
+        max-height: 42px;
     }
 
     .g-table-fill{
@@ -143,10 +142,6 @@
     }
 
     @media only screen and (max-width: 768px) {
-        .g-table h2{
-            font-size: 28px;
-        }
-
         .g-table-wrap{
             margin: 40px auto 0 auto;
         }
@@ -164,6 +159,9 @@
 
         .g-table-30, .g-table-20, .g-table-15{
             padding: 10px;
+        }
+        .g-table-30 img, .g-table-20 img, .g-table-15 img{
+            max-height: 42px;
         }
 
         .g-table-icons img{
@@ -197,7 +195,9 @@
 </style>
 <div class="g-table g-sections">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
+      
 
         <div class="g-table-wrap">
             <div class="g-table-header">
@@ -256,11 +256,75 @@
     "name": "Nord Table",
     "settings": [
       {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "nordburn© Does What Others Don’t"
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text"
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "header",
+        "content": "Table content"
+      }, {
         "type": "image_picker",
         "id": "logo",
         "label": "Table Logo"

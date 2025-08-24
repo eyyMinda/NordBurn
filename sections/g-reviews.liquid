@@ -1,20 +1,17 @@
+{% assign ss = section.settings %}
 <style>
     .g-reviews{
         overflow: hidden;
+    }
+    .g-reviews .heading-wrapper {
+        max-width: 780px;
+        padding: 0;
+        margin-inline: auto;
     }
 
     .g-review{
         border-radius: 10px;
         overflow: hidden;
-    }
-
-    .g-reviews h2{
-        text-align: center;
-        color: #211948;
-        font-weight: 500;
-        font-size: 45px;
-        line-height: 100%;
-        letter-spacing: 0%;
     }
 
     .g-review-content{
@@ -167,15 +164,12 @@
             padding: 0 10%;
             margin-top: 50px;
         }
-
-        .g-reviews h2{
-            font-size: 28px;
-        }
     }
 </style>
 <div class="g-sections g-reviews">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
         <div class="swiper g-reviews-slider">
             <div class="swiper-wrapper">
@@ -271,12 +265,73 @@
   {
     "name": "Nord Reviews",
     "settings": [
-      {
+        {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "You’re Not Alone - 50,000+ Customers Have Already Taken the First Step"
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text"
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
         "type": "header",
         "content": "CTA"
       },

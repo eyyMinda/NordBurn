@@ -1,22 +1,11 @@
+{% assign ss = section.settings %}
 <style>
     .g-journey{
-        background: #D7D9F2;
+      background: #D7D9F2;
     }
-
-    .g-journey-subtitle p{
-        font-size: 20px;
-        text-align: center;
-        line-height: 130%;
-        color: #060346;
-        font-weight: 700;
+    .g-journey .heading-wrapper {
+      padding: 0;
     }
-
-    .g-journey h2{
-        text-align: center;
-        font-size: 45px;
-        margin: 0 0 30px 0;
-    }
-
     .g-journey-blocks{
         margin-top: 91px;
     }
@@ -218,16 +207,6 @@
         .g-journey-block-second::before{
             height: 0;
         }
-
-        .g-journey h2{
-            font-size: 28px;
-            color: #060346;
-        }
-
-        .g-journey-subtitle p{
-            font-size: 16px;
-        }
-
         .g-journey-right-content h3, .g-journey-left-content h3{
             font-size: 24px;
         }
@@ -252,10 +231,8 @@
 </style>
 <div class="g-journey g-sections">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
-        <div class="g-journey-subtitle">
-            {{ section.settings.subtitle }}
-        </div>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
         <div class="g-journey-blocks">
             <div class="g-journey-block g-journey-block-first">
@@ -322,16 +299,75 @@
     "name": "Nord Journey",
     "settings": [
       {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
-        "type": "richtext",
-        "id": "subtitle",
-        "label": "Sub Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "What should I expect from consistent use of Nordburn"
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text"
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "header",
+        "content": "Journey Blocks"
+      }, {
         "type": "text",
         "id": "title_1",
         "label": "Title 1"
