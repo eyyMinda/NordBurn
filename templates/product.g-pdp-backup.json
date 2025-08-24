@@ -41,37 +41,12 @@
     "g_product_information_TTd6Rh": {
       "type": "g-product-information",
       "blocks": {
-        "benefit_LGKQm8": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shopify://shop_images/rocket_6463165_1.svg",
-            "text": "Boost GLP-1 levels by up to +56%"
-          }
-        },
-        "benefit_7C4RbD": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shopify://shop_images/belly_7809034_1.svg",
-            "text": "Lose up to -14% of weight within 12 weeks"
-          }
-        },
-        "benefit_qt38ta": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shopify://shop_images/fat_11827916_1.svg",
-            "text": "Burn up to -27% of body fat within 12 weeks"
-          }
-        },
         "reviews_BGkz6i": {
           "type": "reviews",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-15_at_11.43.27.png",
-            "review_text": "I was at my wit’s end after trying Ozempic and endless diets - nothing worked, and the side effects were unbearable. Nordburn's GLP-1 Booster is the only thing that’s actually made a difference. In 9 weeks, I dropped two dress sizes and, for the first time in years, feel genuinely in control of my body.",
-            "name": "Jenny L.",
-            "review_stars_pos": "top",
-            "author_country_icon": "shopify://shop_images/circle-flags_us.svg",
-            "verified_color": "#2a7900",
-            "author_details_inline": "inline"
+            "review_text": "I was at my wit’s end after trying Ozempic and endless diets – nothing worked, and the side effects were unbearable. Nordburn's GLP-1 Booster is the only thing that’s actually made a difference. In 9 weeks, I dropped two dress sizes and, for the first time in years, feel genuinely in control of my body.",
+            "name": "Jenny L."
           }
         },
         "dropdowns_PQ7EGV": {
@@ -103,22 +78,13 @@
           }
         }
       },
-      "block_order": [
-        "benefit_LGKQm8",
-        "benefit_7C4RbD",
-        "benefit_qt38ta",
-        "reviews_BGkz6i",
-        "dropdowns_PQ7EGV",
-        "dropdowns_bTdbKe",
-        "dropdowns_DrUrnN",
-        "dropdowns_kdbyyi"
-      ],
+      "block_order": ["reviews_BGkz6i", "dropdowns_PQ7EGV", "dropdowns_bTdbKe", "dropdowns_DrUrnN", "dropdowns_kdbyyi"],
       "name": "Nord Product Information",
       "settings": {
         "product": "",
         "top_note": "",
         "ratings": "<p>Excellent <strong>4.9/5</strong> | <strong>50,000+ </strong>bottles sold</p>",
-        "short_desc": "<p><strong>Clinically proven ingredients help:</strong></p>",
+        "short_desc": "<p>Clinically proven ingredients help:</p>",
         "list_icon_1": "Boost GLP-1 levels by up to +56%",
         "list_icon_2": "Lose up to -14% of weight within 12 weeks",
         "list_icon_3": "Burn up to -27% of body fat within 12 weeks",
@@ -126,16 +92,8 @@
         "sub_lists": "<ul><li>Free Shipping Always</li><li>Cancel Anytime</li><li>20% Monthly Savings</li><li>Priority Refill Access</li></ul>",
         "image_1": "shopify://shop_images/boostglp.png",
         "image_2": "shopify://shop_images/bodyfat-nordburn.png",
-        "selector_bg_color": "#f6f6f6",
-        "variants_selector_label": "Choose Your Bundle:",
-        "methods_selector_label": "Choose Your Plan:",
-        "variants_radio": true,
-        "save_tag_after_title": false,
-        "atc_rounded": true,
-        "below_atc_content_icon": "shopify://shop_images/bx_lock-alt.svg",
-        "below_atc_content_text": "safe & secure checkout",
-        "below_atc_content_payments": "shopify://shop_images/Container.png",
-        "accordion_icon": "circle-checkmark"
+        "variants_radio": false,
+        "save_tag_after_title": true
       }
     },
     "g_as_seen_wDWb4x": {
@@ -643,7 +601,7 @@
       "name": "Nord Faq",
       "settings": {
         "title": "Frequently Asked Questions",
-        "subtitle": "Find the answers you need right here."
+        "subtitle": "Find the answers you need right here. "
       }
     }
   },
