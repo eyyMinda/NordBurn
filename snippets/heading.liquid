@@ -1,0 +1,138 @@
+{% if heading %}
+  {% assign classes = align | append: ' ' | append: align_mb | append: ' ' | append: class %}
+  <div class="heading-wrapper {{ classes }}">
+    {% if ratings %}
+      {% if ratings_type == 'custom' %}
+        {% render 'tp-ratings' ratings: ratings, ratings_stars: ratings_stars, ratings_logo: ratings_logo, ratings_text: ratings_text %}
+      {% endif %}
+    {% endif %}
+
+    {% if title != blank %}
+      {% assign heading_tag = h1 | default: '2' | replace: 'true', '1' | replace: 'false', '2' | prepend: 'h' %}
+      {% assign title = title | replace: '&', '<span class="heading-title-amp">&amp;</span>' %}
+      {% if logo %}
+        <div class="heading-title-logo">
+          <h2 class="heading-title">{{ title }}</h2>
+          {% render 'responsive-image' image: settings.logo, image_width: 100, custom_alt: shop.name %}
+        </div>
+      {% else %}
+        <{{ heading_tag }} class="heading-title">{{ title }}</{{ heading_tag }}>
+      {% endif %}
+    {% endif %}
+    
+    
+    {% if sub_text != blank %}
+      <p class="heading-sub-text">{{ sub_text }}</p>
+    {% endif %}
+    {% if text != blank %}
+      <div class="heading-text{% if text_read_more %} heading-text--read-more{% endif %}">{{ text }}</div>
+    {% endif %}
+    {% if shop_all != blank %}
+      <a href="{{ shop_all.url }}" alt="All products" class="heading-shop-all">SHOP ALL</a>
+    {% endif %}
+
+    {% if properties.size > 0 %}
+      <div class="heading-properties">
+        {% for property in properties %}
+          <div class="heading-property">
+            {% render 'responsive-image' image: property.settings.icon, image_width: 30, custom_alt: "property-icon", class: "block_icon" %}
+            <p>{{ property.settings.text }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% comment %}
+Example Render:
+{% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all,
+properties: ss.heading_properties %}
+Example Schema:
+{
+  "type": "header",
+  "content": "Heading"
+}, {
+  "type": "checkbox",
+  "id": "heading_h1",
+  "label": "Heading H1"
+}, {
+  "type": "text",
+  "id": "heading_title",
+  "label": "Heading Title",
+  "default": "nordburn© Does What Others Don’t"
+}, {
+  "type": "text",
+  "id": "heading_sub_text",
+  "label": "Heading Sub-Text"
+}, {
+  "type": "text",
+  "id": "heading_text",
+  "label": "Heading Text"
+}, {
+  "type": "select",
+  "id": "heading_align",
+  "label": "Heading Alignment",
+  "default": "center",
+  "options": [
+    { "value": "start", "label": "Start" }, 
+    { "value": "center", "label": "Center" },
+    { "value": "end", "label": "End" }
+  ]
+}, {
+  "type": "select",
+  "id": "heading_align_mb",
+  "label": "Heading Alignment Mobile",
+  "default": "center-mb",
+  "options": [
+    { "value": "start-mb", "label": "Start" }, 
+    { "value": "center-mb", "label": "Center" },
+    { "value": "end-mb", "label": "End" }
+  ]
+}, {
+  "type": "collection",
+  "id": "heading_shop_all",
+  "label": "Shop All"
+}, {
+  "type": "header",
+  "content": "Ratings"
+}, {
+  "type": "checkbox",
+  "id": "heading_ratings",
+  "label": "Display Ratings"
+}, {
+  "type": "text",
+  "id": "heading_ratings_stars",
+  "label": "Ratings Stars",
+  "visible_if": "{{ section.settings.heading_ratings }}"
+}, {
+  "type": "image_picker",
+  "id": "heading_ratings_logo",
+  "label": "Ratings Logo",
+  "visible_if": "{{ section.settings.heading_ratings }}"
+}, {
+  "type": "text",
+  "id": "heading_ratings_text",
+  "label": "Ratings Text",
+  "visible_if": "{{ section.settings.heading_ratings }}"
+}
+
+"blocks": [
+{
+  "type": "property",
+  "name": "Heading Property",
+  "limit": 4,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "Icon"
+    }, {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    }
+  ]
+}
+{% endcomment %}
