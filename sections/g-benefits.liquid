@@ -14,11 +14,15 @@
     }
 
     .g-benefits-icon{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .g-benefits-icon img {
+      max-width: 70px;
+      width: 100%;
     }
 
     .g-benefits-icon span{
@@ -32,6 +36,7 @@
 
     .g-benefits-image img{
         max-width: 100%;
+        width: 100%;
     }
 
     @media only screen and (max-width: 768px) {
@@ -46,11 +51,9 @@
         .g-benefits-icon{
             width: 90px;
         }
-
-        .g-benefits-icon img{
-            max-width: 62px;
+        .g-benefits-icon img {
+          max-width: 64px;
         }
-
         .g-benefits-icon span{
             font-size: 11px;
         }
@@ -61,14 +64,16 @@
         {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
         ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
-        <div class="g-benefits-image">
-            <img src="{{ section.settings.image | image_url: width: "2000px" }}" width="" height="" alt="">
-        </div>
+        {% if section.settings.image != blank %}
+          <div class="g-benefits-image">
+              {% render 'responsive-image', image: section.settings.image, image_width: 2000 %}
+          </div>
+        {% endif %}
 
         <div class="g-benefits-icons">
             {% for block in section.blocks %}
               <div class="g-benefits-icon">
-                  <img src="{{ block.settings.icon | image_url: width: "2000px" }}" width="" height="" alt="">
+                  {% render 'responsive-image', image: block.settings.icon, image_width: 100 %}
                   <span>{{ block.settings.content }}</span>
               </div>
             {% endfor %}

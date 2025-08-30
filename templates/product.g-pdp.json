@@ -220,6 +220,7 @@
     },
     "g_chart_wzcJn9": {
       "type": "g-chart",
+      "custom_css": [".g-chart {background: #f6f6f6;}"],
       "name": "Nord Chart",
       "settings": {
         "heading_h1": false,
@@ -230,7 +231,6 @@
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": false,
-        "heading_ratings_stars": "",
         "heading_ratings_text": "",
         "q1_label": "What's your current weight?",
         "q2_label": "How tall are you?",
@@ -277,6 +277,7 @@
       "block_order": ["image_mXr8fD", "image_TWRNfK", "image_edLTYa", "image_WKpJe8", "image_bbLdLQ"],
       "settings": {
         "background_color": "#c9c9f2",
+        "speed": 10,
         "heading_h1": false,
         "heading_title": "Confident Body Starts Here",
         "heading_sub_text": "",
@@ -285,7 +286,7 @@
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": true,
-        "heading_ratings_stars": "",
+        "heading_ratings_stars": "shopify://shop_images/Frame_1484579709.png",
         "heading_ratings_text": "50,000+ Happy Customers"
       }
     },
@@ -335,7 +336,7 @@
       "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
       "name": "Nord How To",
       "settings": {
-        "bg_color": "#F6F6F6",
+        "bg_color": "#f6f6f6",
         "type": "v2",
         "heading_h1": false,
         "heading_title": "It Works For A Reason",
@@ -345,7 +346,6 @@
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": false,
-        "heading_ratings_stars": "",
         "heading_ratings_text": ""
       }
     },
@@ -361,7 +361,6 @@
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": false,
-        "heading_ratings_stars": "",
         "heading_ratings_text": "",
         "title_1": "2 Months",
         "desc_1": "<p><strong>Results are here - clinical study shows:</strong></p><ul><li>GLP-1 levels +56%</li><li>Weight loss -14%</li><li>Fat loss -27%</li></ul>",
@@ -371,12 +370,13 @@
         "desc_3": "",
         "title_4": "6 Months",
         "desc_4": "<p><strong>Steady, stable and reliable results</strong> for a long term. Continuing to be your best self.</p>",
-        "cta_top_note": "† Based on 7 third-party clinical trials of Nordburn’s ingredients",
-        "cta_text": "GET MY GLP-1 BOOSTER",
-        "cta_url": "#product",
-        "cta_bottom_text": "safe & secure checkout",
-        "cta_bottom_icon": "shopify://shop_images/lock.png",
-        "cta_bottom_image": "shopify://shop_images/btn_payments.png"
+        "cta": true,
+        "cta_action": "",
+        "cta_type": "accent",
+        "cta_text": "Shop Now",
+        "cta_arrow": true,
+        "cta_note_icon": "shopify://shop_images/bx_lock-alt.svg",
+        "cta_note_text": "safe & secure checkout"
       }
     },
     "g_table_UpkEjW": {
@@ -424,17 +424,17 @@
         }
       },
       "block_order": ["rows_gdRiGy", "rows_i3wjTn", "rows_ezTTC4", "rows_YCdtVJ", "rows_FagKKE"],
+      "custom_css": [".g-table {background: #fff;}"],
       "name": "Nord Table",
       "settings": {
         "heading_h1": false,
-        "heading_title": "Nordburn Does What Others Don’t",
+        "heading_title": "nordburn© Does What Others Don’t",
         "heading_sub_text": "",
         "heading_text": "",
         "heading_align": "center",
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": false,
-        "heading_ratings_stars": "",
         "heading_ratings_text": "",
         "logo": "shopify://shop_images/logo.png",
         "logo_mobile": "shopify://shop_images/1_month.png",
@@ -444,6 +444,87 @@
         "others_2_image": "shopify://shop_images/ozempic-injections.png"
       }
     },
+    "benefits": {
+      "type": "benefits",
+      "blocks": {
+        "benefit_pkMhHc": {
+          "type": "benefit",
+          "settings": {
+            "title": "Lose Weight",
+            "text": "Naturally burn fat and support sustainable weight loss."
+          }
+        },
+        "benefit_qDzMUG": {
+          "type": "benefit",
+          "settings": {
+            "title": "Reduce Caloric Intake",
+            "text": "Eat less effortlessly by controlling appetite naturally."
+          }
+        },
+        "benefit_HDw4yA": {
+          "type": "benefit",
+          "settings": {
+            "title": "Increase GLP-1 Levels",
+            "text": "Boost GLP‑1 to enhance metabolism and fat burning."
+          }
+        },
+        "benefit_k7wH7R": {
+          "type": "benefit",
+          "settings": {
+            "title": "Lower Blood Sugar",
+            "text": "Maintain healthy glucose levels and support metabolic health."
+          }
+        },
+        "benefit_AcKLxh": {
+          "type": "benefit",
+          "settings": {
+            "title": "Reduce Hunger and Cravings",
+            "text": "Feel satisfied longer and curb unwanted snacking."
+          }
+        },
+        "benefit_jY9AtW": {
+          "type": "benefit",
+          "settings": {
+            "title": "Reduce Bad Cholesterol (LDL)",
+            "text": "Support heart health by lowering harmful LDL levels."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_pkMhHc",
+        "benefit_qDzMUG",
+        "benefit_HDw4yA",
+        "benefit_k7wH7R",
+        "benefit_AcKLxh",
+        "benefit_jY9AtW"
+      ],
+      "settings": {
+        "bg_color": "#d7d9f2",
+        "benefit_bg_color": "",
+        "heading_h1": false,
+        "heading_title": "Real Benefits. Backed by Science.",
+        "heading_sub_text": "",
+        "heading_text": "Clinically studied ingredients.",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_text": "",
+        "image": "shopify://shop_images/Untitled_design-5_1.png",
+        "image_mb": "shopify://shop_images/Untitled_design-5_1.png",
+        "image_bg": false,
+        "block_image_position": "title-inline",
+        "benefits_icon_display": "group",
+        "benefits_icon": "shopify://shop_images/gridicons_checkmark.svg",
+        "cta": true,
+        "cta_action": "scroll",
+        "cta_type": "accent",
+        "cta_text": "Get My GLP-1 BOOSTER",
+        "cta_arrow": true,
+        "cta_note_icon": "shopify://shop_images/bx_lock-alt.svg",
+        "cta_note_text": "safe & secure checkout"
+      }
+    },
     "g_benefits_LRpXcJ": {
       "type": "g-benefits",
       "blocks": {
@@ -451,35 +532,35 @@
           "type": "image-text",
           "settings": {
             "content": "100% Vegan",
-            "icon": "shopify://shop_images/benefit_icon_1.png"
+            "icon": "shopify://shop_images/diet_1717164_1.png"
           }
         },
         "image_text_XwmyAB": {
           "type": "image-text",
           "settings": {
             "content": "Blended in USA",
-            "icon": "shopify://shop_images/benefit_icon_2.png"
+            "icon": "shopify://shop_images/usa_1098484_1.png"
           }
         },
         "image_text_dzzX4r": {
           "type": "image-text",
           "settings": {
             "content": "Lab Tested",
-            "icon": "shopify://shop_images/benefit_icon_3.png"
+            "icon": "shopify://shop_images/flask_16681501_1.png"
           }
         },
         "image_text_9d6Ubb": {
           "type": "image-text",
           "settings": {
             "content": "Gluten Free",
-            "icon": "shopify://shop_images/benefit_icon_4.png"
+            "icon": "shopify://shop_images/gluten-free_4807758_1.png"
           }
         },
         "image_text_ikKJUM": {
           "type": "image-text",
           "settings": {
             "content": "Non-GMO",
-            "icon": "shopify://shop_images/benefit_icon_5.png"
+            "icon": "shopify://shop_images/no-gmo_4842019_1.png"
           }
         }
       },
@@ -490,19 +571,22 @@
         "image_text_9d6Ubb",
         "image_text_ikKJUM"
       ],
+      "custom_css": [
+        ".g-benefits {background-color: #c9c9f2; padding: 24px 16px;}",
+        ".g-benefits-icons {max-width: 1024px; justify-content: space-evenly; margin-inline: auto;}",
+        "@media (min-width: 768px) {.g-benefits {padding: 24px 20px; }}"
+      ],
       "name": "Nord Benefits",
       "settings": {
         "heading_h1": false,
-        "heading_title": "Real Benefits. Backed by Science.",
+        "heading_title": "",
         "heading_sub_text": "",
-        "heading_text": "Clinically studied ingredients.",
+        "heading_text": "",
         "heading_align": "center",
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": false,
-        "heading_ratings_stars": "",
-        "heading_ratings_text": "",
-        "image": "shopify://shop_images/benefits.png"
+        "heading_ratings_text": ""
       }
     },
     "g_real_people_JtFFHU": {
@@ -645,6 +729,10 @@
         "reviews_RBFfrK",
         "reviews_EteRaV"
       ],
+      "custom_css": [
+        ".swiper.g-reviews-slider {max-width: 1140px; overflow: hidden; margin-inline: auto;}",
+        ".swiper.g-reviews-slider .swiper-slide {max-width: 280px; margin-right: 16px !important;}"
+      ],
       "name": "Nord Reviews",
       "settings": {
         "heading_h1": false,
@@ -655,14 +743,14 @@
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": false,
-        "heading_ratings_stars": "",
         "heading_ratings_text": "",
-        "cta_top_note": "",
-        "cta_text": "SHOP NOW",
-        "cta_url": "#product",
-        "cta_bottom_text": "safe & secure checkout",
-        "cta_bottom_icon": "shopify://shop_images/lock.png",
-        "cta_bottom_image": "shopify://shop_images/btn_payments.png"
+        "cta": true,
+        "cta_action": "scroll",
+        "cta_type": "accent",
+        "cta_text": "Shop Now",
+        "cta_arrow": true,
+        "cta_note_icon": "shopify://shop_images/bx_lock-alt.svg",
+        "cta_note_text": "safe & secure checkout"
       }
     },
     "g_faq_4D3nx9": {
@@ -743,6 +831,9 @@
         "faqs_bXQwqN",
         "faqs_CgCAxJ"
       ],
+      "custom_css": [
+        ".g-question {background: transparent; border: none; border-bottom: 1px solid #d2d2d2; border-radius: 0;}"
+      ],
       "name": "Nord Faq",
       "settings": {
         "heading_h1": false,
@@ -753,7 +844,6 @@
         "heading_align_mb": "center-mb",
         "heading_shop_all": "",
         "heading_ratings": false,
-        "heading_ratings_stars": "",
         "heading_ratings_text": ""
       }
     }
@@ -768,6 +858,7 @@
     "g_how_to_eLKTmX",
     "g_journey_jjEicx",
     "g_table_UpkEjW",
+    "benefits",
     "g_benefits_LRpXcJ",
     "g_real_people_JtFFHU",
     "g_videos_LWWxnB",

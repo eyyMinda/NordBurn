@@ -275,22 +275,10 @@
             </div>
         </div>
 
-        <p class="g-journey-cta-note">{{ section.settings.cta_top_note }}</p>
-        <div class="g-cta-wrapper">
-            <div class="g-cta">
-                <a href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
-                  </svg>
-                </a>
-                <div class="g-cta-bottom">
-                    <div>
-                        <img src="{{ section.settings.cta_bottom_icon | image_url: width: "500px" }}" width="" height="" alt="">
-                        <span>{{ section.settings.cta_bottom_text }}</span>
-                    </div>
-                    <img src="{{ section.settings.cta_bottom_image | image_url: width: "500px" }}" width="" height="" alt="">
-                </div>
-            </div>
-        </div>
+        {% if ss.cta %}
+          {% render 'main-cta', text: ss.cta_text, link: ss.cta_url, type: ss.cta_type, action: ss.cta_action, arrow: ss.cta_arrow,
+           variant_id: product.selected_or_first_available_variant.id, note_icon: ss.cta_note_icon, note_text: ss.cta_note_text %}
+        {% endif %}
     </div>
 </div> 
 
@@ -406,41 +394,53 @@
         "type": "richtext",
         "id": "desc_4",
         "label": "Description 4"
-      },
-      {
+      }, {
         "type": "header",
         "content": "CTA"
-      },
-      {
-        "type": "text",
-        "id": "cta_top_note",
-        "label": "CTA Top Note"
-      },
-      {
+      }, {
+        "type": "checkbox",
+        "id": "cta",
+        "label": "Show CTA",
+        "default": true
+      }, {
+        "type": "select",
+        "id": "cta_action",
+        "label": "CTA Action",
+        "default": "",
+        "options": [
+          { "value": "", "label": "Link" },
+          { "value": "atc", "label": "Add to Cart" },
+          { "value": "scroll", "label": "Scroll to Product" }
+        ]
+      }, {
+        "type": "select",
+        "id": "cta_type",
+        "label": "CTA Type",
+        "default": "accent",
+        "options": [
+          { "value": "", "label": "Light" },
+          { "value": "dark", "label": "Dark" },
+          { "value": "accent", "label": "Accent" }
+        ]
+      }, {
         "type": "text",
         "id": "cta_text",
-        "label": "CTA Text"
-      },
-      {
-        "type": "url",
-        "id": "cta_url",
-        "label": "CTA URL"
-      },
-      {
+        "label": "CTA Text",
+        "default": "Get My GLP-1 BOOSTER"
+      }, {
+        "type": "checkbox",
+        "id": "cta_arrow",
+        "label": "CTA Arrow",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "cta_note_icon",
+        "label": "CTA Note Icon"
+      }, {
         "type": "text",
-        "id": "cta_bottom_text",
-        "label": "CTA Bottom Text",
+        "id": "cta_note_text",
+        "label": "CTA Note Text",
         "default": "safe & secure checkout"
-      },
-      {
-        "type": "image_picker",
-        "id": "cta_bottom_icon",
-        "label": "CTA Bottom Icon"
-      },
-      {
-        "type": "image_picker",
-        "id": "cta_bottom_image",
-        "label": "CTA Bottom Image"
       }
     ],
     "presets": [

@@ -257,12 +257,13 @@
         "desc_3": "",
         "title_4": "6 Months",
         "desc_4": "<p><strong>Steady, stable and reliable results</strong> for a long term. Continuing to be your best self.</p>",
-        "cta_top_note": "† Based on 7 third-party clinical trials of Nordburn’s ingredients",
-        "cta_text": "GET MY GLP-1 BOOSTER",
-        "cta_url": "#product",
-        "cta_bottom_text": "safe & secure checkout",
-        "cta_bottom_icon": "shopify://shop_images/lock.png",
-        "cta_bottom_image": "shopify://shop_images/btn_payments.png"
+        "cta": true,
+        "cta_action": "",
+        "cta_type": "accent",
+        "cta_text": "Shop Now",
+        "cta_arrow": true,
+        "cta_note_icon": "shopify://shop_images/bx_lock-alt.svg",
+        "cta_note_text": "safe & secure checkout"
       }
     },
     "g_table_UpkEjW": {
@@ -517,12 +518,13 @@
       "name": "Nord Reviews",
       "settings": {
         "title": "You’re Not Alone - 50,000+ Customers Have Already Taken the First Step",
-        "cta_top_note": "",
-        "cta_text": "SHOP NOW",
-        "cta_url": "#product",
-        "cta_bottom_text": "safe & secure checkout",
-        "cta_bottom_icon": "shopify://shop_images/lock.png",
-        "cta_bottom_image": "shopify://shop_images/btn_payments.png"
+        "cta": true,
+        "cta_action": "",
+        "cta_type": "accent",
+        "cta_text": "Shop Now",
+        "cta_arrow": true,
+        "cta_note_icon": "shopify://shop_images/bx_lock-alt.svg",
+        "cta_note_text": "safe & secure checkout"
       }
     },
     "g_faq_4D3nx9": {
