@@ -4,19 +4,17 @@
       background: #D7D9F2;
     }
     .g-journey .heading-wrapper {
-      padding: 0;
+      padding: 0 0 32px;
     }
     .g-journey-blocks{
         margin-top: 91px;
     }
-
     .g-journey-block{
         position: relative;
         display: flex;
         align-items: flex-start;
         justify-content: center;
     }
-
     .g-journey-block-first::before{
         position: absolute;
         height: 73%;
@@ -24,7 +22,6 @@
         content: '';
         bottom: 0;
     }
-
     .g-journey-block-second::before{
         position: absolute;
         height: 49%;
@@ -32,17 +29,14 @@
         content: '';
         top: 0;
     }
-
     .g-journey-block > div{
         width: 50%;
         max-width: 534px;
     }
-
     .g-journey-block ul{
         margin: 10px 0 0 0;
         padding: 0;
     }
-
     .g-journey-block ul li{
         display: flex;
         align-items: center;
@@ -53,7 +47,6 @@
         font-weight: 400;
         color: #060346;
     }
-
     .g-journey-block ul li::before{
         content: "";
         display: inline-block;
@@ -63,36 +56,32 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
-
     .g-journey-right-content{
-        width: calc(100% - 134px);
-        background: #fff;
-        border: 2px solid #060346;
-        padding: 20px;
-        border-radius: 10px;
-        justify-self: flex-start;
-        align-self: flex-start;
-        z-index: 2;
+      width: calc(100% - 134px);
+      background: #fff;
+      border: 2px solid #060346;
+      padding: 20px;
+      border-radius: 10px;
+      justify-self: flex-start;
+      align-self: flex-start;
+      z-index: 2;
     }
-
     .g-journey-left-content{
-        width: calc(100% - 134px);
-        background: #fff;
-        border: 2px solid #060346;
-        padding: 20px;
-        border-radius: 10px;
-        justify-self: flex-end;
-        align-self: flex-start;
-        z-index: 2;
+      width: calc(100% - 134px);
+      background: #fff;
+      border: 2px solid #060346;
+      padding: 20px;
+      border-radius: 10px;
+      justify-self: flex-end;
+      align-self: flex-start;
+      z-index: 2;
     }
-
     .g-journey-right-content h3,
     .g-journey-left-content h3{
         margin: 0 0 10px 0;
         font-size: 30px;
         color: #060346;
     }
-
     .g-journey-right-content p,
     .g-journey-left-content p{
         font-size: 20px;
@@ -100,23 +89,19 @@
         margin: 0;
         color: #000;
     }
-
     .g-journey-right{
         margin-top: 84px;
     }
-
     .g-journey-left,
     .g-journey-right{
         display: grid;
         position: relative;
         align-items: center;
     }
-
     .g-journey-circle,
     .g-journey-line{
         position: absolute;
     }
-
     .g-journey-circle{
         width: 30px;
         height: 30px;
@@ -125,29 +110,27 @@
         background: #5B6BC8;
         z-index: 1;
     }
-
     .g-journey-right .g-journey-circle{
         right: -14px;
     }
-
     .g-journey-left .g-journey-circle{
         left: -14px;
     }
-
     .g-journey-line{
         width: 100%;
         border: 1px solid #060346;
     }
-
     .g-journey-cta-note{
         text-align: center;
         margin: 50px 0 0 0;
         font-size: 12px;
         color: #6C757D;
     }
-
     .g-journey-block.g-journey-block-second .g-journey-right{
         margin-top: 200px;
+    }
+    .g-journey .main-cta-wrapper {
+      margin-top: 32px;
     }
 
     @media only screen and (max-width: 768px) {
@@ -155,16 +138,13 @@
             min-width: 15px;
             height: 15px;
         }
-      
         .g-journey-block.g-journey-block-second .g-journey-right{
             margin-top: 0;    
         }
-      
         .g-journey-right-content{
             justify-self: flex-end;
             align-self: flex-end;
         }
-
         .g-journey-right .g-journey-circle,
         .g-journey-left .g-journey-circle{
             left: -10px;
@@ -172,95 +152,194 @@
             height: 20px;
             top: 6px;
         }
-
         .g-journey-block{
             flex-direction: column-reverse;
             gap: 20px;
         }
-
         .g-journey-right, .g-journey-blocks{
             margin-top: 0;
             margin-bottom: 20px;
         }
-
         .g-journey-block > div{
             width: 98%;
         }
-
         .g-journey-right-content,
         .g-journey-left-content{
             width: calc(100% - 40px);
         }
-        
         .g-journey-left, .g-journey-right{
             align-items: unset;
         }
-
         .g-journey-line{
             top: 15px;
         }
-
         .g-journey-block-first::before{
             height: 100%;
         }
-
         .g-journey-block-second::before{
             height: 0;
         }
         .g-journey-right-content h3, .g-journey-left-content h3{
             font-size: 24px;
         }
-
         .g-journey-right-content p, .g-journey-left-content p, .g-journey-right-content ul li{
             font-size: 16px;
             line-height: 150%;
         }
-
         .g-journey-right-content, .g-journey-left-content{
             padding: 20px;
         }
-
         .g-journey-right-content ul{
             margin: 5px 0 0 0;
         }
-
         .g-journey-block.g-journey-block-second .g-journey-right{
             display: none;
         }
     }
-</style>
-<div class="g-journey g-sections">
+  /* ============== Horizontal Layout ============== */
+  .g-journey.horizontal {
+    padding-block: 56px;
+  }
+  .g-journey.horizontal .g-journey-blocks {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .g-journey.horizontal .g-journey-block {
+    position: relative;
+    max-width: unset;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .g-journey.horizontal .g-journey-block .g-journey-line {
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top: -16px;
+    bottom: -16px;
+    border: none;
+    border-left: 2px solid #060346;
+  }
+  .g-journey.horizontal .g-journey-block:first-of-type .g-journey-line {
+    top: 50%;
+    bottom: 0;
+    border-top-left-radius: 8px;
+    border-top: 2px solid #060346;
+  }
+  .g-journey.horizontal .g-journey-block:last-of-type .g-journey-line {
+    top: 0;
+    bottom: 50%;
+    border-bottom-left-radius: 8px;
+    border-bottom: 2px solid #060346;
+  }
+  .g-journey.horizontal .g-journey-block:not(:first-of-type, :last-of-type) .g-journey-circle::before {
+    content: "";
+    position: absolute;
+    width: calc(40px - 11px);
+    height: 2px;
+    background-color: #060346;
+    top: 50%;
+    left: calc(0px - 10px);
+    transform: translate(calc(-100% + 8px), -50%);
+    z-index: 1;
+  }
+  .g-journey.horizontal .g-journey-circle {
+    width: 22px;
+    height: 22px;
+    left: 40px;
+    top: 50%;
+    background-color: #D7D9F2;
+    border: 2px solid #F6F6F6;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .g-journey.horizontal .g-journey-content {
+    max-width: unset;
+    width: calc(100% - 40px);
+    background-color: #F6F6F6;
+    border: 1px solid #F6F6F6;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .g-journey.horizontal .g-journey-content img {
+    max-width: 24px;
+    width: 100%;
+    object-fit: contain;
+  }
+  .g-journey.horizontal .g-journey-content h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: 0.4px;
+  }
+  .g-journey.horizontal .g-journey-content p {
+    font-size: 16px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  </style>
+<div class="g-journey g-sections {{ ss.display_type }}">
     <div class="g-wrap">
         {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
         ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
         <div class="g-journey-blocks">
+          {% if ss.display_type == 'horizontal' %}
+            {% for i in (1..4) %}
+              {% liquid
+                assign title_label = 'title_' | append: forloop.index
+                assign desc_label = 'desc_' | append: forloop.index
+                assign icon_label = 'icon_' | append: forloop.index
+
+                assign title = ss[title_label]
+                assign desc = ss[desc_label]
+                assign icon = ss[icon_label]
+              %}
+              {% if title != blank %}
+                <div class="g-journey-block">
+                  <span class="g-journey-circle"></span>
+                  <span class="g-journey-line"></span>
+                  <div class="g-journey-content">
+                      {% if icon != blank %}
+                        {% render 'responsive-image' image: icon, image_width: 40, custom_alt: title %}
+                      {% endif %}
+                      <h3>{{ title }}</h3>
+                      <div class="g-description">{{ desc }}</div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
             <div class="g-journey-block g-journey-block-first">
                 <div class="g-journey-right">
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-right-content">
-                        <h3>{{ section.settings.title_1 }}</h3>
-                        {{ section.settings.desc_1 }}
+                        <h3>{{ ss.title_1 }}</h3>
+                        {{ ss.desc_1 }}
                     </div>
                 </div>
                 <div class="g-journey-left">
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-left-content">
-                         <h3>{{ section.settings.title_2 }}</h3>
-                        {{ section.settings.desc_2 }}
+                         <h3>{{ ss.title_2 }}</h3>
+                        {{ ss.desc_2 }}
                     </div>
                 </div>
             </div>
             <div class="g-journey-block g-journey-block-second">
                 <div class="g-journey-right">
-                {% if section.settings.title_3 != blank and section.settings.desc_3 != blank%}
+                {% if ss.title_3 != blank and ss.desc_3 != blank%}
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-right-content">
-                        <h3>{{ section.settings.title_3 }}</h3>
-                        {{ section.settings.desc_3 }}
+                        <h3>{{ ss.title_3 }}</h3>
+                        {{ ss.desc_3 }}
                     </div>
                 {% endif %}
                 </div>
@@ -268,11 +347,12 @@
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-left-content">
-                        <h3>{{ section.settings.title_4 }}</h3>
-                        {{ section.settings.desc_4 }}
+                        <h3>{{ ss.title_4 }}</h3>
+                        {{ ss.desc_4 }}
                     </div>
                 </div>
             </div>
+          {% endif %}
         </div>
 
         {% if ss.cta %}
@@ -356,6 +436,19 @@
         "type": "header",
         "content": "Journey Blocks"
       }, {
+        "type": "select",
+        "id": "display_type",
+        "label": "Display Type",
+        "default": "vertical",
+        "options": [
+          { "value": "vertical", "label": "Vertical" },
+          { "value": "horizontal", "label": "Horizontal" }
+        ]
+      }, {
+        "type": "image_picker",
+        "id": "icon_1",
+        "label": "Icon 1"
+      }, {
         "type": "text",
         "id": "title_1",
         "label": "Title 1"
@@ -364,8 +457,11 @@
         "type": "richtext",
         "id": "desc_1",
         "label": "Description 1"
-      },
-      {
+      }, {
+        "type": "image_picker",
+        "id": "icon_2",
+        "label": "Icon 2"
+      }, {
         "type": "text",
         "id": "title_2",
         "label": "Title 2"
@@ -374,8 +470,11 @@
         "type": "richtext",
         "id": "desc_2",
         "label": "Description 2"
-      },
-      {
+      }, {
+        "type": "image_picker",
+        "id": "icon_3",
+        "label": "Icon 3"
+      }, {
         "type": "text",
         "id": "title_3",
         "label": "Title 3"
@@ -384,8 +483,11 @@
         "type": "richtext",
         "id": "desc_3",
         "label": "Description 3"
-      },
-      {
+      }, {
+        "type": "image_picker",
+        "id": "icon_4",
+        "label": "Icon 4"
+      }, {
         "type": "text",
         "id": "title_4",
         "label": "Title 4"
