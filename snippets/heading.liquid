@@ -2,9 +2,7 @@
   {% assign classes = align | append: ' ' | append: align_mb | append: ' ' | append: class %}
   <div class="heading-wrapper {{ classes }}">
     {% if ratings %}
-      {% if ratings_type == 'custom' %}
-        {% render 'tp-ratings' ratings: ratings, ratings_stars: ratings_stars, ratings_logo: ratings_logo, ratings_text: ratings_text %}
-      {% endif %}
+      {% render 'tp-ratings' ratings: ratings, ratings_stars: ratings_stars, ratings_logo: ratings_logo, ratings_text: ratings_text %}
     {% endif %}
 
     {% if title != blank %}

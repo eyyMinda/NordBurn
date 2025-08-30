@@ -169,7 +169,7 @@
       "block_order": ["marquee_kVcyam", "marquee_Qfp6BQ", "marquee_fRgXMK", "marquee_rgk69G"],
       "name": "G As Seen",
       "settings": {
-        "bg_color": "#C9C9F2",
+        "bg_color": "#c9c9f2",
         "title_inline": true,
         "title": "As Seen In:"
       }
@@ -222,14 +222,71 @@
       "type": "g-chart",
       "name": "Nord Chart",
       "settings": {
+        "heading_h1": false,
         "heading_title": "Your Transformation Starts Here",
+        "heading_sub_text": "",
         "heading_text": "Slide your weight and find out how much weight you could lose over 3 months.",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": "",
         "q1_label": "What's your current weight?",
         "q2_label": "How tall are you?",
         "fat_label": "FAT LOSS ZONE",
         "bmi_1": "Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use",
         "bmi_2": "You’re already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance",
         "bmi_3": "Based on clinical trials, you could lose up to 14% of your body weight in 3 months you could lose up to"
+      }
+    },
+    "image-slideshow": {
+      "type": "image-slideshow",
+      "blocks": {
+        "image_mXr8fD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579855.png"
+          }
+        },
+        "image_TWRNfK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579861.png"
+          }
+        },
+        "image_edLTYa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579864.png"
+          }
+        },
+        "image_WKpJe8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579867.png"
+          }
+        },
+        "image_bbLdLQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579865.png"
+          }
+        }
+      },
+      "block_order": ["image_mXr8fD", "image_TWRNfK", "image_edLTYa", "image_WKpJe8", "image_bbLdLQ"],
+      "settings": {
+        "background_color": "#c9c9f2",
+        "heading_h1": false,
+        "heading_title": "Confident Body Starts Here",
+        "heading_sub_text": "",
+        "heading_text": "",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": true,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": "50,000+ Happy Customers"
       }
     },
     "g_how_to_eLKTmX": {
@@ -278,15 +335,32 @@
       "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
       "name": "Nord How To",
       "settings": {
+        "heading_h1": false,
         "heading_title": "It Works For A Reason",
-        "heading_text": "Indulge in science-backed metabolic support, powered by your body’s natural “un-hunger” hormone"
+        "heading_sub_text": "",
+        "heading_text": "Indulge in science-backed metabolic support, powered by your body’s natural “un-hunger” hormone",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": ""
       }
     },
     "g_journey_jjEicx": {
       "type": "g-journey",
       "name": "Nord Journey",
       "settings": {
+        "heading_h1": false,
         "heading_title": "What Should I Expect from Consistent Use of nordburn©",
+        "heading_sub_text": "",
+        "heading_text": "",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": "",
         "title_1": "2 Months",
         "desc_1": "<p><strong>Results are here - clinical study shows:</strong></p><ul><li>GLP-1 levels +56%</li><li>Weight loss -14%</li><li>Fat loss -27%</li></ul>",
         "title_2": "2 Weeks",
@@ -350,7 +424,16 @@
       "block_order": ["rows_gdRiGy", "rows_i3wjTn", "rows_ezTTC4", "rows_YCdtVJ", "rows_FagKKE"],
       "name": "Nord Table",
       "settings": {
-        "title": "Nordburn Does What Others Don’t",
+        "heading_h1": false,
+        "heading_title": "Nordburn Does What Others Don’t",
+        "heading_sub_text": "",
+        "heading_text": "",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": "",
         "logo": "shopify://shop_images/logo.png",
         "logo_mobile": "shopify://shop_images/1_month.png",
         "others_1": "<p>Generic<br/>Fat Burner</p>",
@@ -407,8 +490,16 @@
       ],
       "name": "Nord Benefits",
       "settings": {
+        "heading_h1": false,
         "heading_title": "Real Benefits. Backed by Science.",
+        "heading_sub_text": "",
         "heading_text": "Clinically studied ingredients.",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": "",
         "image": "shopify://shop_images/benefits.png"
       }
     },
@@ -554,7 +645,16 @@
       ],
       "name": "Nord Reviews",
       "settings": {
-        "title": "You’re Not Alone - 50,000+ Customers Have Already Taken the First Step",
+        "heading_h1": false,
+        "heading_title": "You’re Not Alone - 50,000+ Customers Have Already Taken the First Step",
+        "heading_sub_text": "",
+        "heading_text": "",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": "",
         "cta_top_note": "",
         "cta_text": "SHOP NOW",
         "cta_url": "#product",
@@ -643,8 +743,16 @@
       ],
       "name": "Nord Faq",
       "settings": {
-        "title": "Frequently Asked Questions",
-        "subtitle": "Find the answers you need right here."
+        "heading_h1": false,
+        "heading_title": "Frequently Asked Questions",
+        "heading_sub_text": "",
+        "heading_text": "Find the answers you need right here.",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_stars": "",
+        "heading_ratings_text": ""
       }
     }
   },
@@ -654,6 +762,7 @@
     "g_as_seen_wDWb4x",
     "g_marquee_PHqC9X",
     "g_chart_wzcJn9",
+    "image-slideshow",
     "g_how_to_eLKTmX",
     "g_journey_jjEicx",
     "g_table_UpkEjW",

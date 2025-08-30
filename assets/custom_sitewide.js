@@ -351,17 +351,6 @@ $(document).ready(function () {
     variableWidth: false
   });
 
-  const LPHero = $('.lp-hero__cards');
-  const LPHeroOptions = {
-    infinite: true,
-    dots: true,
-    arrows: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: true,
-    centerMode: true,
-    centerPadding: '40px'
-  };
   const TPReviews = $('.tp-reviews__cards');
   const TPRevewsOptions = {
     infinite: true,
@@ -381,32 +370,8 @@ $(document).ready(function () {
     slidesToShow: 2,
     slidesToScroll: 2
   } : null;
-  const ProductList = $('.pr-list__products.slider');
-  const ProductListOptions = {
-    infinite: true,
-    dots: true,
-    arrows: false,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    centerMode: true,
-    centerPadding: '24px'
-  };
 
-  const BundleBuilder = $('.pdp-main__images .product-images.bundle-builder:not(.thumbnails-mobile)[data-images="all"]');
-  const BundleBuilderOptions = {
-    infinite: false,
-    dots: false,
-    arrows: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    prevArrow: buttons.prevArrow,
-    nextArrow: buttons.nextArrow
-  };
-
-  handleResponsiveCarousel(LPHero, LPHeroOptions, 768);
   handleResponsiveCarousel(TPReviews, TPRevewsOptions, 1024, TPRevewsDesktopOptions);
-  handleResponsiveCarousel(ProductList, ProductListOptions, 768);
-  handleResponsiveCarousel(BundleBuilder, BundleBuilderOptions);
 
 
   // Video reviews --------------------------------------------------------
@@ -440,54 +405,6 @@ $(document).ready(function () {
     e.stopPropagation();
   })
 
-  // Product List for css selector too apply grid column span
-  function initProductListSection() {
-    const $products = $(".pr-list__products:not(.slider) .pr-item__product:not(.Desktop_only)");
-    if ($products.length > 0) {
-      $products.first().addClass("first-product");
-      $products.last().addClass("last-product");
-      if ($products.length == 4) {
-        $products.eq(2).addClass("before-last-product");
-      }
-    }
-  }
-
-  // Why Choose
-  function initWhyChooseSection() {
-    const $icons = $(".why-choose__card-icon"), $title = $(".why-choose__card-title"), $text = $(".why-choose__card-text");
-
-    const updateIcon = ($icon) => {
-      $title.text($icon.data("title"));
-      $text.html($icon.data("text"));
-      $icons.removeClass("active").find("img").removeClass("active").attr("srcset", function () {
-        return $(this).closest(".why-choose__card-icon").data("icon");
-      });
-      $icon.addClass("active").find("img").addClass("active").attr("srcset", $icon.data("icon-active"));
-    };
-
-    updateIcon($icons.first());
-    $icons.on("click", function () { updateIcon($(this)); });
-  }
-
-  // Image Content
-  function initImageContentSection() {
-    $('.image-content:has(.image-content__tabs)').each(function () {
-      const $imageContent = $(this);
-      const $tabs = $imageContent.find('.image-content__tab');
-      if (!$tabs.length) return;
-      const $cards = $imageContent.find('.image-content__card');
-      $tabs.removeClass('active').first().addClass('active');
-      $cards.hide().first().show();
-
-      $tabs.on('click', function () {
-        const tab = $(this).data('tab');
-        $tabs.removeClass('active');
-        $(this).addClass('active');
-        $cards.hide();
-        $cards.filter(`[data-tab="${tab}"]`).show();
-      });
-    });
-  }
 
   // Announcement Timer
   function AnnouncementTimer() {
@@ -523,11 +440,6 @@ $(document).ready(function () {
   if ($('.announcement__timer').length > 0) {
     AnnouncementTimer();
   }
-
-
-  if ($('.pr-list').length > 0) initProductListSection();
-  if ($('.why-choose').length > 0) initWhyChooseSection();
-  if ($('.image-content').length > 0) initImageContentSection();
 
 
   $('.ScrollToProduct').on('click', function (e) {
@@ -586,18 +498,6 @@ $(document).ready(function () {
   handleModal('#size-guide-modal', '.size-guide-trigger-btn'); // Size Guide Modal
 
 
-  // =================== Mega Menu Open on Hover ======================
-  setInterval(() => {
-    const megaMenuOpened = $('.mega-menu[open]').length || $('.header__icon--menu').attr('aria-expanded') === 'true';
-    const $headerGroup = $('.shopify-section-group-header-group');
-
-    if (megaMenuOpened && !$headerGroup.hasClass('menuOpened')) {
-      $headerGroup.addClass('menuOpened');
-    } else if (!megaMenuOpened && $headerGroup.hasClass('menuOpened')) {
-      $headerGroup.removeClass('menuOpened');
-    }
-  }, 50);
-
   // =================== Text Truncation with Read More ======================
   function initTextTruncation(selector, charLimit = 500) {
     if (!$(selector).length) return;
@@ -623,5 +523,4 @@ $(document).ready(function () {
   // Initialize text truncation functionality
   initTextTruncation('.heading-text--read-more');
   initTextTruncation('.testimonials__card-text', 180);
-
 });
