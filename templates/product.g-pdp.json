@@ -300,9 +300,9 @@
             "tag_1": "GLP-1 Increase",
             "tag_2": "Weight Loss",
             "tag_3": "Suppress Appetite",
-            "description": "CQR-300™ is a naturally derived ingredient that supports weight management by blocking fat and carb absorption.",
+            "description": "",
             "question_label": "What Is It?",
-            "question_answer": "<p>CQR-300™ is a naturally derived ingredient that supports weight management by blocking fat and carb absorption.</p><p><strong>What it does?</strong></p><ul><li>GLP-1 levels can be significantly increased</li><li>Inhibition of DPP-4 Activity</li><li>Weight loss aid</li><li>Fat burning support</li><li>Enhanced Satiety and Reduced Calorie Consumption</li></ul>"
+            "question_answer": "<p><strong>What it does?</strong></p><ul><li>GLP-1 levels can be significantly increased</li><li>Inhibition of DPP-4 Activity</li><li>Weight loss aid</li><li>Fat burning support</li><li>Enhanced Satiety and Reduced Calorie Consumption</li></ul>"
           }
         },
         "columns_4RBAfc": {
@@ -313,9 +313,9 @@
             "tag_1": "Blood Sugar",
             "tag_2": "Fat Burning",
             "tag_3": "Curbs Cravings",
-            "description": "Chromium Picolinate is vital for balanced blood sugar levels, insulin sensitivity, and supporting metabolic function through AMPK activation.*",
+            "description": "",
             "question_label": "What Is It?",
-            "question_answer": "<p>Is an essential form of the trace mineral chromium, vital for maintaining balanced blood sugar levels, enhancing insulin sensitivity, and supporting efficient metabolic function through AMPK activation.*</p><p><strong>What it does?</strong></p><ul><li>Supports fat reduction</li><li>Advances body composition</li><li>Improves glucose metabolism</li><li>Lowers blood sugar</li><li>Lowers insulin</li></ul>"
+            "question_answer": "<p><strong>What it does?</strong></p><ul><li>Supports fat reduction</li><li>Advances body composition</li><li>Improves glucose metabolism</li><li>Lowers blood sugar</li><li>Lowers insulin</li></ul>"
           }
         },
         "columns_RcUYbK": {
@@ -326,15 +326,17 @@
             "tag_1": "Digestive Health",
             "tag_2": "Support Intestine",
             "tag_3": "Insulin Sensitivity",
-            "description": "Akkermansia muciniphila is a next-generation probiotic impacting gut lining integrity, GLP-1 production, weight management.",
+            "description": "",
             "question_label": "What Is It?",
-            "question_answer": "<p>Akkermansia muciniphila is a next-generation probiotic celebrated for its positive impact on gut lining integrity, GLP-1 production, weight management, glucose regulation, and overall digestive health. Our advanced formula also features prebiotics that nourish and support the growth and colonization of Akkermansia in your gut.</p><p><strong>What it does?</strong></p><ul><li>Builds stringer gut lining barrier</li><li>Enriches gut microbiome</li><li>Linked to GLP-1 production</li><li>Tightens gut junctions</li><li>Supports healthy metabolism</li><li>Boosts immunity</li></ul>"
+            "question_answer": "<p><strong>What it does?</strong></p><ul><li>Builds stringer gut lining barrier</li><li>Enriches gut microbiome</li><li>Linked to GLP-1 production</li><li>Tightens gut junctions</li><li>Supports healthy metabolism</li><li>Boosts immunity</li></ul>"
           }
         }
       },
       "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
       "name": "Nord How To",
       "settings": {
+        "bg_color": "#F6F6F6",
+        "type": "v2",
         "heading_h1": false,
         "heading_title": "It Works For A Reason",
         "heading_sub_text": "",
