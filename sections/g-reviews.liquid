@@ -15,19 +15,16 @@
     }
 
     .g-review-content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      background: #D6D8F1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding: 25px;
     }
-    
-    .g-review-content {
-        padding: 25px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        background: #D6D8F1;
+    .g-review.expanded .g-review-content {
+      gap: 16px;
     }
-
     .g-review-content > span{
         display: flex;
     }
@@ -52,12 +49,43 @@
         letter-spacing: 0%;
         color: #002F2F;
     }
-
+    .g-review-header {
+      gap: 6px;
+    }
+    .g-review-header-top {
+      gap: 8px;
+    }
+    .g-review-header .g-review-name {
+      font-size: 16px;
+      line-height: 1.3;
+      letter-spacing: 0.2px;
+      text-wrap: nowrap;
+    }
+    .g-review-header-verified {
+      gap: 4px;
+    }
+    .g-review-header-verified img {
+      width: 12px;
+    }
+    .g-review-header-verified p {
+      color: #2A7900;
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: 0%;
+      text-wrap: nowrap;
+    }
+    .g-review-header-location p {
+      color: #323232;
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 0.2px;
+      vertical-align: middle;
+      text-wrap: nowrap;
+    }
     .g-review-image{
         position: relative;
-        padding-top: 120%;
+        padding-top: 100%;
     }
-
     .g-review-image img{
         object-fit: cover;
         height: 100%;
@@ -159,14 +187,23 @@
     }
 
     @media only screen and (max-width: 768px) {
-        .swiper.g-reviews-slider .swiper-slide{
-            max-width: unset;
-        }
-
-        .swiper.g-reviews-slider{
-            padding: 0 10%;
-            margin-top: 50px;
-        }
+      .swiper.g-reviews-slider .swiper-slide{
+          max-width: unset;
+      }
+      .swiper.g-reviews-slider{
+          padding: 0 10%;
+          margin-top: 50px;
+      }
+      .g-review-header .g-review-name {
+        font-size: 14px;
+      }
+      .g-review-header-verified img {
+        width: 12px;
+      }
+      .g-review-header-verified p,
+      .g-review-header-location p {
+        font-size: 12px;
+      }
     }
 </style>
 <div class="g-sections g-reviews">
@@ -178,11 +215,33 @@
             <div class="swiper-wrapper">
                 {% for block in section.blocks %}
                 <div class="swiper-slide">
-                    <div class="g-review">
+                    <div class="g-review {{ ss.reviews_display }}">
                         <div class="g-review-image">
-                            <img src="{{ block.settings.image | image_url: width: "500px" }}" width="" height="" alt="">
+                          {% render 'responsive-image' image: block.settings.image, image_width: 500, custom_alt: block.settings.name %}
                         </div>
                         <div class="g-review-content">
+                          {% if ss.reviews_display == 'expanded' %}
+                            <flex-col class="g-review-header">
+                              <flex class="g-review-header-top">
+                                <span class="g-review-name">{{ block.settings.name }}</span>
+
+                                {% if block.settings.verified %}
+                                  <point class="g-review-header-verified">
+                                    {% if ss.reviews_verified_icon != blank %}
+                                      {% render 'responsive-image' image: ss.reviews_verified_icon, image_width: 40, custom_alt: 'verified' %}
+                                    {% endif %}
+                                    <p>Verified Customer</p>
+                                  </point>
+                                {% endif %}
+                              </flex>
+                              <point class="g-review-header-location">
+                                {% if block.settings.author_location_icon != blank %}
+                                  {% render 'responsive-image' image: block.settings.author_location_icon, image_width: 40, custom_alt: block.settings.author_location %}
+                                {% endif %}
+                                <p>{{ block.settings.author_location }}</p>
+                              </point>
+                            </flex-col>
+                          {% endif %}
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#211948" class="size-4">
                                     <path fill-rule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clip-rule="evenodd"></path>
@@ -201,7 +260,9 @@
                                 </svg>
                             </span>
                             {{ block.settings.content }}
-                            <span class="g-review-name">{{ block.settings.name }}</span>
+                            {% unless ss.reviews_display == 'expanded' %}
+                              <span class="g-review-name">{{ block.settings.name }}</span>
+                            {% endunless %}
                         </div>
                     </div>
                 </div>
@@ -322,7 +383,23 @@
         "id": "heading_ratings_text",
         "label": "Ratings Text",
         "visible_if": "{{ section.settings.heading_ratings }}"
-      },  {
+      }, {
+        "type": "header",
+        "content": "Reviews"
+      }, {
+        "type": "select",
+        "id": "reviews_display",
+        "label": "Reviews Display",
+        "default": "",
+        "options": [
+          { "value": "", "label": "Default" },
+          { "value": "expanded", "label": "Expanded" }
+        ]
+      }, {
+        "type": "image_picker",
+        "id": "reviews_verified_icon",
+        "label": "Reviews Verified Icon"
+      }, {
         "type": "header",
         "content": "CTA"
       }, {
@@ -380,16 +457,28 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          },
-          {
+          }, {
             "type": "richtext",
             "id": "content",
             "label": "Content"
-          },
-          {
+          }, {
             "type": "text",
             "id": "name",
             "label": "Name"
+          }, {
+            "type": "image_picker",
+            "id": "author_location_icon",
+            "label": "Author Location Icon"
+          }, {
+            "type": "text",
+            "id": "author_location",
+            "label": "Author Location",
+            "default": "Trenton, NJ"
+          }, {
+            "type": "checkbox",
+            "id": "verified",
+            "label": "Verified Color",
+            "default": true
           }
         ]
       }
