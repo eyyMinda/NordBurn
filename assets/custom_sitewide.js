@@ -135,70 +135,75 @@ $(document).ready(function () {
   }
 
   const testimonials = $('.testimonials__cards');
-  testimonials.slick({
-    autoplay: testimonials.hasClass('slick-autoplay') ? true : false,
-    infinite: true,
-    slidesToShow: testimonials.hasClass('vertical') ? 4 : 2,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '40px',
-    arrows: true,
-    dots: true,
-    prevArrow: buttons.prevArrow,
-    nextArrow: buttons.nextArrow,
-    responsive: [
-      ...(
-        testimonials.hasClass('vertical')
-          ? [
-            {
-              breakpoint: 1280,
-              settings: {
-                slidesToShow: 3,
+  if (testimonials.length) {
+    testimonials.slick({
+      autoplay: testimonials.hasClass('slick-autoplay') ? true : false,
+      infinite: true,
+      slidesToShow: testimonials.hasClass('vertical') ? 4 : 2,
+      slidesToScroll: 1,
+      centerMode: true,
+      centerPadding: '40px',
+      arrows: true,
+      dots: true,
+      prevArrow: buttons.prevArrow,
+      nextArrow: buttons.nextArrow,
+      responsive: [
+        ...(
+          testimonials.hasClass('vertical')
+            ? [
+              {
+                breakpoint: 1280,
+                settings: {
+                  slidesToShow: 3,
+                }
+              },
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                }
               }
-            },
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 2,
-              }
-            }
-          ]
-          : []
-      ),
-      {
-        breakpoint: 678,
-        settings: {
-          slidesToShow: 1,
-          centerPadding: '30px'
+            ]
+            : []
+        ),
+        {
+          breakpoint: 678,
+          settings: {
+            slidesToShow: 1,
+            centerPadding: '30px'
+          }
         }
-      }
-    ]
-  });
+      ]
+    });
+  }
 
-  $('.video-reviews__wrapper').slick({
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: true,
-    variableWidth: true,
-    prevArrow: buttons.prevArrow,
-    nextArrow: buttons.nextArrow,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 2,
+  const videoReviews = $('.video-reviews__wrapper');
+  if (videoReviews.length) {
+    videoReviews.slick({
+      infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      dots: true,
+      variableWidth: true,
+      prevArrow: buttons.prevArrow,
+      nextArrow: buttons.nextArrow,
+      responsive: [
+        {
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 678,
+          settings: {
+            slidesToShow: 1
+          }
         }
-      },
-      {
-        breakpoint: 678,
-        settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  });
+      ]
+    });
+  }
 
   const interstitialCardCarousels = $('.col-interstitial__cards.slick-progress');
   interstitialCardCarousels.each(function () {
@@ -444,7 +449,7 @@ $(document).ready(function () {
 
   $('.ScrollToProduct').on('click', function (e) {
     e.preventDefault();
-    const offsetTop = $('#product-main').offset().top - 160;
+    const offsetTop = $('#product').offset().top - 160;
     $('html, body').animate({
       scrollTop: offsetTop
     }, 600);
