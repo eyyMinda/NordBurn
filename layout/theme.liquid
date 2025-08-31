@@ -104,6 +104,10 @@
     </script>
 
 
+    <script src="{{ 'jquery-3.7.1.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+    {{ 'slick.min.css' | asset_url | stylesheet_tag }}
+    
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -111,7 +115,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
+    {{ 'custom_global.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'custom_sitewide.js' | asset_url }}" defer="defer"></script>
     {{ 'g-styles.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'dev-mode.js' | asset_url }}" defer="defer"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

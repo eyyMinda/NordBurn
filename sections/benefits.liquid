@@ -1,0 +1,452 @@
+{% liquid
+  assign ss = section.settings
+  assign sc = section.id | prepend: '#shopify-section-'
+  assign benefits = section.blocks | where: 'type', 'benefit'
+
+  assign limit = 3
+  assign offset = 3
+  if ss.image_bg
+    assign limit = 6
+    assign offset = 0
+  endif
+%}
+
+{%- capture section_content -%}
+<style>
+  {{ sc }} .benefits {
+    max-width: 1660px;
+    position: relative;
+    padding: 36px 10px 48px;
+    margin: auto;
+    z-index: 2;
+  }
+  {{ sc }} .benefits .heading-wrapper {
+    max-width: {{ ss.heading_max_w_mb }}px;
+    color: {{ ss.heading_color }};
+    margin-inline: auto;
+    padding: 0;
+    {% if ss.image_bg %}
+      margin-bottom: 300px;
+    {% endif %}
+  }
+  {{ sc }} .benefits__image {
+    max-width: 280px;
+    width: 100%;
+    display: block;
+    vertical-align: bottom;
+    object-fit: contain;
+    object-position: center;
+    margin: 24px auto;
+  }
+  {{ sc }} .benefits__blocks-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  {{ sc }} .benefits__blocks {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 16px;
+    margin-inline: auto;
+  }
+  {{ sc }} .benefits__block {
+    max-width: 340px;
+    width: 100%;
+    background: {{ ss.benefit_bg_color | default: 'transparent' }};
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+  }
+  {{ sc }} .benefits__block-content-header {
+    align-items: center;
+    gap: 8px 12px;
+  }
+  {{ sc }} .benefits__block-content-header.flex-col {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  {{ sc }} .benefits__block-image {
+    width: 24px;
+    flex: none;
+  }
+  {{ sc }} .benefits__block-content-header.flex-col .benefits__block-image {
+    width: 48px;
+  }
+  {{ sc }} .benefits__block-image img {
+    width: 100%;
+    height: auto;
+  }
+  {{ sc }} .benefits__block-title {
+    color: #060346;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0;
+  }
+  {{ sc }} .benefits__block-text {
+    color: #060346;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    margin-block: 12px 0;
+  }
+  {{ sc }} .benefits .main-cta-wrapper {
+    margin-top: 24px;
+  }
+  @media screen and (min-width: 540px) {
+    {{ sc }} .benefits__blocks-wrapper {
+      flex-direction: row;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    {{ sc }} .benefits__blocks-wrapper {
+      flex-direction: row;
+    }
+    {{ sc }} .benefits__blocks {
+      {% if ss.image_bg %}
+        grid-template-columns: 1fr 1fr;
+      {% endif %}
+      gap: 24px 54px;
+    }
+    {{ sc }} .benefits__block {
+      max-width: 420px;
+    }
+    {{ sc }} .benefits__heading {
+      max-width: {{ ss.heading_max_w }}px;
+      font-size: 40px;
+      letter-spacing: -0.01em;
+      margin-bottom: 50px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    {{ sc }} .benefits {
+      padding: 48px 56px 64px;
+    }
+    {{ sc }} .benefits__block-image {
+      width: 32px;
+    }
+    {{ sc }} .benefits__block-content-header.flex-col .benefits__block-image {
+      width: 64px;
+    }
+    {{ sc }} .benefits__block-title {
+      font-size: 20px;
+    }
+    {{ sc }} .benefits__block-text {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    {{ sc }} .benefits__blocks {
+      gap: 54px 200px;
+    }
+  }
+  {{ sc }} {
+    {% if ss.image_bg %}
+    background-image: url("{{ ss.image | image_url: width: 2000 }}");
+    {% else %}
+      background: {{ ss.bg_color | default: '#ffffff' }};
+    {% endif %}
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  {% if ss.image_bg %}
+    @media screen and (max-width: 768px) {
+      {{ sc }} {
+        background-image: url("{{ ss.image_mb | default: ss.image | image_url: width: 1000 }}");
+      }
+    }
+  {% else %}
+    @media screen and (max-width: 768px) {
+      {{ sc }} {
+        background: {{ ss.bg_color | default: '#ffffff' }};
+      }
+    }
+  {% endif %}
+</style>
+
+<div class="benefits">
+  {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+  ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
+
+  {% unless ss.image_bg %}
+    {% render 'responsive-image' image: ss.image, image_width: 800, custom_alt: ss.heading, class: 'benefits__image Mobile_only' %}
+  {% endunless %}
+
+  <div class="benefits__blocks-wrapper">
+    <div class="benefits__blocks">
+      {% for benefit in benefits limit: limit %}
+        {% assign icon = benefit.settings.image %}
+        {% if ss.benefits_icon_display == 'group' and ss.benefits_icon != blank %}
+          {% assign icon = ss.benefits_icon %}
+        {% endif %}
+        {% capture block_image %}
+          <div class="benefits__block-image">
+            {% render 'responsive-image' image: icon, image_width: 80, custom_alt: 'icon' %}
+          </div>
+        {% endcapture %}
+        <div class="benefits__block">
+          {% if icon != blank and ss.block_image_position == 'content-inline' %}
+            {{ block_image }}
+          {% endif %}
+          
+          <div class="benefits__block-content">
+            <flex class="benefits__block-content-header{% if ss.block_image_position == 'content-top' %} flex-col{% endif %}">
+              {% if icon != blank %}
+                {% if  ss.block_image_position == 'title-inline' or ss.block_image_position == 'content-top' %}
+                  {{ block_image }}
+                {% endif %}
+              {% endif %}
+              <h4 class="benefits__block-title">{{ benefit.settings.title }}</h4>
+            </flex>
+            <p class="benefits__block-text">{{ benefit.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    
+    {% unless ss.image_bg %}
+      {% render 'responsive-image' image: ss.image, image_width: 800, custom_alt: ss.heading, class: 'benefits__image Desktop_only' %}
+
+      <div class="benefits__blocks">
+        {% for benefit in benefits offset: offset limit: limit %}
+          {% assign icon = benefit.settings.image %}
+          {% if ss.benefits_icon_display == 'group' and ss.benefits_icon != blank %}
+            {% assign icon = ss.benefits_icon %}
+          {% endif %}
+          {% capture block_image %}
+            <div class="benefits__block-image">
+              {% render 'responsive-image' image: icon, image_width: 80, custom_alt: 'icon' %}
+            </div>
+          {% endcapture %}
+          <div class="benefits__block">
+            {% if icon != blank and ss.block_image_position == 'content-inline' %}
+              {{ block_image }}
+            {% endif %}
+            
+            <div class="benefits__block-content">
+              <flex class="benefits__block-content-header{% if ss.block_image_position == 'content-top' %} flex-col{% endif %}">
+                {% if icon != blank %}
+                  {% if  ss.block_image_position == 'title-inline' or ss.block_image_position == 'content-top' %}
+                    {{ block_image }}
+                  {% endif %}
+                {% endif %}
+                <h4 class="benefits__block-title">{{ benefit.settings.title }}</h4>
+              </flex>
+              <p class="benefits__block-text">{{ benefit.settings.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endunless %}
+  </div>
+
+  {% if ss.cta %}
+    {% render 'main-cta', text: ss.cta_text, link: ss.cta_url, type: ss.cta_type, action: ss.cta_action, arrow: ss.cta_arrow,
+     variant_id: product.selected_or_first_available_variant.id, note_icon: ss.cta_note_icon, note_text: ss.cta_note_text %}
+  {% endif %}
+</div>
+{%- endcapture -%}
+
+{{- section_content | remove: '  ' | strip_newlines -}}
+
+{% schema %}
+  {
+    "name": "Benefits",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color"
+      }, {
+        "type": "color",
+        "id": "benefit_bg_color",
+        "label": "Benefit Background Color"
+      }, {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
+        "type": "text",
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "Real Benefits. Backed by Science."
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "Clinically studied ingredients."
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }, {
+        "type": "image_picker",
+        "id": "image_mb",
+        "label": "Image Mobile"
+      }, {
+        "type": "checkbox",
+        "id": "image_bg",
+        "label": "Image is Background",
+        "default": true
+      }, {
+        "type": "select",
+        "id": "block_image_position",
+        "label": "Block Image Position",
+        "options": [
+          { "value": "content-inline", "label": "Content Inline" },
+          { "value": "content-top", "label": "Content Top" },
+          { "value": "title-inline", "label": "Title Inline" }
+        ],
+        "default": "title-inline"
+      }, {
+        "type": "select",
+        "id": "benefits_icon_display",
+        "label": "Benefits Icon Display",
+        "options": [
+          { "value": "individual", "label": "Individual" },
+          { "value": "group", "label": "Group" }
+        ],
+        "default": "group"
+      }, {
+        "type": "image_picker",
+        "id": "benefits_icon",
+        "label": "Benefits Icon",
+        "info": "If you select 'Group', this image will be displayed in the benefits blocks, otherwise it will use the individual benefits blocks icon"
+      }, {
+        "type": "header",
+        "content": "CTA"
+      }, {
+        "type": "checkbox",
+        "id": "cta",
+        "label": "Show CTA",
+        "default": true
+      }, {
+        "type": "select",
+        "id": "cta_action",
+        "label": "CTA Action",
+        "default": "",
+        "options": [
+          { "value": "", "label": "Link" },
+          { "value": "atc", "label": "Add to Cart" },
+          { "value": "scroll", "label": "Scroll to Product" }
+        ]
+      }, {
+        "type": "select",
+        "id": "cta_type",
+        "label": "CTA Type",
+        "default": "accent",
+        "options": [
+          { "value": "", "label": "Light" },
+          { "value": "dark", "label": "Dark" },
+          { "value": "accent", "label": "Accent" }
+        ]
+      }, {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Get My GLP-1 BOOSTER"
+      }, {
+        "type": "checkbox",
+        "id": "cta_arrow",
+        "label": "CTA Arrow",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "cta_note_icon",
+        "label": "CTA Note Icon"
+      }, {
+        "type": "text",
+        "id": "cta_note_text",
+        "label": "CTA Note Text",
+        "default": "safe & secure checkout"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "benefit",
+        "name": "Benefit",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Icon"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Boosts Energy and Stamina"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "Provides a natural, sustained energy boost by enhancing ATP production, helping you power through your day without crashes."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Benefits",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

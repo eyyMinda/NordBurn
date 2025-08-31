@@ -1,6 +1,10 @@
+{% assign ss = section.settings %}
 <style>
     .g-faq{
         background: linear-gradient(180deg, #FFFFFF 0%, #D7D9F2 100%);
+    }
+    .g-faq .heading-wrapper {
+        padding: 0;
     }
 
     .g-q-content{
@@ -24,16 +28,6 @@
     .g-question-header svg{
         width: 20px;
     }
-
-    .g-faq h2{
-        text-align: center;
-        font-weight: 400;
-        font-size: 45px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        color: #060346;
-    }
-
     .g-question{
         background: #fff;
         border: 2px solid #00000033;
@@ -61,23 +55,6 @@
         max-height: 2000px;
         padding: 0 20px 20px 20px;
     }
-
-    .g-q-title h2{
-        font-size: 60px;
-        line-height: 106%;
-        margin: 0 0 20px 0;
-    }
-
-    .g-faq-sub{
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 130%;
-        letter-spacing: 0%;
-        text-align: center;
-        margin-top: 35px;
-        color: #060346;
-    }
-
     .g-question-header > span{
         width: 28px;
         height: 28px;
@@ -106,21 +83,13 @@
     }
 
     @media only screen and (max-width: 768px) {
-        .g-faq h2{
-            font-size: 28px;
-        }
-
         .g-questions-wrap{
             flex-direction: column;
             gap: 20px;
         }
 
-        .g-q-title, .g-q-content{
+        .g-q-content{
             width: 100%;
-        }
-
-        .g-q-title h2{
-            font-size: 30px;
         }
 
         .g-question-header{
@@ -136,12 +105,6 @@
         .g-questions{
             padding: 20px;
         }
-
-        .g-faq-sub{
-            margin-top: 24px;
-            font-size: 16px;
-        }
-
         .g-q-content{
             margin-top: 40px;
         }
@@ -153,8 +116,8 @@
 </style>
 <div class="g-faq g-sections">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
-        <p class="g-faq-sub">{{ section.settings.subtitle }}</p>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
         <div class="g-q-content">
             {% for block in section.blocks %}
@@ -180,6 +143,7 @@
         </div>
     </div>
 </div>
+
 <script>
     document.querySelectorAll(".g-question").forEach(question => {
         question.addEventListener("click", function(){
@@ -193,15 +157,73 @@
   {
     "name": "Nord Faq",
     "settings": [
-      {
+        {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "Frequently Asked Questions"
+      }, {
         "type": "text",
-        "id": "subtitle",
-        "label": "Sub Title"
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "Find the answers you need right here."
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
       }
     ],
     "blocks": [

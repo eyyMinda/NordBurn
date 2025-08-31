@@ -41,61 +41,12 @@
     "g_product_information_TTd6Rh": {
       "type": "g-product-information",
       "blocks": {
-        "benefit_LGKQm8": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shopify://shop_images/rocket_6463165_1.svg",
-            "text": "Boost GLP-1 levels by up to +56%"
-          }
-        },
-        "benefit_7C4RbD": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shopify://shop_images/belly_7809034_1.svg",
-            "text": "Lose up to -14% of weight within 12 weeks"
-          }
-        },
-        "benefit_qt38ta": {
-          "type": "benefit",
-          "settings": {
-            "icon": "shopify://shop_images/fat_11827916_1.svg",
-            "text": "Burn up to -27% of body fat within 12 weeks"
-          }
-        },
-        "comparison_kCV9eD": {
-          "type": "comparison",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579774.png"
-          }
-        },
-        "comparison_gTBwLw": {
-          "type": "comparison",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579775.png"
-          }
-        },
-        "comparison_gqEd8N": {
-          "type": "comparison",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579774_1.png"
-          }
-        },
-        "comparison_EnEqFW": {
-          "type": "comparison",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579775_1.png"
-          }
-        },
         "reviews_BGkz6i": {
           "type": "reviews",
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-15_at_11.43.27.png",
-            "review_text": "I was at my wit’s end after trying Ozempic and endless diets - nothing worked, and the side effects were unbearable. Nordburn's GLP-1 Booster is the only thing that’s actually made a difference. In 9 weeks, I dropped two dress sizes and, for the first time in years, feel genuinely in control of my body.",
-            "name": "Jenny L.",
-            "review_stars_pos": "top",
-            "author_country_icon": "shopify://shop_images/circle-flags_us.svg",
-            "verified_color": "#2a7900",
-            "author_details_inline": "inline"
+            "review_text": "I was at my wit’s end after trying Ozempic and endless diets – nothing worked, and the side effects were unbearable. Nordburn's GLP-1 Booster is the only thing that’s actually made a difference. In 9 weeks, I dropped two dress sizes and, for the first time in years, feel genuinely in control of my body.",
+            "name": "Jenny L."
           }
         },
         "dropdowns_PQ7EGV": {
@@ -127,26 +78,13 @@
           }
         }
       },
-      "block_order": [
-        "benefit_LGKQm8",
-        "benefit_7C4RbD",
-        "benefit_qt38ta",
-        "comparison_kCV9eD",
-        "comparison_gTBwLw",
-        "comparison_gqEd8N",
-        "comparison_EnEqFW",
-        "reviews_BGkz6i",
-        "dropdowns_PQ7EGV",
-        "dropdowns_bTdbKe",
-        "dropdowns_DrUrnN",
-        "dropdowns_kdbyyi"
-      ],
+      "block_order": ["reviews_BGkz6i", "dropdowns_PQ7EGV", "dropdowns_bTdbKe", "dropdowns_DrUrnN", "dropdowns_kdbyyi"],
       "name": "Nord Product Information",
       "settings": {
         "product": "",
         "top_note": "",
         "ratings": "<p>Excellent <strong>4.9/5</strong> | <strong>50,000+ </strong>bottles sold</p>",
-        "short_desc": "<p><strong>Clinically proven ingredients help:</strong></p>",
+        "short_desc": "<p>Clinically proven ingredients help:</p>",
         "list_icon_1": "Boost GLP-1 levels by up to +56%",
         "list_icon_2": "Lose up to -14% of weight within 12 weeks",
         "list_icon_3": "Burn up to -27% of body fat within 12 weeks",
@@ -154,17 +92,13 @@
         "sub_lists": "<ul><li>Free Shipping Always</li><li>Cancel Anytime</li><li>20% Monthly Savings</li><li>Priority Refill Access</li></ul>",
         "image_1": "shopify://shop_images/boostglp.png",
         "image_2": "shopify://shop_images/bodyfat-nordburn.png",
-        "selector_bg_color": "#f6f6f6",
-        "variants_selector_label": "Choose Your Bundle:",
-        "methods_selector_label": "Choose Your Plan:",
-        "variants_radio": true,
-        "save_tag_after_title": false,
-        "atc_rounded": true,
-        "below_atc_content_icon": "shopify://shop_images/bx_lock-alt.svg",
+        "variants_radio": false,
+        "save_tag_after_title": true,
+        "atc_rounded": false,
+        "below_atc_content_icon": "shopify://shop_images/lock.png",
         "below_atc_content_text": "safe & secure checkout",
-        "below_atc_content_payments": "shopify://shop_images/Container.png",
-        "accordion_icon": "circle-checkmark",
-        "comparisons_title": "What Our Clients Achieved Using nordburn© GLP-1 Booster"
+        "below_atc_content_payments": "shopify://shop_images/btn_payments.png",
+        "accordion_icon": "checkmark"
       }
     },
     "g_as_seen_wDWb4x": {
@@ -198,8 +132,6 @@
       "block_order": ["marquee_kVcyam", "marquee_Qfp6BQ", "marquee_fRgXMK", "marquee_rgk69G"],
       "name": "G As Seen",
       "settings": {
-        "bg_color": "#c9c9f2",
-        "title_inline": true,
         "title": "As Seen In:"
       }
     },
@@ -247,58 +179,18 @@
       "name": "G Marquee",
       "settings": {}
     },
-    "g_chart_v2": {
-      "type": "g-chart-v2",
-      "settings": {}
-    },
-    "image-slideshow": {
-      "type": "image-slideshow",
-      "blocks": {
-        "image_mXr8fD": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579855.png"
-          }
-        },
-        "image_TWRNfK": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579861.png"
-          }
-        },
-        "image_edLTYa": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579864.png"
-          }
-        },
-        "image_WKpJe8": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579867.png"
-          }
-        },
-        "image_bbLdLQ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1484579865.png"
-          }
-        }
-      },
-      "block_order": ["image_mXr8fD", "image_TWRNfK", "image_edLTYa", "image_WKpJe8", "image_bbLdLQ"],
+    "g_chart_wzcJn9": {
+      "type": "g-chart",
+      "name": "Nord Chart",
       "settings": {
-        "background_color": "#c9c9f2",
-        "speed": 10,
-        "heading_h1": false,
-        "heading_title": "Confident Body Starts Here",
-        "heading_sub_text": "",
-        "heading_text": "",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": true,
-        "heading_ratings_stars": "shopify://shop_images/Frame_1484579709.png",
-        "heading_ratings_text": "50,000+ Happy Customers"
+        "title": "Your Transformation Starts Here",
+        "subtitle": "Slide your weight and find out how much weight you could lose over 3 months.",
+        "q1_label": "What's your current weight?",
+        "q2_label": "How tall are you?",
+        "fat_label": "FAT LOSS ZONE",
+        "bmi_1": "Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use",
+        "bmi_2": "You’re already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance",
+        "bmi_3": "Based on clinical trials, you could lose up to 14% of your body weight in 3 months you could lose up to"
       }
     },
     "g_how_to_eLKTmX": {
@@ -312,9 +204,9 @@
             "tag_1": "GLP-1 Increase",
             "tag_2": "Weight Loss",
             "tag_3": "Suppress Appetite",
-            "description": "",
+            "description": "CQR-300™ is a naturally derived ingredient that supports weight management by blocking fat and carb absorption.",
             "question_label": "What Is It?",
-            "question_answer": "<p><strong>What it does?</strong></p><ul><li>GLP-1 levels can be significantly increased</li><li>Inhibition of DPP-4 Activity</li><li>Weight loss aid</li><li>Fat burning support</li><li>Enhanced Satiety and Reduced Calorie Consumption</li></ul>"
+            "question_answer": "<p>CQR-300™ is a naturally derived ingredient that supports weight management by blocking fat and carb absorption.</p><p><strong>What it does?</strong></p><ul><li>GLP-1 levels can be significantly increased</li><li>Inhibition of DPP-4 Activity</li><li>Weight loss aid</li><li>Fat burning support</li><li>Enhanced Satiety and Reduced Calorie Consumption</li></ul>"
           }
         },
         "columns_4RBAfc": {
@@ -325,9 +217,9 @@
             "tag_1": "Blood Sugar",
             "tag_2": "Fat Burning",
             "tag_3": "Curbs Cravings",
-            "description": "",
+            "description": "Chromium Picolinate is vital for balanced blood sugar levels, insulin sensitivity, and supporting metabolic function through AMPK activation.*",
             "question_label": "What Is It?",
-            "question_answer": "<p><strong>What it does?</strong></p><ul><li>Supports fat reduction</li><li>Advances body composition</li><li>Improves glucose metabolism</li><li>Lowers blood sugar</li><li>Lowers insulin</li></ul>"
+            "question_answer": "<p>Is an essential form of the trace mineral chromium, vital for maintaining balanced blood sugar levels, enhancing insulin sensitivity, and supporting efficient metabolic function through AMPK activation.*</p><p><strong>What it does?</strong></p><ul><li>Supports fat reduction</li><li>Advances body composition</li><li>Improves glucose metabolism</li><li>Lowers blood sugar</li><li>Lowers insulin</li></ul>"
           }
         },
         "columns_RcUYbK": {
@@ -338,55 +230,33 @@
             "tag_1": "Digestive Health",
             "tag_2": "Support Intestine",
             "tag_3": "Insulin Sensitivity",
-            "description": "",
+            "description": "Akkermansia muciniphila is a next-generation probiotic impacting gut lining integrity, GLP-1 production, weight management.",
             "question_label": "What Is It?",
-            "question_answer": "<p><strong>What it does?</strong></p><ul><li>Builds stringer gut lining barrier</li><li>Enriches gut microbiome</li><li>Linked to GLP-1 production</li><li>Tightens gut junctions</li><li>Supports healthy metabolism</li><li>Boosts immunity</li></ul>"
+            "question_answer": "<p>Akkermansia muciniphila is a next-generation probiotic celebrated for its positive impact on gut lining integrity, GLP-1 production, weight management, glucose regulation, and overall digestive health. Our advanced formula also features prebiotics that nourish and support the growth and colonization of Akkermansia in your gut.</p><p><strong>What it does?</strong></p><ul><li>Builds stringer gut lining barrier</li><li>Enriches gut microbiome</li><li>Linked to GLP-1 production</li><li>Tightens gut junctions</li><li>Supports healthy metabolism</li><li>Boosts immunity</li></ul>"
           }
         }
       },
       "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
       "name": "Nord How To",
       "settings": {
-        "bg_color": "#f6f6f6",
-        "type": "v2",
-        "heading_h1": false,
-        "heading_title": "It Works For A Reason",
-        "heading_sub_text": "",
-        "heading_text": "Indulge in science-backed metabolic support, powered by your body’s natural “un-hunger” hormone",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": ""
+        "title": "How It Works?",
+        "subtitle": "Indulge in science-backed metabolic support, powered by your body’s natural “un-hunger” hormone"
       }
     },
     "g_journey_jjEicx": {
       "type": "g-journey",
       "name": "Nord Journey",
       "settings": {
-        "heading_h1": false,
-        "heading_title": "What Should I Expect from Consistent Use of nordburn©",
-        "heading_sub_text": "",
-        "heading_text": "",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": "",
-        "display_type": "horizontal",
-        "floating_image": "shopify://shop_images/ChatGPT_Image_Aug_6_2025_at_10_29_58_PM_1.png",
-        "icon_1": "shopify://shop_images/calendar_55281_1.svg",
-        "title_1": "2 Weeks",
-        "desc_1": "<p><strong>Blood sugar starts to drop.</strong></p><p>Appetite suppression and cravings control begins.</p>",
-        "icon_2": "shopify://shop_images/calendar_55281_1.svg",
-        "title_2": "2 Months",
-        "desc_2": "<p><strong>Results are here - clinical study shows:</strong><br/></p><ul><li>GLP-1 levels +56%</li><li>Weight loss -14%</li><li>Fat loss -27%</li></ul>",
-        "icon_3": "shopify://shop_images/calendar_55281_1.svg",
+        "title": "What should I expect from consistent use of Nordburn",
+        "subtitle": "",
+        "title_1": "2 Months",
+        "desc_1": "<p><strong>Results are here - clinical study shows:</strong></p><ul><li>GLP-1 levels +56%</li><li>Weight loss -14%</li><li>Fat loss -27%</li></ul>",
+        "title_2": "2 Weeks",
+        "desc_2": "<p><strong>Blood sugar starts to drop.</strong> Appetite suppression and cravings control begins.</p>",
         "title_3": "",
         "desc_3": "",
-        "icon_4": "shopify://shop_images/calendar_55281_1.svg",
         "title_4": "6 Months",
-        "desc_4": "<p><strong>Steady, stable and reliable results</strong></p><p>for a long term. Continuing to be your best self.</p>",
+        "desc_4": "<p><strong>Steady, stable and reliable results</strong> for a long term. Continuing to be your best self.</p>",
         "cta": true,
         "cta_action": "",
         "cta_type": "accent",
@@ -441,105 +311,15 @@
         }
       },
       "block_order": ["rows_gdRiGy", "rows_i3wjTn", "rows_ezTTC4", "rows_YCdtVJ", "rows_FagKKE"],
-      "custom_css": [".g-table {background: #fff;}"],
       "name": "Nord Table",
       "settings": {
-        "heading_h1": false,
-        "heading_title": "nordburn© Does What Others Don’t",
-        "heading_sub_text": "",
-        "heading_text": "",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": "",
-        "display_type": "v2",
+        "title": "Nordburn Does What Others Don’t",
         "logo": "shopify://shop_images/logo.png",
+        "logo_mobile": "shopify://shop_images/1_month.png",
         "others_1": "<p>Generic<br/>Fat Burner</p>",
         "others_1_image": "shopify://shop_images/generic_fat_burner.png",
         "others_2": "<p>Ozempic <br/>/Injections</p>",
         "others_2_image": "shopify://shop_images/ozempic-injections.png"
-      }
-    },
-    "benefits": {
-      "type": "benefits",
-      "blocks": {
-        "benefit_pkMhHc": {
-          "type": "benefit",
-          "settings": {
-            "title": "Lose Weight",
-            "text": "Naturally burn fat and support sustainable weight loss."
-          }
-        },
-        "benefit_qDzMUG": {
-          "type": "benefit",
-          "settings": {
-            "title": "Reduce Caloric Intake",
-            "text": "Eat less effortlessly by controlling appetite naturally."
-          }
-        },
-        "benefit_HDw4yA": {
-          "type": "benefit",
-          "settings": {
-            "title": "Increase GLP-1 Levels",
-            "text": "Boost GLP‑1 to enhance metabolism and fat burning."
-          }
-        },
-        "benefit_k7wH7R": {
-          "type": "benefit",
-          "settings": {
-            "title": "Lower Blood Sugar",
-            "text": "Maintain healthy glucose levels and support metabolic health."
-          }
-        },
-        "benefit_AcKLxh": {
-          "type": "benefit",
-          "settings": {
-            "title": "Reduce Hunger and Cravings",
-            "text": "Feel satisfied longer and curb unwanted snacking."
-          }
-        },
-        "benefit_jY9AtW": {
-          "type": "benefit",
-          "settings": {
-            "title": "Reduce Bad Cholesterol (LDL)",
-            "text": "Support heart health by lowering harmful LDL levels."
-          }
-        }
-      },
-      "block_order": [
-        "benefit_pkMhHc",
-        "benefit_qDzMUG",
-        "benefit_HDw4yA",
-        "benefit_k7wH7R",
-        "benefit_AcKLxh",
-        "benefit_jY9AtW"
-      ],
-      "settings": {
-        "bg_color": "#d7d9f2",
-        "benefit_bg_color": "",
-        "heading_h1": false,
-        "heading_title": "Real Benefits. Backed by Science.",
-        "heading_sub_text": "",
-        "heading_text": "Clinically studied ingredients.",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": "",
-        "image": "shopify://shop_images/Untitled_design-5_1.png",
-        "image_mb": "shopify://shop_images/Untitled_design-5_1.png",
-        "image_bg": false,
-        "block_image_position": "title-inline",
-        "benefits_icon_display": "group",
-        "benefits_icon": "shopify://shop_images/gridicons_checkmark.svg",
-        "cta": true,
-        "cta_action": "scroll",
-        "cta_type": "accent",
-        "cta_text": "Get My GLP-1 BOOSTER",
-        "cta_arrow": true,
-        "cta_note_icon": "shopify://shop_images/bx_lock-alt.svg",
-        "cta_note_text": "safe & secure checkout"
       }
     },
     "g_benefits_LRpXcJ": {
@@ -549,35 +329,35 @@
           "type": "image-text",
           "settings": {
             "content": "100% Vegan",
-            "icon": "shopify://shop_images/diet_1717164_1.png"
+            "icon": "shopify://shop_images/benefit_icon_1.png"
           }
         },
         "image_text_XwmyAB": {
           "type": "image-text",
           "settings": {
             "content": "Blended in USA",
-            "icon": "shopify://shop_images/usa_1098484_1.png"
+            "icon": "shopify://shop_images/benefit_icon_2.png"
           }
         },
         "image_text_dzzX4r": {
           "type": "image-text",
           "settings": {
             "content": "Lab Tested",
-            "icon": "shopify://shop_images/flask_16681501_1.png"
+            "icon": "shopify://shop_images/benefit_icon_3.png"
           }
         },
         "image_text_9d6Ubb": {
           "type": "image-text",
           "settings": {
             "content": "Gluten Free",
-            "icon": "shopify://shop_images/gluten-free_4807758_1.png"
+            "icon": "shopify://shop_images/benefit_icon_4.png"
           }
         },
         "image_text_ikKJUM": {
           "type": "image-text",
           "settings": {
             "content": "Non-GMO",
-            "icon": "shopify://shop_images/no-gmo_4842019_1.png"
+            "icon": "shopify://shop_images/benefit_icon_5.png"
           }
         }
       },
@@ -588,22 +368,11 @@
         "image_text_9d6Ubb",
         "image_text_ikKJUM"
       ],
-      "custom_css": [
-        ".g-benefits {background-color: #c9c9f2; padding: 24px 16px;}",
-        ".g-benefits-icons {max-width: 1024px; justify-content: space-evenly; margin-inline: auto;}",
-        "@media (min-width: 768px) {.g-benefits {padding: 24px 20px; }}"
-      ],
       "name": "Nord Benefits",
       "settings": {
-        "heading_h1": false,
-        "heading_title": "",
-        "heading_sub_text": "",
-        "heading_text": "",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": ""
+        "title": "Real Benefits. Backed by Science.",
+        "subtitle": "clinically studied ingredients.",
+        "image": "shopify://shop_images/benefits.png"
       }
     },
     "g_real_people_JtFFHU": {
@@ -694,10 +463,7 @@
           "settings": {
             "image": "shopify://shop_images/4d484d6af69329f936d58977b69438c3588edf7b.png",
             "content": "<p>\"I was skeptical at first because nothing seemed to work for me - not even the so-called miracle weight loss meds. But Nordburn's GLP1Booster has been amazing. In 6 weeks, I'm down 18 pounds and finally seeing results 🙏\"</p>",
-            "name": "Deborah C.",
-            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
-            "author_location": "Trenton, NJ",
-            "verified": true
+            "name": "Deborah C."
           }
         },
         "reviews_XWGUct": {
@@ -705,10 +471,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-15_at_11.36.23.png",
             "content": "<p>\"My biggest struggle was emotional eating, especially in the evenings. Since starting Nordburn's GLP-1 Booster, my cravings are practically non-existent. It’s the support I needed to stay consistent without feeling deprived\"</p>",
-            "name": "Margaret B.",
-            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
-            "author_location": "Salt Lake City, UT",
-            "verified": true
+            "name": "Margaret B."
           }
         },
         "reviews_w7jUFf": {
@@ -716,10 +479,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-15_at_11.50.40.png",
             "content": "<p>\"Absolutely does what it says 👌 Unlike other pills that left me jittery or nauseous, this one just made me feel naturally fuller and more in control. Finally seeing real progress. No side effects, just steady fat burn.\"</p>",
-            "name": "Liz N.",
-            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
-            "author_location": "Miami, FL",
-            "verified": true
+            "name": "Liz N."
           }
         },
         "reviews_8WGQby": {
@@ -727,10 +487,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-15_at_11.54.45.png",
             "content": "<p>\"Tried everything from Ozempic to keto, and the weight always came back. With Nordburn's GLP-1 Booster, I've lost 55 pounds in five months, and it actually feels sustainable. Plus, it doesn't mess with my mood or energy levels.\"</p>",
-            "name": "Janet P.",
-            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
-            "author_location": "Chicago, IL",
-            "verified": true
+            "name": "Janet P."
           }
         },
         "reviews_RBFfrK": {
@@ -738,10 +495,7 @@
           "settings": {
             "image": "shopify://shop_images/Screenshot_2025-05-15_at_11.52.37.png",
             "content": "<p>\"Two months ago, I couldn’t button my favorite jeans. Now, thanks to Nordburn's GLP-1 Booster, they fit perfectly. The best part? It’s all natural, no injections, and no nasty side effects like with those other products.\"</p>",
-            "name": "Christina E.",
-            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
-            "author_location": "Los Angeles, CA",
-            "verified": true
+            "name": "Christina E."
           }
         },
         "reviews_EteRaV": {
@@ -749,10 +503,7 @@
           "settings": {
             "image": "shopify://shop_images/capc.png",
             "content": "<p>\"I was hesitant to try another supplement after wasting money on Ozempic and other pills, but this product really works. It keeps me feeling full without any of the harsh side effects, and the weight is finally coming off!\"</p>",
-            "name": "Diane B.",
-            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
-            "author_location": "New York, NY",
-            "verified": true
+            "name": "Diane B."
           }
         }
       },
@@ -764,25 +515,11 @@
         "reviews_RBFfrK",
         "reviews_EteRaV"
       ],
-      "custom_css": [
-        ".swiper.g-reviews-slider {max-width: 1140px; overflow: hidden; margin-inline: auto;}",
-        ".swiper.g-reviews-slider .swiper-slide {max-width: 280px; margin-right: 16px !important;}"
-      ],
       "name": "Nord Reviews",
       "settings": {
-        "heading_h1": false,
-        "heading_title": "You’re Not Alone - 50,000+ Customers Have Already Taken the First Step",
-        "heading_sub_text": "",
-        "heading_text": "",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": "",
-        "reviews_display": "expanded",
-        "reviews_verified_icon": "shopify://shop_images/Vector.svg",
+        "title": "You’re Not Alone - 50,000+ Customers Have Already Taken the First Step",
         "cta": true,
-        "cta_action": "scroll",
+        "cta_action": "",
         "cta_type": "accent",
         "cta_text": "Shop Now",
         "cta_arrow": true,
@@ -868,20 +605,10 @@
         "faqs_bXQwqN",
         "faqs_CgCAxJ"
       ],
-      "custom_css": [
-        ".g-question {background: transparent; border: none; border-bottom: 1px solid #d2d2d2; border-radius: 0;}"
-      ],
       "name": "Nord Faq",
       "settings": {
-        "heading_h1": false,
-        "heading_title": "Frequently Asked Questions",
-        "heading_sub_text": "",
-        "heading_text": "Find the answers you need right here.",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": ""
+        "title": "Frequently Asked Questions",
+        "subtitle": "Find the answers you need right here. "
       }
     }
   },
@@ -890,12 +617,10 @@
     "g_product_information_TTd6Rh",
     "g_as_seen_wDWb4x",
     "g_marquee_PHqC9X",
-    "g_chart_v2",
-    "image-slideshow",
+    "g_chart_wzcJn9",
     "g_how_to_eLKTmX",
     "g_journey_jjEicx",
     "g_table_UpkEjW",
-    "benefits",
     "g_benefits_LRpXcJ",
     "g_real_people_JtFFHU",
     "g_videos_LWWxnB",

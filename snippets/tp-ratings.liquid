@@ -1,0 +1,48 @@
+{% if ratings %}
+  {% assign tp_reviews_url = "https://www.trustpilot.com/review/nordburn.com" %}
+  <flex class="tp-ratings {% if template contains 'index' %}tp-ratings__white{% endif %}">
+    {% if ratings_stars %}
+      <div>
+        {% render 'responsive-image' image: ratings_stars, image_width: 200, custom_alt: "Ratings stars" %}
+      </div>
+    {% endif %}
+    <p>
+      {% if ratings_text != blank %}
+        <a href="{{ tp_reviews_url }}" title="Trustpilot Reviews">
+          {{ ratings_text }}
+        </a>
+      {% else %}
+        See our <a href="{{ tp_reviews_url }}" title="Trustpilot Reviews">795 Reviews</a> on
+      {% endif %}
+    </p>
+    {% if ratings_logo %}
+      <div>
+        {% render 'responsive-image' image: ratings_logo, image_width: 200, custom_alt: "Trustpilot logo" %}
+      </div>
+    {% endif %}
+  </flex>
+{% endif %}
+
+{% comment %}
+Example Render:
+  {% render 'tp-ratings' ratings: ss.ratings, ratings_stars: ss.ratings_stars, ratings_logo: ss.ratings_logo, ratings_text: ss.ratings_text %}
+Example Schema:
+{
+  "type": "checkbox",
+  "id": "ratings",
+  "label": "Ratings"
+}, {
+  "type": "image_picker",
+  "id": "ratings_stars",
+  "label": "Ratings Stars"
+}, {
+  "type": "image_picker",
+  "id": "ratings_logo",
+  "label": "Trustpilot Logo"
+}, {
+  "type": "text",
+  "id": "ratings_text",
+  "label": "Ratings Text",
+  "default": "4.6/5 · Excellent"
+}
+{% endcomment %}

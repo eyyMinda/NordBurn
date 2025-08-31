@@ -1,49 +1,40 @@
+{% assign ss = section.settings %}
+{% assign sc = '#shopify-section-' | append: section.id %}
 <style>
-    .g-table{
-        background: linear-gradient(180deg, #D9DBF3 0%, #FFFFFF 100%);
-        margin-bottom: 50px;
+    {{ sc }} .g-table{
+      background: linear-gradient(180deg, #D9DBF3 0%, #FFFFFF 100%);
+      margin-bottom: 50px;
     }
-
-    .g-table h2{
-        text-align: center;
-        font-weight: 400;
-        font-size: 45px;
-        color: #060346;
+    {{ sc }} .g-table .heading-wrapper {
+      padding: 0;
     }
-
-    .g-table-header,
-    .g-table-row{
+    {{ sc }} .g-table-header,
+    {{ sc }} .g-table-row{
         display: flex;
     }
-
-    .g-table-30{
+    {{ sc }} .g-table-30{
         width: 40%;
     }
-
-    .g-table-20{
+    {{ sc }} .g-table-20{
         width: 30%;
     }
-
-    .g-table-15{
+    {{ sc }} .g-table-15{
         width: 15%;
     }
-
-    .g-table-15 p{
+    {{ sc }} .g-table-15 p{
         margin: 0;
         font-size: 22px;
         line-height: 1;
         font-weight: 700;
         color: #251E4C;
     }
-
-    .g-table-wrap{
+    {{ sc }} .g-table-wrap{
         max-width: 791px;
         margin: 76px auto 0 auto;
     }
-
-    .g-table-30,
-    .g-table-20,
-    .g-table-15{
+    {{ sc }} .g-table-30,
+    {{ sc }} .g-table-20,
+    {{ sc }} .g-table-15{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -51,17 +42,17 @@
         text-align: center;
         padding: 20px;
     }
-
-    .g-table-fill{
+    {{ sc }} .g-table-30 img, {{ sc }} .g-table-20 img, {{ sc }} .g-table-15 img{
+        max-height: 42px;
+    }
+    {{ sc }} .g-table-fill{
         background: #251E4C;
     }
-
-    .g-table-20 p{
+    {{ sc }} .g-table-20 p{
         font-size: 22px;
         color: #251E4C;
     }
-
-    .g-table-icons{
+    {{ sc }} .g-table-icons{
         padding: 0 0 20px 0;
         border-bottom: 1px solid #FFFFFF30;
         display: flex;
@@ -70,19 +61,16 @@
         width: 100%;
         height: 100%;
     }
-
-    .g-table-row .g-table-30,
-    .g-table-row .g-table-20,
-    .g-table-row .g-table-15{
+    {{ sc }} .g-table-row .g-table-30,
+    {{ sc }} .g-table-row .g-table-20,
+    {{ sc }} .g-table-row .g-table-15{
         background: #F5F5FA;
         padding-bottom: 0;
     }
-
-    .g-table-20.g-table-fill{
+    {{ sc }} .g-table-20.g-table-fill{
         background: #251E4C;
     }
-
-    .g-table-30 > span{
+    {{ sc }} .g-table-30 > span{
         color: #251E4C;
         font-weight: 700;
         font-size: 18px;
@@ -92,37 +80,30 @@
         padding-bottom: 20px;
         width: 100%;
     }
-
-    .g-table-20 img{
+    {{ sc }} .g-table-20 img{
         max-width: 100%;
     }
-
-    .g-table-row .g-table-30,
-    .g-table-row .g-table-20{
+    {{ sc }} .g-table-row .g-table-30,
+    {{ sc }} .g-table-row .g-table-20{
         border-bottom: 1px solid #0000000A
     }
-
-    .g-table-row:last-child .g-table-30,
-    .g-table-row:last-child .g-table-20,
-    .g-table-row:last-child .g-table-icons{
+    {{ sc }} .g-table-row:last-child .g-table-30,
+    {{ sc }} .g-table-row:last-child .g-table-20,
+    {{ sc }} .g-table-row:last-child .g-table-icons{
         border-bottom: 0;
     }
-
-    .g-table-body{
+    {{ sc }} .g-table-body{
         border-radius: 5px;
         border: 2px solid #251E4C;
     }
-
-    .g-table-header .g-table-fill{
+    {{ sc }} .g-table-header .g-table-fill{
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
     }
-
-    .g-table-row:last-child .g-table-fill{
+    {{ sc }} .g-table-row:last-child .g-table-fill{
         position: relative;
     }
-
-    .g-table-row:last-child .g-table-fill::after{
+    {{ sc }} .g-table-row:last-child .g-table-fill::after{
         position: absolute;
         content: '';
         width: 100%;
@@ -133,89 +114,145 @@
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
-
-    .g-table-logo-top{
+    {{ sc }} .g-table-logo-top{
         display: none;
     }
-
-    .g-table-row .g-table-15:last-child{
+    {{ sc }} .g-table-row .g-table-15:last-child{
         border-left: 2px solid #060346;
     }
-
     @media only screen and (max-width: 768px) {
-        .g-table h2{
-            font-size: 28px;
-        }
-
-        .g-table-wrap{
+        {{ sc }} .g-table-wrap{
             margin: 40px auto 0 auto;
         }
-
-        .g-table-logo-top{
+        {{ sc }} .g-table-logo-top{
             display: block;
             margin-top: -50px;
         }
-
-        .g-table-15 p{
+        {{ sc }} .g-table-15 p{
             font-size: 10px;
             font-weight: 700;
             color: #251E4C;
         }
-
-        .g-table-30, .g-table-20, .g-table-15{
+        {{ sc }} .g-table-30, {{ sc }} .g-table-20, {{ sc }} .g-table-15{
             padding: 10px;
         }
-
-        .g-table-icons img{
+        {{ sc }} .g-table-30 img, {{ sc }} .g-table-20 img, {{ sc }} .g-table-15 img{
+          max-height: 42px;
+          max-width: 80%;
+        }
+        {{ sc }} .g-table-icons img{
             width: 30px;
             height: 30px;
         }
-
-        .g-table-row:last-child .g-table-fill::after{
+        {{ sc }} .g-table-row:last-child .g-table-fill::after{
             bottom: -40%;
             height: 40%;
         }
-
-        .g-table-30 > span{
+        {{ sc }} .g-table-30 > span{
             text-align: center;
             font-size: 12px;
             padding-bottom: 0;
         }
-
-        .g-table-header{
+        {{ sc }} .g-table-header{
             align-items: flex-end;
         }
-
-        .g-table-header .g-table-15{
+        {{ sc }} .g-table-header .g-table-15{
             padding: 0 0 5px 0 !important;
         }
-
-        .g-table-header .g-table-20.g-table-fill{
+        {{ sc }} .g-table-header .g-table-20.g-table-fill{
             max-height: 100px;
         }
     }
+
+    /* Display Type V2 */
+    {{ sc }} .g-table.v2 .g-table-wrap {
+      max-width: 1024px;
+    }
+    {{ sc }} .g-table.v2 .g-table-body {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      padding-bottom: 40px;
+    }
+    {{ sc }} .g-table.v2 .g-table-header .g-table-15:last-child {
+      border-left: 1px solid #D2D2D2;
+    }
+    {{ sc }} .g-table.v2 .g-table-row :is(.g-table-30, .g-table-20:not(.g-table-fill), .g-table-15) {
+        background: #F6F6F6;
+        border-bottom: 1px solid #D2D2D2;
+    }
+    {{ sc }} .g-table.v2 .g-table-row:last-child :is(.g-table-30, .g-table-20:not(.g-table-fill), .g-table-15) {
+        border-bottom: none;
+    }
+    {{ sc }} .g-table.v2 .g-table-row .g-table-15:last-child{
+        border-left: 1px solid #D2D2D2;
+    }
+    {{ sc }} .g-table.v2 .g-table-row {
+    }
+    {{ sc }} .g-table.v2 .g-table-row:nth-of-type(odd) .g-table-20.g-table-fill {
+      background: #2B2965 !important;
+    }
+    {{ sc }} .g-table.v2 .g-table-row .g-table-icons {
+        border: none;
+    }
+    {{ sc }} .g-table.v2 .g-table-30 > span{
+            text-align: start;
+        }
 </style>
-<div class="g-table g-sections">
+
+<div class="g-table g-sections {{ ss.display_type }}">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
         <div class="g-table-wrap">
             <div class="g-table-header">
                 <div class="g-table-30" style="display: block"></div>
                 <div class="g-table-20 g-table-fill">
-                    <img src="{{ section.settings.logo_mobile | image_url: width: "500px" }}" class="g-table-logo-top" width="" height="" alt="">
-                    <img src="{{ section.settings.logo | image_url: width: "500px" }}" width="" height="" alt="">
+                  {% if ss.logo_mobile != blank %}
+                    {% render 'responsive-image', image: ss.logo_mobile, image_width: 240, class: 'g-table-logo-top' %}
+                  {% endif %}
+                  {% if ss.logo != blank %}
+                  {% render 'responsive-image', image: ss.logo, image_width: 240 %}
+                  {% endif %}
                 </div>
                 <div class="g-table-15" style="padding: 0 0 10px 0;">
-                    <img src="{{ section.settings.others_1_image | image_url: width: "500px" }}" width="" height="41" alt="">
-                    {{ section.settings.others_1 }}
+                    <img src="{{ ss.others_1_image | image_url: width: "500px" }}" width="" height="41" alt="">
+                    {{ ss.others_1 }}
                 </div>
                 <div class="g-table-15" style="padding: 0 0 10px 0;">
-                    <img src="{{ section.settings.others_2_image | image_url: width: "500px" }}" width="" height="41" alt="" style="transform: rotate(63.6deg);">
-                    {{ section.settings.others_2 }}
+                    <img src="{{ ss.others_2_image | image_url: width: "500px" }}" width="" height="41" alt="" style="transform: rotate(63.6deg);">
+                    {{ ss.others_2 }}
+
                 </div>
             </div>
             <div class="g-table-body">
+                {% capture v2_check %}
+                  <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.12135 14.5709L12.0304 17.48L16.8789 10.6921M24.6365 13.6012C24.6365 15.1293 24.3355 16.6425 23.7508 18.0543C23.166 19.4661 22.3088 20.7489 21.2283 21.8294C20.1478 22.9099 18.865 23.7671 17.4532 24.3518C16.0414 24.9366 14.5283 25.2376 13.0001 25.2376C11.472 25.2376 9.95887 24.9366 8.54709 24.3518C7.13531 23.7671 5.85252 22.9099 4.77198 21.8294C3.69145 20.7489 2.83431 19.4661 2.24954 18.0543C1.66475 16.6425 1.36377 15.1293 1.36377 13.6012C1.36377 10.5151 2.58974 7.55527 4.77198 5.37306C6.95427 3.19082 9.91398 1.96484 13.0001 1.96484C16.0863 1.96484 19.046 3.19082 21.2283 5.37306C23.4105 7.55527 24.6365 10.5151 24.6365 13.6012Z" stroke="#00B72E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {% endcapture %}
+                {% capture v2_ex %}
+                  <svg width="26" height="27" viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.3332 10.6921L16.1514 16.5103M16.1514 10.6921L10.3332 16.5103M24.8787 13.6012C24.8787 15.1293 24.5777 16.6425 23.993 18.0543C23.4081 19.4661 22.551 20.7489 21.4705 21.8294C20.39 22.9099 19.1071 23.7671 17.6954 24.3518C16.2836 24.9366 14.7705 25.2376 13.2423 25.2376C11.7142 25.2376 10.2011 24.9366 8.78928 24.3518C7.3775 23.7671 6.0947 22.9099 5.01417 21.8294C3.93364 20.7489 3.0765 19.4661 2.49173 18.0543C1.90694 16.6425 1.60596 15.1293 1.60596 13.6012C1.60596 10.5151 2.83193 7.55527 5.01417 5.37306C7.19645 3.19082 10.1562 1.96484 13.2423 1.96484C16.3285 1.96484 19.2882 3.19082 21.4705 5.37306C23.6527 7.55527 24.8787 10.5151 24.8787 13.6012Z" stroke="#D70000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                {% endcapture %}
+
+                {% capture check %}
+                  {% if ss.display_type == 'v2' %}
+                    {{ v2_check }}
+                  {% else %}
+                    <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/blue-check.png" width="" height="36" alt="">
+                  {% endif %}
+                {% endcapture %}
+                {% capture ex %}
+                  {% if ss.display_type == 'v2' %}
+                    {{ v2_ex }}
+                  {% else %}
+                    <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/ex.png" width="" height="36" alt="">
+                  {% endif %}
+                {% endcapture %}
+
                 {% for block in section.blocks %}
                   <div class="g-table-row">
                       <div class="g-table-30">
@@ -223,25 +260,29 @@
                       </div>
                       <div class="g-table-20 g-table-fill">
                           <span class="g-table-icons">
+                            {% if ss.display_type == 'v2' %}
+                              {{ check }}
+                            {% else %}
                               <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/check-white.png" width="" height="36" alt="">
+                            {% endif %}
                           </span>
                       </div>
                       <div class="g-table-15">
                           <span class="g-table-icons">
                               {% if block.settings.others_1_checked == true %}
-                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/blue-check.png" width="" height="36" alt="">
+                                {{ check }}
                               {% else %}
-                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/ex.png" width="" height="36" alt="">
+                                {{ ex }}
                               {% endif %}
                           </span>
                       </div>
                       <div class="g-table-15">
                           <span class="g-table-icons">
-                              {% if block.settings.others_2_checked == true %}
-                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/blue-check.png" width="" height="36" alt="">
-                              {% else %}
-                                <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/ex.png" width="" height="36" alt="">
-                              {% endif %}
+                            {% if block.settings.others_2_checked == true %}
+                              {{ check }}
+                            {% else %}
+                              {{ ex }}
+                            {% endif %}
                           </span>
                       </div>
                   </div>
@@ -256,11 +297,84 @@
     "name": "Nord Table",
     "settings": [
       {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "Nordburn Does What Others Don’t"
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text"
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "header",
+        "content": "Table content"
+      }, {
+        "type": "select",
+        "id": "display_type",
+        "label": "Display Type",
+        "default": "v1",
+        "options": [
+          { "value": "v1", "label": "V1" },
+          { "value": "v2", "label": "V2" }
+        ]
+      }, {
         "type": "image_picker",
         "id": "logo",
         "label": "Table Logo"
