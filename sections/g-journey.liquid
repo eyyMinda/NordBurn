@@ -368,12 +368,14 @@
 
         <div class="g-journey-blocks">
           {% if ss.display_type == 'horizontal' %}
-            {% if ss.floating_image %}
-              <div class="g-journey-floating-image">
-                {% render 'responsive-image', image: ss.floating_image, image_width: 600 %}
-              </div>
-            {% endif %}
+            {% assign rendered_index = 0 %}
             {% for i in (1..4) %}
+              {% if rendered_index == 1 and ss.floating_image %}
+                <div class="g-journey-floating-image">
+                  {% render 'responsive-image', image: ss.floating_image, image_width: 600 %}
+                </div>
+              {% endif %}
+              
               {% liquid
                 assign title_label = 'title_' | append: forloop.index
                 assign desc_label = 'desc_' | append: forloop.index
@@ -384,6 +386,7 @@
                 assign icon = ss[icon_label]
               %}
               {% if title != blank %}
+                {% assign rendered_index = rendered_index | plus: 1 %}
                 <div class="g-journey-block">
                   <span class="g-journey-circle"></span>
                   <span class="g-journey-line"></span>

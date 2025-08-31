@@ -4,8 +4,8 @@
         assign product = section.settings.product
     endif
     assign benefits = section.blocks | where: "type", "benefit"
+    assign comparisons = section.blocks | where: "type", "comparison"
 %}
-
 
 {% capture rating_stars %}
     <span>
@@ -572,6 +572,49 @@
             align-items: center;
         }
     }
+
+    /* Comparisons */
+    .pdp-image-comparisons-wrapper {
+        background-color: #F6F6F6;
+        border-radius: 8px;
+        border: 1px solid #eeeeee;
+        padding: 16px 12px;
+    }
+    .pdp-image-comparisons-title {
+        max-width: 90%;
+        color: #060346;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .pdp-image-comparisons:not(.slick-initialized) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        gap: 10px;
+    }
+    .pdp-image-comparison {
+        max-width: 210px;
+    }
+    .pdp-image-comparison img {
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        .pdp-image-comparisons-wrapper {
+            padding: 24px 16px;
+            margin-top: 32px;
+        }
+        .pdp-image-comparisons-title {
+            max-width: unset;
+            font-size: 18px;
+        }
+        .pdp-image-comparison {
+            max-width: 300px;
+        }
+    }
 </style>
 <div class="g-pdp-wrapper" id="product">
     <div class="g-pdp-wrap">
@@ -851,14 +894,29 @@
             </script>
             <!-- End Product Images Widget -->
 
-            <div class="pdp-image-widgets">
-                <div>
-                    <img src="{{ section.settings.image_1 | image_url: width: "1000px" }}" width="" height="" alt="">
+            {% if comparisons.size > 0 %}
+                <flex-col class="pdp-image-comparisons-wrapper Desktop_only">
+                    {% if ss.comparisons_title != blank %}
+                        <div class="pdp-image-comparisons-title">{{ ss.comparisons_title }}</div>
+                    {% endif %}
+                    <div class="pdp-image-comparisons">
+                        {% for block in comparisons %}
+                            <div class="pdp-image-comparison">
+                                {% render 'responsive-image', image: block.settings.image, image_width: 340 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </flex-col>
+            {% else %}
+                <div class="pdp-image-widgets">
+                    <div>
+                        <img src="{{ section.settings.image_1 | image_url: width: "1000px" }}" width="" height="" alt="">
+                    </div>
+                    <div>
+                        <img src="{{ section.settings.image_2 | image_url: width: "1000px" }}" width="" height="" alt="">
+                    </div>
                 </div>
-                <div>
-                    <img src="{{ section.settings.image_2 | image_url: width: "1000px" }}" width="" height="" alt="">
-                </div>
-            </div>
+            {% endif %}
         </div>  
         <div class="g-pdp-content">
             <div class="g-pdp-content-top">{{ section.settings.top_note }}</div>
@@ -1028,6 +1086,20 @@
             </div>
             <!-- END FORM BUTTON -->
 
+            {% if comparisons.size > 0 %}
+                <flex-col class="pdp-image-comparisons-wrapper slick-bottom-dots Mobile_only">
+                    {% if ss.comparisons_title != blank %}
+                        <div class="pdp-image-comparisons-title">{{ ss.comparisons_title }}</div>
+                    {% endif %}
+                    <div class="pdp-image-comparisons">
+                        {% for block in comparisons %}
+                            <div class="pdp-image-comparison">
+                                {% render 'responsive-image', image: block.settings.image, image_width: 340 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </flex-col>
+            {% endif %}
 
             <!-- REVIEWS WIDGET -->
             <div class="g-pdp-reviews-widget">
@@ -1404,6 +1476,9 @@
         "id": "below_atc_content_payments",
         "label": "Below ATC Content Payments"
       }, {
+        "type": "header",
+        "content": "Extra"
+      }, {
         "type": "select",
         "id": "accordion_icon",
         "label": "Accordion Icon",
@@ -1412,6 +1487,12 @@
           { "value": "checkmark", "label": "Checkmark" }
         ],
         "default": "checkmark"
+      }, {
+        "type": "text",
+        "id": "comparisons_title",
+        "label": "Comparisons Title",
+        "default": "What Our Clients Achieved Using nordburn© GLP-1 Booster",
+        "info": "Must have comparison section blocks"
       }
     ],
     "blocks": [
@@ -1491,6 +1572,17 @@
             "type": "richtext",
             "id": "content",
             "label": "Content"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "name": "Comparison",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
           }
         ]
       }

@@ -128,8 +128,8 @@ $(document).ready(function () {
                         </svg>`
   };
   const buttons = {
-    prevArrowIMG: `<button type='button' aria-label='Arrow Left' class='slick-prev pull-left'><img class='left_arrow' src='${icons.chevron_left}' alt='arrow'/></button>`,
-    nextArrowIMG: `<button type='button' aria-label='Arrow Right' class='slick-next pull-right'><img class='right_arrow' src='${icons.chevron_right}' alt='arrow'/></button>`,
+    prevArrowIMG: `<button type='button' aria-label='Arrow Left' class='slick-prev pull-left'><img class='left_arrow' src='${icons.arrow_left}' alt='arrow'/></button>`,
+    nextArrowIMG: `<button type='button' aria-label='Arrow Right' class='slick-next pull-right'><img class='right_arrow' src='${icons.arrow_right}' alt='arrow'/></button>`,
     prevArrow: `<button type='button' aria-label='Arrow Left' class='slick-prev pull-left'>${icons.chevron_left_svg}</button>`,
     nextArrow: `<button type='button' aria-label='Arrow Right' class='slick-next pull-right'>${icons.chevron_right_svg}</button>`
   }
@@ -376,7 +376,19 @@ $(document).ready(function () {
     slidesToScroll: 2
   } : null;
 
+  const PRComparisons = $('.pdp-image-comparisons-wrapper.Mobile_only .pdp-image-comparisons');
+  const PRComparisonsOptions = {
+    dots: true,
+    arrows: true,
+    prevArrow: buttons.prevArrow,
+    nextArrow: buttons.nextArrow,
+    variableWidth: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   handleResponsiveCarousel(TPReviews, TPRevewsOptions, 1024, TPRevewsDesktopOptions);
+  handleResponsiveCarousel(PRComparisons, PRComparisonsOptions, 768);
 
 
   // Video reviews --------------------------------------------------------

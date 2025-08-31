@@ -62,6 +62,30 @@
             "text": "Burn up to -27% of body fat within 12 weeks"
           }
         },
+        "comparison_kCV9eD": {
+          "type": "comparison",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579774.png"
+          }
+        },
+        "comparison_gTBwLw": {
+          "type": "comparison",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579775.png"
+          }
+        },
+        "comparison_gqEd8N": {
+          "type": "comparison",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579774_1.png"
+          }
+        },
+        "comparison_EnEqFW": {
+          "type": "comparison",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1484579775_1.png"
+          }
+        },
         "reviews_BGkz6i": {
           "type": "reviews",
           "settings": {
@@ -107,6 +131,10 @@
         "benefit_LGKQm8",
         "benefit_7C4RbD",
         "benefit_qt38ta",
+        "comparison_kCV9eD",
+        "comparison_gTBwLw",
+        "comparison_gqEd8N",
+        "comparison_EnEqFW",
         "reviews_BGkz6i",
         "dropdowns_PQ7EGV",
         "dropdowns_bTdbKe",
@@ -135,7 +163,8 @@
         "below_atc_content_icon": "shopify://shop_images/bx_lock-alt.svg",
         "below_atc_content_text": "safe & secure checkout",
         "below_atc_content_payments": "shopify://shop_images/Container.png",
-        "accordion_icon": "circle-checkmark"
+        "accordion_icon": "circle-checkmark",
+        "comparisons_title": "What Our Clients Achieved Using nordburn© GLP-1 Booster"
       }
     },
     "g_as_seen_wDWb4x": {
@@ -442,8 +471,8 @@
         "heading_shop_all": "",
         "heading_ratings": false,
         "heading_ratings_text": "",
+        "display_type": "v2",
         "logo": "shopify://shop_images/logo.png",
-        "logo_mobile": "shopify://shop_images/1_month.png",
         "others_1": "<p>Generic<br/>Fat Burner</p>",
         "others_1_image": "shopify://shop_images/generic_fat_burner.png",
         "others_2": "<p>Ozempic <br/>/Injections</p>",

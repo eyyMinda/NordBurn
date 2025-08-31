@@ -1038,6 +1038,19 @@ body:has(.scrolled-past-header:not(.shopify-section-header-hidden)) .announcemen
 .slick-arrow :is(svg, img) {
   max-width: 100%;
   height: 100%;
+  transition: all 150ms ease;
+}
+.slick-arrow:has(svg) {
+  border: 1px solid #060346;
+  border-radius: 50%;
+  padding: 6px;
+  transition: all 150ms ease;
+}
+.slick-arrow:has(svg):hover {
+  background-color: #060346;
+}
+.slick-arrow:hover svg {
+  color: white !important;
 }
 .slick-header-arrows.slick-dotted,
 .slick-bottom-arrows.slick-dotted {
@@ -1149,17 +1162,17 @@ body:has(.scrolled-past-header:not(.shopify-section-header-hidden)) .announcemen
   width: 32px;
 }
 .slick-bottom-dots .slick-prev {
-  transform: translateX(calc(-50% + -84px));
+  transform: translate(calc(-50% + -84px), -50%);
 }
 .slick-bottom-dots .slick-next {
-  transform: translateX(calc(-50% + 84px));
+  transform: translate(calc(-50% + 84px), -50%);
 }
 @media screen and (min-width: 768px) {
   .slick-bottom-dots .slick-prev {
-    transform: translateX(calc(-50% + -96px));
+    transform: translate(calc(-50% + -96px), -50%);
   }
   .slick-bottom-dots .slick-next {
-    transform: translateX(calc(-50% + 96px));
+    transform: translate(calc(-50% + 96px), -50%);
   }
 }
 /* ========================= Slick Progress Layout ========================== */
