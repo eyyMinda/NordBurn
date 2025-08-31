@@ -247,27 +247,9 @@
       "name": "G Marquee",
       "settings": {}
     },
-    "g_chart_wzcJn9": {
-      "type": "g-chart",
-      "custom_css": [".g-chart {background: #f6f6f6;}"],
-      "name": "Nord Chart",
-      "settings": {
-        "heading_h1": false,
-        "heading_title": "Your Transformation Starts Here",
-        "heading_sub_text": "",
-        "heading_text": "Slide your weight and find out how much weight you could lose over 3 months.",
-        "heading_align": "center",
-        "heading_align_mb": "center-mb",
-        "heading_shop_all": "",
-        "heading_ratings": false,
-        "heading_ratings_text": "",
-        "q1_label": "What's your current weight?",
-        "q2_label": "How tall are you?",
-        "fat_label": "FAT LOSS ZONE",
-        "bmi_1": "Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use",
-        "bmi_2": "You’re already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance",
-        "bmi_3": "Based on clinical trials, you could lose up to 14% of your body weight in 3 months you could lose up to"
-      }
+    "g_chart_v2": {
+      "type": "g-chart-v2",
+      "settings": {}
     },
     "image-slideshow": {
       "type": "image-slideshow",
@@ -908,7 +890,7 @@
     "g_product_information_TTd6Rh",
     "g_as_seen_wDWb4x",
     "g_marquee_PHqC9X",
-    "g_chart_wzcJn9",
+    "g_chart_v2",
     "image-slideshow",
     "g_how_to_eLKTmX",
     "g_journey_jjEicx",
