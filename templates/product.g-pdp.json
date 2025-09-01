@@ -195,7 +195,12 @@
           }
         }
       },
-      "block_order": ["marquee_kVcyam", "marquee_Qfp6BQ", "marquee_fRgXMK", "marquee_rgk69G"],
+      "block_order": [
+        "marquee_kVcyam",
+        "marquee_Qfp6BQ",
+        "marquee_fRgXMK",
+        "marquee_rgk69G"
+      ],
       "name": "G As Seen",
       "settings": {
         "bg_color": "#c9c9f2",
@@ -242,14 +247,35 @@
           }
         }
       },
-      "block_order": ["marquee_Hi7Gcq", "marquee_M9r8bh", "marquee_atwakw", "marquee_mnc89V", "marquee_BCDbaV"],
+      "block_order": [
+        "marquee_Hi7Gcq",
+        "marquee_M9r8bh",
+        "marquee_atwakw",
+        "marquee_mnc89V",
+        "marquee_BCDbaV"
+      ],
       "disabled": true,
       "name": "G Marquee",
       "settings": {}
     },
     "g_chart_v2": {
       "type": "g-chart-v2",
-      "settings": {}
+      "settings": {
+        "bg_color": "#f6f6f6",
+        "heading_h1": false,
+        "heading_title": "Your Transformation Starts Here",
+        "heading_sub_text": "",
+        "heading_text": "Slide your weight and find out how much weight you could lose over 3 months.",
+        "heading_align": "center",
+        "heading_align_mb": "center-mb",
+        "heading_shop_all": "",
+        "heading_ratings": false,
+        "heading_ratings_text": "",
+        "weight_label": "What's your current weight?",
+        "height_label": "How tall are you?",
+        "chart_title": "Your Weight Loss Journey",
+        "fat_zone_title": "FAT LOSS ZONE"
+      }
     },
     "image-slideshow": {
       "type": "image-slideshow",
@@ -285,7 +311,13 @@
           }
         }
       },
-      "block_order": ["image_mXr8fD", "image_TWRNfK", "image_edLTYa", "image_WKpJe8", "image_bbLdLQ"],
+      "block_order": [
+        "image_mXr8fD",
+        "image_TWRNfK",
+        "image_edLTYa",
+        "image_WKpJe8",
+        "image_bbLdLQ"
+      ],
       "settings": {
         "background_color": "#c9c9f2",
         "speed": 10,
@@ -344,7 +376,11 @@
           }
         }
       },
-      "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
+      "block_order": [
+        "columns_3Hfbji",
+        "columns_4RBAfc",
+        "columns_RcUYbK"
+      ],
       "name": "Nord How To",
       "settings": {
         "bg_color": "#f6f6f6",
@@ -388,7 +424,7 @@
         "title_4": "6 Months",
         "desc_4": "<p><strong>Steady, stable and reliable results</strong></p><p>for a long term. Continuing to be your best self.</p>",
         "cta": true,
-        "cta_action": "",
+        "cta_action": "scroll",
         "cta_type": "accent",
         "cta_text": "Shop Now",
         "cta_arrow": true,
@@ -440,8 +476,16 @@
           }
         }
       },
-      "block_order": ["rows_gdRiGy", "rows_i3wjTn", "rows_ezTTC4", "rows_YCdtVJ", "rows_FagKKE"],
-      "custom_css": [".g-table {background: #fff;}"],
+      "block_order": [
+        "rows_gdRiGy",
+        "rows_i3wjTn",
+        "rows_ezTTC4",
+        "rows_YCdtVJ",
+        "rows_FagKKE"
+      ],
+      "custom_css": [
+        ".g-table {background: #fff;}"
+      ],
       "name": "Nord Table",
       "settings": {
         "heading_h1": false,
@@ -640,7 +684,11 @@
           }
         }
       },
-      "block_order": ["columns_y6gJ3w", "columns_CEPHah", "columns_qWc6n7"],
+      "block_order": [
+        "columns_y6gJ3w",
+        "columns_CEPHah",
+        "columns_qWc6n7"
+      ],
       "disabled": true,
       "name": "Nord Real People",
       "settings": {
@@ -678,7 +726,13 @@
           "settings": {}
         }
       },
-      "block_order": ["videos_qQFhyr", "videos_8FitAP", "videos_X6U7dV", "videos_nPYVKg", "videos_QMzkWP"],
+      "block_order": [
+        "videos_qQFhyr",
+        "videos_8FitAP",
+        "videos_X6U7dV",
+        "videos_nPYVKg",
+        "videos_QMzkWP"
+      ],
       "disabled": true,
       "name": "Nord Videos",
       "settings": {
