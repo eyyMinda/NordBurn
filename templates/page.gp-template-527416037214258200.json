@@ -1,1 +1,66 @@
-{"layout":"theme.gempages.footer","sections":{"gp_section_527416086455387089":{"type":"gp-section-527416086455387089","settings":{"section_preload":"true"}},"gp_section_527416086455387158":{"type":"gp-section-527416086455387158","settings":{}},"gp_section_527416086656779157":{"type":"gp-section-527416086656779157","settings":{}},"gp_section_527416086656713621":{"type":"gp-section-527416086656713621","settings":{}},"gp_section_527416086656713841":{"type":"gp-section-527416086656713841","settings":{}},"gp_section_527416086639936536":{"type":"gp-section-527416086639936536","settings":{}},"gp_section_527416086656713681":{"type":"gp-section-527416086656713681","settings":{}}},"order":["gp_section_527416086455387089","gp_section_527416086455387158","gp_section_527416086656779157","gp_section_527416086656713621","gp_section_527416086656713841","gp_section_527416086639936536","gp_section_527416086656713681"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_527416086455387089": {
+      "settings": {
+        "checksum": "2c10099def554766a9840b44791b7687206d82135cfcad0a536ce67a92e3686d_1_1_0_0_",
+        "section_preload": "true"
+      },
+      "type": "gp-section-527416086455387089"
+    },
+    "gp_section_527416086455387158": {
+      "settings": {
+        "checksum": "f32f1dc48cdc6285bd9c65b70632651e1cc426a4bbdfc4ed48cf42a8ba04aa66_1_1_0_0_"
+      },
+      "type": "gp-section-527416086455387158"
+    },
+    "gp_section_527416086639936536": {
+      "settings": {
+        "checksum": "2cff701f582b5ccdd9230abdf84384b214ffa56f11294f3703e9642ba3320288_1_1_0_0_"
+      },
+      "type": "gp-section-527416086639936536"
+    },
+    "gp_section_527416086656713621": {
+      "settings": {
+        "checksum": "2705bdd9b16cea4943cfdba3f20dd4ebea27f076ab916c01e83b9152dccf8305_1_1_0_0_"
+      },
+      "type": "gp-section-527416086656713621"
+    },
+    "gp_section_527416086656713681": {
+      "settings": {
+        "checksum": "b3ca8a6ca5daf8c5d3ee4f1b6f522fb1f69d81090a8ebf23bdfec13e86376b66_1_1_0_0_"
+      },
+      "type": "gp-section-527416086656713681"
+    },
+    "gp_section_527416086656713841": {
+      "settings": {
+        "checksum": "f76378c9d82423863dd73c069b0074c651ce65b1c17e56c725b8b90d0bfe5ed6_1_1_0_0_"
+      },
+      "type": "gp-section-527416086656713841"
+    },
+    "gp_section_527416086656779157": {
+      "settings": {
+        "checksum": "78e71ecb2608cb042bbeef36c25ab23305c2971006b3c58d1557c5575a0c2580_1_1_0_0_"
+      },
+      "type": "gp-section-527416086656779157"
+    }
+  },
+  "order": [
+    "gp_section_527416086455387089",
+    "gp_section_527416086455387158",
+    "gp_section_527416086656779157",
+    "gp_section_527416086656713621",
+    "gp_section_527416086656713841",
+    "gp_section_527416086639936536",
+    "gp_section_527416086656713681"
+  ],
+  "layout": "theme.gempages.footer"
+}
