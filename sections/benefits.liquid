@@ -16,7 +16,7 @@
   {{ sc }} .benefits {
     max-width: 1660px;
     position: relative;
-    padding: 36px 10px 48px;
+    padding: 36px 16px 48px;
     margin: auto;
     z-index: 2;
   }
@@ -30,7 +30,8 @@
     {% endif %}
   }
   {{ sc }} .benefits__image {
-    max-width: 280px;
+    max-height: 240px;
+    max-width: 320px;
     width: 100%;
     display: block;
     vertical-align: bottom;
@@ -51,14 +52,19 @@
     margin-inline: auto;
   }
   {{ sc }} .benefits__block {
+    {% assign benefit_bg_color = ss.benefit_bg_color | default: 'transparent' %}
     max-width: 340px;
     width: 100%;
-    background: {{ ss.benefit_bg_color | default: 'transparent' }};
+    background: {{ benefit_bg_color }};
     border-radius: 16px;
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 16px;
+    {% if benefit_bg_color == 'transparent' %}
+      padding: 8px 0;
+    {% else %}
+      padding: 16px 12px;
+    {% endif %}
   }
   {{ sc }} .benefits__block-content-header {
     align-items: center;
@@ -102,6 +108,9 @@
     }
   }
   @media screen and (min-width: 768px) {
+    {{ sc }} .benefits__image {
+      max-height: 540px;
+    }
     {{ sc }} .benefits__blocks-wrapper {
       flex-direction: row;
     }
