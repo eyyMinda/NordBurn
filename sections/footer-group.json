@@ -1,1 +1,64 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"g_footer_YDGYqz":{"type":"g-footer","name":"Nord Footer","settings":{"deskop_link_1":"footer","deskop_link_2":"main-menu","newsletter_title":"Get 10% Off Your First Order","newsletter_desc":"Subscribe to our newsletter for weight loss tips, special offers, and an instant $10 discount on your first purchase!","fb":"https:\/\/www.facebook.com\/profile.php?id=61564014031696","instagram":"","tiktok":"","footer_logo":"shopify:\/\/shop_images\/footer-logo.png","footer_dec":"<p>*These statements have not been evaluated by the Food & Drug Administration.<\/p><p>This product is not intended to diagnose, treat, cure or prevent any disease.<\/p><p>© 2025 Nordburn<\/p><p>*Results may vary. Balanced healthy diet and exercise are necessary to achieve weight loss.<\/p>","footer_bottom_link":"","mobile_text_1":"Shop","mobile_link_1":"customer-account-main-menu","mobile_text_2":"About us","mobile_link_2":"footer","mobile_text_3":"Company","mobile_link_3":"main-menu","terms":"shopify:\/\/pages\/terms-of-service","privacy":"shopify:\/\/pages\/privacy-policy","email":"info@nordburn.com","mobile_bottom_text":"* These statements have not been evaluated by the food and drug administration. This product is not intended to diagnose, treat, cure or prevent any disease."}},"footer":{"type":"footer","disabled":true,"settings":{"color_scheme":"scheme-2","newsletter_enable":false,"newsletter_heading":"Subscribe to our emails","enable_follow_on_shop":true,"show_social":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":false,"show_policy":true,"margin_top":0,"padding_top":44,"padding_bottom":48}}},"order":["g_footer_YDGYqz","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "g_footer_YDGYqz": {
+      "type": "g-footer",
+      "disabled": true,
+      "name": "Nord Footer",
+      "settings": {
+        "deskop_link_1": "footer",
+        "deskop_link_2": "main-menu",
+        "newsletter_title": "Get 10% Off Your First Order",
+        "newsletter_desc": "Subscribe to our newsletter for weight loss tips, special offers, and an instant $10 discount on your first purchase!",
+        "fb": "https://www.facebook.com/profile.php?id=61564014031696",
+        "instagram": "",
+        "tiktok": "",
+        "footer_logo": "shopify://shop_images/footer-logo.png",
+        "footer_dec": "<p>*These statements have not been evaluated by the Food & Drug Administration.</p><p>This product is not intended to diagnose, treat, cure or prevent any disease.</p><p>© 2025 Nordburn</p><p>*Results may vary. Balanced healthy diet and exercise are necessary to achieve weight loss.</p>",
+        "footer_bottom_link": "",
+        "mobile_text_1": "Shop",
+        "mobile_link_1": "customer-account-main-menu",
+        "mobile_text_2": "About us",
+        "mobile_link_2": "footer",
+        "mobile_text_3": "Company",
+        "mobile_link_3": "main-menu",
+        "terms": "shopify://pages/terms-of-service",
+        "privacy": "shopify://pages/privacy-policy",
+        "email": "info@nordburn.com",
+        "mobile_bottom_text": "* These statements have not been evaluated by the food and drug administration. This product is not intended to diagnose, treat, cure or prevent any disease."
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-2",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": false,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 44,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "g_footer_YDGYqz",
+    "footer"
+  ]
+}
