@@ -13,7 +13,6 @@
   "sections": {
     "g_footer_YDGYqz": {
       "type": "g-footer",
-      "disabled": true,
       "name": "Nord Footer",
       "settings": {
         "deskop_link_1": "footer",
@@ -21,8 +20,8 @@
         "newsletter_title": "Get 10% Off Your First Order",
         "newsletter_desc": "Subscribe to our newsletter for weight loss tips, special offers, and an instant $10 discount on your first purchase!",
         "fb": "https://www.facebook.com/profile.php?id=61564014031696",
-        "instagram": "",
-        "tiktok": "",
+        "instagram": "https://www.instagram.com/nordburn_supplements/",
+        "tiktok": "https://www.instagram.com/nordburn_supplements/",
         "footer_logo": "shopify://shop_images/footer-logo.png",
         "footer_dec": "<p>*These statements have not been evaluated by the Food & Drug Administration.</p><p>This product is not intended to diagnose, treat, cure or prevent any disease.</p><p>© 2025 Nordburn</p><p>*Results may vary. Balanced healthy diet and exercise are necessary to achieve weight loss.</p>",
         "footer_bottom_link": "",
