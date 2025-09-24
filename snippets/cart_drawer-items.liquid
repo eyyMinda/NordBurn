@@ -1,0 +1,227 @@
+{% liquid
+  assign numbers = '0,1,2,3,4,5,6,7,8,9' | split: ','
+  assign shipping_product = settings.cart_drawer_shipping_protection_product | default: all_products['shipping-protection']
+
+  assign show_upgrade_to_sub = ss.cart_items_show_upgrade_to_subscription
+  assign upgrade_to_sub_type = ss.cart_items_upgrade_to_subscription_type
+  assign show_item_discount_percentage = ss.cart_items_show_discount_percentage
+  assign show_item_selling_plan = ss.cart_items_show_selling_plan
+  assign show_item_discount_label = ss.cart_items_show_discount_label
+%}
+
+<cart-items class="cd_content__js">
+  {% for item in cart.items %}
+    {% unless shipping_product.id == item.product_id %}
+      {% liquid
+        assign current_product = collections.all.products | where: 'id', item.product_id | first
+        assign current_variant = current_product.variants | where: 'id', item.variant_id | first
+        assign first_variant_price = current_product.variants.first.price
+
+        # Prices
+        assign price = item.final_line_price
+        assign current_compare = current_variant.compare_at_price | default: current_product.compare_at_price
+        assign compare = current_compare | times: item.quantity
+        unless compare > 0
+          assign compare = item.original_line_price
+        endunless
+        assign save_amount = compare | minus: price
+        assign save_percentage = save_amount | times: 100 | divided_by: compare
+
+        # Discounts
+        assign discount_label = item.discount_allocations.first.discount.title
+
+        # Variants
+        assign option1 = item.options_with_values[0].value
+        assign option2 = item.options_with_values[1].value
+        assign option1_prefix = ''
+        for number in numbers
+          if option1 contains number
+            assign option1_prefix = 'Bundle: '
+          endif
+        endfor
+
+        # Selling Plans
+        assign selling_plans = item.selling_plan_allocation
+        assign selling_plan_name = selling_plans.selling_plan.name
+        assign selling_plan_id = blank
+        assign selling_plan_type = 'percentage'
+        assign selling_plan_value = blank
+        assign discount_percent = 0
+        
+        assign available_selling_plans = current_product.selling_plan_groups.first.selling_plans
+        for plan in available_selling_plans
+          if plan.name contains '30' or plan.name contains '4'
+            assign selling_plan_id = plan.id
+            assign selling_plan_type = plan.price_adjustments.first.value_type
+            if selling_plan_type == 'percentage'
+              assign selling_plan_value = plan.price_adjustments.first.value | append: '%'
+              assign discount_percent = selling_plan_value | plus: 0
+            else
+              assign selling_plan_value = plan.price_adjustments.first.value | money
+            endif
+            break
+          endif
+        endfor
+
+        # Item is a Gift
+        assign gift_product = settings.cart_discount_gift_product
+        assign item_is_gift = false
+        if gift_product.id == item.product_id
+          assign item_is_gift = true
+        endif
+
+
+        # Item is an upgradable subscription
+        assign item_is_upgradable_subscription = false
+        
+        if option1 contains 'Jar' and selling_plans != blank
+          assign jar_count = option1 | split: ' ' | first | plus: 0
+          assign next_jar_count = jar_count | plus: 1
+          assign next_jar_option = next_jar_count | append: ' Jars'
+          assign upgrade_to_variant = current_product.variants | where: 'option1', next_jar_option | first
+          
+          # Only allow upgrade if the next variant exists
+          if upgrade_to_variant != blank
+            assign item_is_upgradable_subscription = true
+            assign upgrade_to_variant_id = upgrade_to_variant.id
+            assign upgrade_to_variant_quantity = next_jar_count
+            assign upgrade_to_variant_price = upgrade_to_variant.price
+            
+            # Apply subscription discount if applicable
+            if selling_plan_type == 'percentage'
+              assign discount_amount = upgrade_to_variant_price | times: discount_percent | divided_by: 100
+              assign upgrade_to_variant_price = upgrade_to_variant_price | minus: discount_amount
+            endif
+            
+            # Count existing upgraded variants in cart
+            assign upgrade_to_variant_count = 0
+            for cart_item in cart.items
+              if cart_item.product_id == current_product.id and cart_item.variant.option1 == upgrade_to_variant.option1
+                assign upgrade_to_variant_count = upgrade_to_variant_count | plus: cart_item.quantity
+              endif
+            endfor
+            
+            # Calculate savings: (discounted 1 Jar price × 2) - discounted 2 Jar price
+            assign first_variant_sub_save = first_variant_price | times: discount_percent | divided_by: 100
+            assign first_variant_sub_price = first_variant_price | minus: first_variant_sub_save
+            assign upgrade_to_variant_save = first_variant_sub_price | times: upgrade_to_variant_quantity | minus: upgrade_to_variant_price
+          endif
+        endif
+      %}
+      <div class="cd__item" data-id="{{ item.id }}">
+        <div class="cd__item-image">
+          {% render 'responsive-image', image: item.image, image_width: 100, custom_alt: item.title %}
+        </div>
+
+        <div class="cd__item-content">
+          <div class="cd__item-header">
+            <p class="cd__item-title">{{ item.title }}</p>
+            <div class="cd__item-remove">
+              <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0625/9304/0484/files/streamline_delete-1.png?v=1748117648" alt="x-icon" width="16" height="16"><span class="loader"></span>
+            </div>
+          </div>
+
+          {% unless option1 == 'Default Title' %}
+            <div class="cd__item-variants">
+              <p class="cd__item-variant">{{ option1_prefix }}<span>{{ option1 }}</span></p>
+              {% if option2 != blank %}
+                <p class="cd__item-variant"><span>{{ option2 }}</span></p>
+              {% endif %}
+            </div>
+          {% endunless %}
+          {% if show_item_selling_plans and selling_plans != blank %}
+            <div class="cd__item-variants">
+              <p class="cd__item-variant"><span>{{ selling_plan_name }}</span></p>
+            </div>
+          {% endif %}
+          {% if show_item_discount_labels and discount_label != blank %}
+            <div class="cd__item-variants">
+              <p class="cd__item-variant"><span>{{ discount_label }}</span></p>
+            </div>
+          {% endif %}
+
+          
+          <div class="cd__item-footer">
+            {% unless item_is_gift %}
+              <div class="cd__item-quantity">
+                <div class="cd__item-quantity-minus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></div>
+                <div class="cd__item-quantity-value">{{ item.quantity }}</div>
+                <div class="cd__item-quantity-plus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></div>
+              </div>
+            {% endunless %}
+
+            <p class="cd__item-price">
+              {% if compare > price %}
+                <s>{{ compare | money }}</s>
+              {% endif %}
+              {% if price == 0 %}
+                FREE
+              {% else %}
+                {{ price | money }}
+              {% endif %}
+              {% if show_item_discount_percentage and save_amount > 0 and price > 0 %}
+                <span class="discount">{{ save_percentage | round }}% OFF</span>
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {% if item_is_upgradable_subscription and selling_plans != blank and item_is_gift == false and price > 0 %}
+        <flex-col class="cd__item-upgrade-wrapper upgradeable-sub">
+          <button type="button" class="cd__item-upgrade-sub" data-id="{{ item.id }}" data-plan-id="{{ selling_plan_id }}" data-upgrade-id="{{ upgrade_to_variant_id }}" data-upgrade-count="{{ upgrade_to_variant_count }}" data-quantity="{{ item.quantity }}">
+            Buy {{ upgrade_to_variant_quantity }} & Save {{ upgrade_to_variant_save | money }}
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16" fill="none">
+              <path d="M12.3627 0.666827C12.3627 6.18956 14.3748 8.00029 20.146 8.00029C14.3748 8.00029 12.3627 9.81076 12.3627 15.3335M1.05505 8.00004L19.8294 8.00004" stroke="#1C483C" stroke-width="1.33333" stroke-miterlimit="10"/>
+            </svg>
+          </button>
+        </flex-col>
+      {% endif %}
+
+      {% if show_upgrade_to_sub and selling_plans == blank and selling_plan_id != blank and item_is_gift == false and price > 0 %}
+        {% if upgrade_to_sub_type == 'pill' %}
+          <flex-col class="cd__item-upgrade-wrapper pill-upgrade">
+            <flex class="cd__item-upgrade">
+              <button type="button" class="cd__item-upgrade-btn" data-id="{{ item.id }}" data-plan-id="{{ selling_plan_id }}"></button>
+              <flex-col>
+                <h3>{{ ss.cart_items_upgrade_to_subscription_pill_title | replace: '[discount]', selling_plan_value }}</h3>
+                <p>{{ ss.cart_items_upgrade_to_subscription_pill_text }}</p>
+              </flex-col>
+            </flex>
+          </flex-col>
+        {% else %}
+          <flex-col class="cd__item-upgrade-wrapper">
+            <p class="cd__item-upgrade-label">76% of our users choose subscription</p>
+            <flex class="cd__item-upgrade">
+              <button type="button" class="cd__item-upgrade-btn" data-id="{{ item.id }}" data-plan-id="{{ selling_plan_id }}"></button>
+              <p>Upgrade to Subscription & <strong>{{ selling_plan_value }}</strong> per purchase!</p>
+            </flex>
+            <flex class="cd__item-upgrade-points">
+              {% assign checkIconUrl = "https://cdn.shopify.com/s/files/1/0596/8419/2545/files/Cart_Check_Icon_01f26807-a2bd-4637-a7c1-1500415b9130.png?v=1738853428" %}
+              {% assign points = "Lock-In Current Price, Pause Or Cancel Anytime, Free Express Shipping" | split: ', ' %}
+              {% for point in points %}
+                <point>
+                  <img src="{{ checkIconUrl }}" width="20" height="20" alt="check-icon">
+                  <p>{{ point }}</p>
+                </point>
+              {% endfor %}
+            </flex>
+          </flex-col>
+        {% endif %}
+      {% endif %}
+
+    {% endunless %}
+  {% endfor %}
+</cart-items>
+
+<script>
+  const productSellingPlans = {
+    {% paginate collections.all.products by 250 %}
+      {% for product in collections.all.products %}
+        "{{ product.id }}": {{ product.selling_plan_groups | json }},
+      {% endfor %}
+    {% endpaginate %}
+  };
+  window.product_selling_plans = productSellingPlans;
+</script>

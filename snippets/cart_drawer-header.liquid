@@ -1,0 +1,42 @@
+<div class="cd__nav">
+  <div>
+    <h3>{{ ss.cart_title | default: 'In Your Bag ' }}<span class="cd__units"><span>{{ cart_items_filtered_count }}</span></span></h3>
+  </div>
+  <div>
+    <p class="cd__nav-back"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg></p>
+  </div>
+</div>
+
+{% unless cart.items.size == 0 %}
+  {% if ss.cart_reserved_timer %}
+    <div class="cd__timer" data-timer="{{ ss.cart_reserved_timer_minutes }}">
+      <p class="cd__timer-empty">Your cart is empty</p>
+      <p class="cd__timer-reserved">{{ ss.cart_reserved_timer_title }} <span class="cd_timer-reserved__hour">00</span>:<span class="cd_timer-reserved__min">{{ ss.cart_reserved_timer_minutes }}</span>:<span class="cd_timer-reserved__sec">00</span></p>
+    </div>
+  {% endif %}
+
+  {% if settings.cart_show_discount_bar %}
+    {% render 'cart_drawer-discount-bar' ss: ss, cart_items_true_count: cart_items_true_count %}
+  {% endif %}
+
+  {% render 'tp-ratings' ratings: ss.ratings, ratings_stars: ss.ratings_stars, ratings_logo: ss.ratings_logo, ratings_text: ss.ratings_text %}
+
+  {% if settings.cart_show_discount_bar and settings.cart_discount_gift %}
+    {% render 'cart_drawer-discount-bar-gift' ss: ss %}
+    {% render 'cart_drawer-gift-selector-modal' ss: ss %}
+  {% endif %}
+
+  {% if settings.cart_show_discount_bar == false and ss.progress_bar %}
+    {% render 'cart_drawer-progress' ss: ss %}
+  {% endif %}
+{% else %}
+  <div class="cd__empty">
+    <p>Your cart is empty</p>
+
+    {% if ss.cart_empty_btn %}
+      <a href="{{ ss.cart_empty_btn_link }}" class="cd__empty-btn" title="{{ ss.cart_empty_btn_text }}">
+        {{ ss.cart_empty_btn_text }}
+      </a>
+    {% endif %}
+  </div>
+{% endunless %}

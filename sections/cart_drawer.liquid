@@ -1,0 +1,389 @@
+{% liquid
+  assign numbers = '0,1,2,3,4,5,6,7,8,9' | split: ','
+
+  assign ss = section.settings
+  assign upsells = section.blocks | where: 'type', 'upsell'
+  assign benefits = section.blocks | where: 'type', 'benefit'
+
+  assign shipping_product = settings.cart_drawer_shipping_protection_product | default: all_products['shipping-protection']
+  assign shipping_protection_free_excluded_products = settings.cart_drawer_shipping_protection_free_excluded_products | map: 'id' | join: ','
+
+  assign cart_items_filtered_count = 0
+  assign cart_items_true_count = 0
+  assign cart_items_shipping_protection_free_count = 0
+  
+  for item in cart.items
+    assign option1 = item.options_with_values[0].value
+    assign multiplier = 1
+    for number in numbers
+      if option1 contains number
+        assign multiplier = number | times: 1
+      endif
+    endfor
+    assign addition = item.quantity | times: multiplier
+
+    if item.product_id != shipping_product.id
+      assign cart_items_filtered_count = cart_items_filtered_count | plus: item.quantity
+      if item.final_line_price > 0
+        assign cart_items_true_count = cart_items_true_count | plus: addition
+        unless shipping_protection_free_excluded_products contains item.product_id
+          assign cart_items_shipping_protection_free_count = cart_items_shipping_protection_free_count | plus: addition
+        endunless
+      endif
+    endif
+  endfor
+%}
+
+
+<div class="cd__outer" id="cart-drawer-kandy" data-cur="{{ 0 | money }}">
+  <flex-col class="cd__inner">
+    {% render 'cart_drawer-header' ss: ss, progress_bar: ss.progress_bar, progress_bar_title: ss.progress_bar_title,
+    ratings: ss.ratings, ratings_stars: ss.ratings_stars, ratings_logo: ss.ratings_logo, ratings_text: ss.ratings_text,
+    cart_items_true_count: cart_items_true_count, cart_items_filtered_count: cart_items_filtered_count %}
+
+    <cart-drawer-content>
+      {% unless cart.items.size == 0 %}
+        {% render 'cart_drawer-items' ss: ss %}
+      {% endunless %}
+
+      {% if ss.upsells and ss.upsells_position == 'content' %}
+        {% if ss.upsells_type == 'selector' %}
+          {% render 'cart_drawer_upsells_selector' upsells: upsells %}
+        {% else %}
+          {% render 'cart_drawer_upsells' upsells: upsells %}
+        {% endif %}
+      {% endif %}
+    </cart-drawer-content>
+
+
+    {% unless cart.items.size == 0 %}
+      {% render 'cart_drawer-summary' ss: ss, upsells: upsells, benefits: benefits,
+       cart_items_true_count: cart_items_true_count, cart_items_shipping_protection_free_count: cart_items_shipping_protection_free_count %}
+    {% endunless %}
+    {% render 'cart_drawer-config' ss: ss %}
+  </flex-col>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Slide Cart",
+    "settings": [
+      {
+        "type": "text",
+        "id": "cart_title",
+        "label": "Cart Title",
+        "default": "In Your Bag "
+      }, {
+        "type": "checkbox",
+        "id": "cart_empty_btn",
+        "label": "Show Cart Empty Button",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "cart_empty_btn_text",
+        "label": "Cart Empty Button Text",
+        "default": "Shop Best Sellers"
+      }, {
+        "type": "url",
+        "id": "cart_empty_btn_link",
+        "label": "Cart Empty Button Link"
+      }, {
+        "type": "header",
+        "content": "Cart Reserved Timer"
+      }, {
+        "type": "checkbox",
+        "id": "cart_reserved_timer",
+        "label": "Show Reserved Timer"
+      }, {
+        "type": "text",
+        "id": "cart_reserved_timer_title",
+        "label": "Cart Reserved Timer Title",
+        "default": "Cart Reserved for",
+        "visible_if": "{{ section.settings.cart_reserved_timer }}"
+      }, {
+        "type": "text",
+        "id": "cart_reserved_timer_minutes",
+        "label": "Cart Reserved Timer Minutes",
+        "default": "15",
+        "info": "Enter the number of minutes the cart will be reserved for. Cart will be cleared if no items are added within this time.",
+        "visible_if": "{{ section.settings.cart_reserved_timer }}"
+      }, {
+        "type": "header",
+        "content": "TP Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "ratings",
+        "label": "Ratings",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.ratings }}"
+      }, {
+        "type": "text",
+        "id": "ratings_text",
+        "label": "Ratings Text",
+        "default": "Rate 4.9/5 based on 8,900+ reviews",
+        "visible_if": "{{ section.settings.ratings }}"
+      }, {
+        "type": "header",
+        "content": "Discount Bar",
+        "info": "Discount bar advancement on cart drawer is configurable in: [Theme Settings] > [Cart] > [Cart Drawer Discount Bar]. This will optionally include free-shipping and gift based on the thresholds to the order."
+      }, {
+        "type": "header",
+        "content": "Progress Bar"
+      }, {
+        "type": "checkbox",
+        "id": "progress_bar",
+        "label": "Show Progress Bar"
+      }, {
+        "type": "text",
+        "id": "progress_bar_title",
+        "label": "Progress Bar Title",
+        "default": "Add",
+        "visible_if": "{{ section.settings.progress_bar }}"
+      }, {
+        "type": "header",
+        "content": "Cart Items"
+      }, {
+        "type": "checkbox",
+        "id": "cart_items_show_discount_label",
+        "label": "Show Discount Label"
+      }, {
+        "type": "checkbox",
+        "id": "cart_items_show_discount_percentage",
+        "label": "Show Discount Percentage",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "cart_items_show_selling_plan",
+        "label": "Show Selling Plan"
+      }, {
+        "type": "header",
+        "content": "Upgrade to Subscription"
+      }, {
+        "type": "checkbox",
+        "id": "cart_items_show_upgrade_to_subscription",
+        "label": "Show Upgrade to Subscription",
+        "default": true
+      }, {
+        "type": "select",
+        "id": "cart_items_upgrade_to_subscription_type",
+        "label": "Upgrade to Subscription Type",
+        "default": "pill",
+        "options": [
+          { "value": "pill", "label": "Pill" },
+          { "value": "default", "label": "Default" }
+        ]
+      }, {
+        "type": "text",
+        "id": "cart_items_upgrade_to_subscription_pill_title",
+        "label": "Upgrade to Subscription Pill Title",
+        "default": "Save [discount] with Automatic Refills!",
+        "info": "Use [discount] to display the selling plan value. e.g.: Save [discount] ...! becomes: Save 10% ...!"
+      }, {
+        "type": "text",
+        "id": "cart_items_upgrade_to_subscription_pill_text",
+        "label": "Upgrade to Subscription Pill Text",
+        "default": "Zero commitment, Cancel Anytime"
+      }, {
+        "type": "header",
+        "content": "Upsells"
+      }, {
+        "type": "checkbox",
+        "id": "upsells",
+        "label": "Show Upsells",
+        "default": true
+      }, {
+        "type": "color",
+        "id": "upsells_bg_color",
+        "label": "Upsells Background Color",
+        "default": "#FCF9F2",
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "select",
+        "id": "upsells_position",
+        "label": "Upsells Position",
+        "default": "content",
+        "options": [
+          { "value": "content", "label": "Content" }, { "value": "footer", "label": "Footer" }
+        ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "select",
+        "id": "upsells_type",
+        "label": "Upsells Type",
+        "default": "selector",
+        "options": [
+          { "value": "selector", "label": "Selector" },
+          { "value": "carousel", "label": "Carousel" }
+        ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "checkbox",
+        "id": "show_fold_btn",
+        "label": "Show Fold/Unfold Upsells Button",
+        "default": true,
+        "info": "Only applicable if upsells position is set to footer.",
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "select",
+        "id": "upsells_style",
+        "label": "Upsells Style",
+        "default": "box",
+        "options": [
+          { "value": "box", "label": "Box" }, { "value": "list", "label": "List" }
+        ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "text",
+        "id": "upsells_title",
+        "label": "Upsells Title",
+        "default": "You might also like",
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "checkbox",
+        "id": "upsells_title_line_before",
+        "label": "Upsells Title Line Before",
+        "default": true,
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "checkbox",
+        "id": "upsells_title_line_after",
+        "label": "Upsells Title Line After",
+        "default": true,
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "checkbox",
+        "id": "upsells_show_discount",
+        "label": "Show Upsells Discount",
+        "default": true,
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "text",
+        "id": "upsells_atc_text",
+        "label": "Upsells ATC Text",
+        "default": "+ ADD",
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "select",
+        "id": "upsells_atc_position",
+        "label": "Upsells ATC Position",
+        "default": "bottom",
+        "options": [
+          { "value": "top", "label": "Top" }, { "value": "bottom", "label": "Bottom" }
+        ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "header",
+        "content": "Footer"
+      }, {
+        "type": "text",
+        "id": "footer_note",
+        "label": "Footer Note",
+        "default": "Lifetime warranty • 1-3 day delivery • No hassle returns"
+      }, {
+        "type": "header",
+        "content": "Footer Prices"
+      }, {
+        "type": "checkbox",
+        "id": "show_footer_prices",
+        "label": "Show Footer Prices",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "show_footer_prices_shipping",
+        "label": "Show Footer Prices Shipping",
+        "default": true,
+        "visible_if": "{{ section.settings.show_footer_prices }}"
+      }, {
+        "type": "text",
+        "id": "footer_prices_shipping_label",
+        "label": "Footer Prices Label | Shipping",
+        "default": "Shipping",
+        "visible_if": "{{ section.settings.show_footer_prices_shipping }}"
+      }, {
+        "type": "text",
+        "id": "footer_prices_shipping_value",
+        "label": "Footer Prices Value | Shipping",
+        "default": "Calculated at next step",
+        "visible_if": "{{ section.settings.show_footer_prices_shipping }}"
+      }, {
+        "type": "text",
+        "id": "footer_prices_total_label",
+        "label": "Footer Prices Label | Total",
+        "default": "Total:",
+        "visible_if": "{{ section.settings.show_footer_prices }}"
+      }, {
+        "type": "checkbox",
+        "id": "show_footer_prices_save",
+        "label": "Show Footer Prices Save",
+        "default": true,
+        "visible_if": "{{ section.settings.show_footer_prices }}"
+      }, {
+        "type": "text",
+        "id": "footer_prices_save_label",
+        "label": "Footer Prices Label | Save",
+        "default": "You Save",
+        "visible_if": "{{ section.settings.show_footer_prices }}"
+      }, {
+        "type": "header",
+        "content": "Footer ATC"
+      }, {
+        "type": "text",
+        "id": "atc_text",
+        "label": "ATC Text",
+        "default": "Checkout - "
+      }, {
+        "type": "checkbox",
+        "id": "show_checkout_price",
+        "label": "Show Checkout Price"
+      }, {
+        "type": "image_picker",
+        "id": "payment_image",
+        "label": "Payment Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "upsell",
+        "name": "Upsell",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Your Product"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "info": "Enter custom title for the product."
+          }
+        ]
+      }, {
+        "type": "benefit",
+        "name": "Benefit",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "30-Day Money-Back"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

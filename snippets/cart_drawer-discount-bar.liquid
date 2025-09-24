@@ -1,0 +1,109 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  DISCOUNT BAR
+  ----------------------------------------------------------------------------------------------------------------------
+  Renders the discount progress bar component in the cart drawer, showing the remaining amount to qualify for free shipping
+  and additional discounts. The thresholds and discount details are configurable in the theme customizer.
+
+  ********************************************
+  Settings used
+  ********************************************
+  * settings.cart_discount_free_shipping_threshold
+  * settings.cart_discount_threshold_1
+  * settings.cart_discount_percentage_1
+  * settings.cart_discount_threshold_2
+  * settings.cart_discount_percentage_2
+  * settings.cart_discount_threshold_3
+  * settings.cart_discount_percentage_3
+  * settings.cart_discount_free_shipping_icon
+  * settings.cart_discount_icon
+  * settings.cart_discount_success_icon
+
+  ********************************************
+  CSS & JS Locations
+  ********************************************
+  * JS: KD_cart_drawer.js
+  * CSS: KD_cart_drawer.css
+
+  ********************************************
+  Note
+  ********************************************
+  Initial calculations or values may not be needed.
+  Dynamic grid styling is applied at the end of the CSS file based on the number of thresholds.
+{%- endcomment -%}
+
+<discount-progress-bar>
+  {%- liquid
+    assign thresholds_count = 0
+    assign calculated_total_price = 0
+    for line_item in cart.items
+      assign calculated_total_price = calculated_total_price | plus: line_item.final_line_price
+    endfor
+    assign show_thresholds = settings.cart_discount_thresholds_show
+
+    # Free Shipping
+    assign discount_bar_free_shipping = settings.cart_discount_free_shipping
+    if discount_bar_free_shipping
+      assign thresholds_count = thresholds_count | plus: 1
+    endif
+    assign free_shipping_threshold = settings.cart_discount_free_shipping_threshold | times: 100
+    assign free_shipping_amount_left = free_shipping_threshold | minus: cart.total_price
+
+    # Gift
+    assign discount_bar_gift = settings.cart_discount_gift
+    assign gift_product = settings.cart_discount_gift_product
+    if discount_bar_gift
+      assign thresholds_count = thresholds_count | plus: 1
+    endif
+    assign gift_threshold = settings.cart_discount_gift_threshold | times: 100
+
+    assign max_threshold = 0
+    if discount_bar_gift
+      assign max_threshold = gift_threshold
+    elsif discount_bar_free_shipping
+      assign max_threshold = free_shipping_threshold
+    endif
+    if max_threshold > 0
+      assign current_progress = cart.total_price | times: 100 | divided_by: max_threshold
+      assign current_progress = current_progress | at_least: 0 | at_most: 100
+    endif
+  %}
+  <div class="discount-bar__status">
+    {% if settings.cart_discount_success_icon %}
+      {% render 'responsive-image', image: settings.cart_discount_success_icon, width: 40, class: 'success-icon', custom_alt: 'success-icon' %}
+    {% endif %}
+    
+    {% if free_shipping_amount_left > 0 %}
+      <p>You're {{ free_shipping_amount_left | money }} away from <span class="discount-bar__status-value">Free Shipping</span>!</p>
+    {% else %}
+      <p>You've unlocked <span class="discount-bar__status-value">Free Shipping</span>!</p>
+    {% endif %}
+  </div>
+
+  <div class="discount-bar__progress-bar-wrapper" style="grid-template-columns: repeat({{ thresholds_count }}, 1fr);">
+    <div class="discount-bar__progress-bar" data-total-price="{{ cart.total_price }}" data-total-price-v2="{{ calculated_total_price }}">
+      <div class="discount-bar__progress-fill" role="progressbar" aria-valuemin="0" style="width: {{ current_progress | default: 0 }}%"></div>
+    </div>
+    {% if discount_bar_free_shipping %}
+      <flex-col class="discount-bar__threshold{% if show_thresholds == false %} hidden{% endif %}" data-value="{{ free_shipping_threshold }}" data-type="free-shipping">
+        <flex-center class="discount-bar__circle">
+          {% render 'responsive-image', image: settings.cart_discount_free_shipping_unlocked_icon, width: 40, class: 'success-icon', custom_alt: 'free-shipping-unlocked-icon' %}
+          {% render 'responsive-image', image: settings.cart_discount_free_shipping_icon, width: 40, class: 'default-icon', custom_alt: 'free-shipping-icon' %}
+          <p>FREE</p>
+        </flex-center>
+        <strong class="discount-bar__threshold-value">{{ free_shipping_threshold | money_without_trailing_zeros }}</strong>
+      </flex-col>
+    {% endif %}
+
+    {% if discount_bar_gift %}
+      <flex-col class="discount-bar__threshold{% if show_thresholds == false %} hidden{% endif %}" data-value="{{ gift_threshold }}" data-type="gift" data-id="{{ gift_product.id }}">
+        <flex-center class="discount-bar__circle">
+          {% render 'responsive-image', image: settings.cart_discount_gift_unlocked_icon, width: 40, class: 'success-icon', custom_alt: 'free-shipping-unlocked-icon' %}
+          {% render 'responsive-image', image: settings.cart_discount_gift_icon, width: 40, class: 'default-icon', custom_alt: 'discount-icon' %}
+          <p>FREE</p>
+        </flex-center>
+        <strong class="discount-bar__threshold-value">{{ gift_threshold | money_without_trailing_zeros }}</strong>
+      </flex-col>
+    {% endif %}
+  </div>
+</discount-progress-bar>

@@ -1,0 +1,60 @@
+{% liquid
+  assign gift_product = settings.cart_discount_gift_product
+  assign selected_variant = gift_product.selected_or_first_available_variant
+
+  assign image = gift_product.featured_image
+  assign title = title | default: gift_product.title
+
+  assign colors = gift_product.variants | map: 'option1' | uniq
+  assign sizes = gift_product.variants | map: 'option2' | uniq
+%}
+
+
+
+<flex-col class="cd__gift-selector-modal">
+  <div class="modal-overlay"></div>
+  <flex-col class="modal-content cd__gift-selector-modal-content">
+    <flex-center class="modal-close">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0625/9304/0484/files/streamline_delete-1.png?v=1748117648" alt="x-icon" width="16" height="16">
+    </flex-center>
+    <flex class="cd__gift-selector-modal-header">
+      <flex-center class="cd__gift-selector-modal-header-image">
+        {% for media in gift_product.media %}
+          {% if media.src == image %}
+            {% render 'responsive-image' image: media, width: 100 %}
+          {% endif %}
+        {% endfor %}
+      </flex-center>
+      <flex-col>
+        <div class="cd__gift-selector-modal-header-title">{{ title }}</div>
+        <div class="cd__gift-selector-modal-header-price">{{ '0' | money }}</div>
+      </flex-col>
+    </flex>
+
+    <flex-col class="cd__gift-selector-modal-selector-wrapper">
+      <label class="cd__gift-selector-modal-label">Color</label>
+      <select class="cd__gift-selector-modal-selector main-selector" data-type="color">
+        {% for color in colors %}
+          <option value="{{ color }}">{{ color }}</option>
+        {% endfor %}
+      </select>
+    </flex-col>
+
+    <flex-col class="cd__gift-selector-modal-selector-wrapper">
+      <label class="cd__gift-selector-modal-label">Size</label>
+      <select class="cd__gift-selector-modal-selector main-selector" data-type="size">
+        {% for size in sizes %}
+          <option value="{{ size }}">{{ size }}</option>
+        {% endfor %}
+      </select>
+    </flex-col>
+
+    <div class="cd__gift-variants">
+      {% for variant in gift_product.variants %}
+        <input type="hidden" class="cd__gift-variant" data-id="{{ variant.id }}" data-color="{{ variant.option1 }}" data-size="{{ variant.option2 }}">
+      {% endfor %}
+    </div>
+
+    <button type="button" class="cd__gift-selector-modal-atc" data-id="{{ selected_variant.id }}">{{ atc_text | default: 'Confirm' }}</button>
+  </flex-col>
+</flex-col>

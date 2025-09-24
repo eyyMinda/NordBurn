@@ -1437,6 +1437,163 @@
         "label": "t:settings_schema.cart.settings.cart_type.label"
       },
       {
+        "type": "select",
+        "id": "cart_drawer_type",
+        "label": "Cart Drawer Type",
+        "default": "kandy",
+        "options": [
+          { "value": "kandy", "label": "Kandy Custom" },
+          { "value": "default", "label": "Theme Default" }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Cart Drawer Discount bar",
+        "info": "Show a discount bar advancement on cart drawer. This will optionally include free-shipping and gift based on the thresholds to the order."
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_discount_bar",
+        "label": "Show Discount bar",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_discount_success_icon",
+        "label": "Status Text Success Icon"
+      },
+      {
+        "type": "header",
+        "content": "-- Free Shipping"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_discount_free_shipping",
+        "label": "Cart Discount Free Shipping",
+        "default": false,
+        "visible_if": "{{ settings.cart_show_discount_bar }}"
+      },
+      {
+        "type": "text",
+        "id": "cart_discount_free_shipping_threshold",
+        "label": "Free shipping minimum amount",
+        "default": "50",
+        "info": "Indicate the value in your store main currency. Leave empty to not have this in the bar.",
+        "visible_if": "{{ settings.cart_discount_free_shipping }}"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_discount_free_shipping_icon",
+        "label": "Free Shipping Icon",
+        "visible_if": "{{ settings.cart_discount_free_shipping }}"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_discount_free_shipping_unlocked_icon",
+        "label": "Free Shipping Unlocked Icon",
+        "visible_if": "{{ settings.cart_discount_free_shipping }}"
+      },
+      {
+        "type": "header",
+        "content": "-- Gift"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_discount_gift",
+        "label": "Gift Threshold",
+        "default": false,
+        "visible_if": "{{ settings.cart_show_discount_bar }}"
+      },
+      {
+        "type": "product",
+        "id": "cart_discount_gift_product",
+        "label": "Gift Product"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_discount_gift_image",
+        "label": "Gift Custom Image",
+        "visible_if": "{{ settings.cart_discount_gift }}"
+      },
+      {
+        "type": "text",
+        "id": "cart_discount_gift_title",
+        "label": "Gift Custom Title",
+        "default": "Armadilo Performance Compression Socks",
+        "visible_if": "{{ settings.cart_discount_gift }}"
+      },
+      {
+        "type": "text",
+        "id": "cart_discount_gift_price",
+        "label": "Gift Custom Price",
+        "default": "5500",
+        "info": "Indicate the value in your store main currency in cents e.g.: 5500",
+        "visible_if": "{{ settings.cart_discount_gift }}"
+      },
+      {
+        "type": "text",
+        "id": "cart_discount_gift_threshold",
+        "label": "Gift minimum amount",
+        "default": "100",
+        "info": "Indicate the value in your store main currency. Leave empty to not have this in the bar.",
+        "visible_if": "{{ settings.cart_discount_gift }}"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_discount_gift_icon",
+        "label": "Gift Icon",
+        "visible_if": "{{ settings.cart_discount_gift }}"
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_discount_gift_unlocked_icon",
+        "label": "Gift Unlocked Icon",
+        "visible_if": "{{ settings.cart_discount_gift }}"
+      },
+      {
+        "type": "header",
+        "content": "Shipping Protection"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_shipping_protection",
+        "label": "Show Shipping Protection",
+        "info": "Upon selection adds a Shipping protection from Cart Drawer",
+        "default": true
+      },
+      {
+        "type": "product",
+        "id": "cart_drawer_shipping_protection_product",
+        "label": "Shipping Protection"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_shipping_protection_enabled",
+        "label": "Enable Shipping Protection by Default",
+        "default": true,
+        "visible_if": "{{ settings.cart_drawer_shipping_protection }}"
+      },
+      {
+        "type": "textarea",
+        "id": "cart_drawer_shipping_protection_title",
+        "label": "Shipping Protection Title",
+        "default": "Shipping Insurance & Lifetime Warranty",
+        "visible_if": "{{ settings.cart_drawer_shipping_protection }}"
+      },
+      {
+        "type": "textarea",
+        "id": "cart_drawer_shipping_protection_text",
+        "label": "Shipping Protection Text",
+        "default": "Free replacement for damaged packages. Protect your order now!",
+        "visible_if": "{{ settings.cart_drawer_shipping_protection }}"
+      },
+      {
+        "type": "product_list",
+        "id": "cart_drawer_shipping_protection_free_excluded_products",
+        "label": "Shipping Protection Free Excluded Products",
+        "info": "Products that will not be counted towards the free shipping protection count."
+      },
+      {
         "type": "checkbox",
         "id": "show_vendor",
         "label": "t:settings_schema.cart.settings.show_vendor.label",
