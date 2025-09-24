@@ -363,3 +363,6 @@
     font-size: 30px;
   }
 }
+.g-pdp-selector-wrapper:has(+ .g-cta) {
+  margin-bottom: 16px;
+}
