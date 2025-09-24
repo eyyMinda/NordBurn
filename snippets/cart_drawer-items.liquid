@@ -5,7 +5,7 @@
   assign show_upgrade_to_sub = ss.cart_items_show_upgrade_to_subscription
   assign upgrade_to_sub_type = ss.cart_items_upgrade_to_subscription_type
   assign show_item_discount_percentage = ss.cart_items_show_discount_percentage
-  assign show_item_selling_plan = ss.cart_items_show_selling_plan
+  assign show_item_selling_plan= ss.cart_items_show_selling_plan
   assign show_item_discount_label = ss.cart_items_show_discount_label
 %}
 
@@ -117,11 +117,11 @@
           <div class="cd__item-header">
             <p class="cd__item-title">{{ item.title }}</p>
             <div class="cd__item-remove">
-              <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0625/9304/0484/files/streamline_delete-1.png?v=1748117648" alt="x-icon" width="16" height="16"><span class="loader"></span>
+              <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/prime_trash.svg?v=1758745342" alt="x-icon" width="16" height="16">
             </div>
           </div>
 
-          {% unless option1 == 'Default Title' %}
+          {% unless option1 == 'Default Title' or option1 contains 'Month' %}
             <div class="cd__item-variants">
               <p class="cd__item-variant">{{ option1_prefix }}<span>{{ option1 }}</span></p>
               {% if option2 != blank %}
@@ -129,27 +129,25 @@
               {% endif %}
             </div>
           {% endunless %}
-          {% if show_item_selling_plans and selling_plans != blank %}
+          <div class="cd__item-variants">
+            <p class="cd__item-variant">{{ current_variant.metafields.custom.supply_description.value }}</p>
+            {% if current_variant.metafields.custom.supply_description_2.value != blank %}
+                <p class="cd__item-variant">{{ current_variant.metafields.custom.supply_description_2.value }}</p>
+            {% endif %}
+          </div>
+          {% if show_item_selling_plan and selling_plans != blank %}
             <div class="cd__item-variants">
               <p class="cd__item-variant"><span>{{ selling_plan_name }}</span></p>
             </div>
           {% endif %}
-          {% if show_item_discount_labels and discount_label != blank %}
+          {% if show_item_discount_label and discount_label != blank %}
             <div class="cd__item-variants">
               <p class="cd__item-variant"><span>{{ discount_label }}</span></p>
             </div>
           {% endif %}
 
-          
-          <div class="cd__item-footer">
-            {% unless item_is_gift %}
-              <div class="cd__item-quantity">
-                <div class="cd__item-quantity-minus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></div>
-                <div class="cd__item-quantity-value">{{ item.quantity }}</div>
-                <div class="cd__item-quantity-plus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></div>
-              </div>
-            {% endunless %}
-
+          {% assign price_position = 'top' %}
+          {% if price_position == 'top' %}
             <p class="cd__item-price">
               {% if compare > price %}
                 <s>{{ compare | money }}</s>
@@ -163,6 +161,32 @@
                 <span class="discount">{{ save_percentage | round }}% OFF</span>
               {% endif %}
             </p>
+          {% endif %}
+          
+          <div class="cd__item-footer">
+            {% unless item_is_gift %}
+              <div class="cd__item-quantity">
+                <div class="cd__item-quantity-minus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></div>
+                <div class="cd__item-quantity-value">{{ item.quantity }}</div>
+                <div class="cd__item-quantity-plus"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg></div>
+              </div>
+            {% endunless %}
+
+            {% if price_position == 'bottom' %}
+              <p class="cd__item-price">
+                {% if compare > price %}
+                  <s>{{ compare | money }}</s>
+                {% endif %}
+                {% if price == 0 %}
+                  FREE
+                {% else %}
+                  {{ price | money }}
+                {% endif %}
+                {% if show_item_discount_percentage and save_amount > 0 and price > 0 %}
+                  <span class="discount">{{ save_percentage | round }}% OFF</span>
+                {% endif %}
+              </p>
+            {% endif %}
           </div>
         </div>
       </div>

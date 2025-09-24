@@ -1292,50 +1292,56 @@
               throw new Error(`HTTP error! Status: ${response.status}`);
             }
         
-            const data = await response.json();
-            console.log('Added to cart:', data);
+            const defaultCartDrawer = document.querySelector('cart-drawer');
+            const kandyCartDrawer = document.getElementById('cart-drawer-kandy');
+            if(defaultCartDrawer && !kandyCartDrawer) {
+                const data = await response.json();
+                console.log('Added to cart:', data);
 
-            const sectionsResponse = await fetch('/?sections=cart-drawer,cart-icon-bubble');
-            const sectionsData = await sectionsResponse.json();
-            
-            // 🧠 Prepare parsed state
-            const parsedState = {
-              id: data.key, // optional, just like your renderContents expects
-              sections: {
-                'cart-drawer': sectionsData['cart-drawer'],
-                'cart-icon-bubble': sectionsData['cart-icon-bubble']
-              }
-            };
+                const sectionsResponse = await fetch('/?sections=cart-drawer,cart-icon-bubble');
+                const sectionsData = await sectionsResponse.json();
+                
+                // 🧠 Prepare parsed state
+                const parsedState = {
+                id: data.key, // optional, just like your renderContents expects
+                sections: {
+                    'cart-drawer': sectionsData['cart-drawer'],
+                    'cart-icon-bubble': sectionsData['cart-icon-bubble']
+                }
+                };
 
-            console.log(parsedState);
-            // const cartDrawerHTML = parsedState.sections['cart-drawer'];
-            // const parserCart = new DOMParser();
-            // const doc = parserCart.parseFromString(cartDrawerHTML, 'text/html');
-            
-            // const cartDrawerElement = doc.querySelector('#CartDrawer');
-            
-            // if (cartDrawerElement) {
-            //   const outerHTML = cartDrawerElement.outerHTML;
-            //   console.log('Inner HTML inside #CartDrawer:', outerHTML);
-            //   openCartDrawer(outerHTML);
-            // } else {
-            //   console.log('No #CartDrawer element found in the parsed HTML.');
-            // }
-            
-            
-            // 🔄 Render updated cart and open it
-            document.querySelector('cart-drawer').renderContents(parsedState);
-            
-            
-            const parser = new DOMParser();
-            const bubbleDoc = parser.parseFromString(parsedState.sections['cart-icon-bubble'], 'text/html');
-            const newBubbleContent = bubbleDoc.querySelector('#cart-icon-bubble')?.innerHTML;
-            
-            if (newBubbleContent !== undefined) {
-              const cartBubble = document.querySelector('#cart-icon-bubble');
-              if (cartBubble) {
-                cartBubble.innerHTML = newBubbleContent;
-              }
+                console.log(parsedState);
+                // const cartDrawerHTML = parsedState.sections['cart-drawer'];
+                // const parserCart = new DOMParser();
+                // const doc = parserCart.parseFromString(cartDrawerHTML, 'text/html');
+                
+                // const cartDrawerElement = doc.querySelector('#CartDrawer');
+                
+                // if (cartDrawerElement) {
+                //   const outerHTML = cartDrawerElement.outerHTML;
+                //   console.log('Inner HTML inside #CartDrawer:', outerHTML);
+                //   openCartDrawer(outerHTML);
+                // } else {
+                //   console.log('No #CartDrawer element found in the parsed HTML.');
+                // }
+                
+                
+                // 🔄 Render updated cart and open it
+                defaultCartDrawer.renderContents(parsedState);
+                
+                const parser = new DOMParser();
+                const bubbleDoc = parser.parseFromString(parsedState.sections['cart-icon-bubble'], 'text/html');
+                const newBubbleContent = bubbleDoc.querySelector('#cart-icon-bubble')?.innerHTML;
+                
+                if (newBubbleContent !== undefined) {
+                const cartBubble = document.querySelector('#cart-icon-bubble');
+                if (cartBubble) {
+                    cartBubble.innerHTML = newBubbleContent;
+                }
+                }
+            } else {
+                window.cart_build();
+                window.cart_open();
             }
           } catch (error) {
             console.error('Add to cart failed:', error);

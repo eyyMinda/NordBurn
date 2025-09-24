@@ -53,9 +53,9 @@ cart-drawer {
 .active .cd__inner {
   right: 0;
 }
-@media only screen and (min-width: 560px) {
+@media only screen and (min-width: 480px) {
   .cd__inner {
-    max-width: 560px;
+    max-width: 480px;
   }
   .cd__inner.floating {
     height: calc(100% - 16px);
@@ -150,17 +150,16 @@ cart-drawer {
 
 /* =================================== Cart Timer ================================*/
 .cd__timer {
-  background: #333;
+  background: var(--accent-color, #333);
   text-align: center;
   padding: 6px 16px;
 }
 .cd__timer p {
   color: #fff;
   font-family: var(--font-body-family);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.2;
 }
-.cd__timer-reserved,
 .cd__timer-empty {
   display: none;
 }
@@ -175,6 +174,12 @@ cart-drawer {
 }
 .cd__outer:has(discount-progress-bar-gift) .tp-ratings {
   padding-bottom: 0;
+}
+.cd__outer .tp-ratings a {
+  cursor: auto;
+  pointer-events: none;
+  font-weight: 400;
+  text-decoration: none;
 }
 /* =================================== Cart Progress ================================*/
 .cd__progress {
@@ -293,11 +298,14 @@ cart-items {
   gap: 8px;
   margin-top: auto;
 }
+.cd__item .cd__item-footer .cd__item-price {
+  justify-content: flex-end;
+  margin-block: auto 8px !important;
+}
 .cd__item .cd__item-price {
   color: var(--accent-color);
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
   align-items: center;
   gap: 4px;
   font-family: var(--font-body-family);
@@ -305,7 +313,7 @@ cart-items {
   font-size: 14px;
   line-height: 1;
   letter-spacing: 0.15px;
-  margin-block: auto 8px !important;
+  margin-block: 8px !important;
 }
 .cd__item .cd__item-price s {
   color: #5f5f5f;
@@ -443,6 +451,10 @@ cart-items {
 }
 .cd__inner:has(.cd-upsells__out:not(.active)) .cd-upsells__toggle {
   transform: translate(-50%, -50%) rotate(180deg);
+}
+.cd-upsells__toggle img {
+  width: 100%;
+  height: auto;
 }
 /* Slick */
 .cd-upsells__carousel.slick-header-arrows .slick-arrow {
@@ -970,7 +982,7 @@ p.cd__footer-note {
 }
 /* Payments */
 .cd__footer-payment {
-  max-width: 150px;
+  max-width: 300px;
   align-self: center;
   margin-inline: auto;
 }

@@ -48,12 +48,6 @@
         {{ ss.atc_text | default: 'Checkout' }}{% if ss.show_checkout_price %}<span class="cd__checkout-price">{{ total_price }}</span>{% endif %}
       </a>
 
-      {% if ss.payment_image %}
-        <flex-center class="cd__footer-payment">
-          {% render 'responsive-image' image: ss.payment_image, image_width: 420 %}
-        </flex-center>
-      {% endif %}
-
       {% if benefits.size > 0 %}
         <flex class="cd__footer-benefits">
           {% for benefit in benefits %}
@@ -63,6 +57,12 @@
             </point>
           {% endfor %}
         </flex>
+      {% endif %}
+
+      {% if ss.payment_image %}
+        <flex-center class="cd__footer-payment">
+          {% render 'responsive-image' image: ss.payment_image, image_width: 420 %}
+        </flex-center>
       {% endif %}
     </flex-col>
   </div>

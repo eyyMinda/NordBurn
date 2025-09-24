@@ -463,32 +463,26 @@ $(".cd-upsells__block-atc").on("click", function (evt) {
 // ========================== Cart Reserved Timer ==========================
 let updateTimer;
 function startCountdown() {
-  // Clear any existing timer
   if (updateTimer) clearInterval(updateTimer);
-
-  const cart_reserved_timer = $('.cd__timer').data('timer'); // in minutes
-  const countDownDate = new Date(Date.now() + cart_reserved_timer * 60 * 1000);
-
+  const mins = $('.cd__timer').data('timer');
+  const end = Date.now() + mins * 60 * 1000;
   updateTimer = setInterval(() => {
-    const distance = countDownDate - new Date();
-
-    if (distance <= 0) {
+    let left = end - Date.now();
+    if (left <= 0) {
       clearInterval(updateTimer);
-      $(".cd_timer-reserved__hour, .cd_timer-reserved__min, .cd_timer-reserved__sec").text('0');
+      $(".cd_timer-reserved__hour, .cd_timer-reserved__min, .cd_timer-reserved__sec").text('00');
       $('.cd__timer-reserved p').text('Time is out!');
-      $.post('/cart/clear.js', function () {
-        buildCart();
-      });
-    } else {
-      const [hours, minutes, seconds] = [
-        Math.floor((distance / (1000 * 60 * 60)) % 24),
-        Math.floor((distance / (1000 * 60)) % 60),
-        Math.floor((distance / 1000) % 60),
-      ];
-      $(".cd_timer-reserved__hour").text(hours);
-      $(".cd_timer-reserved__min").text(minutes);
-      $(".cd_timer-reserved__sec").text(seconds);
+      $.post('/cart/clear.js', buildCart);
+      return;
     }
+    const pad = n => String(n).padStart(2, '0');
+    const h = pad(Math.floor((left / 36e5) % 24));
+    const m = pad(Math.floor((left / 6e4) % 60));
+    const s = pad(Math.floor((left / 1e3) % 60));
+    $(".cd_timer-reserved__hour").text(h);
+    $(".cd_timer-reserved__min").text(m);
+    $(".cd_timer-reserved__sec").text(s);
+    // If you want to show the full string somewhere: `${h}:${m}:${s}`
   }, 1000);
 }
 
