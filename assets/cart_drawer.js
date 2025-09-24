@@ -164,19 +164,19 @@ $(document).on("click", ".cd__item-upgrade-sub", async function () {
 
 
 // ========================== Cart Drawer Interactions ==========================
-$('.header__icon-list a[href="/cart"][aria-controls="cart-drawer"], a[href="/cart"].header__icon, #cart-icon-bubble').click(function (evt) {
-  evt.preventDefault();
+$(document).on('click', '.header__icon-list a[href="/cart"][aria-controls="cart-drawer"], a[href="/cart"].header__icon, #cart-icon-bubble', function (e) {
+  e.preventDefault();
   openSlideCart();
 });
 
-$('.cd__outer').click(function () {
-  const target = $(event.target);
+$(document).on('click', '.cd__outer', function (e) {
+  const target = $(e.target);
   if (!target.closest('.cd__inner').length || target.closest('.cd__nav-back').length) {
     closeSlideCart();
   }
 });
 
-$('.cd__checkout-btn').click(() => window.location.href = '/checkout');
+$(document).on('click', '.cd__checkout-btn', () => window.location.href = '/checkout');
 
 $(document).on('mouseover', '.cd__item-remove', e => $(e.target).addClass('active'))
   .on('mouseleave', '.cd__item-remove', e => $(e.target).removeClass('active'));
@@ -428,9 +428,9 @@ $('.cd-upsells__carousel').slick({
   nextArrow: "<button type='button' class='slick-next pull-right'><img class='right_arrow' src='https://cdn.shopify.com/s/files/1/0679/7135/0705/files/Chevron_Right.png?v=1737122129'/></button>",
 });
 
-$('.cd-upsells__toggle').click(function () { $('.cd-upsells__out').toggleClass('active') })
+$(document).on('click', '.cd-upsells__toggle', () => { $('.cd-upsells__out').toggleClass('active'); });
 
-$('.cd-upsells__block-selector').change(function () {
+$(document).on('change', '.cd-upsells__block-selector', function () {
   const currentId = $(this).val();
   const parentBlock = $(this).closest('.cd-upsells__block-wrapper');
   log(parentBlock, 'parentBlock');
@@ -450,7 +450,7 @@ $('.cd-upsells__block-selector').change(function () {
   log.collapse({ currentId, currentPrice, currentComparePrice, currentDiscount }, 'Current Variant', 'info');
 });
 
-$(".cd-upsells__block-atc").on("click", function (evt) {
+$(document).on("click", ".cd-upsells__block-atc", function (evt) {
   evt.preventDefault();
   const currentId = $(this).attr("data-id");
   log(currentId, 'currentId');

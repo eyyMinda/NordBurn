@@ -198,9 +198,9 @@
           "show_footer_prices_shipping": false,
           "footer_prices_shipping_label": "Shipping",
           "footer_prices_shipping_value": "Calculated at next step",
-          "footer_prices_total_label": "Total:",
+          "footer_prices_total_label": "Subtotal",
           "show_footer_prices_save": true,
-          "footer_prices_save_label": "You Save",
+          "footer_prices_save_label": "Discount",
           "atc_text": "Secure Checkout",
           "show_checkout_price": true,
           "payment_image": "shopify://shop_images/Container_536c38bc-58a0-4dfe-ba28-c1ebf70eeaf6.png"
