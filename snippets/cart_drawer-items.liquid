@@ -240,12 +240,14 @@
 </cart-items>
 
 <script>
-  const productSellingPlans = {
-    {% paginate collections.all.products by 250 %}
-      {% for product in collections.all.products %}
-        "{{ product.id }}": {{ product.selling_plan_groups | json }},
-      {% endfor %}
-    {% endpaginate %}
-  };
-  window.product_selling_plans = productSellingPlans;
+  if(!window.product_selling_plans) {
+    const productSellingPlans = {
+      {% paginate collections.all.products by 250 %}
+        {% for product in collections.all.products %}
+          "{{ product.id }}": {{ product.selling_plan_groups | json }},
+        {% endfor %}
+      {% endpaginate %}
+    };
+    window.product_selling_plans = productSellingPlans;
+  }
 </script>
