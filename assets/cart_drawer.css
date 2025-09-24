@@ -469,6 +469,7 @@ cart-items {
 .cd-upsells__out.active {
   opacity: 1;
   height: auto;
+  padding: 12px 16px;
 }
 .cd-upsells__out {
   interpolate-size: allow-keywords;
@@ -477,7 +478,6 @@ cart-items {
   overflow: hidden;
   position: relative;
   gap: 12px;
-  padding: 12px 16px;
   transition: all 0.5s;
 }
 cart-drawer-content > .cd-upsells__out {
