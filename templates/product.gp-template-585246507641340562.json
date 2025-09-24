@@ -1,0 +1,186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_585246522690503314": {
+      "settings": {
+        "checksum": "137baee9c828f2f43cd9ffe7afeb89ec0d180a7d5972d0d4b4487856197967a2_1_1_1_0__1"
+      },
+      "type": "gp-section-585246522690503314"
+    },
+    "gp_section_585246522690503515": {
+      "settings": {
+        "checksum": "f796cfb24abda07f70b6f8a5e7e768c64510074b2670513417d00269c7b7dedc_1_1_1_0__1",
+        "ggOz0Ea-8TG_dayLabel": "Days",
+        "ggOz0Ea-8TG_hourLabel": "HRS",
+        "ggOz0Ea-8TG_minuteLabel": "MIN",
+        "ggOz0Ea-8TG_secondLabel": "SEC",
+        "ggOz0Ea-8TG_weekLabel": "Weeks",
+        "ggc3tR47UW4_text": "<p>Limited time: 30% OFF + FREESHIPPING</p>",
+        "ggvCW4avV-u_text": "<p>LIMITED TIME OFFER - MEGA GLP-1 BUNDLE &nbsp;🎁</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-585246522690503515"
+    },
+    "gp_section_585246522774389565": {
+      "settings": {
+        "checksum": "3ba6fdd7b655e0138bd64123dfb4ace847eaf24c92a748404ff3c0fb22b00163_1_1_1_0__1",
+        "gg2-YWYGXEC_text": "Powerful Ingredients, Proven Benefits",
+        "ggEO753wBMF_text": "<p>Clinically Proven Benefits for Stronger, Healthier Hair</p>",
+        "ggjmTIaWjFj_text": "<p>Gemix helps restore strong, healthy hair with ingredients that truly make a difference.</p>"
+      },
+      "type": "gp-section-585246522774389565"
+    },
+    "gp_section_585246522891829906": {
+      "settings": {
+        "checksum": "13be4bab8bd98fecf8f718594830f18a2a20bb8c8b589073bfe1cbb3633fd0cc_1_1_1_0__1",
+        "ggQhZkAIrnp_text": "As Featured In"
+      },
+      "type": "gp-section-585246522891829906"
+    },
+    "gp_section_585246522891830107": {
+      "settings": {
+        "checksum": "be9b747d27a82e17864c0a2f589abed5596920d1a9f32e5bf44e58d2af6d4add_1_1_1_0__1",
+        "ggYHS6Ejh9O_text": "<p>“Based on ingredients, Gemix offers a well-rounded approach to hair health and reducing thinning.”</p>",
+        "ggguIovuHTP_text": "<p>Rachel Lin - Hair Specialist</p>"
+      },
+      "type": "gp-section-585246522891830107"
+    },
+    "gp_section_585246522908607133": {
+      "settings": {
+        "checksum": "ed91e5c7e3882fd8fd5b5aa69d6d06c801be2b864e624a70d0b232f3e3db82da_1_1_1_0__1",
+        "gg136u1W-Jj_text": "<p>“My hair stopped shedding and started growing again. It feels thicker. Gemix really works!”</p>",
+        "ggGWDneO4nC_text": "<p>Thousands have seen visible improvements in hair growth, strength,</p><p>and confidence with Gemix. You could be next.</p>",
+        "ggVArI8iSj9_leftImageLabel": "1 Day",
+        "ggVArI8iSj9_rightImageLabel": "60 Days",
+        "ggWXUD3vw1u_text": "<p>Customer</p>",
+        "ggllQFWLovH_text": "<p>Jessica</p>",
+        "ggzo8Nishrx_text": "Real People. Real Hair Results"
+      },
+      "type": "gp-section-585246522908607133"
+    },
+    "gp_section_585246522908607323": {
+      "settings": {
+        "checksum": "99afe8e8ab853bd28f383f815189e6c11e6218cab022e7cfe42220f0716b598a_1_1_1_0__1",
+        "gg9KDePreR__childItem_0": "<p>How long does it take to see results?</p>",
+        "gg9KDePreR__childItem_1": "<p>Who is Gemix suitable for?</p>",
+        "gg9KDePreR__childItem_2": "<p>How many capsules should I take per day?</p>",
+        "gg9KDePreR__childItem_3": "<p>What makes Gemix different from other hair supplements?</p>",
+        "gg9KDePreR__childItem_4": "<p>Is it suitable for vegans or vegetarians?</p>",
+        "gg9KDePreR__childItem_5": "<p>Is there a money-back guarantee?</p>",
+        "ggLk-D9-5GD_text": "<p>Only 2 capsules a day for real results. Take it with water, preferably after a meal.</p>",
+        "ggPiNILmEQx_text": "<p>Most users begin to notice reduced shedding and stronger hair within 4–6 weeks. Fuller growth is typically seen after 8–12 weeks of consistent use.</p>",
+        "ggPnblopd-L_text": "<p>No. Follix contains marine collagen and salmon cartilage, so it is not vegan or vegetarian.</p>",
+        "ggTv2S6ZYoK_text": "FAQs",
+        "ggWhmcS934i_text": "<p>Yes! We offer a 30-day satisfaction guarantee. If you’re not happy with your results, contact us for a refund.</p>",
+        "gggY88w2Bpq_text": "<p>Follix is designed for adults of all genders experiencing hair thinning, shedding, or slow growth. It’s safe for most people, but check with your doctor if you’re pregnant, nursing, or have a medical condition.</p>",
+        "ggmjDP8XiXH_text": "<p>Got questions? We’ve got answer...</p>",
+        "ggxPodhOsaI_text": "<p>It combines marine collagen, salmon cartilage extract, biotin, and other clinically studied ingredients in one powerful capsule—no fillers, no fluff, just real results.</p>"
+      },
+      "type": "gp-section-585246522908607323"
+    },
+    "gp_section_585246522925384349": {
+      "settings": {
+        "checksum": "bde9cf612dd7df4e3f3229e669250807fd762f18ef3a0e44c092add3c9f48c71_1_1_1_0__1",
+        "gg-E4rhAlmv_text": "<p>Vital Support</p>",
+        "gg5P-TyUlzQ_text": "<p>Scalp Balance</p>",
+        "ggLJaeVgbYi_text": "<p>Powered by Biotin, Vitamin B5, E &amp; B12 — working together to nourish hair from within,<br>boost growth, and reduce shedding.</p>",
+        "ggQxapPFavL_text": "<p>DHT Defense</p>",
+        "ggaJHphMjfP_text": "<p>Root Strength</p>",
+        "ggg9tqves1J_text": "Vitamin Power for Your Hair",
+        "ggmwwDkCWeg_text": "<p>Shine Boost</p>",
+        "ggutNhy5B3Y_text": "<p>Hair Growth</p>"
+      },
+      "type": "gp-section-585246522925384349"
+    },
+    "gp_section_585246523311260507": {
+      "settings": {
+        "checksum": "882d5a35189e7793870ccf0c8a5e54102b60a05f5f5ba5e6095c63c2a777a0da_1_1_1_0__1",
+        "gg1aYgadFxj_text": "<p>Choose Your Treatment Plan</p>",
+        "gg2ezUdMCKm_text": "<p>1-Month Experiment</p>",
+        "gg9ZeXTdBxe_text": "<p>($35.00 per bottle)</p>",
+        "ggBUDL1zN01_text": "<p>(3 bottles)</p>",
+        "ggCtYqSEXrS_text": "<p>30-day money-back guarantee</p>",
+        "ggG9NRSRPbB_text": "<p>Get a free scalp massager &amp; freeshipping worldwide</p>",
+        "ggHhM1MR_h8_text": "<p>6-Month Treatment</p>",
+        "ggKGVhitpCX_text": "<p>&nbsp; &nbsp;Most Popular &nbsp;&nbsp;</p>",
+        "ggLQIggg2lb_text": "<p>50,000+ Happy Customers</p>",
+        "ggOcpWc0O4-_text": "<p>Powered by salmon cartilage</p>",
+        "ggOeYLS3hIr_text": "<p>(6 bottles)</p>",
+        "ggSv4SN0Gc4_text": "<p>Targets root causes</p>",
+        "ggULQV98GDw_text": "<p>($31.50 per bottle)</p>",
+        "ggaORGWxqZH_label": "Add to cart",
+        "ggaORGWxqZH_outOfStockLabel": "Out of stock",
+        "ggaORGWxqZH_unavailableLabel": "Unavailable",
+        "ggaORGWxqZH_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggb89bcN0vW_text": "<p>Infused with herbal extracts</p>",
+        "ggeRux4IBTF_text": "<p>when you purchase 3 or more bottles of Gemix.</p>",
+        "ggegvM7zAyV_text": "<p>Enhanced with biotin</p>",
+        "ggfYJzxSUCV_text": "<p>($27.96 per bottle)</p>",
+        "ggnRAxgkyPd_text": "<p>3-Month Treatment</p>",
+        "gguWKyXnP9F_text": "<p>(1 bottle)</p>"
+      },
+      "type": "gp-section-585246523311260507"
+    },
+    "gp_section_585246523328037533": {
+      "settings": {
+        "checksum": "d554d3f19a33fb1bfce03bfe4449b077902bbaf349548026d3aebcfe6dd7bd69_1_1_1_0__1",
+        "gg-qBGDaMpp_text": "<p>Noon</p>",
+        "gg2Gh2WbK3b_text": "<p>While Gemix supports healthy hair from within, don’t forget to eat well, stay active,<br>and get enough rest!</p>",
+        "ggEZ2VEL-Sk_text": "<p>Gentle scalp massage</p>",
+        "ggJfsd2HKH4_text": "<p>Protein breakfast</p>",
+        "ggSKrB38yvS_text": "<p>&nbsp; Morning&nbsp;</p>",
+        "ggVDTxj8V4y_text": "How to use",
+        "ggVF8jaHXgS_text": "<p>Get 8 hours of sleep</p>",
+        "ggYdwVo8v5s_text": "<p>Gemix</p>",
+        "ggbBc2RVAsk_text": "<p>Light dinner</p>",
+        "ggeohUHQlWH_text": "<p>Gentle scalp massage</p>",
+        "ggrsNTWGP6X_text": "<p>Gemix</p>",
+        "gguvRqfjSoG_text": "<p>Evening</p>",
+        "ggwB6hsuyaQ_text": "<p>Gentle scalp massage</p>",
+        "ggy9KWbnqOT_text": "<p>Balanced lunch</p>"
+      },
+      "type": "gp-section-585246523328037533"
+    },
+    "gp_section_585248728810521234": {
+      "settings": {
+        "checksum": "28be060cdf3ec42a1555b43196744b8858bd92cb03180af3f595f84cc3a41cfa_1_1_1_0__1",
+        "gg6PL487UMd_text": "<p>Secure Online Payment</p>",
+        "gg9pGtxboDg_text": "<p>If your product aren’t perfect, return them for a full refund</p>",
+        "ggAOCR5RzE__text": "<p>secure payment<br>worldwide</p>",
+        "ggFptZqKNOV_text": "<p>Free Shipping</p>",
+        "ggOd4w9HYv9_text": "<p>If your product aren’t perfect, return them for a full refund.</p>",
+        "ggWysusCJmA_text": "Why should you choose<br>Nordburn products?",
+        "ggXpnEr9MfL_text": "<p>Free shipping on all orders!</p>",
+        "ggZNm4cVAWg_text": "<p>Experience our prestigious after-sales service.</p>",
+        "ggajuh1qqpr_text": "<p>Free Shipping</p>",
+        "ggf1aTWsrBq_text": "<p>Full Refund</p>",
+        "ggnGQ1LZx4H_text": "<p>Full Refund</p>",
+        "ggr0xaADuh7_text": "<p>Secure payment<br>worldwide.</p>",
+        "ggse7mQS4g9_text": "<p>Free shipping on any order of $150&nbsp;</p><p>or more.</p>",
+        "ggxDanV4qNO_text": "<p>Secure Online Payment</p>"
+      },
+      "type": "gp-section-585248728810521234"
+    }
+  },
+  "order": [
+    "gp_section_585246522690503515",
+    "gp_section_585246523311260507",
+    "gp_section_585246522774389565",
+    "gp_section_585246522925384349",
+    "gp_section_585246522891830107",
+    "gp_section_585246523328037533",
+    "gp_section_585246522908607133",
+    "gp_section_585246522891829906",
+    "gp_section_585248728810521234",
+    "gp_section_585246522908607323",
+    "gp_section_585246522690503314"
+  ]
+}
