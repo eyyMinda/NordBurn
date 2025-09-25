@@ -765,6 +765,17 @@
             "verified": true
           }
         },
+        "reviews_8WGQby": {
+          "type": "reviews",
+          "settings": {
+            "image": "shopify://shop_images/nordburn-trustpilot-review.png",
+            "content": "<p>\"Tried everything from Ozempic to keto, and the weight always came back. With Nordburn's GLP-1 Booster, I've lost 55 pounds in five months, and it actually feels sustainable. Plus, it doesn't mess with my mood or energy levels.\"</p>",
+            "name": "Janet P.",
+            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
+            "author_location": "Chicago, IL",
+            "verified": true
+          }
+        },
         "reviews_w7jUFf": {
           "type": "reviews",
           "settings": {
@@ -773,17 +784,6 @@
             "name": "Liz N.",
             "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
             "author_location": "Miami, FL",
-            "verified": true
-          }
-        },
-        "reviews_8WGQby": {
-          "type": "reviews",
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2025-09-14_at_18.33.54.png",
-            "content": "<p>\"Tried everything from Ozempic to keto, and the weight always came back. With Nordburn's GLP-1 Booster, I've lost 55 pounds in five months, and it actually feels sustainable. Plus, it doesn't mess with my mood or energy levels.\"</p>",
-            "name": "Janet P.",
-            "author_location_icon": "shopify://shop_images/circle-flags_us.svg",
-            "author_location": "Chicago, IL",
             "verified": true
           }
         },
@@ -813,8 +813,8 @@
       "block_order": [
         "reviews_XpDQF6",
         "reviews_XWGUct",
-        "reviews_w7jUFf",
         "reviews_8WGQby",
+        "reviews_w7jUFf",
         "reviews_RBFfrK",
         "reviews_EteRaV"
       ],
