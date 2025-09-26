@@ -1,0 +1,196 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_586169790754718555": {
+      "settings": {
+        "checksum": "7035ef3722efe74160cc94a00fae509656ce05fbeb40d45f060ddc04013727bc_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-586169790754718555"
+    },
+    "gp_section_586169790754784091": {
+      "settings": {
+        "checksum": "caa0d80661a4490654060775f0bedf9c417eff1c6639329ba63c1eef8c4c43e9_1_1_1_0__1"
+      },
+      "type": "gp-section-586169790754784091"
+    },
+    "gp_section_586169790754849627": {
+      "settings": {
+        "checksum": "ee818e79bc6ce0377b3c3eea14578907d2470632ff0ed97da565136117c5a310_1_1_1_0__1",
+        "ggOz0Ea-8TG_dayLabel": "Days",
+        "ggOz0Ea-8TG_hourLabel": "HRS",
+        "ggOz0Ea-8TG_minuteLabel": "MIN",
+        "ggOz0Ea-8TG_secondLabel": "SEC",
+        "ggOz0Ea-8TG_weekLabel": "Weeks",
+        "ggc3tR47UW4_text": "<p>Limited time: 30% OFF + FREESHIPPING</p>",
+        "ggvCW4avV-u_text": "<p>LIMITED TIME OFFER - MEGA GLP-1 BUNDLE &nbsp;🎁</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-586169790754849627"
+    },
+    "gp_section_586169790754915163": {
+      "settings": {
+        "checksum": "e35de6620114455c0d9991c3c26e6061ad5c32afbde299bf9e7772be6d9b5145_1_1_1_0__1"
+      },
+      "type": "gp-section-586169790754915163"
+    },
+    "gp_section_586169790754980699": {
+      "settings": {
+        "checksum": "1cda2c1185cc9697560fd708378ae2f8ad7595be129d546c848812d4e6117db5_1_1_1_0__1",
+        "gg0Rh1NWLR8_text": "LIMITED TIME 50% OFF SALE",
+        "gg1aYgadFxj_text": "<p>Choose Your Option:</p>",
+        "gg2ezUdMCKm_text": "<p>1-Month Experiment</p>",
+        "gg7W3KRzldn_text": "<p>Collagen made tasty, simple, and effective.</p>",
+        "gg9ZeXTdBxe_text": "<p>($35.00 per bottle)</p>",
+        "ggBUDL1zN01_text": "<p>(3 bottles)</p>",
+        "ggCtYqSEXrS_text": "<p>Free shipping</p>",
+        "ggG9NRSRPbB_text": "<p>Complements nordburn GLP1 booster.</p>",
+        "ggHhM1MR_h8_text": "<p>6-Month Treatment</p>",
+        "ggKGVhitpCX_text": "<p>&nbsp; &nbsp;Most Popular &nbsp;&nbsp;</p>",
+        "ggLQIggg2lb_text": "<p>50,000+ Happy Customers</p>",
+        "ggOcpWc0O4-_text": "<p><strong>Skin elasticity</strong></p>",
+        "ggOeYLS3hIr_text": "<p>(6 bottles)</p>",
+        "ggQvh0JBiFh_text": "FREE SHIPPING",
+        "ggSv4SN0Gc4_text": "<p><strong>Nails aid</strong></p>",
+        "ggULQV98GDw_text": "<p>($31.50 per bottle)</p>",
+        "ggX5GXIj07l_text": "LIFE TIME WARRANTY",
+        "ggaORGWxqZH_label": "Add to cart",
+        "ggaORGWxqZH_outOfStockLabel": "Out of stock",
+        "ggaORGWxqZH_unavailableLabel": "Unavailable",
+        "ggaORGWxqZH_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggb89bcN0vW_text": "<p><strong>Hair vitality</strong></p>",
+        "ggeRux4IBTF_text": "<p>Steady weight results + beauty boost.</p>",
+        "ggegvM7zAyV_text": "<p><strong>Joints health</strong></p>",
+        "ggfYJzxSUCV_text": "<p>($27.96 per bottle)</p>",
+        "ggmla7jq50G_text": "<p>LOW IN STOCK</p>",
+        "ggnRAxgkyPd_text": "<p>3-Month Treatment</p>",
+        "gguWKyXnP9F_text": "<p>(1 bottle)</p>"
+      },
+      "type": "gp-section-586169790754980699"
+    },
+    "gp_section_586169790755046235": {
+      "settings": {
+        "checksum": "5b5e8cbdeaf873a6fd4881f0036702aeddf57e61ac3fab52ecd375fd214dc1ba_1_1_1_0__1",
+        "gg-bh47I0Uy_text": "<strong>Antioxidant &amp; immune</strong>",
+        "gg8jXbeLRNx_text": "<p>Collagen Peptides aid joint health and everyday mobility.</p>",
+        "ggHicnqlekS_text": "<p>Power your routine with clinically studied ingredients for:</p>",
+        "ggJUZO-9iAp_text": "<strong>Radiant skin</strong>",
+        "ggPj5ef4GyZ_label": "Get It Now",
+        "ggPj5ef4GyZ_outOfStockLabel": "Out of stocks",
+        "ggPj5ef4GyZ_unavailableLabel": "Unavailable",
+        "ggR60oEufBU_text": "Own It. Nourish Your Glow.",
+        "ggTa3tjneBk_text": "<p>Biotin and Zinc help strengthen hair and support healthy nail growth.</p>",
+        "ggaD_llE1Hr_text": "<p>Vitamins C &amp; E plus Zinc provide antioxidant protection and support immune function.</p>",
+        "ggjgAyzhNWF_text": "<strong>Stronger hair &amp; nails</strong>",
+        "ggsiFy65gWh_text": "<strong>Joint comfort</strong>",
+        "ggxL96ifKYO_text": "<p>Collagen Peptides with Vitamin C promote natural collagen production for elasticity and hydration.</p>"
+      },
+      "type": "gp-section-586169790755046235"
+    },
+    "gp_section_586169790755111771": {
+      "settings": {
+        "checksum": "3901edcb0d223077391f95ee49dabd9c124a32720588ae93e9fbfdb1df6e0b87_1_1_1_0__1",
+        "ggU7VXHkMRy_text": "<p>Collagen powder</p>",
+        "ggUJhvlZijq_label": "SHOP NOW",
+        "ggUaFTLOZZR_text": "<p><strong>Lab</strong> tested</p>",
+        "ggWXb4paqnD_text": "<p><strong>Hydrolyzed peptides</strong> for better absorption.</p>",
+        "ggb2s7NbTvL_text": "<p><strong>Clinically studied </strong>ingredients</p>",
+        "ggctgq5h00u_text": "<p>Includes<strong> Vitamin C, E, Biotin &amp; Zinc</strong></p>",
+        "gghPtvgSmcs_text": "<p>Nordburn Collagen Gummies</p>",
+        "ggnYMbskr-R_text": "<p>Other Collagen Gummies</p>",
+        "ggpEFPq468J_text": "<p>Others talk. Our formula delivers.</p>",
+        "ggq93rIxg5P_text": "<p>Blended in <strong>USA</strong></p>",
+        "ggucWCt234D_text": "Why choose us?",
+        "ggxVxRrQc8e_text": "<p>Tasty <strong>gummy</strong> format</p>"
+      },
+      "type": "gp-section-586169790755111771"
+    },
+    "gp_section_586169790755177307": {
+      "settings": {
+        "checksum": "f9710938d62f8b6c44203d5497b4f0e2184c9c0e1ea2ba5335f2c0d309970fa7_1_1_1_0__1",
+        "gg9KDePreR__childItem_0": "<p>How long does it take to see results?</p>",
+        "gg9KDePreR__childItem_1": "<p><strong>Who are Nordburn Collagen Gummies suitable for?</strong></p>",
+        "gg9KDePreR__childItem_2": "<p>How many gummies should I take per day?</p>",
+        "gg9KDePreR__childItem_3": "<p>What makes Nordburn Collagen Gummies different from other collagen gummies?</p>",
+        "gg9KDePreR__childItem_4": "<p>Is it suitable for vegans or vegetarians?</p>",
+        "gg9KDePreR__childItem_5": "<p>Can it be used by children?</p>",
+        "ggLk-D9-5GD_text": "<p><span style=\"background-color:rgb(250,250,250);color:rgb(29,29,31);font-size:medium;\">Take two (2) gummies a day.</span></p>",
+        "ggPiNILmEQx_text": "<p>Best results are expected after 3 months of consistent use. Individual results may vary.</p>",
+        "ggPnblopd-L_text": "<p>No — <strong>Nordburn Collagen Gummies are not suitable for vegans or vegetarians</strong>, because the collagen peptides are derived from fish (tilapia &amp; cod), as indicated in the supplement facts.</p>",
+        "ggTv2S6ZYoK_text": "FAQs",
+        "ggWhmcS934i_text": "<p>While all of our products are made of natural ingredients, you should always&nbsp;<span style=\"background-color:transparent;color:inherit;font-size:inherit;\">consult with a healthcare professional before giving it to children under the age of&nbsp;18. Use in children under 12 years is not recommended.</span></p>",
+        "gggY88w2Bpq_text": "<p>Many customers choose Collagen Gummies alongside Nordburn GLP-1 Booster supplements, which support weight loss, balanced blood sugar, and healthy GLP-1 levels.</p><p>Collagen Gummies are best for:</p><p>Anyone wanting healthier skin, hair &amp; nails</p><p>Adults looking to support joint comfort</p><p>Those who prefer a tasty gummy over powders or pills</p><p>Always consult a healthcare professional before using this or any supplement.</p>",
+        "ggmjDP8XiXH_text": "<p>Got questions? We’ve got answer...</p>",
+        "ggxPodhOsaI_text": "<p>We use <strong>premium collagen peptides</strong>, not cheap fillers or underdosed formulas.<br><strong>No mixing required</strong> — enjoy daily beauty and joint support in a tasty gummy.<br>Our formula combines <strong>Collagen with Vitamin C, E, Biotin &amp; Zinc</strong> — nutrients essential for skin, hair, nails, and overall wellness.<br>It’s <strong>blended in the USA</strong> under strict quality standards, not from unreliable overseas factories.<br>Made with <strong>clinically studied ingredients</strong> and <strong>lab tested</strong> to guarantee purity, potency, and effectiveness.</p>"
+      },
+      "type": "gp-section-586169790755177307"
+    },
+    "gp_section_586169790755242843": {
+      "settings": {
+        "checksum": "35a4da9f0c16aa38829b387cac2cd063c3abe213d5b700c381ad1fc2c00087e9_1_1_1_0__1",
+        "ggQhZkAIrnp_text": "As Featured In"
+      },
+      "type": "gp-section-586169790755242843"
+    },
+    "gp_section_586169790755308379": {
+      "settings": {
+        "checksum": "c4ad36bbb39e3b9eaf187a7774d676c2a74dad67d0872019269e96ae50b2e9e7_1_1_1_0__1",
+        "gg1Nm6kPuFO_text": "The statements made on this website have not been evaluated by the FDA (U.S. Food &amp; Drug Administration). The products sold on this website are not intended to diagnose, treat, cure, or prevent any disease.<br>The information provided by this website or this company is not a substitute for a face-to-face consultation with your physician, and should not be construed as individual medical advice.<br>&nbsp;",
+        "gg34PJ_SJN__text": "<p><a href=\"https://eu.happymammoth.com/pages/terms-and-conditions\">Terms &amp; Conditions</a></p>",
+        "ggAMSEOIV6R_text": "<p>Privacy policy</p>",
+        "ggcY8Ydinia_text": "<p><a href=\"#\">About</a></p>"
+      },
+      "type": "gp-section-586169790755308379"
+    },
+    "gp_section_586169790755373915": {
+      "settings": {
+        "checksum": "dad0051fc7de2fcec0a43202dc9dffe6d789261f0532678bf3afdafa1f6d6ae3_1_1_1_0__1",
+        "gg3pqKDFvgP_text": "<p>\"My sister bought a 6 pack and gave me one and I love it, gonna purchase when finished this\".</p>",
+        "gg72fm0Zada_text": "<p>\"Yummy!!! Just started, but finally collagen does not taste gross\".</p>",
+        "gg7_RynEZmb_text": "<p>1200+ 5 Star reviews</p>",
+        "ggB7it0jTJH_text": "<p><span style=\"color:#242424;\"><strong>JOSHUA J.</strong> </span><span style=\"color:#B4B4B4;font-size:13px;\">/ Financial Advisor</span></p>",
+        "ggQ7VlB3wts_text": "<p><span style=\"color:#242424;\"><strong>ANGELA S.</strong></span> <span style=\"color:#B4B4B4;font-size:13px;\">/ Real Estate Broker</span></p>",
+        "ggbmKKF6WPu_text": "<p>\"Week 4 on Nordburn's Collagen Gummies and what I feel is my skin hydration and firmness for sure\".</p>",
+        "ggoiL9B4L4m_text": "<p>What Our Customers Are Saying</p>",
+        "ggxP2jyo0gp_text": "<p><span style=\"color:#242424;\"><strong>&nbsp;LAUREN C.</strong></span> <span style=\"color:#B4B4B4;font-size:13px;\">/ Marketing</span></p>"
+      },
+      "type": "gp-section-586169790755373915"
+    },
+    "gp_section_586169790755439451": {
+      "settings": {
+        "checksum": "1b0eabef5279f642cd933f2f571b567592a4cccffdff417669367f4838ddcdee_1_1_1_0__1",
+        "ggTZN2xeonb_text": "<p>Contributes to <strong>skin integrity</strong>, helps with <strong>wound healing</strong>, and supports <strong>metabolic and immune function</strong>.</p>",
+        "ggZ59J6GdCJ_text": "<p>Biotin</p>",
+        "ggZbBB69qpx_text": "<p>Clinically linked to improved <strong>hair strength</strong>, <strong>nail growth</strong>, and overall <strong>skin health</strong>.</p>",
+        "ggdqFw1dL0j_text": "<p>Research shows collagen helps maintain <strong>skin elasticity</strong>, improve <strong>hydration</strong>, and support <strong>healthy hair &amp; nails</strong>.</p>",
+        "ggh1rFKDZVS_text": "<p>Zinc</p>",
+        "ggiSxDZiuYT_text": "No BS. Clinically studied ingredients.&nbsp;",
+        "ggvT_ZEzhX8_text": "<p>Nordburn Collagen Gummies &nbsp;contains only clinically studied ingredients, including:</p>",
+        "ggvUHmB7OfQ_text": "<p><strong>Collagen Peptides</strong></p>"
+      },
+      "type": "gp-section-586169790755439451"
+    }
+  },
+  "order": [
+    "gp_section_586169790754718555",
+    "gp_section_586169790754849627",
+    "gp_section_586169790754980699",
+    "gp_section_586169790755439451",
+    "gp_section_586169790754784091",
+    "gp_section_586169790755373915",
+    "gp_section_586169790755046235",
+    "gp_section_586169790755111771",
+    "gp_section_586169790755242843",
+    "gp_section_586169790755177307",
+    "gp_section_586169790755308379",
+    "gp_section_586169790754915163"
+  ]
+}
