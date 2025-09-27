@@ -115,7 +115,7 @@
 
         <div class="cd__item-content">
           <div class="cd__item-header">
-            <p class="cd__item-title">{{ item.title }}</p>
+            <p class="cd__item-title">{{ current_product.title | default: item.title }}</p>
             <div class="cd__item-remove">
               <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/prime_trash.svg?v=1758745342" alt="x-icon" width="16" height="16">
             </div>
