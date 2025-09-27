@@ -55,11 +55,9 @@
       {% endif %}
     </cart-drawer-content>
 
+    {% render 'cart_drawer-summary' ss: ss, upsells: upsells, benefits: benefits,
+      cart_items_true_count: cart_items_true_count, cart_items_shipping_protection_free_count: cart_items_shipping_protection_free_count %}
 
-    {% unless cart.items.size == 0 %}
-      {% render 'cart_drawer-summary' ss: ss, upsells: upsells, benefits: benefits,
-       cart_items_true_count: cart_items_true_count, cart_items_shipping_protection_free_count: cart_items_shipping_protection_free_count %}
-    {% endunless %}
     {% render 'cart_drawer-config' ss: ss %}
   </flex-col>
 </div>
@@ -75,6 +73,19 @@
         "label": "Cart Title",
         "default": "In Your Bag "
       }, {
+        "type": "header",
+        "content": "Cart Empty"
+      }, {
+        "type": "text",
+        "id": "cart_empty_title",
+        "label": "Cart Empty Title",
+        "default": "Your Cart Is Empty,"
+      }, {
+        "type": "text",
+        "id": "cart_empty_text",
+        "label": "Cart Empty Text",
+        "default": "but your goal is just a click away."
+      }, {
         "type": "checkbox",
         "id": "cart_empty_btn",
         "label": "Show Cart Empty Button",
@@ -83,11 +94,59 @@
         "type": "text",
         "id": "cart_empty_btn_text",
         "label": "Cart Empty Button Text",
-        "default": "Shop Best Sellers"
+        "default": "Shop Now",
+        "visible_if": "{{ section.settings.cart_empty_btn }}"
       }, {
         "type": "url",
         "id": "cart_empty_btn_link",
-        "label": "Cart Empty Button Link"
+        "label": "Cart Empty Button Link",
+        "visible_if": "{{ section.settings.cart_empty_btn }}"
+      }, {
+        "type": "header",
+        "content": "Cart Empty Footer"
+      }, {
+        "type": "checkbox",
+        "id": "cart_empty_footer",
+        "label": "Cart Empty Footer",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "cart_empty_footer_ratings",
+        "label": "Display Cart Empty Footer Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "cart_empty_footer_ratings_stars",
+        "label": "Cart Empty Footer Ratings Stars",
+        "visible_if": "{{ section.settings.cart_empty_footer_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "cart_empty_footer_ratings_logo",
+        "label": "Cart Empty Footer Ratings Logo",
+        "visible_if": "{{ section.settings.cart_empty_footer_ratings }}"
+      }, {
+        "type": "text",
+        "id": "cart_empty_footer_ratings_text",
+        "label": "Cart Empty Footer Ratings Text",
+        "visible_if": "{{ section.settings.cart_empty_footer_ratings }}"
+      }, {
+        "type": "text",
+        "id": "cart_empty_footer_text",
+        "label": "Cart empty Footer Text",
+        "default": "50,000+ women in the USA reached their weight goals with NordBurn"
+      }, {
+        "type": "image_picker",
+        "id": "cart_empty_footer_image",
+        "label": "Cart Empty Footer Image"
+      }, {
+        "type": "select",
+        "id": "cart_empty_footer_align",
+        "label": "Cart empty Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
       }, {
         "type": "header",
         "content": "Cart Reserved Timer"

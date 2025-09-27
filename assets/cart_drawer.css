@@ -108,8 +108,8 @@ cart-drawer {
 }
 .cd__units span {
   border-radius: 50%;
-  background: var(--accent-color);
-  color: #fff;
+  background: var(--accent-color-light);
+  color: var(--accent-color);
   width: 22px;
   height: 22px;
   display: flex;
@@ -124,15 +124,35 @@ cart-drawer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
   text-align: center;
   font-weight: 600;
   padding: 16px;
 }
+.cd__empty h2,
+.cd__empty p {
+  color: var(--accent-color);
+  margin: 0;
+}
+.cd__empty h2 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.cd__empty p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.6px;
+  text-align: center;
+}
 .cd__empty-btn {
-  border-radius: 5px;
+  min-width: 280px;
+  border-radius: 80px;
   border: 2px solid var(--accent-color);
   background: var(--accent-color);
+  box-shadow: 0px 0px 6px 0px #06034666;
   color: #fff;
   font-weight: 700;
   font-size: 18px;
@@ -142,6 +162,7 @@ cart-drawer {
   text-align: center;
   padding: 16px 32px;
   transition: all 0.2s ease;
+  margin-top: 16px;
 }
 .cd__empty-btn:hover {
   background: #fff;
@@ -887,15 +908,44 @@ button.cd__item-upgrade-btn:hover::after {
   text-align: center;
   padding: 10px 20px;
 }
+/* =================================== Cart Empty Footer ================================ */
+.cd__footer.empty {
+  border: none;
+}
+.cd__footer.empty .cd__footer-component {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cd__footer.empty .cd__footer-component .heading-wrapper {
+  max-width: 460px;
+  padding: 12px 16px 0;
+  margin-inline: auto;
+}
+.cd__footer.empty .cd__footer-component .heading-text {
+  font-weight: 600;
+  font-size: 16px;
+}
+.cd__empty-footer-image {
+  max-width: 460px;
+  width: 100%;
+  margin-inline: auto;
+}
+.cd__empty-footer-image img {
+  max-height: 240px;
+  width: 100%;
+  object-fit: contain;
+}
 /* =================================== Cart Footer ================================ */
 .cd__footer {
   width: 100%;
-  border-top: 1px solid var(--accent-color-light);
+  /* border-top: 1px solid var(--accent-color-light); */
 }
 .cd__footer:has(.cd-upsells__out) {
   /* border-top: 1px solid #b7b7b7; */
 }
 .cd__footer-component {
+  background-color: #f6f6f6;
   position: relative;
 }
 /* Footer Main */

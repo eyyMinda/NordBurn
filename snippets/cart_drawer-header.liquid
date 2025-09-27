@@ -3,7 +3,11 @@
     <h3>{{ ss.cart_title | default: 'In Your Bag ' }}<span class="cd__units"><span>{{ cart_items_filtered_count }}</span></span></h3>
   </div>
   <div>
-    <p class="cd__nav-back"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg></p>
+    <p class="cd__nav-back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+        <path d="M4.70711 3.29289C4.31658 2.90237 3.68342 2.90237 3.29289 3.29289C2.90237 3.68342 2.90237 4.31658 3.29289 4.70711L10.5858 12L3.29289 19.2929C2.90237 19.6834 2.90237 20.3166 3.29289 20.7071C3.68342 21.0976 4.31658 21.0976 4.70711 20.7071L12 13.4142L19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L13.4142 12L20.7071 4.70711C21.0976 4.31658 21.0976 3.68342 20.7071 3.29289C20.3166 2.90237 19.6834 2.90237 19.2929 3.29289L12 10.5858L4.70711 3.29289Z" fill="#000000"/>
+      </svg>
+    </p>
   </div>
 </div>
 
@@ -31,8 +35,13 @@
   {% endif %}
 {% else %}
   <div class="cd__empty">
-    <p>Your cart is empty</p>
-
+    {% if ss.cart_empty_title != blank %}
+      <h2>{{ ss.cart_empty_title }}</h2>
+    {% endif %}
+    {% if ss.cart_empty_text != blank %}
+      <p>{{ ss.cart_empty_text }}</p>
+    {% endif %}
+      
     {% if ss.cart_empty_btn %}
       <a href="{{ ss.cart_empty_btn_link }}" class="cd__empty-btn" title="{{ ss.cart_empty_btn_text }}">
         {{ ss.cart_empty_btn_text }}
