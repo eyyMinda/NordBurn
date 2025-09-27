@@ -148,7 +148,7 @@
           "upsell_3pm8at": {
             "type": "upsell",
             "settings": {
-              "product": "nordburn-testro-boost",
+              "product": "glp-1-booster",
               "title": ""
             }
           },
@@ -195,14 +195,14 @@
           "upsells_position": "footer",
           "upsells_type": "selector",
           "show_fold_btn": true,
-          "upsells_style": "box",
+          "upsells_style": "cd-upsells__out--prominent",
           "upsells_title": "Pair & Save Big:",
           "upsells_title_line_before": false,
           "upsells_title_line_after": false,
           "upsells_show_discount": true,
-          "upsells_atc_text": "+ ADD",
+          "upsells_atc_text": "Add +",
           "upsells_atc_position": "top",
-          "footer_note": "",
+          "footer_note": "Shipping and tax calculated at checkout",
           "show_footer_prices": true,
           "show_footer_prices_shipping": false,
           "footer_prices_shipping_label": "Shipping",

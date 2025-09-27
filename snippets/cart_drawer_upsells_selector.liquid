@@ -6,7 +6,7 @@
   </button>
 {% endif %}
 
-<flex-col class="cd-upsells__out{% if ss.upsells_style == 'box' %} cd-upsells__out--box{% endif %}" style="background-color: {{ ss.upsells_bg_color }};">
+<flex-col class="cd-upsells__out {{ ss.upsells_style }}" style="background-color: {{ ss.upsells_bg_color }};">
   <flex class="cd-upsells__title-main">
     {% if ss.upsells_title_line_before %}
       <hr>
@@ -30,6 +30,9 @@
         assign compare_at_price = selected_variant.compare_at_price | default: product.compare_at_price
         assign discount_int = compare_at_price | minus: price
         assign discount = discount_int | times: 100 | divided_by: compare_at_price
+
+        assign supply_description = selected_variant.metafields.custom.supply_description.value
+        assign supply_description_2 = selected_variant.metafields.custom.supply_description_2.value
       %}
       <flex-col class="cd-upsells__block-wrapper">
         <flex class="cd-upsells__block">
@@ -39,6 +42,15 @@
 
           <flex-col class="cd-upsells__block-info">
             <p class="cd-upsells__block-title">{{ title }}</p>
+
+            {% if supply_description != blank %}
+              <flex class="cd-upsells__block-variants">
+                <p class="cd-upsells__block-variant">{{ supply_description }}</p>
+                {% if supply_description_2 != blank %}
+                    <p class="cd-upsells__block-variant">{{ supply_description_2 }}</p>
+                {% endif %}
+              </flex>
+            {% endif %}
             
             <p class="cd-upsells__block-price">
               {% if compare_at_price > price %}
@@ -54,19 +66,21 @@
           </flex-col>
 
           {% if ss.upsells_atc_position == 'top' %}
-            <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+ Add' }}</a>
+            <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+ Add' | replace: '+', '<span>+</span>' }}</a>
           {% endif %}
         </flex>
 
         <flex>
-          <select class="cd-upsells__block-selector main-selector">
-            {% for variant in product.variants %}
-              <option value="{{ variant.id }}" data-price="{{ variant.price }}" data-compare-price="{{ variant.compare_at_price }}">{{ variant.title }}</option>
-            {% endfor %}
-          </select>
+          {% if product.variants.size > 1 %}
+            <select class="cd-upsells__block-selector main-selector">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}" data-price="{{ variant.price }}" data-compare-price="{{ variant.compare_at_price }}">{{ variant.title }}</option>
+              {% endfor %}
+            </select>
+          {% endif %}
 
           {% if ss.upsells_atc_position == 'bottom' %}
-            <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+ Add' }}</a>
+            <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+ Add' | replace: '+', '<span>+</span>' }}</a>
           {% endif %}
         </flex>
       </flex-col>

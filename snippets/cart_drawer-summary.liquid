@@ -46,12 +46,13 @@
               <span class="label">{{ ss.footer_prices_total_label }}</span>
               <span class="value">{{ total_price }}</span>
             </flex>
+
+            {% if ss.footer_note != blank %}
+              <p class="cd__footer-note">{{ ss.footer_note }}</p>
+            {% endif %}
           </flex-col>
         {% endif %}
 
-        {% if ss.footer_note != blank %}
-          <p class="cd__footer-note">{{ ss.footer_note }}</p>
-        {% endif %}
 
         <a href="/checkout" id="cd__checkout-btn" class="cd__checkout-btn" title="Checkout">
           {{ ss.atc_text | default: 'Checkout' }}{% if ss.show_checkout_price %}<span class="cd__checkout-price">{{ total_price }}</span>{% endif %}

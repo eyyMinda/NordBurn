@@ -85,23 +85,23 @@ async function buildCart() {
 
 // ========================== Cart Drawer Functionality ==========================
 function updateCartQuantity(action, element) {
-  var $cartItem = $(element).closest('.cd__item');
+  const $cartItem = $(element).closest('.cd__item');
   $cartItem.addClass('loading');
 
-  var quantity = parseFloat($cartItem.find('.cd__item-quantity-value').html());
+  let quantity = parseFloat($cartItem.find('.cd__item-quantity-value').html());
   if (action === 'plus') quantity++;
   if (action === 'minus') quantity--;
   if (action === 'remove') quantity = 0;
 
-  var data = {
-    id: $cartItem.attr('data-id'),
-    quantity: quantity,
-  };
-  log(data, 'data');
+  const key = $cartItem.attr('data-key');
+  const updates = {};
+  updates[key] = quantity;
 
-  $.post("/cart/change.js", data, null, "json")
-    .done(function () { buildCart(); })
-    .always(function () { $('.cd__item').removeClass('loading'); });
+  log({ updates }, 'data');
+
+  $.post("/cart/update.js", { updates }, null, "json")
+    .done(buildCart)
+    .always(() => $('.cd__item').removeClass('loading'));
 }
 
 $(document).on("click", ".cd__item-quantity-plus", function () {
