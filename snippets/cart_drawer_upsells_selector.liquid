@@ -70,19 +70,40 @@
           {% endif %}
         </flex>
 
-        <flex>
-          {% if product.variants.size > 1 %}
-            <select class="cd-upsells__block-selector main-selector">
-              {% for variant in product.variants %}
-                <option value="{{ variant.id }}" data-price="{{ variant.price }}" data-compare-price="{{ variant.compare_at_price }}">{{ variant.title }}</option>
-              {% endfor %}
-            </select>
-          {% endif %}
+        {% if ss.upsells_show_variants_selector and product.variants.size > 1 or ss.upsells_atc_position == 'bottom' %}
+          <flex>
+            {% if ss.upsells_show_variants_selector and product.variants.size > 1 %}
+              <select class="cd-upsells__block-selector main-selector">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.id }}" data-price="{{ variant.price }}" data-compare-price="{{ variant.compare_at_price }}">{{ variant.title }}</option>
+                {% endfor %}
+              </select>
+            {% endif %}
 
-          {% if ss.upsells_atc_position == 'bottom' %}
-            <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+ Add' | replace: '+', '<span>+</span>' }}</a>
-          {% endif %}
-        </flex>
+            {% if ss.upsells_atc_position == 'bottom' %}
+              <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+ Add' | replace: '+', '<span>+</span>' }}</a>
+            {% endif %}
+          </flex>
+        {% endif %}
+
+        {% if upsell.settings.show_benefits %}
+          <grid class="cd-upsells__block-benefits">
+            {% for benefit in (1..4) %}
+              {% liquid
+                assign benefit_icon_label = 'benefit_icon_' | append: benefit
+                assign benefit_text_label = 'benefit_text_' | append: benefit
+                assign benefit_icon = upsell.settings[benefit_icon_label]
+                assign benefit_text = upsell.settings[benefit_text_label]
+              %}
+              <point class="cd-upsells__block-benefit">
+                {% if benefit_icon != blank %}
+                  {% render 'responsive-image' image: benefit_icon, image_width: 20 %}
+                {% endif %}
+                <p>{{ benefit_text }}</p>
+              </point>
+            {% endfor %}
+          </grid>
+        {% endif %}
       </flex-col>
     {% endfor %}
   </flex-col>

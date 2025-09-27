@@ -185,6 +185,22 @@ cart-drawer {
   display: none;
 }
 
+/* =================================== Cart Simple Free Shipping ================================*/
+.cd__simple-free-shipping {
+  width: fit-content;
+  background: #b9efb9;
+  border-radius: 8px;
+  padding: 6px 16px;
+  margin: 12px auto 2px;
+}
+.cd__simple-free-shipping p {
+  color: #008616;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
 /* =================================== Cart TP Ratings ================================*/
 .cd__outer .tp-ratings {
   padding: 8px 16px;
@@ -309,7 +325,7 @@ cart-items {
   gap: 6px;
 }
 .cd__item .cd__item-variant {
-  color: #5f5f5f;
+  color: #323232;
   font-size: 12px;
   line-height: 1.2;
   margin: 0;
@@ -605,7 +621,7 @@ cart-drawer-content > .cd-upsells__out {
   gap: 6px;
 }
 .cd-upsells__block .cd-upsells__block-variant {
-  color: #5f5f5f;
+  color: #323232;
   font-size: 12px;
   line-height: 1.2;
   margin: 0;
@@ -624,7 +640,7 @@ cart-drawer-content > .cd-upsells__out {
   line-height: 1;
 }
 .cd-upsells__block-title {
-  color: #111;
+  color: var(--accent-color);
   font-family: var(--font-body-family);
   font-weight: 600;
   font-size: 14px;
@@ -632,7 +648,7 @@ cart-drawer-content > .cd-upsells__out {
   letter-spacing: 0.15px;
 }
 .cd-upsells__block-price {
-  color: #000;
+  color: var(--accent-color);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -649,15 +665,15 @@ cart-drawer-content > .cd-upsells__out {
 }
 .cd-upsells__block-price .pri {
   color: var(--accent-color);
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
 }
 .cd-upsells__block-price .badge {
   border-radius: 22px;
   background: var(--accent-color-light);
   color: var(--accent-color);
   font-family: var(--font-body-family);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 10px;
   line-height: 1.2;
   padding: 2px 4px;
@@ -665,6 +681,22 @@ cart-drawer-content > .cd-upsells__out {
 .cd-upsells__block-selector {
   flex: 1;
   border: 1px solid #1a1a1a1f;
+}
+/* Benefits */
+.cd-upsells__block-benefits {
+  gap: 4px 8px;
+}
+.cd-upsells__block-benefit {
+  gap: 4px;
+}
+.cd-upsells__block-benefit img {
+  width: 12px;
+  height: 12px;
+}
+.cd-upsells__block-benefit p {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 12px;
 }
 
 /* =================================== Shipping Protection ================================ */
@@ -1048,7 +1080,7 @@ p.cd__footer-note {
   transition: all 150ms ease-in-out;
 }
 .cd__checkout-btn:hover {
-  background: #262626;
+  background: #000;
 }
 .cd__checkout-btn svg {
   fill: #fff;

@@ -95,6 +95,12 @@ flex-wrap {
   flex-wrap: wrap;
   gap: 4px 8px;
 }
+/* Grid */
+grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+}
 /* Section Point */
 point {
   display: flex;
