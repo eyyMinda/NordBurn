@@ -1009,7 +1009,7 @@ button.cd__item-upgrade-btn:hover::after {
 .cd__footer-main {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   padding: 20px 16px;
 }
 /* Footer Note */
