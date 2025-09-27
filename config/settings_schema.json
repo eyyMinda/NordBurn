@@ -1478,8 +1478,7 @@
         "id": "cart_discount_free_shipping_threshold",
         "label": "Free shipping minimum amount",
         "default": "50",
-        "info": "Indicate the value in your store main currency. Leave empty to not have this in the bar.",
-        "visible_if": "{{ settings.cart_discount_free_shipping }}"
+        "info": "Indicate the value in your store main currency. Leave empty to not have this in the bar."
       },
       {
         "type": "image_picker",
@@ -1519,7 +1518,7 @@
         "type": "text",
         "id": "cart_discount_gift_title",
         "label": "Gift Custom Title",
-        "default": "Armadilo Performance Compression Socks",
+        "default": "nordburn© GLP-1 Booster",
         "visible_if": "{{ settings.cart_discount_gift }}"
       },
       {
@@ -1592,6 +1591,31 @@
         "id": "cart_drawer_shipping_protection_free_excluded_products",
         "label": "Shipping Protection Free Excluded Products",
         "info": "Products that will not be counted towards the free shipping protection count."
+      },
+      {
+        "type": "header",
+        "content": "Simple Free Shipping Notification",
+        "info": "Enter the threshold for the free shipping in 'Free shipping minimum amount' setting above."
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_simple_free_shipping",
+        "label": "Show Simple Free Shipping Notification",
+        "info": "This will only be visible if Cart Drawer Discount bar is disabled.",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "cart_drawer_simple_free_shipping_icon",
+        "label": "Free Shipping Icon | Simple Notification",
+        "visible_if": "{{ settings.cart_drawer_simple_free_shipping }}"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_simple_free_shipping_text",
+        "label": "Free Shipping Text | Simple Notification",
+        "default": "You’ve unlocked Free Shipping!",
+        "visible_if": "{{ settings.cart_drawer_simple_free_shipping }}"
       },
       {
         "type": "checkbox",

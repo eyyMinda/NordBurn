@@ -21,6 +21,18 @@
 
   {% if settings.cart_show_discount_bar %}
     {% render 'cart_drawer-discount-bar' ss: ss, cart_items_true_count: cart_items_true_count %}
+  {% elsif settings.cart_drawer_simple_free_shipping %}
+    
+    {% assign free_shipping_threshold = settings.cart_discount_free_shipping_threshold | times: 100 %}
+    {% if free_shipping_threshold > 0 and cart.total_price >= free_shipping_threshold %}
+      <point class="cd__simple-free-shipping">
+        {% if settings.cart_drawer_simple_free_shipping_icon %}
+          {% render 'responsive-image' image: settings.cart_drawer_simple_free_shipping_icon, image_width: 20 %}
+        {% endif %}
+        <p>{{ settings.cart_drawer_simple_free_shipping_text }}</p>
+      </point>
+    {% endif %}
+
   {% endif %}
 
   {% render 'tp-ratings' ratings: ss.ratings, ratings_stars: ss.ratings_stars, ratings_logo: ss.ratings_logo, ratings_text: ss.ratings_text %}

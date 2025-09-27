@@ -4,6 +4,7 @@
   assign ss = section.settings
   assign upsells = section.blocks | where: 'type', 'upsell'
   assign benefits = section.blocks | where: 'type', 'benefit'
+  assign upsells_benefits = section.blocks | where: 'type', 'upsells_benefit'
 
   assign shipping_product = settings.cart_drawer_shipping_protection_product | default: all_products['shipping-protection']
   assign shipping_protection_free_excluded_products = settings.cart_drawer_shipping_protection_free_excluded_products | map: 'id' | join: ','
@@ -267,39 +268,11 @@
         "default": "#FCF9F2",
         "visible_if": "{{ section.settings.upsells }}"
       }, {
-        "type": "select",
-        "id": "upsells_position",
-        "label": "Upsells Position",
-        "default": "content",
-        "options": [
-          { "value": "content", "label": "Content" }, { "value": "footer", "label": "Footer" }
-        ],
-        "visible_if": "{{ section.settings.upsells }}"
-      }, {
-        "type": "select",
-        "id": "upsells_type",
-        "label": "Upsells Type",
-        "default": "selector",
-        "options": [
-          { "value": "selector", "label": "Selector" },
-          { "value": "carousel", "label": "Carousel" }
-        ],
-        "visible_if": "{{ section.settings.upsells }}"
-      }, {
         "type": "checkbox",
         "id": "show_fold_btn",
         "label": "Show Fold/Unfold Upsells Button",
         "default": true,
         "info": "Only applicable if upsells position is set to footer.",
-        "visible_if": "{{ section.settings.upsells }}"
-      }, {
-        "type": "select",
-        "id": "upsells_style",
-        "label": "Upsells Style",
-        "default": "cd-upsells__out--box",
-        "options": [
-          { "value": "cd-upsells__out--box", "label": "Box" }, { "value": "cd-upsells__out--list", "label": "List" }, { "value": "cd-upsells__out--prominent", "label": "Prominent Blocks" }
-        ],
         "visible_if": "{{ section.settings.upsells }}"
       }, {
         "type": "text",
@@ -320,16 +293,52 @@
         "default": true,
         "visible_if": "{{ section.settings.upsells }}"
       }, {
+        "type": "select",
+        "id": "upsells_position",
+        "label": "Upsells Position",
+        "default": "content",
+        "options": [
+          { "value": "content", "label": "Content" },
+          { "value": "footer", "label": "Footer" }
+        ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "select",
+        "id": "upsells_type",
+        "label": "Upsells Type",
+        "default": "selector",
+        "options": [
+          { "value": "selector", "label": "Selector" },
+          { "value": "carousel", "label": "Carousel" }
+        ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "select",
+        "id": "upsells_style",
+        "label": "Upsells Style",
+        "default": "cd-upsells__out--box",
+        "options": [
+          { "value": "cd-upsells__out--box", "label": "Box" },
+          { "value": "cd-upsells__out--list", "label": "List" },
+          { "value": "cd-upsells__out--prominent", "label": "Prominent Blocks" }
+        ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
         "type": "checkbox",
         "id": "upsells_show_discount",
         "label": "Show Upsells Discount",
         "default": true,
         "visible_if": "{{ section.settings.upsells }}"
       }, {
+        "type": "checkbox",
+        "id": "upsells_show_variants_selector",
+        "label": "Show Upsells Variants Selector",
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
         "type": "text",
         "id": "upsells_atc_text",
         "label": "Upsells ATC Text",
-        "default": "+ ADD",
+        "default": "Add +",
         "visible_if": "{{ section.settings.upsells }}"
       }, {
         "type": "select",
@@ -337,8 +346,16 @@
         "label": "Upsells ATC Position",
         "default": "bottom",
         "options": [
-          { "value": "top", "label": "Top" }, { "value": "bottom", "label": "Bottom" }
+          { "value": "top", "label": "Top" },
+          { "value": "bottom", "label": "Bottom" }
         ],
+        "visible_if": "{{ section.settings.upsells }}"
+      }, {
+        "type": "checkbox",
+        "id": "upsells_show_benefits",
+        "label": "Show Upsells Benefits",
+        "default": true,
+        "info": "Only applicable if upsells type is set to selector. You can add the benefits in the section blocks.",
         "visible_if": "{{ section.settings.upsells }}"
       }, {
         "type": "header",
@@ -424,6 +441,47 @@
             "id": "title",
             "label": "Title",
             "info": "Enter custom title for the product."
+          }, {
+            "type": "checkbox",
+            "id": "show_benefits",
+            "label": "Show Benefits",
+            "default": true
+          }, {
+            "type": "image_picker",
+            "id": "benefit_icon_1",
+            "label": "Benefit Icon 1"
+          }, {
+            "type": "text",
+            "id": "benefit_text_1",
+            "label": "Benefit Text 1",
+            "default": "Decreases body weight"
+          }, {
+            "type": "image_picker",
+            "id": "benefit_icon_2",
+            "label": "Benefit Icon 2"
+          }, {
+            "type": "text",
+            "id": "benefit_text_2",
+            "label": "Benefit Text 2",
+            "default": "Reduces body fat"
+          }, {
+            "type": "image_picker",
+            "id": "benefit_icon_3",
+            "label": "Benefit Icon 3"
+          }, {
+            "type": "text",
+            "id": "benefit_text_3",
+            "label": "Benefit Text 3",
+            "default": "Less sugar cravings"
+          }, {
+            "type": "image_picker",
+            "id": "benefit_icon_4",
+            "label": "Benefit Icon 4"
+          }, {
+            "type": "text",
+            "id": "benefit_text_4",
+            "label": "Benefit Text 4",
+            "default": "Increased metabolic rate"
           }
         ]
       }, {
