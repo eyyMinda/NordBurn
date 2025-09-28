@@ -165,18 +165,13 @@
     }
 
     .g-header-mobile-wrap .g-header-cart{
-        padding-right: 20px;
+        width: 54px;
+        padding-right: 16px;
     }
-
-    .g-header-mobile-wrap .g-header-cart svg{
-        width: 25px;
-    }
-
     @media only screen and (max-width: 768px) {
         .g-header-mobile{
             display: block;
         }
-
         .g-header-desktop{
             display: none;
         }
@@ -232,16 +227,6 @@
                   {%- endif -%}
                 </a>
             </div>
-            <!-- <div class="g-header-cart">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                    <path d="M13.348 3.41667L8.06885 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22.6519 3.41667L27.931 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3.4165 11.9479C3.4165 9.25 4.86025 9.03125 6.654 9.03125H29.3457C31.1394 9.03125 32.5832 9.25 32.5832 11.9479C32.5832 15.0833 31.1394 14.8646 29.3457 14.8646H6.654C4.86025 14.8646 3.4165 15.0833 3.4165 11.9479Z" stroke="black" stroke-width="1.5"/>
-                    <path d="M14.7334 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M21.4419 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M5.604 15.0833L7.66025 27.6833C8.12692 30.5125 9.24984 32.5833 13.4207 32.5833H22.2144C26.7498 32.5833 27.4207 30.6 27.9457 27.8583L30.3957 15.0833" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </div> -->
         </div>
 
         <div class="g-header-mobile">
@@ -249,15 +234,23 @@
             <div class="g-header-mobile-wrap">
                 <button class="menu-toggle" id="openNav">&#9776;</button>
                 <a href="{{ routes.root_url }}"><img src="{{ section.settings.logo | image_url: width: "1000px" }}" width="" height="" alt=""></a>
-                <a class="g-header-cart" href="/cart">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                        <path d="M13.348 3.41667L8.06885 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22.6519 3.41667L27.931 8.71042" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3.4165 11.9479C3.4165 9.25 4.86025 9.03125 6.654 9.03125H29.3457C31.1394 9.03125 32.5832 9.25 32.5832 11.9479C32.5832 15.0833 31.1394 14.8646 29.3457 14.8646H6.654C4.86025 14.8646 3.4165 15.0833 3.4165 11.9479Z" stroke="black" stroke-width="1.5"/>
-                        <path d="M14.7334 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M21.4419 20.9167V26.0938" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M5.604 15.0833L7.66025 27.6833C8.12692 30.5125 9.24984 32.5833 13.4207 32.5833H22.2144C26.7498 32.5833 27.4207 30.6 27.9457 27.8583L30.3957 15.0833" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
+                <a href="{{ routes.cart_url }}" class="g-header-cart header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                  {%- liquid
+                    if cart == empty
+                      render 'icon-cart-empty'
+                    else
+                      render 'icon-cart'
+                    endif
+                  -%}
+                  <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+                  {%- if cart != empty -%}
+                    <div class="cart-count-bubble">
+                      {%- if cart.item_count < 100 -%}
+                        <span aria-hidden="true">{{ cart.item_count }}</span>
+                      {%- endif -%}
+                      <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                    </div>
+                  {%- endif -%}
                 </a>
             </div>
 
