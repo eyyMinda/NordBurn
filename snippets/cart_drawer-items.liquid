@@ -7,6 +7,7 @@
   assign show_item_discount_percentage = ss.cart_items_show_discount_percentage
   assign show_item_selling_plan= ss.cart_items_show_selling_plan
   assign show_item_discount_label = ss.cart_items_show_discount_label
+  assign price_position = ss.cart_items_price_position | default: 'bottom'
 %}
 
 <cart-items class="cd_content__js">
@@ -146,7 +147,6 @@
             </div>
           {% endif %}
 
-          {% assign price_position = 'top' %}
           {% if price_position == 'top' %}
             <p class="cd__item-price">
               {% if compare > price %}
