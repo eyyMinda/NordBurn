@@ -151,7 +151,7 @@
             "settings": {
               "product": "glp-1-booster",
               "title": "",
-              "show_benefits": true,
+              "show_benefits": false,
               "benefit_icon_1": "shopify://shop_images/gridicons_checkmark.svg",
               "benefit_text_1": "Decreases body weight",
               "benefit_icon_2": "shopify://shop_images/gridicons_checkmark.svg",
