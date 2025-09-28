@@ -45,7 +45,7 @@
   align-items: flex-start;
   gap: 12px;
   background: white;
-  border: 2px dashed var(--accent-color);
+  border: 2px dashed var(--accent-color-light);
   border-radius: 12px;
   cursor: pointer;
   padding: 12px 16px;
@@ -53,9 +53,9 @@
 }
 .pdp-frequency__checkbox-custom {
   display: block !important;
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--accent-color-light);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-color);
   border-radius: 6px;
   background: white;
   position: relative;
@@ -64,17 +64,17 @@
   transition: all 0.3s ease;
 }
 .pdp-frequency__checkbox-label:hover .pdp-frequency__checkbox-custom {
-  border-color: var(--accent-color);
+  border-color: var(--accent-color-light);
 }
 .pdp-frequency__checkbox-custom.active {
-  background: var(--accent-color);
-  border-color: var(--accent-color);
+  background: var(--accent-color-light);
+  border-color: var(--accent-color-light);
 }
 .pdp-frequency__checkbox-custom.active::after {
   content: "";
   position: absolute;
-  left: 6px;
-  top: 2px;
+  left: 5px;
+  top: 1px;
   width: 6px;
   height: 12px;
   border: solid white;
@@ -87,21 +87,21 @@
   flex-direction: column;
   gap: 4px;
 }
-.pdp-frequency__checkbox-title {
-  color: #000;
+.pdp-frequency .pdp-frequency__checkbox-title {
+  color: var(--accent-color);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
   margin: 0;
 }
-.pdp-frequency__checkbox-pricing {
-  color: #000;
+.pdp-frequency .pdp-frequency__checkbox-pricing {
+  color: var(--accent-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
   margin: 0;
 }
-.pdp-frequency__checkbox-description {
+.pdp-frequency .pdp-frequency__checkbox-description {
   color: #717171;
   font-size: 12px;
   line-height: 1.4;
@@ -113,45 +113,45 @@
       padding: 16px;
   }
   .pdp-frequency__checkbox-custom {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       margin-top: 4px;
   }
   .pdp-frequency__checkbox-custom.active::after {
-      left: 8px;
-      top: 4px;
+      left: 6px;
+      top: 2px;
       width: 8px;
       height: 14px;
   }
-  .pdp-frequency__checkbox-title {
+  .pdp-frequency .pdp-frequency__checkbox-title {
       font-size: 18px;
   }
-  .pdp-frequency__checkbox-pricing {
+  .pdp-frequency .pdp-frequency__checkbox-pricing {
       font-size: 16px;
   }
-  .pdp-frequency__checkbox-description {
+  .pdp-frequency .pdp-frequency__checkbox-description {
       font-size: 14px;
   }
 }
 @media (min-width: 1024px) {
-  .pdp-frequency__checkbox-title {
+  .pdp-frequency .pdp-frequency__checkbox-title {
       font-size: 16px;
   }
-  .pdp-frequency__checkbox-pricing {
+  .pdp-frequency .pdp-frequency__checkbox-pricing {
       font-size: 14px;
   }
-  .pdp-frequency__checkbox-description {
+  .pdp-frequency .pdp-frequency__checkbox-description {
       font-size: 12px;
   }
 }
 @media (min-width: 1280px) {
-  .pdp-frequency__checkbox-title {
+  .pdp-frequency .pdp-frequency__checkbox-title {
       font-size: 18px;
   }
-  .pdp-frequency__checkbox-pricing {
+  .pdp-frequency .pdp-frequency__checkbox-pricing {
       font-size: 16px;
   }
-  .pdp-frequency__checkbox-description {
+  .pdp-frequency .pdp-frequency__checkbox-description {
       font-size: 14px;
   }
 }
