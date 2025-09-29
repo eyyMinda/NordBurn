@@ -195,7 +195,7 @@
           "progress_bar_title": "Add",
           "cart_items_show_discount_label": false,
           "cart_items_show_discount_percentage": true,
-          "cart_items_show_selling_plan": true,
+          "cart_items_show_selling_plan": false,
           "cart_items_show_upgrade_to_subscription": false,
           "cart_items_upgrade_to_subscription_type": "pill",
           "cart_items_upgrade_to_subscription_pill_title": "Save [discount] with Automatic Refills!",
