@@ -28,13 +28,6 @@
       },
       "type": "gp-section-586151738721960651"
     },
-    "gp_section_586151738722026187": {
-      "settings": {
-        "checksum": "67f7a8ae41eb787fdecd21645e3da61ec6f3970d58b3fc791cd46796624ab97f_1_1_1_0__1",
-        "section_preload": "true"
-      },
-      "type": "gp-section-586151738722026187"
-    },
     "gp_section_586151738722091723": {
       "settings": {
         "checksum": "a779033d1246607f5dff00f1880ec4c16ad91681e38d0f5b1bc35acfcc02b8e5_1_1_1_0__1"
@@ -80,9 +73,9 @@
     },
     "gp_section_586151738722288331": {
       "settings": {
-        "checksum": "8da8826720e616d39d02bdbe07b1c711a6ec93ce2e028f70c822a1e5d7fe4786_1_1_1_0__1",
+        "checksum": "718d1f73ee71a2a78ec7fea8c2c8b94ffee9df65519a89c377170d66cd0a82f0_1_1_1_0__1",
         "gg0Rh1NWLR8_text": "LIMITED TIME 50% OFF SALE",
-        "gg1aYgadFxj_text": "<p>Choose Your Option:</p>",
+        "gg1aYgadFxj_text": "<p>Choose Your Bundle:</p>",
         "gg2ezUdMCKm_text": "<p>1-Month Experiment</p>",
         "gg7W3KRzldn_text": "<p>Probiotics + GLP-1: A Smarter Path to Weight Loss.</p>",
         "gg9ZeXTdBxe_text": "<p>($35.00 per bottle)</p>",
@@ -176,7 +169,6 @@
     }
   },
   "order": [
-    "gp_section_586151738722026187",
     "gp_section_586151738722353867",
     "gp_section_586151738722288331",
     "gp_section_586151738722616011",
