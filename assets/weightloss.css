@@ -2,6 +2,7 @@
 }
 .weightloss__wrapper {
   max-width: 1024px;
+  padding-inline: 10px;
   margin: 0 auto;
 }
 .weightloss__header {
@@ -15,14 +16,14 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   border-radius: 16px;
-  padding: 24px 16px;
+  gap: 24px;
+  padding: 24px 12px;
 }
 .weightloss__sliders {
-  padding: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 }
 .weightloss__slider-group {
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 .weightloss__slider-group:last-child {
   margin-bottom: 0;
@@ -30,7 +31,7 @@
 .weightloss__slider-header {
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 .weightloss__label {
   font-size: 16px;
@@ -88,8 +89,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 16px;
-  margin-bottom: 32px;
+  padding: 12px;
 }
 .weightloss__journey-content {
   max-width: 320px;
@@ -101,8 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 24px;
+  gap: 16px;
 }
 .weightloss__journey-start,
 .weightloss__journey-end {
@@ -162,8 +161,8 @@
 .weightloss__chart {
 }
 .weightloss__chart-title {
+  font-weight: 500;
   font-size: 18px;
-  font-weight: 600;
   color: #131313;
   border-bottom: 1px solid #d2d2d2;
   padding-bottom: 12px;
@@ -173,20 +172,22 @@
   position: relative;
 }
 .weightloss__chart-y-axis {
+  height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  height: 256px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
   color: #7d7d7d;
   z-index: 1;
 }
 .weightloss__chart-area {
   position: relative;
-  height: 256px;
+  aspect-ratio: 2/1.2;
   background: linear-gradient(to bottom, #b9efb9, transparent);
   border-radius: 8px;
   padding: 16px;
@@ -248,10 +249,12 @@
 .weightloss__chart-x-axis {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  align-items: center;
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
   color: #7d7d7d;
-  margin-top: 8px;
-  padding: 0 0 0 48px;
+  padding-left: 48px;
 }
 .weightloss__fat-zone {
   border-radius: 16px;
@@ -302,11 +305,16 @@
 .weightloss__fat-zone-highlight {
   font-weight: 700;
 }
+@media (min-width: 420px) {
+  .weightloss__journey-section {
+    padding: 16px;
+  }
+}
 @media (min-width: 768px) {
   .weightloss {
   }
   .weightloss__content-wrapper {
-    padding: 32px 20px;
+    padding: 32px 16px;
   }
   .weightloss__label {
     font-size: 18px;
@@ -322,8 +330,18 @@
   .weightloss__journey-content {
     flex: 1;
   }
+  .weightloss__chart-y-axis,
+  .weightloss__chart-x-axis {
+    font-size: 12px;
+  }
   .weightloss__chart {
     flex: 1;
+  }
+  .weightloss__journey-date {
+    font-size: 16px;
+  }
+  .weightloss__journey-weight {
+    font-size: 28px;
   }
   .weightloss__journey-description {
     text-align: left;

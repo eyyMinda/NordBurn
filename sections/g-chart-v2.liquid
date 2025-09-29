@@ -47,6 +47,8 @@
                 <div class="weightloss__journey-weight" id="end-weight">190 lbs</div>
               </div>
             </div>
+
+
             
             {% comment %} <div class="weightloss__journey-description">
               <p>Track your transformation over 12 weeks with our clinically-backed approach. See how consistent progress leads to sustainable results.</p>
@@ -184,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
       targetWeightBadge.textContent = targetWeight + ' lbs';
       endWeight.textContent = targetWeight + ' lbs';
       weightLossAmount.textContent = weightLoss + 'lbs';
-      bmiMessage.innerHTML = 'Based on clinical trials, you could lose up to 14% of your body weight in 3 months you could lose up to <span class="weightloss__fat-zone-highlight">' + weightLoss + 'lbs</span> in 3 months*';
+      bmiMessage.innerHTML = 'Based on clinical trials, you could lose up to 14% of your body weight in 3 months you could lose up to <span class="weightloss__fat-zone-highlight">' + weightLoss + 'lbs in 3 months*</span>';
     } else if (bmi >= 18) {
       targetWeightBadge.textContent = weight + ' lbs';
       endWeight.textContent = weight + ' lbs';
