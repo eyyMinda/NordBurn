@@ -1,0 +1,57 @@
+{% assign ss = section.settings %}
+
+{% if ss.show_fold_btn and ss.upsells_position == 'footer' %}
+  <button class="cd-upsells__toggle" aria-label="Toggle upsell products visibility">
+    <img src="{{ 'two-arrows-down-icon.svg' | asset_url }}" width="24" height="24" alt="Toggle upsell section">
+  </button>
+{% endif %}
+
+<flex-col class="cd-upsells__out{% if ss.upsells_style == 'box' %} cd-upsells__out--box{% endif %}" style="background-color: {{ ss.upsells_bg_color }};">
+  <flex class="cd-upsells__title-main">
+    {% if ss.upsells_title_line_before %}
+      <hr>
+    {% endif %}
+    {{ ss.upsells_title | default: 'You might also like'}}
+    {% if ss.upsells_title_line_before %}
+      <hr>
+    {% endif %}
+  </flex>
+
+  <div class="cd-upsells__carousel slick-header-arrows">
+    {% for upsell in upsells %}
+      {% liquid
+        assign product = all_products[ upsell.settings.product ]
+        assign selected_variant = product.selected_or_first_available_variant
+
+        assign featured_image = product.featured_image
+        assign title = upsell.settings.title | default: product.title
+
+        assign price = selected_variant.price
+        assign compare_at_price = selected_variant.compare_at_price | default: product.compare_at_price
+        assign discount_int = compare_at_price | minus: price
+        assign discount = discount_int | times: 100 | divided_by: compare_at_price
+      %}
+      <div>
+        <flex-col class="cd-upsells__block">
+          <div class="cd-upsells__block-img">
+            {% render 'responsive-image' image: featured_image, image_width: 200, custom_alt: title %}
+            <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+' }}</a>
+          </div>
+          <p class="cd-upsells__block-title">{{ title }}</p>
+
+          <p class="cd-upsells__block-price">
+            {% if compare_at_price > price %}
+              <span class="pri">{{ price | money }}</span>
+              <s>{{ compare_at_price | money }}</s>
+              {% if ss.upsells_show_discount %}
+                <span class="badge">{{ discount }}% OFF</span>
+              {% endif %}
+            {% else %}
+              <span class="pri">{{ price | money }}</span>
+            {% endif %}
+          </p>
+        </flex-col>
+      </div>
+    {% endfor %}
+  </div>
+</flex-col>

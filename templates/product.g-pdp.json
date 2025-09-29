@@ -157,6 +157,10 @@
         "selector_bg_color": "#f6f6f6",
         "variants_selector_label": "Choose Your Bundle:",
         "methods_selector_label": "Choose Your Plan:",
+        "methods_selector_type": "checkbox",
+        "methods_checkbox_title": "Save More with Automatic Refills!",
+        "methods_checkbox_pricing": "Zero commitment, Cancel Anytime",
+        "methods_checkbox_description": "",
         "variants_radio": true,
         "save_tag_after_title": false,
         "atc_rounded": true,
@@ -195,12 +199,7 @@
           }
         }
       },
-      "block_order": [
-        "marquee_kVcyam",
-        "marquee_Qfp6BQ",
-        "marquee_fRgXMK",
-        "marquee_rgk69G"
-      ],
+      "block_order": ["marquee_kVcyam", "marquee_Qfp6BQ", "marquee_fRgXMK", "marquee_rgk69G"],
       "name": "G As Seen",
       "settings": {
         "bg_color": "#c9c9f2",
@@ -247,13 +246,7 @@
           }
         }
       },
-      "block_order": [
-        "marquee_Hi7Gcq",
-        "marquee_M9r8bh",
-        "marquee_atwakw",
-        "marquee_mnc89V",
-        "marquee_BCDbaV"
-      ],
+      "block_order": ["marquee_Hi7Gcq", "marquee_M9r8bh", "marquee_atwakw", "marquee_mnc89V", "marquee_BCDbaV"],
       "disabled": true,
       "name": "G Marquee",
       "settings": {}
@@ -311,13 +304,7 @@
           }
         }
       },
-      "block_order": [
-        "image_mXr8fD",
-        "image_TWRNfK",
-        "image_edLTYa",
-        "image_WKpJe8",
-        "image_bbLdLQ"
-      ],
+      "block_order": ["image_mXr8fD", "image_TWRNfK", "image_edLTYa", "image_WKpJe8", "image_bbLdLQ"],
       "settings": {
         "background_color": "#c9c9f2",
         "speed": 10,
@@ -376,11 +363,7 @@
           }
         }
       },
-      "block_order": [
-        "columns_3Hfbji",
-        "columns_4RBAfc",
-        "columns_RcUYbK"
-      ],
+      "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
       "name": "Nord How To",
       "settings": {
         "bg_color": "#f6f6f6",
@@ -476,16 +459,8 @@
           }
         }
       },
-      "block_order": [
-        "rows_gdRiGy",
-        "rows_i3wjTn",
-        "rows_ezTTC4",
-        "rows_YCdtVJ",
-        "rows_FagKKE"
-      ],
-      "custom_css": [
-        ".g-table {background: #fff;}"
-      ],
+      "block_order": ["rows_gdRiGy", "rows_i3wjTn", "rows_ezTTC4", "rows_YCdtVJ", "rows_FagKKE"],
+      "custom_css": [".g-table {background: #fff;}"],
       "name": "Nord Table",
       "settings": {
         "heading_h1": false,
@@ -684,11 +659,7 @@
           }
         }
       },
-      "block_order": [
-        "columns_y6gJ3w",
-        "columns_CEPHah",
-        "columns_qWc6n7"
-      ],
+      "block_order": ["columns_y6gJ3w", "columns_CEPHah", "columns_qWc6n7"],
       "disabled": true,
       "name": "Nord Real People",
       "settings": {
@@ -726,13 +697,7 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "videos_qQFhyr",
-        "videos_8FitAP",
-        "videos_X6U7dV",
-        "videos_nPYVKg",
-        "videos_QMzkWP"
-      ],
+      "block_order": ["videos_qQFhyr", "videos_8FitAP", "videos_X6U7dV", "videos_nPYVKg", "videos_QMzkWP"],
       "disabled": true,
       "name": "Nord Videos",
       "settings": {

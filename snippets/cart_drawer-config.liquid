@@ -1,0 +1,43 @@
+<div class="cd__config hidden">
+  {% for product in collections.all.products %}
+    <input
+      data-cat="{% for tag in product.tags %}{{ tag }}/{% endfor %}"
+      type="hidden"
+      data-product-id="{{ product.id }}"
+      class="All_product_selector__js"
+      data-id="{{product.selected_or_first_available_variant.id}}"
+      data-inventory="{{product.selected_or_first_available_variant.inventory_quantity}}"
+      data-price="{{product.selected_or_first_available_variant.price}}"
+      data-compare-price="{{product.selected_or_first_available_variant.compare_at_price}}">
+    {% for variant in product.variants %}
+      <input
+        type="hidden"
+        class="All_product_selector__js"
+        data-id="{{variant.id}}"
+        data-inventory="{{variant.inventory_quantity}}"
+        data-price="{{variant.price}}"
+        data-compare-price="{{variant.compare_at_price}}">
+    {% endfor %}
+  {% endfor %}
+
+  {% for product in collections['best-sellers'].products %}
+    <input
+      data-cat="{% for tag in product.tags %}{{ tag }}/{% endfor %}"
+      type="hidden"
+      data-product-id="{{ product.id }}"
+      class="All_product_selector__js"
+      data-id="{{product.selected_or_first_available_variant.id}}"
+      data-inventory="{{product.selected_or_first_available_variant.inventory_quantity}}"
+      data-price="{{product.selected_or_first_available_variant.price}}"
+      data-compare-price="{{product.selected_or_first_available_variant.compare_at_price}}">
+    {% for variant in product.variants %}
+      <input
+        type="hidden"
+        class="All_product_selector__js"
+        data-id="{{variant.id}}"
+        data-inventory="{{variant.inventory_quantity}}"
+        data-price="{{variant.price}}"
+        data-compare-price="{{variant.compare_at_price}}">
+    {% endfor %} 
+  {% endfor %}
+</div>

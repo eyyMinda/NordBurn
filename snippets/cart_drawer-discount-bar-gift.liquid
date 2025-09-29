@@ -1,0 +1,37 @@
+{% liquid
+  assign gift_threshold = settings.cart_discount_gift_threshold | times: 100
+  assign gift_amount_left = gift_threshold | minus: cart.total_price
+
+  assign gift_product = settings.cart_discount_gift_product
+  assign gift_product_image = settings.cart_discount_gift_image | default: gift_product.featured_image
+  assign gift_product_title = settings.cart_discount_gift_title | default: gift_product.title
+  assign gift_product_price = settings.cart_discount_gift_price | default: gift_product.price
+%}
+
+<discount-progress-bar-gift>
+  <flex-center class="discount-bar__gift-header">
+    {% if settings.cart_discount_success_icon %}
+      {% render 'responsive-image', image: settings.cart_discount_success_icon, width: 40, class: 'success-icon', custom_alt: 'success-icon' %}
+    {% endif %}
+    {% if gift_amount_left > 0 %}
+      <p>Add {{ gift_amount_left | money }} more to unlock Free Gift</p>
+    {% else %}
+      <p>Free Gift Included!</p>
+    {% endif %}
+
+    <flex-center class="discount-bar__gift-header-close">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0625/9304/0484/files/streamline_delete-1.png?v=1748117648" alt="x-icon" width="16" height="16">
+    </flex-center>
+  </flex-center>
+
+  <flex class="discount-bar__gift">
+    <flex-center class="discount-bar__gift-image">
+      {% render 'responsive-image', image: gift_product_image, width: 60, custom_alt: 'gift-image' %}
+    </flex-center>
+    <div class="discount-bar__gift-title">{{ gift_product_title }}</div>
+    <flex-col class="discount-bar__gift-price">
+      <s>{{ gift_product_price | money }}</s>
+      <p>FREE</p>
+    </flex-col>
+  </flex>
+</discount-progress-bar-gift>

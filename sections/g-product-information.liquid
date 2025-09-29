@@ -261,7 +261,7 @@
     }
 
     .g-pdp-variant-description{
-        gap: 4px;
+        gap: 2px 4px;
     }
     .g-pdp-variant-description p {
         display: block;
@@ -349,7 +349,7 @@
     }
     .g-pdp-variant-price-wrap:has(.save-price) .each-price {
         font-weight: 600;
-        font-size: 20px;
+        font-size: 18px;
         letter-spacing: 0.6px;
     }
     .g-pdp-variant-price-wrap .save-price {
@@ -536,15 +536,8 @@
         .g-desktop{
             display: none !important;
         }
-
-        .g-pdp-variant{
-            align-items: center;
-            gap: 5px;
-        }
-
         .g-pdp-variant-content h3{
             font-size: 18px;
-            line-height: 21px;
         }
 
         .g-pdp-variant-image{
@@ -569,10 +562,11 @@
        }
 
         .g-pdp-variant{
+            max-height: 120px;
             align-items: center;
+            gap: 5px;
             padding: 16px 8px;
         }
-
         .g-pdp-method-content ul{
             padding-left: 20px;
         }
@@ -585,6 +579,9 @@
     @media only screen and (max-width: 420px) {
         .g-pdp-variant-image{
             width: 48px;
+        }
+        .g-pdp-variant-content h3{
+            font-size: 16px;
         }
     }
 
@@ -1055,35 +1052,40 @@
                  {% endfor %}
 
                 </div>
-            </flex-col>
 
-
-            <flex-col class="g-pdp-selector-wrapper{% if ss.selector_bg_color != blank and ss.selector_bg_color != 'transparent' and ss.selector_bg_color != '#ffffff' %} padding{% endif %}" style="background-color: {{ section.settings.selector_bg_color }};">
-                {% if section.settings.methods_selector_label != blank %}
-                    <h2 class="g-pdp-selector-label">{{ section.settings.methods_selector_label }}</h2>
+                {% if ss.methods_selector_type == 'checkbox' %}
+                    {% render 'pdp-frequency-checkbox' title: ss.methods_checkbox_title, pricing: ss.methods_checkbox_pricing, description: ss.methods_checkbox_description %}
                 {% endif %}
-
-                <div class="g-pdp-methods"{% if product.selling_plan_groups.size == 0 %} style="margin: 0"{% endif %}>
-                    {% if product.selling_plan_groups.size > 0 %}
-                    <div class="g-pdp-method g-pdp-method-selected" data-method="subscribe">
-                        <div class="g-pdp-method-header">
-                            <span class="g-pdp-method-circle"></span>
-                            <span>{{ section.settings.sub_label }}</span>
-                        </div>
-                        <div class="g-pdp-method-content">
-                            {{ section.settings.sub_lists }}
-                        </div>
-                    </div>
-                    {% endif %}
-                    <div class="g-pdp-method{% if product.selling_plan_groups.size == 0 %} g-pdp-method-selected g-pdp-method-hide{% endif %}" data-method="onetime">
-                        <div class="g-pdp-method-header">
-                            <span class="g-pdp-method-circle"></span>
-                            <span>One-time purchase</span>
-                        </div>
-                    </div>
-                </div>
             </flex-col>
 
+
+            {% if ss.methods_selector_type == 'radio' %}
+                <flex-col class="g-pdp-selector-wrapper{% if ss.selector_bg_color != blank and ss.selector_bg_color != 'transparent' and ss.selector_bg_color != '#ffffff' %} padding{% endif %}" style="background-color: {{ section.settings.selector_bg_color }};">
+                    {% if section.settings.methods_selector_label != blank %}
+                        <h2 class="g-pdp-selector-label">{{ section.settings.methods_selector_label }}</h2>
+                    {% endif %}
+
+                    <div class="g-pdp-methods"{% if product.selling_plan_groups.size == 0 %} style="margin: 0"{% endif %}>
+                        {% if product.selling_plan_groups.size > 0 %}
+                        <div class="g-pdp-method g-pdp-method-selected" data-method="subscribe">
+                            <div class="g-pdp-method-header">
+                                <span class="g-pdp-method-circle"></span>
+                                <span>{{ section.settings.sub_label }}</span>
+                            </div>
+                            <div class="g-pdp-method-content">
+                                {{ section.settings.sub_lists }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="g-pdp-method{% if product.selling_plan_groups.size == 0 %} g-pdp-method-selected g-pdp-method-hide{% endif %}" data-method="onetime">
+                            <div class="g-pdp-method-header">
+                                <span class="g-pdp-method-circle"></span>
+                                <span>One-time purchase</span>
+                            </div>
+                        </div>
+                    </div>
+                </flex-col>
+            {% endif %}
             <!-- END PDP WIDGET -->
 
 
@@ -1251,11 +1253,21 @@
 
         document.querySelector(".g-cta button").addEventListener("click", function(){
           const vid = document.querySelector(".g-pdp-variant-selected").getAttribute("data-vid");
-          const method = document.querySelector(".g-pdp-method-selected").getAttribute("data-method");
+          const method = document.querySelector(".g-pdp-method-selected")
+          const frequencySelected = document.querySelector(".pdp-frequency.frequency-checkbox .pdp-frequency__checkbox-custom");
+          if(method) subscriptionSelected = method.getAttribute("data-method") === "subscribe";
+          if(frequencySelected) subscriptionSelected = frequencySelected.classList.contains("active");
+
           let selling_plan = document.querySelector(".g-pdp-variant-selected").getAttribute("data-sp");
-          if(method == "onetime")
-            selling_plan = "";
+          if(method == "onetime" || !subscriptionSelected) selling_plan = "";
           addToCart(vid, 1, selling_plan);
+        });
+
+        document.querySelectorAll('.pdp-frequency.frequency-checkbox .pdp-frequency__checkbox-label').forEach(label => {
+            label.addEventListener('click', e => {
+                const custom = label.querySelector('.pdp-frequency__checkbox-custom');
+                if (custom) custom.classList.toggle('active');
+            });
         });
 
         async function addToCart(variantId, quantity = 1, selling_plan = "") {
@@ -1277,50 +1289,56 @@
               throw new Error(`HTTP error! Status: ${response.status}`);
             }
         
-            const data = await response.json();
-            console.log('Added to cart:', data);
+            const defaultCartDrawer = document.querySelector('cart-drawer');
+            const kandyCartDrawer = document.getElementById('cart-drawer-kandy');
+            if(defaultCartDrawer && !kandyCartDrawer) {
+                const data = await response.json();
+                console.log('Added to cart:', data);
 
-            const sectionsResponse = await fetch('/?sections=cart-drawer,cart-icon-bubble');
-            const sectionsData = await sectionsResponse.json();
-            
-            // 🧠 Prepare parsed state
-            const parsedState = {
-              id: data.key, // optional, just like your renderContents expects
-              sections: {
-                'cart-drawer': sectionsData['cart-drawer'],
-                'cart-icon-bubble': sectionsData['cart-icon-bubble']
-              }
-            };
+                const sectionsResponse = await fetch('/?sections=cart-drawer,cart-icon-bubble');
+                const sectionsData = await sectionsResponse.json();
+                
+                // 🧠 Prepare parsed state
+                const parsedState = {
+                id: data.key, // optional, just like your renderContents expects
+                sections: {
+                    'cart-drawer': sectionsData['cart-drawer'],
+                    'cart-icon-bubble': sectionsData['cart-icon-bubble']
+                }
+                };
 
-            console.log(parsedState);
-            // const cartDrawerHTML = parsedState.sections['cart-drawer'];
-            // const parserCart = new DOMParser();
-            // const doc = parserCart.parseFromString(cartDrawerHTML, 'text/html');
-            
-            // const cartDrawerElement = doc.querySelector('#CartDrawer');
-            
-            // if (cartDrawerElement) {
-            //   const outerHTML = cartDrawerElement.outerHTML;
-            //   console.log('Inner HTML inside #CartDrawer:', outerHTML);
-            //   openCartDrawer(outerHTML);
-            // } else {
-            //   console.log('No #CartDrawer element found in the parsed HTML.');
-            // }
-            
-            
-            // 🔄 Render updated cart and open it
-            document.querySelector('cart-drawer').renderContents(parsedState);
-            
-            
-            const parser = new DOMParser();
-            const bubbleDoc = parser.parseFromString(parsedState.sections['cart-icon-bubble'], 'text/html');
-            const newBubbleContent = bubbleDoc.querySelector('#cart-icon-bubble')?.innerHTML;
-            
-            if (newBubbleContent !== undefined) {
-              const cartBubble = document.querySelector('#cart-icon-bubble');
-              if (cartBubble) {
-                cartBubble.innerHTML = newBubbleContent;
-              }
+                console.log(parsedState);
+                // const cartDrawerHTML = parsedState.sections['cart-drawer'];
+                // const parserCart = new DOMParser();
+                // const doc = parserCart.parseFromString(cartDrawerHTML, 'text/html');
+                
+                // const cartDrawerElement = doc.querySelector('#CartDrawer');
+                
+                // if (cartDrawerElement) {
+                //   const outerHTML = cartDrawerElement.outerHTML;
+                //   console.log('Inner HTML inside #CartDrawer:', outerHTML);
+                //   openCartDrawer(outerHTML);
+                // } else {
+                //   console.log('No #CartDrawer element found in the parsed HTML.');
+                // }
+                
+                
+                // 🔄 Render updated cart and open it
+                defaultCartDrawer.renderContents(parsedState);
+                
+                const parser = new DOMParser();
+                const bubbleDoc = parser.parseFromString(parsedState.sections['cart-icon-bubble'], 'text/html');
+                const newBubbleContent = bubbleDoc.querySelector('#cart-icon-bubble')?.innerHTML;
+                
+                if (newBubbleContent !== undefined) {
+                const cartBubble = document.querySelector('#cart-icon-bubble');
+                if (cartBubble) {
+                    cartBubble.innerHTML = newBubbleContent;
+                }
+                }
+            } else {
+                window.cart_build();
+                window.cart_open();
             }
           } catch (error) {
             console.error('Add to cart failed:', error);
@@ -1463,6 +1481,32 @@
         "type": "text",
         "id": "variants_selector_label",
         "label": "Variants Selector Label"
+      }, {
+        "type": "select",
+        "id": "methods_selector_type",
+        "label": "Methods Selector Type",
+        "options": [
+          { "value": "radio", "label": "Radio" },
+          { "value": "checkbox", "label": "Checkbox" }
+        ],
+        "default": "radio"
+      }, {
+        "type": "text",
+        "id": "methods_checkbox_title",
+        "label": "Method Checkbox Title",
+        "default": "Save [save_perc]% with Automatic Refills!",
+        "info": "Use dynamic value [save_perc] to display how much you save with subscription checked"
+      }, {
+        "type": "text",
+        "id": "methods_checkbox_pricing",
+        "label": "Method Checkbox Pricing",
+        "default": "Zero commitment, Cancel Anytime",
+        "info": "Use dynamic value [price] to display the price of the subscription and [compare_at_price] to display the compare at price"
+      }, {
+        "type": "text",
+        "id": "methods_checkbox_description",
+        "label": "Method Checkbox Description",
+        "default": "Terms & conditions apply"
       }, {
         "type": "text",
         "id": "methods_selector_label",
