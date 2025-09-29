@@ -191,7 +191,7 @@
   background: linear-gradient(to bottom, #b9efb9, transparent);
   border-radius: 8px;
   padding: 16px;
-  margin-left: 32px;
+  margin-left: 24px;
 }
 .weightloss__chart-svg {
   position: absolute;
@@ -336,6 +336,9 @@
   }
   .weightloss__chart {
     flex: 1;
+  }
+  .weightloss__chart-area {
+    margin-left: 32px;
   }
   .weightloss__journey-date {
     font-size: 16px;
