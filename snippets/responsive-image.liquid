@@ -39,10 +39,8 @@
 
 {% liquid
   assign classes = ""
-  # assign classes = "lazyload"
   if class
     assign classes = classes | append: class
-    # assign classes = classes | append: " " | append: class
   endif
   assign final_alt = custom_alt | default: product.title | default: image.alt
 
@@ -70,7 +68,8 @@
   assign srcset = srcset | strip_newlines | strip | remove_last: ","
 %}
 
-<img loading="{% if eager %}eager{% else %}lazy{% endif %}"
+<img 
+    {% unless notlazy and eager != true %}loading="{% if eager %}eager{% else %}lazy{% endif %}"{% endunless %}
     {% if classes != blank %} class="{{ classes }}" {% endif %}
      alt="{{ final_alt }}" 
      width="{{ image.width }}" 
@@ -80,18 +79,4 @@
      sizes="auto" 
      aspectratio="{{ image.width }}/{{ image.height }}"
      srcset="{{ srcset }}" />
-     {% comment %} src="{{ image_src | append: final_image_width_render }}" /> {% endcomment %}
-     
-{% comment %} <img class="{{ classes }}"
-      alt="{{ final_alt }}" 
-      width="{{ image.width }}" 
-      height="{{ image.height }}" 
-      {% if data_index %} data-index="{{ data_index }}" {% endif %}
-      data-alt="{{ final_alt }}" 
-      data-sizes="auto" 
-      data-aspectratio="{{ image.width }}/{{ image.height }}"
-      {% if srcset contains "," and force_big != true %}
-        data-srcset="{{ srcset }}"
-      {% else %}
-        data-src="{{ image_src | append: final_image_width_render }}"
-      {% endif %} /> {% endcomment %}
+    
