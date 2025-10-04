@@ -170,7 +170,10 @@
             }
           }
         },
-        "block_order": ["upsell_3pm8at", "benefit_FVrExp"],
+        "block_order": [
+          "upsell_3pm8at",
+          "benefit_FVrExp"
+        ],
         "settings": {
           "cart_title": "Your Cart",
           "cart_empty_title": "Your Cart Is Empty,",
@@ -254,6 +257,11 @@
       },
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "2786716548061469553": {
+        "type": "shopify://apps/axon/blocks/app-embed/baa0f014-62ea-462f-a8aa-a94befb1cbad",
         "disabled": false,
         "settings": {}
       }
