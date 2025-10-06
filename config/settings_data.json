@@ -162,22 +162,6 @@
               "benefit_text_4": "Increased metabolic rate"
             }
           },
-          "upsell_tLKCCH": {
-            "type": "upsell",
-            "settings": {
-              "product": "nordburn-collagen-gummies",
-              "title": "",
-              "show_benefits": false,
-              "benefit_icon_1": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_1": "Decreases body weight",
-              "benefit_icon_2": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_2": "Reduces body fat",
-              "benefit_icon_3": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_3": "Less sugar cravings",
-              "benefit_icon_4": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_4": "Increased metabolic rate"
-            }
-          },
           "benefit_FVrExp": {
             "type": "benefit",
             "settings": {
@@ -188,7 +172,6 @@
         },
         "block_order": [
           "upsell_3pm8at",
-          "upsell_tLKCCH",
           "benefit_FVrExp"
         ],
         "settings": {
