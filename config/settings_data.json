@@ -149,7 +149,23 @@
           "upsell_3pm8at": {
             "type": "upsell",
             "settings": {
-              "product": "glp-1-booster",
+              "product": "nordburn-probiotics-biom2",
+              "title": "",
+              "show_benefits": false,
+              "benefit_icon_1": "shopify://shop_images/gridicons_checkmark.svg",
+              "benefit_text_1": "Decreases body weight",
+              "benefit_icon_2": "shopify://shop_images/gridicons_checkmark.svg",
+              "benefit_text_2": "Reduces body fat",
+              "benefit_icon_3": "shopify://shop_images/gridicons_checkmark.svg",
+              "benefit_text_3": "Less sugar cravings",
+              "benefit_icon_4": "shopify://shop_images/gridicons_checkmark.svg",
+              "benefit_text_4": "Increased metabolic rate"
+            }
+          },
+          "upsell_tLKCCH": {
+            "type": "upsell",
+            "settings": {
+              "product": "nordburn-collagen-gummies",
               "title": "",
               "show_benefits": false,
               "benefit_icon_1": "shopify://shop_images/gridicons_checkmark.svg",
@@ -172,6 +188,7 @@
         },
         "block_order": [
           "upsell_3pm8at",
+          "upsell_tLKCCH",
           "benefit_FVrExp"
         ],
         "settings": {
@@ -196,6 +213,7 @@
           "ratings_text": "4.9/5 (50,000+bottles sold)",
           "progress_bar": false,
           "progress_bar_title": "Add",
+          "cart_items_price_position": "bottom",
           "cart_items_show_discount_label": false,
           "cart_items_show_discount_percentage": true,
           "cart_items_show_selling_plan": false,
