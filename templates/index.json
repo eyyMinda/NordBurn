@@ -223,7 +223,12 @@
           }
         }
       },
-      "block_order": ["marquee_G7KJdk", "marquee_fLMjEc", "marquee_Uy9MxN", "marquee_8fQ8Hr"],
+      "block_order": [
+        "marquee_G7KJdk",
+        "marquee_fLMjEc",
+        "marquee_Uy9MxN",
+        "marquee_8fQ8Hr"
+      ],
       "custom_css": [],
       "name": "G As Seen",
       "settings": {
@@ -326,7 +331,11 @@
           }
         }
       },
-      "block_order": ["columns_erFF3q", "columns_p6qfJ7", "columns_cadzxG"],
+      "block_order": [
+        "columns_erFF3q",
+        "columns_p6qfJ7",
+        "columns_cadzxG"
+      ],
       "name": "Nord How To",
       "settings": {
         "bg_color": "",
@@ -377,7 +386,11 @@
           }
         }
       },
-      "block_order": ["questions_ezLHxD", "questions_LTgQR9", "questions_ygTgnw"],
+      "block_order": [
+        "questions_ezLHxD",
+        "questions_LTgQR9",
+        "questions_ygTgnw"
+      ],
       "disabled": true,
       "name": "Nord Home Accordion Image",
       "settings": {
@@ -424,7 +437,13 @@
           }
         }
       },
-      "block_order": ["marquee_i3VhH3", "marquee_XTrLU4", "marquee_7qHMwm", "marquee_FgAi8b", "marquee_afA7hw"],
+      "block_order": [
+        "marquee_i3VhH3",
+        "marquee_XTrLU4",
+        "marquee_7qHMwm",
+        "marquee_FgAi8b",
+        "marquee_afA7hw"
+      ],
       "name": "G Marquee",
       "settings": {}
     },
@@ -472,7 +491,13 @@
           }
         }
       },
-      "block_order": ["rows_KrUAnA", "rows_U3bGjR", "rows_h8XMrq", "rows_DAqK9g", "rows_bK8ytp"],
+      "block_order": [
+        "rows_KrUAnA",
+        "rows_U3bGjR",
+        "rows_h8XMrq",
+        "rows_DAqK9g",
+        "rows_bK8ytp"
+      ],
       "name": "Nord Table",
       "settings": {
         "heading_h1": false,
@@ -689,7 +714,13 @@
           }
         }
       },
-      "block_order": ["reviews_RWrazi", "dropdowns_wXkVB7", "dropdowns_V8NAbh", "dropdowns_Nz3zf4", "dropdowns_iwzkBJ"],
+      "block_order": [
+        "reviews_RWrazi",
+        "dropdowns_wXkVB7",
+        "dropdowns_V8NAbh",
+        "dropdowns_Nz3zf4",
+        "dropdowns_iwzkBJ"
+      ],
       "name": "Nord Product Information",
       "settings": {
         "product": "glp-1-booster",
