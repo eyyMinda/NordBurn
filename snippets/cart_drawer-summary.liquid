@@ -1,0 +1,80 @@
+<div class="cd__footer{% if cart.items.size == 0 %} empty{% endif %}">
+  <div class="cd__footer-component">
+    {% if cart.items.size == 0 %}
+      {% render 'heading' heading: ss.cart_empty_footer, text: ss.cart_empty_footer_text, image: ss.cart_empty_footer_image, align: ss.cart_empty_footer_align, align_mb: ss.cart_empty_footer_align,
+      ratings: ss.cart_empty_footer_ratings, ratings_stars: ss.cart_empty_footer_ratings_stars, ratings_logo: ss.cart_empty_footer_ratings_logo, ratings_text: ss.cart_empty_footer_ratings_text %}
+
+      <div class="cd__empty-footer-image">
+        {% render 'responsive-image' image: ss.cart_empty_footer_image, image_width: 420 %}
+      </div>
+
+    {% else %}
+      {% if ss.upsells and ss.upsells_position == 'footer' %} 
+        {% if ss.upsells_type == 'selector' %}
+          {% render 'cart_drawer_upsells_selector' upsells: upsells %}
+        {% else %}
+          {% render 'cart_drawer_upsells' upsells: upsells %}
+        {% endif %}
+      {% endif %}
+      
+      
+      {% if settings.cart_drawer_shipping_protection %}
+        {% render 'cart_drawer-shipping-protection' cart_items_shipping_protection_free_count: cart_items_shipping_protection_free_count %}
+      {% endif %}
+      
+      <flex-col class="cd__footer-main">       
+        {% if ss.show_footer_prices %}
+          <flex-col class="cd__footer-prices">
+            {% assign total_price = cart.total_price | money %}
+
+            {% if ss.show_footer_prices_shipping %}
+              <flex class="cd__footer-prices-line" data-value="shipping">
+                <span class="label">{{ ss.footer_prices_shipping_label }}</span>
+                <span class="value">{{ ss.footer_prices_shipping_value }}</span>
+              </flex>
+            {% endif %}
+
+            {% if ss.show_footer_prices_save %}
+              {% assign total_discount = cart.total_discount %}
+              <flex class="cd__footer-prices-line" data-value="save" {% if total_discount == 0 %}style="display: none;"{% endif %}>
+                <span class="label">{{ ss.footer_prices_save_label }}</span>
+                <span class="value">{{ total_discount | money }}</span>
+              </flex>
+            {% endif %}
+
+            <flex class="cd__footer-prices-line" data-value="total">
+              <span class="label">{{ ss.footer_prices_total_label }}</span>
+              <span class="value">{{ total_price }}</span>
+            </flex>
+
+            {% if ss.footer_note != blank %}
+              <p class="cd__footer-note">{{ ss.footer_note }}</p>
+            {% endif %}
+          </flex-col>
+        {% endif %}
+
+
+        <a href="/checkout" id="cd__checkout-btn" class="cd__checkout-btn" title="Checkout">
+          {{ ss.atc_text | default: 'Checkout' }}{% if ss.show_checkout_price %}<span class="cd__checkout-price">{{ total_price }}</span>{% endif %}
+        </a>
+
+        {% if benefits.size > 0 %}
+          <flex class="cd__footer-benefits">
+            {% for benefit in benefits %}
+              <point class="cd__footer-benefit">
+                {% render 'responsive-image' image: benefit.settings.image, image_width: 20 %}
+                <p>{{ benefit.settings.text }}</p>
+              </point>
+            {% endfor %}
+          </flex>
+        {% endif %}
+
+        {% if ss.payment_image %}
+          <flex-center class="cd__footer-payment">
+            {% render 'responsive-image' image: ss.payment_image, image_width: 420 %}
+          </flex-center>
+        {% endif %}
+      </flex-col>
+    {% endif %}
+  </div>
+</div>

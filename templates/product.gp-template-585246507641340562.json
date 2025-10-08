@@ -1,0 +1,193 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_585246522690503314": {
+      "settings": {
+        "checksum": "b583b3ded89e4d0d1528c6e4eb1d7d0a52c40159f990a447d828112b8a4b461d_1_1_1_0__1"
+      },
+      "type": "gp-section-585246522690503314"
+    },
+    "gp_section_585246522690503515": {
+      "settings": {
+        "checksum": "9e3c534bc9195aab3add055a5ed008e83acc7d4501423e719f3511d4ae520af1_1_1_1_0__1",
+        "ggOz0Ea-8TG_dayLabel": "Days",
+        "ggOz0Ea-8TG_hourLabel": "HRS",
+        "ggOz0Ea-8TG_minuteLabel": "MIN",
+        "ggOz0Ea-8TG_secondLabel": "SEC",
+        "ggOz0Ea-8TG_weekLabel": "Weeks",
+        "ggc3tR47UW4_text": "<p>Limited time: 30% OFF + FREESHIPPING</p>",
+        "ggvCW4avV-u_text": "<p>LIMITED TIME OFFER - MEGA GLP-1 BUNDLE &nbsp;🎁</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-585246522690503515"
+    },
+    "gp_section_585246522891829906": {
+      "settings": {
+        "checksum": "13be4bab8bd98fecf8f718594830f18a2a20bb8c8b589073bfe1cbb3633fd0cc_1_1_1_0__1",
+        "ggQhZkAIrnp_text": "As Featured In"
+      },
+      "type": "gp-section-585246522891829906"
+    },
+    "gp_section_585246522908607323": {
+      "settings": {
+        "checksum": "ad4c010455b3d89c0d8ebaa47c1f0b93ead3416a3266a2f19f1c86ef9271c061_1_1_1_0__1",
+        "gg9KDePreR__childItem_0": "<p>How long does it take to see results?</p>",
+        "gg9KDePreR__childItem_1": "<p>Who is Nordburn Testro Boost suitable for?</p>",
+        "gg9KDePreR__childItem_2": "<p>How many capsules should I take per day?</p>",
+        "gg9KDePreR__childItem_3": "<p>What makes Nordburn Testro Boost different from other male supplements?</p>",
+        "gg9KDePreR__childItem_4": "<p>Is it suitable for vegans or vegetarians?</p>",
+        "gg9KDePreR__childItem_5": "<p>Can it be used by children?</p>",
+        "ggLk-D9-5GD_text": "<p><span style=\"background-color:rgb(250,250,250);color:rgb(29,29,31);font-size:medium;\">Take three (3) capsules before bedtime.</span></p>",
+        "ggPiNILmEQx_text": "<p>Best results are expected after 3 months of consistent use. Individual results may vary.</p>",
+        "ggPnblopd-L_text": "<p>Yes, it is vegan supplement.</p>",
+        "ggTv2S6ZYoK_text": "FAQs",
+        "ggWhmcS934i_text": "<p>While all of our products are made of natural ingredients, you should always&nbsp;<span style=\"background-color:transparent;color:inherit;font-size:inherit;\">consult with a healthcare professional before giving it to children under the age of&nbsp;18. Use in children under 12 years is not recommended.</span></p>",
+        "gggY88w2Bpq_text": "<p><strong>Nordburn Testro Boost is suitable for men who want to maximize their potential and become the best version of themselves.</strong> It helps support healthy testosterone levels, boost energy, enhance libido, and promote muscle strength. Many customers choose it alongside Nordburn GLP-1 Booster supplements, which support weight loss, balanced blood sugar, and healthy GLP-1 levels. Always consult a healthcare professional before using this or any supplement.</p>",
+        "ggmjDP8XiXH_text": "<p>Got questions? We’ve got answer...</p>",
+        "ggxPodhOsaI_text": "<p><strong>What makes Nordburn Testro Boost different from other male supplements?</strong></p><p>We use <strong>100% natural ingredients</strong>, not synthetic or lab-manufactured hormones.</p><p><strong>No synthetic testosterone</strong> is added — we support your body’s own balance.</p><p><strong>No prescription needed</strong> — access premium support without complex procedures.</p><p>Our formula is <strong>blended in the USA</strong> under strict quality controls, not from unknown sources in China.</p><p>It’s made with <strong>clinically studied ingredients</strong> and undergoes lab testing to ensure purity and potency.</p>"
+      },
+      "type": "gp-section-585246522908607323"
+    },
+    "gp_section_585246523311260507": {
+      "settings": {
+        "checksum": "bfedade3464104f9a75f1fd5aa5f3ee443fddf2a090c053b87063e4cea76d462_1_1_1_0__1",
+        "gg0Rh1NWLR8_text": "LIMITED TIME 50% OFF SALE",
+        "gg1aYgadFxj_text": "<p>Choose Your Option:</p>",
+        "gg2ezUdMCKm_text": "<p>1-Month Experiment</p>",
+        "gg7W3KRzldn_text": "<p>No synthetic testosterone added.</p>",
+        "gg9ZeXTdBxe_text": "<p>($35.00 per bottle)</p>",
+        "ggBUDL1zN01_text": "<p>(3 bottles)</p>",
+        "ggCtYqSEXrS_text": "<p>Free shipping</p>",
+        "ggG9NRSRPbB_text": "<p>Complements nordburn GLP1 booster.</p>",
+        "ggHhM1MR_h8_text": "<p>6-Month Treatment</p>",
+        "ggKGVhitpCX_text": "<p>&nbsp; &nbsp;Most Popular &nbsp;&nbsp;</p>",
+        "ggLQIggg2lb_text": "<p>50,000+ Happy Customers</p>",
+        "ggOcpWc0O4-_text": "<p><strong>Enhanced Libido</strong></p>",
+        "ggOeYLS3hIr_text": "<p>(6 bottles)</p>",
+        "ggQvh0JBiFh_text": "FREE SHIPPING",
+        "ggSv4SN0Gc4_text": "<p><strong>Heart Health</strong></p>",
+        "ggULQV98GDw_text": "<p>($31.50 per bottle)</p>",
+        "ggX5GXIj07l_text": "LIFE TIME WARRANTY",
+        "ggaORGWxqZH_label": "Add to cart",
+        "ggaORGWxqZH_outOfStockLabel": "Out of stock",
+        "ggaORGWxqZH_unavailableLabel": "Unavailable",
+        "ggaORGWxqZH_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggb89bcN0vW_text": "<p><strong>Muscle support</strong></p>",
+        "ggeRux4IBTF_text": "<p>Maximise your masculine weight loss journey.</p>",
+        "ggegvM7zAyV_text": "<p><strong>Bone Strength and Density</strong></p>",
+        "ggfYJzxSUCV_text": "<p>($27.96 per bottle)</p>",
+        "ggmla7jq50G_text": "<p>LOW IN STOCK</p>",
+        "ggnRAxgkyPd_text": "<p>3-Month Treatment</p>",
+        "gguWKyXnP9F_text": "<p>(1 bottle)</p>"
+      },
+      "type": "gp-section-585246523311260507"
+    },
+    "gp_section_585590893134742173": {
+      "settings": {
+        "checksum": "78c4cf74330651901be0f8df70a264b4aed8626e11c9eba536f3ff9eaa260edd_1_1_1_0__1",
+        "section_preload": "true"
+      },
+      "type": "gp-section-585590893134742173"
+    },
+    "gp_section_585591095669293915": {
+      "settings": {
+        "checksum": "b1216aff2909a9036cd3d70b1bca55ea59c97d3cc1409050d23fc3c796e81221_1_1_1_0__1"
+      },
+      "type": "gp-section-585591095669293915"
+    },
+    "gp_section_585591284412973885": {
+      "settings": {
+        "checksum": "0c4b41bbf0fd26e62a55831514462a897f9686463f372ac0988ea8ccfde7281d_1_1_1_0__1",
+        "gg-bh47I0Uy_text": "Cardiovascular health",
+        "gg8jXbeLRNx_text": "<p>Magnesium, Zinc, and Cissus Quadrangularis work together to support bone strength and density.</p>",
+        "ggHicnqlekS_text": "<p>Power your transformation with clinically studied ingredients for:</p>",
+        "ggJUZO-9iAp_text": "Libido increase",
+        "ggPj5ef4GyZ_label": "Get It Now",
+        "ggPj5ef4GyZ_outOfStockLabel": "Out of stocks",
+        "ggPj5ef4GyZ_unavailableLabel": "Unavailable",
+        "ggR60oEufBU_text": "Own It. Boost Your Masculinity.",
+        "ggTa3tjneBk_text": "<p>Magnesium, Zinc, and Cissus Quadrangularis work together to support muscle function, recovery, and strength.</p>",
+        "ggaD_llE1Hr_text": "<p>Hawthorn Berries and Magnesium support healthy circulation and heart function.</p>",
+        "ggjgAyzhNWF_text": "Muscle support",
+        "ggsiFy65gWh_text": "Bone strength and density",
+        "ggxL96ifKYO_text": "<p>Tribulus, Epimedium, and Longjack support libido, testosterone, and male fertility.</p>"
+      },
+      "type": "gp-section-585591284412973885"
+    },
+    "gp_section_585591419167572663": {
+      "settings": {
+        "checksum": "ff50916f001480fea8aa608fca503ad4d6aee752ed44848dbaa0033ef57604ff_1_1_1_0__1",
+        "ggCTn9FT4Bw_text": "<p>Male targeted supplements</p>",
+        "ggUJhvlZijq_label": "SHOP NOW",
+        "ggUaFTLOZZR_text": "<p><strong>Lab</strong> tested</p>",
+        "ggWXb4paqnD_text": "<p><strong>No prescribtion</strong> needed</p>",
+        "ggb2s7NbTvL_text": "<p><strong>Clinically</strong> studied ingredients</p>",
+        "ggctgq5h00u_text": "<p><strong>No</strong> synthetic <strong>testosterone</strong></p>",
+        "gghPtvgSmcs_text": "<p>Nordburn Testro Boost</p>",
+        "ggnYMbskr-R_text": "<p>Synthetic testosterone</p>",
+        "ggpEFPq468J_text": "<p>Others talk. Our formula delivers.</p>",
+        "ggq93rIxg5P_text": "<p>Blended in <strong>USA</strong></p>",
+        "ggucWCt234D_text": "Why choose us?",
+        "ggxVxRrQc8e_text": "<p><strong>100% natural</strong> ingredients</p>"
+      },
+      "type": "gp-section-585591419167572663"
+    },
+    "gp_section_585662377882551131": {
+      "settings": {
+        "checksum": "28cb796d0012fb4ef579b609c71cd6b4b5b3d6a06ff73b66adc4b27e3d4dfa0f_1_1_1_0__1",
+        "ggTZN2xeonb_text": "<p>Low magnesium levels can lead to irregular heartbeat, muscle cramps, weakened bones, and reduced energy production.</p>",
+        "ggZ59J6GdCJ_text": "<p>Horny Goat weed</p>",
+        "ggZbBB69qpx_text": "<p>Also known as Epimedium, this herb may support blood flow, sexual function, and bone health, though human evidence is limited.</p>",
+        "ggdqFw1dL0j_text": "<p>Systematic review showed that <strong>T. terrestris L. intake improved sperm parameters.</strong></p>",
+        "ggh1rFKDZVS_text": "<p>Magnesium Oxide</p>",
+        "ggiSxDZiuYT_text": "No BS. Clinically studied ingredients.&nbsp;",
+        "ggvT_ZEzhX8_text": "<p>Nordburn Testro Boost contains 9 clinically studied ingredients, including:</p>",
+        "ggvUHmB7OfQ_text": "<p><strong>Tribulus Terrestris</strong></p>"
+      },
+      "type": "gp-section-585662377882551131"
+    },
+    "gp_section_585663044927882045": {
+      "settings": {
+        "checksum": "1409c8c11ebda4083078ee05c4282619c0e28b3c5677b7b05c880961f8c124b9_1_1_1_0__1",
+        "gg3pqKDFvgP_text": "<p>\"I wasn’t sure about grabbing a dude supplement, kinda felt weird. But I got way more energy and feeling stronger already. Glad I went for it.”</p>",
+        "gg72fm0Zada_text": "<p>“I bought the GLP-1 supplement and added this booster to my order — already feeling more energy and strength. Excited to see the long-term results!”</p>",
+        "gg7_RynEZmb_text": "<p>1200+ 5 Star reviews</p>",
+        "ggB7it0jTJH_text": "<p><span style=\"color:#242424;\"><strong>TRAVIS J.</strong> </span><span style=\"color:#B4B4B4;font-size:13px;\">/ Financial Advisor</span></p>",
+        "ggQ7VlB3wts_text": "<p><span style=\"color:#242424;\"><strong>RYAN S.</strong></span> <span style=\"color:#B4B4B4;font-size:13px;\">/ Real Estate Broker</span></p>",
+        "ggbmKKF6WPu_text": "<p>“Taking this every day with my other vitamins has boosted my stamina and even my libido.”&nbsp;</p>",
+        "ggoiL9B4L4m_text": "<p>What Our Customers Are Saying</p>",
+        "ggxP2jyo0gp_text": "<p><span style=\"color:#242424;\"><strong>&nbsp;ZION C.</strong></span> <span style=\"color:#B4B4B4;font-size:13px;\">/ Marketing</span></p>"
+      },
+      "type": "gp-section-585663044927882045"
+    },
+    "gp_section_585988801554285341": {
+      "settings": {
+        "checksum": "db4e253d319e9253a9d9ec6755831697ebf08e973ae3198539800250a5c4ecff_1_1_1_0__1",
+        "gg1Nm6kPuFO_text": "The statements made on this website have not been evaluated by the FDA (U.S. Food &amp; Drug Administration). The products sold on this website are not intended to diagnose, treat, cure, or prevent any disease.<br>The information provided by this website or this company is not a substitute for a face-to-face consultation with your physician, and should not be construed as individual medical advice.<br>&nbsp;"
+      },
+      "type": "gp-section-585988801554285341"
+    }
+  },
+  "order": [
+    "gp_section_585590893134742173",
+    "gp_section_585246522690503515",
+    "gp_section_585246523311260507",
+    "gp_section_585662377882551131",
+    "gp_section_585591095669293915",
+    "gp_section_585663044927882045",
+    "gp_section_585591284412973885",
+    "gp_section_585591419167572663",
+    "gp_section_585246522891829906",
+    "gp_section_585246522908607323",
+    "gp_section_585988801554285341",
+    "gp_section_585246522690503314"
+  ]
+}

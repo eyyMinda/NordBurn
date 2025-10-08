@@ -1,26 +1,11 @@
+{% assign ss = section.settings %}
 <style>
     .g-benefits{
         background: #B0B2E5;
     }
-
-    .g-benefits h2{
-        font-weight: 400;
-        font-size: 45px;
-        line-height: 100%;
-        text-align: center;
-        color: #1B1443;
-        margin: 0 0 35px 0;
+    .g-benefits .heading-wrapper {
+        padding: 0;
     }
-
-    .g-benefits p{
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 130%;
-        letter-spacing: 0%;
-        text-align: center;
-        color: #060346;
-    }
-
     .g-benefits-icons{
         display: flex;
         align-items: center;
@@ -29,11 +14,15 @@
     }
 
     .g-benefits-icon{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .g-benefits-icon img {
+      max-width: 70px;
+      width: 100%;
     }
 
     .g-benefits-icon span{
@@ -47,22 +36,13 @@
 
     .g-benefits-image img{
         max-width: 100%;
+        width: 100%;
     }
 
     @media only screen and (max-width: 768px) {
         .g-benefits.g-sections{
             padding: 50px 20px;    
         }
-      
-        .g-benefits h2{
-            font-size: 28px;
-            margin: 0 0 20px 0;
-        }
-
-        .g-benefits p{
-            font-size: 16px;
-        }
-
         .g-benefits-icons{
             flex-wrap: wrap;
             gap: 30px;
@@ -71,11 +51,9 @@
         .g-benefits-icon{
             width: 90px;
         }
-
-        .g-benefits-icon img{
-            max-width: 62px;
+        .g-benefits-icon img {
+          max-width: 64px;
         }
-
         .g-benefits-icon span{
             font-size: 11px;
         }
@@ -83,17 +61,19 @@
 </style>
 <div class="g-benefits g-sections">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
-        <p>{{ section.settings.subtitle }}</p>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
-        <div class="g-benefits-image">
-            <img src="{{ section.settings.image | image_url: width: "2000px" }}" width="" height="" alt="">
-        </div>
+        {% if section.settings.image != blank %}
+          <div class="g-benefits-image">
+              {% render 'responsive-image', image: section.settings.image, image_width: 2000 %}
+          </div>
+        {% endif %}
 
         <div class="g-benefits-icons">
             {% for block in section.blocks %}
               <div class="g-benefits-icon">
-                  <img src="{{ block.settings.icon | image_url: width: "2000px" }}" width="" height="" alt="">
+                  {% render 'responsive-image', image: block.settings.icon, image_width: 100 %}
                   <span>{{ block.settings.content }}</span>
               </div>
             {% endfor %}
@@ -106,16 +86,73 @@
     "name": "Nord Benefits",
     "settings": [
       {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "Real Benefits. Backed by Science."
+      }, {
         "type": "text",
-        "id": "subtitle",
-        "label": "Sub Title"
-      },
-      {
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "Clinically studied ingredients."
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
         "type": "image_picker",
         "id": "image",
         "label": "Center Image"

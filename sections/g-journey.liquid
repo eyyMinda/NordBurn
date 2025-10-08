@@ -1,33 +1,20 @@
+{% assign ss = section.settings %}
 <style>
     .g-journey{
-        background: #D7D9F2;
+      background: #D7D9F2;
     }
-
-    .g-journey-subtitle p{
-        font-size: 20px;
-        text-align: center;
-        line-height: 130%;
-        color: #060346;
-        font-weight: 700;
+    .g-journey .heading-wrapper {
+      padding: 0 0 32px;
     }
-
-    .g-journey h2{
-        text-align: center;
-        font-size: 45px;
-        margin: 0 0 30px 0;
-    }
-
     .g-journey-blocks{
         margin-top: 91px;
     }
-
     .g-journey-block{
         position: relative;
         display: flex;
         align-items: flex-start;
         justify-content: center;
     }
-
     .g-journey-block-first::before{
         position: absolute;
         height: 73%;
@@ -35,7 +22,6 @@
         content: '';
         bottom: 0;
     }
-
     .g-journey-block-second::before{
         position: absolute;
         height: 49%;
@@ -43,17 +29,14 @@
         content: '';
         top: 0;
     }
-
     .g-journey-block > div{
         width: 50%;
         max-width: 534px;
     }
-
     .g-journey-block ul{
         margin: 10px 0 0 0;
         padding: 0;
     }
-
     .g-journey-block ul li{
         display: flex;
         align-items: center;
@@ -64,7 +47,6 @@
         font-weight: 400;
         color: #060346;
     }
-
     .g-journey-block ul li::before{
         content: "";
         display: inline-block;
@@ -74,36 +56,32 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
-
     .g-journey-right-content{
-        width: calc(100% - 134px);
-        background: #fff;
-        border: 2px solid #060346;
-        padding: 20px;
-        border-radius: 10px;
-        justify-self: flex-start;
-        align-self: flex-start;
-        z-index: 2;
+      width: calc(100% - 134px);
+      background: #fff;
+      border: 2px solid #060346;
+      padding: 20px;
+      border-radius: 10px;
+      justify-self: flex-start;
+      align-self: flex-start;
+      z-index: 2;
     }
-
     .g-journey-left-content{
-        width: calc(100% - 134px);
-        background: #fff;
-        border: 2px solid #060346;
-        padding: 20px;
-        border-radius: 10px;
-        justify-self: flex-end;
-        align-self: flex-start;
-        z-index: 2;
+      width: calc(100% - 134px);
+      background: #fff;
+      border: 2px solid #060346;
+      padding: 20px;
+      border-radius: 10px;
+      justify-self: flex-end;
+      align-self: flex-start;
+      z-index: 2;
     }
-
     .g-journey-right-content h3,
     .g-journey-left-content h3{
         margin: 0 0 10px 0;
         font-size: 30px;
         color: #060346;
     }
-
     .g-journey-right-content p,
     .g-journey-left-content p{
         font-size: 20px;
@@ -111,23 +89,19 @@
         margin: 0;
         color: #000;
     }
-
     .g-journey-right{
         margin-top: 84px;
     }
-
     .g-journey-left,
     .g-journey-right{
         display: grid;
         position: relative;
         align-items: center;
     }
-
     .g-journey-circle,
     .g-journey-line{
         position: absolute;
     }
-
     .g-journey-circle{
         width: 30px;
         height: 30px;
@@ -136,29 +110,27 @@
         background: #5B6BC8;
         z-index: 1;
     }
-
     .g-journey-right .g-journey-circle{
         right: -14px;
     }
-
     .g-journey-left .g-journey-circle{
         left: -14px;
     }
-
     .g-journey-line{
         width: 100%;
         border: 1px solid #060346;
     }
-
     .g-journey-cta-note{
         text-align: center;
         margin: 50px 0 0 0;
         font-size: 12px;
         color: #6C757D;
     }
-
     .g-journey-block.g-journey-block-second .g-journey-right{
         margin-top: 200px;
+    }
+    .g-journey .main-cta-wrapper {
+      margin-top: 32px;
     }
 
     @media only screen and (max-width: 768px) {
@@ -166,16 +138,13 @@
             min-width: 15px;
             height: 15px;
         }
-      
         .g-journey-block.g-journey-block-second .g-journey-right{
             margin-top: 0;    
         }
-      
         .g-journey-right-content{
             justify-self: flex-end;
             align-self: flex-end;
         }
-
         .g-journey-right .g-journey-circle,
         .g-journey-left .g-journey-circle{
             left: -10px;
@@ -183,107 +152,282 @@
             height: 20px;
             top: 6px;
         }
-
         .g-journey-block{
             flex-direction: column-reverse;
             gap: 20px;
         }
-
         .g-journey-right, .g-journey-blocks{
             margin-top: 0;
             margin-bottom: 20px;
         }
-
         .g-journey-block > div{
             width: 98%;
         }
-
         .g-journey-right-content,
         .g-journey-left-content{
             width: calc(100% - 40px);
         }
-        
         .g-journey-left, .g-journey-right{
             align-items: unset;
         }
-
         .g-journey-line{
             top: 15px;
         }
-
         .g-journey-block-first::before{
             height: 100%;
         }
-
         .g-journey-block-second::before{
             height: 0;
         }
-
-        .g-journey h2{
-            font-size: 28px;
-            color: #060346;
-        }
-
-        .g-journey-subtitle p{
-            font-size: 16px;
-        }
-
         .g-journey-right-content h3, .g-journey-left-content h3{
             font-size: 24px;
         }
-
         .g-journey-right-content p, .g-journey-left-content p, .g-journey-right-content ul li{
             font-size: 16px;
             line-height: 150%;
         }
-
         .g-journey-right-content, .g-journey-left-content{
             padding: 20px;
         }
-
         .g-journey-right-content ul{
             margin: 5px 0 0 0;
         }
-
         .g-journey-block.g-journey-block-second .g-journey-right{
             display: none;
         }
     }
-</style>
-<div class="g-journey g-sections">
+  /* ============== Horizontal Layout ============== */
+  .g-journey.horizontal {
+    overflow: hidden;
+    padding-block: 56px;
+  }
+  .g-journey.horizontal .g-journey-blocks {
+    width: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 0;
+    margin-inline: auto;
+  }
+  .g-journey.horizontal .g-journey-floating-image {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 220px;
+    aspect-ratio: 1;
+    z-index: 1;
+    transform: translate(50%, 50%) rotate(30deg);
+  }
+  .g-journey.horizontal .g-journey-floating-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .g-journey.horizontal .g-journey-block {
+    max-width: 580px;
+    width: 100%;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .g-journey.horizontal .g-journey-block .g-journey-line {
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top: -16px;
+    bottom: -16px;
+    border: none;
+    border-left: 2px solid #060346;
+  }
+  .g-journey.horizontal .g-journey-block:first-of-type .g-journey-line {
+    top: 50%;
+    bottom: 0;
+    border-top-left-radius: 8px;
+    border-top: 2px solid #060346;
+  }
+  .g-journey.horizontal .g-journey-block:last-of-type .g-journey-line {
+    top: 0;
+    bottom: 50%;
+    border-bottom-left-radius: 8px;
+    border-bottom: 2px solid #060346;
+  }
+  .g-journey.horizontal .g-journey-block:not(:first-of-type, :last-of-type) .g-journey-circle::before {
+    content: "";
+    position: absolute;
+    width: calc(40px - 11px);
+    height: 2px;
+    background-color: #060346;
+    top: 50%;
+    left: calc(0px - 10px);
+    transform: translate(calc(-100% + 8px), -50%);
+    z-index: 1;
+  }
+  .g-journey.horizontal .g-journey-circle {
+    width: 22px;
+    height: 22px;
+    left: 40px;
+    top: 50%;
+    background-color: #D7D9F2;
+    border: 2px solid #F6F6F6;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .g-journey.horizontal .g-journey-content {
+    max-width: 540px;
+    width: calc(100% - 40px);
+    background-color: #F6F6F6;
+    border: 1px solid #F6F6F6;
+    border-radius: 8px;
+    padding: 16px;
+    margin-left: 40px;
+  }
+  .g-journey.horizontal .g-journey-content img {
+    max-width: 24px;
+    width: 100%;
+    object-fit: contain;
+  }
+  .g-journey.horizontal .g-journey-content h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: 0.4px;
+  }
+  .g-journey.horizontal .g-journey-content p {
+    font-size: 16px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+  @media (min-width: 768px) {
+    .g-journey.horizontal .g-journey-blocks {
+      flex-direction: row;
+    }
+    .g-journey.horizontal .g-journey-floating-image {
+      top: unset;
+      right: unset;
+      left: 0;
+      bottom: 0;
+      width: 220px;
+      aspect-ratio: 1;
+      z-index: 1;
+      transform: translate(-20%, 50%) rotate(30deg);
+    }
+    .g-journey.horizontal .g-journey-block {}
+    .g-journey.horizontal .g-journey-block .g-journey-line {
+      width: 100%;
+      height: 40px;
+      top: 0;
+      left: -16px;
+      right: -16px;
+      bottom: unset;
+      border: none;
+      border-top: 2px solid #060346;
+    }
+    .g-journey.horizontal .g-journey-block:first-of-type .g-journey-line {
+      border-left: 2px solid #060346;
+      border-radius: 0;
+      border-top-left-radius: 8px;
+      top: 0;
+      left: 50%;
+    }
+    .g-journey.horizontal .g-journey-block:last-of-type .g-journey-line {
+      border-right: 2px solid #060346;
+      border-bottom: 0;
+      border-radius: 0;
+      border-top-right-radius: 8px;
+      right: 50%;
+      left: unset;
+    }
+    .g-journey.horizontal .g-journey-block .g-journey-circle {
+      top: 40px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .g-journey.horizontal .g-journey-block:not(:first-of-type, :last-of-type) .g-journey-circle::before {
+      height: calc(40px - 12px);
+      width: 2px;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, calc(-100% - 2px));
+    }
+    .g-journey.horizontal .g-journey-block .g-journey-content {
+      max-width: unset;
+      width: 100%;
+      margin-top: 40px;
+      margin-left: 0;
+    }
+  }
+  </style>
+<div class="g-journey g-sections {{ ss.display_type }}">
     <div class="g-wrap">
-        <h2>{{ section.settings.title }}</h2>
-        <div class="g-journey-subtitle">
-            {{ section.settings.subtitle }}
-        </div>
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
 
         <div class="g-journey-blocks">
+          {% if ss.display_type == 'horizontal' %}
+            {% assign rendered_index = 0 %}
+            {% for i in (1..4) %}
+              {% if rendered_index == 1 and ss.floating_image %}
+                <div class="g-journey-floating-image">
+                  {% render 'responsive-image', image: ss.floating_image, image_width: 600 %}
+                </div>
+              {% endif %}
+              
+              {% liquid
+                assign title_label = 'title_' | append: forloop.index
+                assign desc_label = 'desc_' | append: forloop.index
+                assign icon_label = 'icon_' | append: forloop.index
+
+                assign title = ss[title_label]
+                assign desc = ss[desc_label]
+                assign icon = ss[icon_label]
+              %}
+              {% if title != blank %}
+                {% assign rendered_index = rendered_index | plus: 1 %}
+                <div class="g-journey-block">
+                  <span class="g-journey-circle"></span>
+                  <span class="g-journey-line"></span>
+                  <div class="g-journey-content">
+                      {% if icon != blank %}
+                        {% render 'responsive-image' image: icon, image_width: 40, custom_alt: title %}
+                      {% endif %}
+                      <h3>{{ title }}</h3>
+                      <div class="g-description">{{ desc }}</div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
             <div class="g-journey-block g-journey-block-first">
                 <div class="g-journey-right">
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-right-content">
-                        <h3>{{ section.settings.title_1 }}</h3>
-                        {{ section.settings.desc_1 }}
+                        <h3>{{ ss.title_1 }}</h3>
+                        {{ ss.desc_1 }}
                     </div>
                 </div>
                 <div class="g-journey-left">
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-left-content">
-                         <h3>{{ section.settings.title_2 }}</h3>
-                        {{ section.settings.desc_2 }}
+                         <h3>{{ ss.title_2 }}</h3>
+                        {{ ss.desc_2 }}
                     </div>
                 </div>
             </div>
             <div class="g-journey-block g-journey-block-second">
                 <div class="g-journey-right">
-                {% if section.settings.title_3 != blank and section.settings.desc_3 != blank%}
+                {% if ss.title_3 != blank and ss.desc_3 != blank%}
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-right-content">
-                        <h3>{{ section.settings.title_3 }}</h3>
-                        {{ section.settings.desc_3 }}
+                        <h3>{{ ss.title_3 }}</h3>
+                        {{ ss.desc_3 }}
                     </div>
                 {% endif %}
                 </div>
@@ -291,29 +435,18 @@
                     <span class="g-journey-circle"></span>
                     <span class="g-journey-line"></span>
                     <div class="g-journey-left-content">
-                        <h3>{{ section.settings.title_4 }}</h3>
-                        {{ section.settings.desc_4 }}
+                        <h3>{{ ss.title_4 }}</h3>
+                        {{ ss.desc_4 }}
                     </div>
                 </div>
             </div>
+          {% endif %}
         </div>
 
-        <p class="g-journey-cta-note">{{ section.settings.cta_top_note }}</p>
-        <div class="g-cta-wrapper">
-            <div class="g-cta">
-                <a href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }} <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
-                  </svg>
-                </a>
-                <div class="g-cta-bottom">
-                    <div>
-                        <img src="{{ section.settings.cta_bottom_icon | image_url: width: "500px" }}" width="" height="" alt="">
-                        <span>{{ section.settings.cta_bottom_text }}</span>
-                    </div>
-                    <img src="{{ section.settings.cta_bottom_image | image_url: width: "500px" }}" width="" height="" alt="">
-                </div>
-            </div>
-        </div>
+        {% if ss.cta %}
+          {% render 'main-cta', text: ss.cta_text, link: ss.cta_url, type: ss.cta_type, action: ss.cta_action, arrow: ss.cta_arrow,
+           variant_id: product.selected_or_first_available_variant.id, note_icon: ss.cta_note_icon, note_text: ss.cta_note_text %}
+        {% endif %}
     </div>
 </div> 
 
@@ -322,16 +455,92 @@
     "name": "Nord Journey",
     "settings": [
       {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
-        "type": "richtext",
-        "id": "subtitle",
-        "label": "Sub Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "What should I expect from consistent use of Nordburn"
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text"
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "header",
+        "content": "Journey Blocks"
+      }, {
+        "type": "select",
+        "id": "display_type",
+        "label": "Display Type",
+        "default": "vertical",
+        "options": [
+          { "value": "vertical", "label": "Vertical" },
+          { "value": "horizontal", "label": "Horizontal" }
+        ]
+      }, {
+        "type": "image_picker",
+        "id": "floating_image",
+        "label": "Floating Image"
+      }, {
+        "type": "image_picker",
+        "id": "icon_1",
+        "label": "Icon 1"
+      }, {
         "type": "text",
         "id": "title_1",
         "label": "Title 1"
@@ -340,8 +549,11 @@
         "type": "richtext",
         "id": "desc_1",
         "label": "Description 1"
-      },
-      {
+      }, {
+        "type": "image_picker",
+        "id": "icon_2",
+        "label": "Icon 2"
+      }, {
         "type": "text",
         "id": "title_2",
         "label": "Title 2"
@@ -350,8 +562,11 @@
         "type": "richtext",
         "id": "desc_2",
         "label": "Description 2"
-      },
-      {
+      }, {
+        "type": "image_picker",
+        "id": "icon_3",
+        "label": "Icon 3"
+      }, {
         "type": "text",
         "id": "title_3",
         "label": "Title 3"
@@ -360,8 +575,11 @@
         "type": "richtext",
         "id": "desc_3",
         "label": "Description 3"
-      },
-      {
+      }, {
+        "type": "image_picker",
+        "id": "icon_4",
+        "label": "Icon 4"
+      }, {
         "type": "text",
         "id": "title_4",
         "label": "Title 4"
@@ -370,41 +588,53 @@
         "type": "richtext",
         "id": "desc_4",
         "label": "Description 4"
-      },
-      {
+      }, {
         "type": "header",
         "content": "CTA"
-      },
-      {
-        "type": "text",
-        "id": "cta_top_note",
-        "label": "CTA Top Note"
-      },
-      {
+      }, {
+        "type": "checkbox",
+        "id": "cta",
+        "label": "Show CTA",
+        "default": true
+      }, {
+        "type": "select",
+        "id": "cta_action",
+        "label": "CTA Action",
+        "default": "",
+        "options": [
+          { "value": "", "label": "Link" },
+          { "value": "atc", "label": "Add to Cart" },
+          { "value": "scroll", "label": "Scroll to Product" }
+        ]
+      }, {
+        "type": "select",
+        "id": "cta_type",
+        "label": "CTA Type",
+        "default": "accent",
+        "options": [
+          { "value": "", "label": "Light" },
+          { "value": "dark", "label": "Dark" },
+          { "value": "accent", "label": "Accent" }
+        ]
+      }, {
         "type": "text",
         "id": "cta_text",
-        "label": "CTA Text"
-      },
-      {
-        "type": "url",
-        "id": "cta_url",
-        "label": "CTA URL"
-      },
-      {
+        "label": "CTA Text",
+        "default": "Get My GLP-1 BOOSTER"
+      }, {
+        "type": "checkbox",
+        "id": "cta_arrow",
+        "label": "CTA Arrow",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "cta_note_icon",
+        "label": "CTA Note Icon"
+      }, {
         "type": "text",
-        "id": "cta_bottom_text",
-        "label": "CTA Bottom Text",
+        "id": "cta_note_text",
+        "label": "CTA Note Text",
         "default": "safe & secure checkout"
-      },
-      {
-        "type": "image_picker",
-        "id": "cta_bottom_icon",
-        "label": "CTA Bottom Icon"
-      },
-      {
-        "type": "image_picker",
-        "id": "cta_bottom_image",
-        "label": "CTA Bottom Image"
       }
     ],
     "presets": [

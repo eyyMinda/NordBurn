@@ -1,0 +1,63 @@
+<div class="cd__nav">
+  <div>
+    <h3>{{ ss.cart_title | default: 'In Your Bag ' }}<span class="cd__units"><span>{{ cart_items_filtered_count }}</span></span></h3>
+  </div>
+  <div>
+    <p class="cd__nav-back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+        <path d="M4.70711 3.29289C4.31658 2.90237 3.68342 2.90237 3.29289 3.29289C2.90237 3.68342 2.90237 4.31658 3.29289 4.70711L10.5858 12L3.29289 19.2929C2.90237 19.6834 2.90237 20.3166 3.29289 20.7071C3.68342 21.0976 4.31658 21.0976 4.70711 20.7071L12 13.4142L19.2929 20.7071C19.6834 21.0976 20.3166 21.0976 20.7071 20.7071C21.0976 20.3166 21.0976 19.6834 20.7071 19.2929L13.4142 12L20.7071 4.70711C21.0976 4.31658 21.0976 3.68342 20.7071 3.29289C20.3166 2.90237 19.6834 2.90237 19.2929 3.29289L12 10.5858L4.70711 3.29289Z" fill="#000000"/>
+      </svg>
+    </p>
+  </div>
+</div>
+
+{% unless cart.items.size == 0 %}
+  {% if ss.cart_reserved_timer %}
+    <div class="cd__timer" data-timer="{{ ss.cart_reserved_timer_minutes }}">
+      <p class="cd__timer-empty">Your cart is empty</p>
+      <p class="cd__timer-reserved">{{ ss.cart_reserved_timer_title }} <span class="cd_timer-reserved__hour">00</span>:<span class="cd_timer-reserved__min">{{ ss.cart_reserved_timer_minutes }}</span>:<span class="cd_timer-reserved__sec">00</span></p>
+    </div>
+  {% endif %}
+
+  {% if settings.cart_show_discount_bar %}
+    {% render 'cart_drawer-discount-bar' ss: ss, cart_items_true_count: cart_items_true_count %}
+  {% elsif settings.cart_drawer_simple_free_shipping %}
+    
+    {% assign free_shipping_threshold = settings.cart_discount_free_shipping_threshold | times: 100 %}
+    {% if free_shipping_threshold > 0 and cart.total_price >= free_shipping_threshold %}
+      <point class="cd__simple-free-shipping">
+        {% if settings.cart_drawer_simple_free_shipping_icon %}
+          {% render 'responsive-image' image: settings.cart_drawer_simple_free_shipping_icon, image_width: 20 %}
+        {% endif %}
+        <p>{{ settings.cart_drawer_simple_free_shipping_text }}</p>
+      </point>
+    {% endif %}
+
+  {% endif %}
+
+  {% render 'tp-ratings' ratings: ss.ratings, ratings_stars: ss.ratings_stars, ratings_logo: ss.ratings_logo, ratings_text: ss.ratings_text %}
+
+  {% if settings.cart_show_discount_bar and settings.cart_discount_gift %}
+    {% render 'cart_drawer-discount-bar-gift' ss: ss %}
+    {% render 'cart_drawer-gift-selector-modal' ss: ss %}
+  {% endif %}
+
+  {% if settings.cart_show_discount_bar == false and ss.progress_bar %}
+    {% render 'cart_drawer-progress' ss: ss %}
+  {% endif %}
+{% else %}
+  <div class="cd__empty">
+    {% if ss.cart_empty_title != blank %}
+      <h2>{{ ss.cart_empty_title }}</h2>
+    {% endif %}
+    {% if ss.cart_empty_text != blank %}
+      <p>{{ ss.cart_empty_text }}</p>
+    {% endif %}
+      
+    {% if ss.cart_empty_btn %}
+      <a href="{{ ss.cart_empty_btn_link }}" class="cd__empty-btn" title="{{ ss.cart_empty_btn_text }}">
+        {{ ss.cart_empty_btn_text }}
+      </a>
+    {% endif %}
+  </div>
+{% endunless %}

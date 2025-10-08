@@ -1,0 +1,312 @@
+{% liquid
+  assign ss = section.settings
+%}
+{{ 'weightloss.css' | asset_url | stylesheet_tag }}
+
+<section class="weightloss" style="background-color: {{ ss.bg_color }};">
+  <container class="weightloss__wrapper scroll-trigger animate--slide-in">
+    {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+    ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
+
+    <flex-col class="weightloss__content-wrapper">
+      <div class="weightloss__sliders">
+        <div class="weightloss__slider-group">
+          <flex class="weightloss__slider-header">
+            <label class="weightloss__label">{{ ss.weight_label | default: "What's your current weight?" }}</label>
+            <span class="weightloss__value" id="weight-display">165 lbs</span>
+          </flex>
+          <div class="weightloss__slider-container">
+            <input type="range" id="weight-slider" class="weightloss__slider" min="100" max="300" value="165" step="1" style="--current-fill: 32.5%;">
+          </div>
+        </div>
+
+        <div class="weightloss__slider-group">
+          <flex class="weightloss__slider-header">
+            <label class="weightloss__label">{{ ss.height_label | default: 'How tall are you?' }}</label>
+            <span class="weightloss__value" id="height-display">5ft 8in</span>
+          </flex>
+          <div class="weightloss__slider-container">
+            <input type="range" id="height-slider" class="weightloss__slider" min="48" max="84" value="68" step="1" style="--current-fill: 55.5%;">
+          </div>
+        </div>
+      </div>
+
+      <div class="weightloss__journey-section">
+        <div class="weightloss__journey-content">
+          <h3 class="weightloss__chart-title">{{ ss.chart_title | default: 'Your Weight Loss Journey' }}</h3>
+          
+          <div class="weightloss__journey-details">
+            <div class="weightloss__journey-dates">
+              <div class="weightloss__journey-start">
+                <div class="weightloss__journey-date" id="start-date">Aug 2025</div>
+                <div class="weightloss__journey-weight" id="start-weight">215 lbs</div>
+              </div>
+              <div class="weightloss__journey-arrow">→</div>
+              <div class="weightloss__journey-end">
+                <div class="weightloss__journey-date" id="end-date">Nov 2025</div>
+                <div class="weightloss__journey-weight" id="end-weight">190 lbs</div>
+              </div>
+            </div>
+
+
+            
+            {% comment %} <div class="weightloss__journey-description">
+              <p>Track your transformation over 12 weeks with our clinically-backed approach. See how consistent progress leads to sustainable results.</p>
+              <ul class="weightloss__journey-benefits">
+                <li>Weekly progress tracking</li>
+                <li>Sustainable weight loss</li>
+                <li>Clinical support</li>
+                <li>Long-term results</li>
+              </ul>
+            </div> {% endcomment %}
+          </div>
+        </div>
+
+        <div class="weightloss__chart">
+          <div class="weightloss__chart-container">
+            <div class="weightloss__chart-y-axis">
+              <span>220</span>
+              <span>200</span>
+              <span>180</span>
+              <span>160</span>
+              <span>140</span>
+            </div>
+            
+            <div class="weightloss__chart-area">
+              <svg class="weightloss__chart-svg" viewBox="0 0 400 200">
+                <path class="weightloss__chart-fill" d="M 0 40 L 80 60 L 160 80 L 240 100 L 320 120 L 400 140 L 400 200 L 0 200 Z"></path>
+                <path class="weightloss__chart-line" d="M 0 40 L 80 60 L 160 80 L 240 100 L 320 120 L 400 140"></path>
+                
+                {% for i in (1..6) %}
+                  <circle class="weightloss__chart-point" cx="{{ forloop.index0 | times: 80 }}" cy="{{ 40 | plus: forloop.index0 | times: 20 }}" r="6"></circle>
+                {% endfor %}
+                
+                <text class="weightloss__chart-label" x="80" y="50" text-anchor="middle">-10lbs</text>
+                <text class="weightloss__chart-label" x="160" y="70" text-anchor="middle">-10lbs</text>
+                <text class="weightloss__chart-label" x="240" y="90" text-anchor="middle">-5lbs</text>
+                <text class="weightloss__chart-label" x="320" y="110" text-anchor="middle">-10lbs</text>
+              </svg>
+              
+              <div class="weightloss__chart-start">
+                <div class="weightloss__chart-badge weightloss__chart-badge--red" id="current-weight-badge">215 lbs</div>
+              </div>
+              
+              <div class="weightloss__chart-end">
+                <div class="weightloss__chart-badge weightloss__chart-badge--green" id="target-weight-badge">190 lbs</div>
+              </div>
+            </div>
+            
+            <div class="weightloss__chart-x-axis">
+              <span>Today</span>
+              <span>4 Weeks</span>
+              <span>6 Weeks</span>
+              <span>8 Weeks</span>
+              <span>10 Weeks</span>
+              <span>12 Weeks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weightloss__fat-zone">
+        <div class="weightloss__fat-zone-header">
+          <div class="weightloss__fat-zone-icon"></div>
+          <span class="weightloss__fat-zone-title">{{ ss.fat_zone_title | default: 'FAT LOSS ZONE' }}</span>
+        </div>
+        <div class="weightloss__fat-zone-content">
+          <p class="weightloss__fat-zone-text" id="bmi-message">
+            Based on clinical trials, you could lose up to 9% of your body weight in 3 months you could lose up to <span class="weightloss__fat-zone-highlight" id="weight-loss-amount">29.96lbs</span> in 3 months*
+          </p>
+        </div>
+      </div>
+    </flex-col>
+
+  </container>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const weightSlider = document.getElementById('weight-slider');
+  const heightSlider = document.getElementById('height-slider');
+  const weightDisplay = document.getElementById('weight-display');
+  const heightDisplay = document.getElementById('height-display');
+  const currentWeightBadge = document.getElementById('current-weight-badge');
+  const targetWeightBadge = document.getElementById('target-weight-badge');
+  const bmiMessage = document.getElementById('bmi-message');
+  const weightLossAmount = document.getElementById('weight-loss-amount');
+  const startDate = document.getElementById('start-date');
+  const endDate = document.getElementById('end-date');
+  const startWeight = document.getElementById('start-weight');
+  const endWeight = document.getElementById('end-weight');
+
+  function formatHeight(inches) {
+    const feet = Math.floor(inches / 12);
+    const remainingInches = inches % 12;
+    return feet + 'ft ' + remainingInches + 'in';
+  }
+
+  function calculateBMI(weightLbs, heightInches) {
+    const weightKg = weightLbs * 0.453592;
+    const heightM = heightInches * 0.0254;
+    return weightKg / (heightM * heightM);
+  }
+
+  function formatDate(date) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return months[date.getMonth()] + ' ' + date.getFullYear();
+  }
+
+  function updateDisplay() {
+    const weight = parseInt(weightSlider.value);
+    const height = parseInt(heightSlider.value);
+    const bmi = calculateBMI(weight, height);
+    const weightLoss = Math.round(weight * 0.14 * 100) / 100;
+    const targetWeight = weight - Math.round(weight * 0.14);
+
+    const currentDate = new Date();
+    const futureDate = new Date();
+    futureDate.setMonth(currentDate.getMonth() + 3);
+
+    // Update slider fill values
+    const weightFill = ((weight - 100) / (300 - 100)) * 100;
+    const heightFill = ((height - 48) / (84 - 48)) * 100;
+    
+    weightSlider.style.setProperty('--current-fill', weightFill + '%');
+    heightSlider.style.setProperty('--current-fill', heightFill + '%');
+
+    weightDisplay.textContent = weight + ' lbs';
+    heightDisplay.textContent = formatHeight(height);
+    currentWeightBadge.textContent = weight + ' lbs';
+    
+    startDate.textContent = formatDate(currentDate);
+    endDate.textContent = formatDate(futureDate);
+    startWeight.textContent = weight + ' lbs';
+    
+    if (bmi >= 26) {
+      targetWeightBadge.textContent = targetWeight + ' lbs';
+      endWeight.textContent = targetWeight + ' lbs';
+      weightLossAmount.textContent = weightLoss + 'lbs';
+      bmiMessage.innerHTML = 'Based on clinical trials, you could lose up to 9% of your body weight in 3 months you could lose up to <span class="weightloss__fat-zone-highlight">' + weightLoss + 'lbs in 3 months*</span>';
+    } else if (bmi >= 18) {
+      targetWeightBadge.textContent = weight + ' lbs';
+      endWeight.textContent = weight + ' lbs';
+      bmiMessage.textContent = "You're already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance";
+    } else {
+      targetWeightBadge.textContent = weight + ' lbs';
+      endWeight.textContent = weight + ' lbs';
+      bmiMessage.textContent = 'Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use';
+    }
+  }
+
+  weightSlider.addEventListener('input', updateDisplay);
+  heightSlider.addEventListener('input', updateDisplay);
+  
+  updateDisplay();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Weight Loss Calculator",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F6F6F6"
+    }, {
+      "type": "header",
+      "content": "Heading"
+    }, {
+      "type": "checkbox",
+      "id": "heading_h1",
+      "label": "Heading H1"
+    }, {
+      "type": "text",
+      "id": "heading_title",
+      "label": "Heading Title",
+      "default": "Your Transformation Starts Here"
+    }, {
+      "type": "text",
+      "id": "heading_sub_text",
+      "label": "Heading Sub-Text"
+    }, {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Slide your weight and find out how much weight you could lose over 3 months."
+    }, {
+      "type": "select",
+      "id": "heading_align",
+      "label": "Heading Alignment",
+      "default": "center",
+      "options": [
+        { "value": "start", "label": "Start" }, 
+        { "value": "center", "label": "Center" },
+        { "value": "end", "label": "End" }
+      ]
+    }, {
+      "type": "select",
+      "id": "heading_align_mb",
+      "label": "Heading Alignment Mobile",
+      "default": "center-mb",
+      "options": [
+        { "value": "start-mb", "label": "Start" }, 
+        { "value": "center-mb", "label": "Center" },
+        { "value": "end-mb", "label": "End" }
+      ]
+    }, {
+      "type": "collection",
+      "id": "heading_shop_all",
+      "label": "Shop All"
+    }, {
+      "type": "header",
+      "content": "Ratings"
+    }, {
+      "type": "checkbox",
+      "id": "heading_ratings",
+      "label": "Display Ratings"
+    }, {
+      "type": "image_picker",
+      "id": "heading_ratings_stars",
+      "label": "Ratings Stars",
+      "visible_if": "{{ section.settings.heading_ratings }}"
+    }, {
+      "type": "image_picker",
+      "id": "heading_ratings_logo",
+      "label": "Ratings Logo",
+      "visible_if": "{{ section.settings.heading_ratings }}"
+    }, {
+      "type": "text",
+      "id": "heading_ratings_text",
+      "label": "Ratings Text",
+      "visible_if": "{{ section.settings.heading_ratings }}"
+    }, {
+      "type": "text",
+      "id": "weight_label",
+      "label": "Weight Label",
+      "default": "What's your current weight?"
+    }, {
+      "type": "text",
+      "id": "height_label",
+      "label": "Height Label",
+      "default": "How tall are you?"
+    }, {
+      "type": "text",
+      "id": "chart_title",
+      "label": "Chart Title",
+      "default": "Your Weight Loss Journey"
+    }, {
+      "type": "text",
+      "id": "fat_zone_title",
+      "label": "Fat Zone Title",
+      "default": "FAT LOSS ZONE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Weight Loss Calculator"
+    }
+  ]
+}
+{% endschema %}

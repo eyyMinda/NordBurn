@@ -1,14 +1,5 @@
+{% assign ss = section.settings %}
 <style>
-    .g-chart h2{
-        font-weight: 400;
-        font-size: 45px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        text-align: center;
-        color: #060346;
-        margin: 0 0 35px 0;
-    }
-
     .g-chart-sub{
         font-weight: 700;
         font-size: 20px;
@@ -16,6 +7,9 @@
         letter-spacing: 0%;
         text-align: center;
         color: #060346;
+    }
+    .g-chart .heading-wrapper {
+        padding: 0;
     }
 
     /* canvas {
@@ -150,10 +144,6 @@
     }
 
     @media only screen and (max-width: 768px) {
-        .g-chart h2{
-            font-size: 28px;
-        }
-
         .g-chart-sub{
             font-size: 14px;
         }
@@ -176,8 +166,10 @@
     }
 </style>
 <div class="g-chart g-sections">
-    <div class="g-wrap">    
-        <h2>{{ section.settings.title }}</h2>
+    <div class="g-wrap">
+        {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+        ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
+
         <p class="g-chart-sub">{{ section.settings.subtitle }}</p>
     
         <div class="g-chart-wrap">
@@ -431,17 +423,74 @@
   {
     "name": "Nord Chart",
     "settings": [
-      {
+        {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
         "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-      {
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "Your Transformation Starts Here"
+      }, {
         "type": "text",
-        "id": "subtitle",
-        "label": "Sub Title"
-      },
-      {
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "Slide your weight and find out how much weight you could lose over 3 months."
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
         "type": "text",
         "id": "q1_label",
         "label": "Question 1 Label",
@@ -475,7 +524,7 @@
         "type": "text",
         "id": "bmi_3",
         "label": "BMI >= 26 Label",
-        "default": "Based on clinical trials, you could lose up to 14% of your body weight in 3 months you could lose up to"
+        "default": "Based on clinical trials, you could lose up to 9% of your body weight in 3 months you could lose up to"
       }
     ],
     "presets": [

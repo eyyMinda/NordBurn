@@ -1,0 +1,31 @@
+{% liquid
+  assign shipping_product = settings.cart_drawer_shipping_protection_product | default: all_products['shipping-protection']
+  assign shipping_id = shipping_product.selected_or_first_available_variant.id
+  assign enabled_default = settings.cart_drawer_shipping_protection_enabled
+
+  assign shipping_protection_free = false
+  if cart_items_shipping_protection_free_count > 2
+    assign shipping_protection_free = true
+  endif
+%}
+
+<div class="cd__ship-prot" data-protection="{{ enabled_default }}" data-id="{{ shipping_id }}">
+  <flex-center>
+    {% render 'responsive-image', image: shipping_product.featured_image, image_width: 60, custom_alt: 'shipping-insurance' %}
+  </flex-center>
+  <flex-col>
+    <p class="cd__ship-prot-title">{{ settings.cart_drawer_shipping_protection_title }}</p>
+    <p class="cd__ship-prot-text">{{ settings.cart_drawer_shipping_protection_text }}</p>
+  </flex-col>
+  <flex-col>
+    <p class="cd__ship-prot-price">
+      <span class="money{% if shipping_protection_free %} free{% endif %}">{{ shipping_product.price | money }}</span>
+      {% if shipping_protection_free %}
+        <span>FREE</span>
+      {% endif %}
+    </p>
+    <div class="cd__ship-prot-checking{% if enabled_default == false %} disabled{% endif %}">
+      <div class="cd__ship-prot-checking-inner"></div>
+    </div>
+  </flex-col>
+</div>

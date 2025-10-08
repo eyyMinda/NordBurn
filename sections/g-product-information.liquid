@@ -1,9 +1,34 @@
-{% if section.settings.product != blank %}
-  {% assign product = section.settings.product %}
-{% endif %}
+{% liquid
+    assign ss = section.settings
+    if section.settings.product != blank
+        assign product = section.settings.product
+    endif
+    assign benefits = section.blocks | where: "type", "benefit"
+    assign comparisons = section.blocks | where: "type", "comparison"
+%}
+
+{% capture rating_stars %}
+    <span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+        </svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
+        </svg>
+    </span>
+{% endcapture %}
 <style>
     .g-pdp-wrapper{
-        padding: 50px 20px;
+        padding: 50px 16px;
     }
 
     .g-pdp-wrap{
@@ -94,13 +119,15 @@
 
 
     .g-pdp-methods{
-        margin: 20px 0;
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
 
     .g-pdp-method{
+        border: 2px solid #D2D2D2;
+        background-color: white;
+        border-radius: 8px;
         cursor: pointer;
     }
 
@@ -109,8 +136,7 @@
     }
 
     .g-pdp-method-header{
-        padding: 18px 12px;
-        border: 2px solid #D7D7D7;
+        padding: 16px 12px 12px;
         border-radius: 8px;
 
         font-family: Arial;
@@ -131,27 +157,29 @@
         width: 16px;
         height: 16px;
         border-radius: 16px;
-        border: 1px solid #D7D7D7;
+        border: 1px solid #767676;
     }
 
     .g-pdp-method.g-pdp-method-selected .g-pdp-method-content{
         display: block;
     }
 
-    .g-pdp-method.g-pdp-method-selected .g-pdp-method-header{
+    .g-pdp-method.g-pdp-method-selected {
         border: 2px solid #060346;
         background: #DCE0F4;
+    }
+    .g-pdp-method.g-pdp-method-selected .g-pdp-method-header{
         font-weight: bold;
     }
 
     .g-pdp-method.g-pdp-method-selected .g-pdp-method-circle{
-        border-color: #060346;
+        border-color: black;
     }
 
     .g-pdp-method.g-pdp-method-selected .g-pdp-method-circle::before{
         content: '';
-        background: #060346;
-        border: 3px solid #DCE0F4;
+        background: black;
+        border: 2px solid white;
         width: 100%;
         height: 100%;
         display: block;
@@ -164,7 +192,6 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
-        margin-top: 27px;
     }
 
     .g-pdp-variant.g-pdp-variant-selected{
@@ -172,13 +199,36 @@
         background: #152CB126;
     }
 
+    .g-pdp-selector-wrapper {
+        gap: 16px;
+        margin-top: 16px;
+        border-radius: 8px;
+    }
+    .g-pdp-selector-wrapper.padding {
+        padding: 16px 8px;
+    }
+    .g-pdp-selector-label {
+        color: #060346;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        vertical-align: middle;
+        margin: 0;
+    }
+    @media (min-width: 768px) {
+        .g-pdp-selector-wrapper.padding {
+            padding: 16px;
+        }
+    }
     .g-pdp-variant{
         position: relative;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         gap: 15px;
-
         border: 2px solid #D7D7D7;
+        background-color: white;
         border-radius: 8px;
         padding: 17px 22px;
         cursor: pointer;
@@ -195,19 +245,33 @@
         justify-content: center;
     }
 
-    .g-pdp-variant-note{
+    .g-pdp-variant-note-wrap .g-pdp-variant-note{
         font-size: 10px;
         line-height: 11px;
         text-transform: uppercase;
-        padding: 4px 15px;
+        text-wrap: nowrap;
+        padding: 4px 8px;
         background: #060346;
         color: #fff;
         border-radius: 5px;
     }
+    .g-pdp-variant-content .g-pdp-variant-note-wrap {
+        width: fit-content;
+        position: static;
+    }
+
+    .g-pdp-variant-description{
+        gap: 2px 4px;
+    }
+    .g-pdp-variant-description p {
+        display: block;
+        width: fit-content;
+    }
 
     .g-pdp-variant-image{
-        width: 81px;
-        text-align: left;
+        max-width: 72px;
+        width: 100%;
+        text-align: center;
     }
 
     .g-pdp-variant-image img{
@@ -237,13 +301,14 @@
 
     .g-pdp-variant-content h3{
         font-weight: 700;
-        font-size: 24px;
-        line-height: 28.8px;
+        font-size: 20px;
+        line-height: 1.3;
         letter-spacing: -1%;
         vertical-align: middle;
         display: flex;
+        flex-wrap: wrap-reverse;
         align-items: center;
-        gap: 5px;
+        gap: 2px 5px;
     }
 
     .g-pdp-variant-pricing{
@@ -257,6 +322,12 @@
         flex-direction: column;
     }
 
+    .g-pdp-variant-price-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
     .g-pdp-variant-sale{
         color: #060346;
     }
@@ -267,7 +338,36 @@
         text-align: right;
         text-decoration: line-through;
     }
-
+    .g-pdp-variant-price-wrap:has(.save-price) * {
+        flex-grow: 0;
+    }
+    .g-pdp-variant-price-wrap:has(.save-price) *:not(.save-price) {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0.2px;
+    }
+    .g-pdp-variant-price-wrap:has(.save-price) .each-price {
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+    }
+    .g-pdp-variant-price-wrap .save-price {
+        width: fit-content;
+        flex-grow: 0;
+        background-color: #C9C9F2;
+        border-radius: 22px;
+        color: #060346;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0px;
+        text-wrap: nowrap;
+        padding: 4px 8px;
+    }
+    .g-pdp-variant.g-pdp-variant-selected .g-pdp-variant-price-wrap .save-price {
+        background-color: white;
+    }
 
 
     .g-pdp-review{
@@ -292,10 +392,13 @@
         flex: 1;
     }
 
-    .g-pdp-review-rating{
+    .g-pdp-review-rating {
         display: flex;
         align-items: center;
+        gap: 8px;
         margin-top: 10px;
+    }
+    .g-pdp-review-rating.spaced-out {
         justify-content: space-between;
     }
 
@@ -395,7 +498,12 @@
         gap: 3px;
         color: #000;
     }
-
+    @media only screen and (max-width: 1024px) {
+        .g-pdp-variant{
+            align-items: center;
+            gap: 5px;
+        }
+    }
     @media only screen and (max-width: 768px) {
         .g-pdp-variant-pricing-subscribe, .g-pdp-variant-pricing-onetime{
             gap: 0;
@@ -428,14 +536,8 @@
         .g-desktop{
             display: none !important;
         }
-
-        .g-pdp-variant{
-            gap: 5px;
-        }
-
         .g-pdp-variant-content h3{
             font-size: 18px;
-            line-height: 21px;
         }
 
         .g-pdp-variant-image{
@@ -460,9 +562,11 @@
        }
 
         .g-pdp-variant{
-            padding: 15px;
+            max-height: 120px;
+            align-items: center;
+            gap: 5px;
+            padding: 16px 8px;
         }
-
         .g-pdp-method-content ul{
             padding-left: 20px;
         }
@@ -470,6 +574,57 @@
         .g-pdp-review{
             flex-direction: column;
             align-items: center;
+        }
+    }
+    @media only screen and (max-width: 420px) {
+        .g-pdp-variant-image{
+            width: 48px;
+        }
+        .g-pdp-variant-content h3{
+            font-size: 16px;
+        }
+    }
+
+    /* Comparisons */
+    .pdp-image-comparisons-wrapper {
+        background-color: #F6F6F6;
+        border-radius: 8px;
+        border: 1px solid #eeeeee;
+        padding: 16px 12px;
+    }
+    .pdp-image-comparisons-title {
+        max-width: 90%;
+        color: #060346;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .pdp-image-comparisons:not(.slick-initialized) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+        gap: 10px;
+    }
+    .pdp-image-comparison {
+        max-width: 210px;
+    }
+    .pdp-image-comparison img {
+        width: 100%;
+    }
+    @media (min-width: 768px) {
+        .pdp-image-comparisons-wrapper {
+            padding: 24px 16px;
+            margin-top: 32px;
+        }
+        .pdp-image-comparisons-title {
+            max-width: unset;
+            font-size: 18px;
+        }
+        .pdp-image-comparison {
+            max-width: 300px;
         }
     }
 </style>
@@ -623,6 +778,7 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
+                    margin-block: 12px;
                 }
 
                 .g-ratings p{
@@ -630,8 +786,39 @@
                     margin-top: 2px;
                     line-height: 1;
                 }
+                .g-pdp-quantity-radio {
+                    display: block !important;
+                    box-shadow: inset 0 0 0 3px white;
+                    width: 18px;
+                    height: 18px;
+                    flex-shrink: 0;
+                    border: 1px solid #767676;
+                    border-radius: 50%;
+                    margin-right: 4px;
+                    transition: all 150ms ease;
+                }
+                .g-pdp-variant.g-pdp-variant-selected .g-pdp-quantity-radio {
+                    background: black;
+                    border-color: black;
+                }
+                .g-pdp-benefits {
+                    gap: 16px;
+                    margin-block: 8px;
+                }
+                .g-pdp-benefit {
+                    gap: 8px;
+                }
+                .g-pdp-benefit img {
+                    width: 24px;
+                    height: 24px;
+                }
 
                 @media only screen and (max-width: 768px) {
+                    .g-pdp-quantity-radio {
+                        box-shadow: inset 0 0 0 2px white;
+                        width: 16px;
+                        height: 16px;
+                    }
                     .g-product-images .swiper-button-next,
                     .g-product-images .swiper-button-prev{
                         display: none !important;
@@ -652,11 +839,16 @@
 
                     .g-ratings p{
                         font-size: 14px;
+                        text-wrap: nowrap;
                     }
-
                     .g-ratings > span svg{
                         width: 14px;
                         height: 14px;
+                    }
+                }
+                @media only screen and (max-width: 420px) {
+                    .g-ratings p{
+                        font-size: 12px;
                     }
                 }
             </style>
@@ -719,82 +911,116 @@
             </script>
             <!-- End Product Images Widget -->
 
-            <div class="pdp-image-widgets">
-                <div>
-                    <img src="{{ section.settings.image_1 | image_url: width: "1000px" }}" width="" height="" alt="">
+            {% if comparisons.size > 0 %}
+                <flex-col class="pdp-image-comparisons-wrapper Desktop_only">
+                    {% if ss.comparisons_title != blank %}
+                        <div class="pdp-image-comparisons-title">{{ ss.comparisons_title }}</div>
+                    {% endif %}
+                    <div class="pdp-image-comparisons">
+                        {% for block in comparisons %}
+                            <div class="pdp-image-comparison">
+                                {% render 'responsive-image', image: block.settings.image, image_width: 340 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </flex-col>
+            {% else %}
+                <div class="pdp-image-widgets">
+                    <div>
+                        <img src="{{ section.settings.image_1 | image_url: width: "1000px" }}" width="" height="" alt="">
+                    </div>
+                    <div>
+                        <img src="{{ section.settings.image_2 | image_url: width: "1000px" }}" width="" height="" alt="">
+                    </div>
                 </div>
-                <div>
-                    <img src="{{ section.settings.image_2 | image_url: width: "1000px" }}" width="" height="" alt="">
-                </div>
-            </div>
+            {% endif %}
         </div>  
         <div class="g-pdp-content">
             <div class="g-pdp-content-top">{{ section.settings.top_note }}</div>
             <h1>{{ product.title }}
             <div class="g-ratings">
-              <span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
-                  </svg>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
-                  </svg>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
-                  </svg>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
-                  </svg>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"></path>
-                  </svg>
-              </span>
+             {{ rating_stars }}
               {{ section.settings.ratings }}
             </div>
             </h1>
             {{ section.settings.short_desc }}
-            <ul>
-                <li>{{ section.settings.list_icon_1 }}</li>
-                <li>{{ section.settings.list_icon_2 }}</li>
-                <li>{{ section.settings.list_icon_3 }}</li>
-            </ul>
+            {% if benefits.size > 0 %}
+                <flex-col class="g-pdp-benefits">
+                    {% for block in benefits %}
+                    {% assign bs = block.settings %}
+                        <point class="g-pdp-benefit">
+                            {% if bs.icon != blank %}
+                                {% render 'responsive-image', image: bs.icon, image_width: 30 %}
+                            {% endif %}
+                            <p>{{ bs.text }}</p>
+                        </point>
+                    {% endfor %}
+                </flex-col>
+            {% else %}
+                <ul>
+                    <li>{{ section.settings.list_icon_1 }}</li>
+                    <li>{{ section.settings.list_icon_2 }}</li>
+                    <li>{{ section.settings.list_icon_3 }}</li>
+                </ul>
+            {% endif %}
             <!-- PDP WIDGET -->
             
             
             
-            
-            <div class="g-pdp-variants"{% if product.has_only_default_variant == true %} style="margin: 0"{% endif %}>
+            <flex-col class="g-pdp-selector-wrapper{% if ss.selector_bg_color != blank and ss.selector_bg_color != 'transparent' and ss.selector_bg_color != '#ffffff' %} padding{% endif %}" style="background-color: {{ section.settings.selector_bg_color }};">
+                {% if section.settings.variants_selector_label != blank %}
+                    <h2 class="g-pdp-selector-label">{{ section.settings.variants_selector_label }}</h2>
+                {% endif %}
+
+                <div class="g-pdp-variants"{% if product.has_only_default_variant == true %} style="margin: 0"{% endif %}>
                 {% for variant in product.variants %}
                   <div class="g-pdp-variant{% if forloop.last == true %} g-pdp-variant-selected{% endif %}" data-vid="{{ variant.id }}" data-sp="{{ variant.selling_plan_allocations.first.selling_plan.id }}"{% if product.has_only_default_variant == true %} style="display: none"{% endif %}>
-                      {% if variant.metafields.custom.supply_top_note.value != blank %}
-                        <div class="g-pdp-variant-note-wrap">
-                            <span class="g-pdp-variant-note">{{ variant.metafields.custom.supply_top_note.value }}</span>
-                        </div>
-                      {% endif %}
+                        {% if section.settings.save_tag_after_title and variant.metafields.custom.supply_top_note.value != blank %}
+                            <div class="g-pdp-variant-note-wrap">
+                                <span class="g-pdp-variant-note">{{ variant.metafields.custom.supply_top_note.value }}</span>
+                            </div>
+                        {% endif %}
                       <div class="g-pdp-variant-image">
                           <img src="{{ variant.metafields.custom.supply_image.value | image_url: width: "500px" }}" width="" height="" alt="">
                       </div>
+                      {% if section.settings.variants_radio %}
+                        <div class="g-pdp-quantity-radio"></div>
+                      {% endif %}
                       <div class="g-pdp-variant-content">
                           <h3>
                             {{ variant.title }}
-                            {% if variant.metafields.custom.price_per_bottle_divider.value != blank %}
-                              <div class="g-pdp-variant-price-perbottle variant-pp-subscribe">
-                                
-                                  {% comment %}<span>{{ variant.selling_plan_allocations.first.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle{% endcomment %}
-                                  {% if variant.selling_plan_allocations.first.compare_at_price > variant.selling_plan_allocations.first.price %}  
-                                    <span>Save {{ variant.selling_plan_allocations.first.compare_at_price | minus: variant.selling_plan_allocations.first.price | money }}</span>
-                                  {% endif %}
-                              </div>
-                              <div class="g-pdp-variant-price-perbottle variant-pp-onetime" style="display: none">
-                                
-                                  {% comment %}<span>{{ variant.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle{% endcomment %}
-                                  {% if variant.compare_at_price > variant.price %}
-                                    <span>Save {{ variant.compare_at_price | minus: variant.price | money }}</span>
-                                  {% endif %}
-                              </div>
+
+                            {% if section.settings.save_tag_after_title %}
+                                {% if variant.metafields.custom.price_per_bottle_divider.value != blank %}
+                                <div class="g-pdp-variant-price-perbottle variant-pp-subscribe">
+                                    
+                                    {% comment %}<span>{{ variant.selling_plan_allocations.first.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle{% endcomment %}
+                                    {% if variant.selling_plan_allocations.first.compare_at_price > variant.selling_plan_allocations.first.price %}  
+                                        <span>Save {{ variant.selling_plan_allocations.first.compare_at_price | minus: variant.selling_plan_allocations.first.price | money }}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="g-pdp-variant-price-perbottle variant-pp-onetime" style="display: none">
+                                    
+                                    {% comment %}<span>{{ variant.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle{% endcomment %}
+                                    {% if variant.compare_at_price > variant.price %}
+                                        <span>Save {{ variant.compare_at_price | minus: variant.price | money }}</span>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            {% else %}
+                                {% if variant.metafields.custom.supply_top_note.value != blank %}
+                                    <div class="g-pdp-variant-note-wrap">
+                                        <span class="g-pdp-variant-note">{{ variant.metafields.custom.supply_top_note.value }}</span>
+                                    </div>
+                                {% endif %}
                             {% endif %}
                           </h3>
-                          <p>{{ variant.metafields.custom.supply_description.value }}</p>
+                          <flex-wrap class="g-pdp-variant-description">
+                            <p>{{ variant.metafields.custom.supply_description.value }}</p>
+                            {% if variant.metafields.custom.supply_description_2.value != blank %}
+                                <p>{{ variant.metafields.custom.supply_description_2.value }}</p>
+                            {% endif %}
+                        </flex-wrap>
                       </div>
                       <div class="g-pdp-variant-pricing">
                           <div class="g-pdp-variant-pricing-subscribe">
@@ -802,63 +1028,105 @@
                             <span class="g-pdp-variant-sale">{{ variant.selling_plan_allocations.first.price | money }}</span>
                             <span class="g-pdp-variant-compare">{{ variant.selling_plan_allocations.first.compare_at_price | money }}</span>
                             {% endcomment %}
-                            <span>{{ variant.selling_plan_allocations.first.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle
+                            <div class="g-pdp-variant-price-wrap">
+                                <p><span class="each-price">{{ variant.selling_plan_allocations.first.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle</p>
+                                {% if section.settings.save_tag_after_title == false and variant.selling_plan_allocations.first.compare_at_price > variant.selling_plan_allocations.first.price %}  
+                                    <div class="save-price">Save {{ variant.selling_plan_allocations.first.compare_at_price | minus: variant.selling_plan_allocations.first.price | money }}</div>
+                                {% endif %}
+                            </div>
                           </div>
                           <div class="g-pdp-variant-pricing-onetime" style="display: none">
                             {% comment %}
                             <span class="g-pdp-variant-sale">{{ variant.price | money }}</span>
                             <span class="g-pdp-variant-compare">{{ variant.compare_at_price | money }}</span>
                             {% endcomment %}
-                            <span>{{ variant.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle
+                            <div class="g-pdp-variant-price-wrap">
+                                <p><span class="each-price">{{ variant.price | divided_by: variant.metafields.custom.price_per_bottle_divider.value | money_without_trailing_zeros }}</span> per bottle</p>
+                                {% if section.settings.save_tag_after_title == false and variant.compare_at_price > variant.price %}
+                                    <div class="save-price">Save {{ variant.compare_at_price | minus: variant.price | money }}</div>
+                                {% endif %}
+                            </div>
                           </div>
                       </div>
-                  </div>
-                {% endfor %}
+                   </div>
+                 {% endfor %}
 
-            </div>
-
-
-            <div class="g-pdp-methods"{% if product.selling_plan_groups.size == 0 %} style="margin: 0"{% endif %}>
-                {% if product.selling_plan_groups.size > 0 %}
-                <div class="g-pdp-method g-pdp-method-selected" data-method="subscribe">
-                    <div class="g-pdp-method-header">
-                        <span class="g-pdp-method-circle"></span>
-                        <span>{{ section.settings.sub_label }}</span>
-                    </div>
-                    <div class="g-pdp-method-content">
-                        {{ section.settings.sub_lists }}
-                    </div>
                 </div>
+
+                {% if ss.methods_selector_type == 'checkbox' %}
+                    {% render 'pdp-frequency-checkbox' title: ss.methods_checkbox_title, pricing: ss.methods_checkbox_pricing, description: ss.methods_checkbox_description %}
                 {% endif %}
-                <div class="g-pdp-method{% if product.selling_plan_groups.size == 0 %} g-pdp-method-selected g-pdp-method-hide{% endif %}" data-method="onetime">
-                    <div class="g-pdp-method-header">
-                        <span class="g-pdp-method-circle"></span>
-                        <span>One-time purchase</span>
-                    </div>
-                </div>
-            </div>
+            </flex-col>
 
+
+            {% if ss.methods_selector_type == 'radio' %}
+                <flex-col class="g-pdp-selector-wrapper{% if ss.selector_bg_color != blank and ss.selector_bg_color != 'transparent' and ss.selector_bg_color != '#ffffff' %} padding{% endif %}" style="background-color: {{ section.settings.selector_bg_color }};">
+                    {% if section.settings.methods_selector_label != blank %}
+                        <h2 class="g-pdp-selector-label">{{ section.settings.methods_selector_label }}</h2>
+                    {% endif %}
+
+                    <div class="g-pdp-methods"{% if product.selling_plan_groups.size == 0 %} style="margin: 0"{% endif %}>
+                        {% if product.selling_plan_groups.size > 0 %}
+                        <div class="g-pdp-method g-pdp-method-selected" data-method="subscribe">
+                            <div class="g-pdp-method-header">
+                                <span class="g-pdp-method-circle"></span>
+                                <span>{{ section.settings.sub_label }}</span>
+                            </div>
+                            <div class="g-pdp-method-content">
+                                {{ section.settings.sub_lists }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="g-pdp-method{% if product.selling_plan_groups.size == 0 %} g-pdp-method-selected g-pdp-method-hide{% endif %}" data-method="onetime">
+                            <div class="g-pdp-method-header">
+                                <span class="g-pdp-method-circle"></span>
+                                <span>One-time purchase</span>
+                            </div>
+                        </div>
+                    </div>
+                </flex-col>
+            {% endif %}
             <!-- END PDP WIDGET -->
 
 
             <!-- FORM BUTTON -->
             <div class="g-cta">
                 <form action="">
-                    <button type="button">ADD TO CART <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <button type="button" {% if section.settings.atc_rounded %}style="border-radius: 100px;"{% endif %}>Add To Cart <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                       </svg>
                     </button>
                 </form>
-                <div class="g-cta-bottom">
-                    <div>
-                        <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/lock.png" width="" height="" alt="">
-                        <span>safe & secure checkout</span>
-                    </div>
-                    <img src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/btn_payments.png" width="" height="" alt="">
+                <div class="g-cta-bottom">                   
+                    {% if section.settings.below_atc_content_text != blank %}
+                        <div>
+                            {% if section.settings.below_atc_content_icon != blank %}
+                                <img src="{{ section.settings.below_atc_content_icon | image_url: width: 40 }}" width="" height="" alt="">
+                            {% endif %}
+                            <span>{{ section.settings.below_atc_content_text }}</span>
+                        </div>
+                    {% endif %}
+                    {% if section.settings.below_atc_content_payments != blank %}
+                      <img src="{{ section.settings.below_atc_content_payments | image_url: width: 240 }}" width="" height="" alt="">
+                    {% endif %}
                 </div>
             </div>
             <!-- END FORM BUTTON -->
 
+            {% if comparisons.size > 0 %}
+                <flex-col class="pdp-image-comparisons-wrapper slick-bottom-dots Mobile_only">
+                    {% if ss.comparisons_title != blank %}
+                        <div class="pdp-image-comparisons-title">{{ ss.comparisons_title }}</div>
+                    {% endif %}
+                    <div class="pdp-image-comparisons">
+                        {% for block in comparisons %}
+                            <div class="pdp-image-comparison">
+                                {% render 'responsive-image', image: block.settings.image, image_width: 340 %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </flex-col>
+            {% endif %}
 
             <!-- REVIEWS WIDGET -->
             <div class="g-pdp-reviews-widget">
@@ -873,31 +1141,23 @@
                                           <img src="{{ block.settings.image | image_url: width: "200px" }}" width="" height="" alt="">
                                       </div>
                                       <div class="g-pdp-review-content">
+                                          {% if block.settings.review_stars_pos == 'top' %}
+                                            {{ rating_stars }}
+                                          {% endif %}
                                           <p>{{ block.settings.review_text }}</p>
-                                          <div class="g-pdp-review-rating">
+                                          <div class="g-pdp-review-rating {{ block.settings.author_details_inline }}">
                                               <div class="g-pdp-review-name">
-                                                  <span>
-                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
-                                                      </svg>
-                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
-                                                      </svg>
-                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
-                                                      </svg>
-                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
-                                                      </svg>
-                                                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                          <path d="M3.1603 13.4175C2.82255 13.5907 2.4393 13.2871 2.50755 12.8995L3.2338 8.76073L0.151173 5.82423C-0.136702 5.54948 0.0129233 5.04723 0.398798 4.99298L4.68455 4.38398L6.59555 0.597856C6.76792 0.256606 7.2343 0.256606 7.40667 0.597856L9.31767 4.38398L13.6034 4.99298C13.9893 5.04723 14.1389 5.54948 13.8502 5.82423L10.7684 8.76073L11.4947 12.8995C11.5629 13.2871 11.1797 13.5907 10.8419 13.4175L6.9998 11.4435L3.1603 13.4175Z" fill="#FFC700"/>
-                                                      </svg>
-                                                  </span>
+                                                {% if block.settings.review_stars_pos == 'bottom' %}
+                                                  {{ rating_stars }}
+                                                {% endif %}
+                                                {% if block.settings.author_country_icon != blank %}
+                                                  <img src="{{ block.settings.author_country_icon | image_url: width: "20px" }}" width="" height="" alt="{{ block.settings.name }}">
+                                                {% endif %}
                                                   <span>{{ block.settings.name }}</span>
                                               </div>
-                                              <div class="g-pdp-review-verified">
-                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                                      <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                              <div class="g-pdp-review-verified" style="color: {{ block.settings.verified_color }}">
+                                                  <svg width="11" height="9" viewBox="0 0 11 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M3.79973 8.30005L0 4.50032L0.801077 3.69924L3.79973 6.6979L10.1976 0.300049L10.9987 1.10113L3.79973 8.30005Z" fill="#2A7900"/>
                                                   </svg>
                                                   <span>Verified Customer</span>
                                               </div>
@@ -943,27 +1203,39 @@
             </script>
             <!-- END REVIEWS WIDGET -->
 
+
+            {% capture accordion_icon %}
+                {% if ss.accordion_icon == 'circle-checkmark' %}
+                    <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="0.800049" width="28" height="28" rx="14" fill="#F9F6F3"/>
+                    <rect y="0.800049" width="28" height="28" rx="14" fill="#C9C9F2"/>
+                    <path d="M20.25 12.6296L14 18.8796L7.75 12.6296" stroke="#060346" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+                {% endif %}
+            {% endcapture %}
             <div class="g-accordion">
-                <div class="g-accordion-item">
-                    <div class="g-accordion-header">
-                        <span>Description</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                        </svg>
+                {% if product.description != blank %}
+                    <div class="g-accordion-item">
+                        <div class="g-accordion-header">
+                            <span>Description</span>
+                            {{ accordion_icon }}
+                        </div>
+                        <div class="g-accordion-content">
+                            {{ product.description }}
+                        </div>
                     </div>
-                    <div class="g-accordion-content">
-                        {{ product.description }}
-                    </div>
-                </div>
+                {% endif %}
                 {% for block in section.blocks %}
                   {% case block.type %}
                     {% when 'dropdowns' %}
                       <div class="g-accordion-item">
                           <div class="g-accordion-header">
                               <span>{{ block.settings.title }}</span>
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                              </svg>
+                              {{ accordion_icon }}
                           </div>
                           <div class="g-accordion-content">
                               {{ block.settings.content }}
@@ -981,11 +1253,21 @@
 
         document.querySelector(".g-cta button").addEventListener("click", function(){
           const vid = document.querySelector(".g-pdp-variant-selected").getAttribute("data-vid");
-          const method = document.querySelector(".g-pdp-method-selected").getAttribute("data-method");
+          const method = document.querySelector(".g-pdp-method-selected")
+          const frequencySelected = document.querySelector(".pdp-frequency.frequency-checkbox .pdp-frequency__checkbox-custom");
+          if(method) subscriptionSelected = method.getAttribute("data-method") === "subscribe";
+          if(frequencySelected) subscriptionSelected = frequencySelected.classList.contains("active");
+
           let selling_plan = document.querySelector(".g-pdp-variant-selected").getAttribute("data-sp");
-          if(method == "onetime")
-            selling_plan = "";
+          if(method == "onetime" || !subscriptionSelected) selling_plan = "";
           addToCart(vid, 1, selling_plan);
+        });
+
+        document.querySelectorAll('.pdp-frequency.frequency-checkbox .pdp-frequency__checkbox-label').forEach(label => {
+            label.addEventListener('click', e => {
+                const custom = label.querySelector('.pdp-frequency__checkbox-custom');
+                if (custom) custom.classList.toggle('active');
+            });
         });
 
         async function addToCart(variantId, quantity = 1, selling_plan = "") {
@@ -1007,50 +1289,56 @@
               throw new Error(`HTTP error! Status: ${response.status}`);
             }
         
-            const data = await response.json();
-            console.log('Added to cart:', data);
+            const defaultCartDrawer = document.querySelector('cart-drawer');
+            const kandyCartDrawer = document.getElementById('cart-drawer-kandy');
+            if(defaultCartDrawer && !kandyCartDrawer) {
+                const data = await response.json();
+                console.log('Added to cart:', data);
 
-            const sectionsResponse = await fetch('/?sections=cart-drawer,cart-icon-bubble');
-            const sectionsData = await sectionsResponse.json();
-            
-            // 🧠 Prepare parsed state
-            const parsedState = {
-              id: data.key, // optional, just like your renderContents expects
-              sections: {
-                'cart-drawer': sectionsData['cart-drawer'],
-                'cart-icon-bubble': sectionsData['cart-icon-bubble']
-              }
-            };
+                const sectionsResponse = await fetch('/?sections=cart-drawer,cart-icon-bubble');
+                const sectionsData = await sectionsResponse.json();
+                
+                // 🧠 Prepare parsed state
+                const parsedState = {
+                id: data.key, // optional, just like your renderContents expects
+                sections: {
+                    'cart-drawer': sectionsData['cart-drawer'],
+                    'cart-icon-bubble': sectionsData['cart-icon-bubble']
+                }
+                };
 
-            console.log(parsedState);
-            // const cartDrawerHTML = parsedState.sections['cart-drawer'];
-            // const parserCart = new DOMParser();
-            // const doc = parserCart.parseFromString(cartDrawerHTML, 'text/html');
-            
-            // const cartDrawerElement = doc.querySelector('#CartDrawer');
-            
-            // if (cartDrawerElement) {
-            //   const outerHTML = cartDrawerElement.outerHTML;
-            //   console.log('Inner HTML inside #CartDrawer:', outerHTML);
-            //   openCartDrawer(outerHTML);
-            // } else {
-            //   console.log('No #CartDrawer element found in the parsed HTML.');
-            // }
-            
-            
-            // 🔄 Render updated cart and open it
-            document.querySelector('cart-drawer').renderContents(parsedState);
-            
-            
-            const parser = new DOMParser();
-            const bubbleDoc = parser.parseFromString(parsedState.sections['cart-icon-bubble'], 'text/html');
-            const newBubbleContent = bubbleDoc.querySelector('#cart-icon-bubble')?.innerHTML;
-            
-            if (newBubbleContent !== undefined) {
-              const cartBubble = document.querySelector('#cart-icon-bubble');
-              if (cartBubble) {
-                cartBubble.innerHTML = newBubbleContent;
-              }
+                console.log(parsedState);
+                // const cartDrawerHTML = parsedState.sections['cart-drawer'];
+                // const parserCart = new DOMParser();
+                // const doc = parserCart.parseFromString(cartDrawerHTML, 'text/html');
+                
+                // const cartDrawerElement = doc.querySelector('#CartDrawer');
+                
+                // if (cartDrawerElement) {
+                //   const outerHTML = cartDrawerElement.outerHTML;
+                //   console.log('Inner HTML inside #CartDrawer:', outerHTML);
+                //   openCartDrawer(outerHTML);
+                // } else {
+                //   console.log('No #CartDrawer element found in the parsed HTML.');
+                // }
+                
+                
+                // 🔄 Render updated cart and open it
+                defaultCartDrawer.renderContents(parsedState);
+                
+                const parser = new DOMParser();
+                const bubbleDoc = parser.parseFromString(parsedState.sections['cart-icon-bubble'], 'text/html');
+                const newBubbleContent = bubbleDoc.querySelector('#cart-icon-bubble')?.innerHTML;
+                
+                if (newBubbleContent !== undefined) {
+                const cartBubble = document.querySelector('#cart-icon-bubble');
+                if (cartBubble) {
+                    cartBubble.innerHTML = newBubbleContent;
+                }
+                }
+            } else {
+                window.cart_build();
+                window.cart_open();
             }
           } catch (error) {
             console.error('Add to cart failed:', error);
@@ -1181,9 +1469,117 @@
         "type": "image_picker",
         "id": "image_2",
         "label": "Image 2"
+      }, {
+        "type": "header",
+        "content": "Variants"
+      }, {
+        "type": "color",
+        "id": "selector_bg_color",
+        "label": "Selector Background Color",
+        "default": "#ffffff"
+      }, {
+        "type": "text",
+        "id": "variants_selector_label",
+        "label": "Variants Selector Label"
+      }, {
+        "type": "select",
+        "id": "methods_selector_type",
+        "label": "Methods Selector Type",
+        "options": [
+          { "value": "radio", "label": "Radio" },
+          { "value": "checkbox", "label": "Checkbox" }
+        ],
+        "default": "radio"
+      }, {
+        "type": "text",
+        "id": "methods_checkbox_title",
+        "label": "Method Checkbox Title",
+        "default": "Save [save_perc]% with Automatic Refills!",
+        "info": "Use dynamic value [save_perc] to display how much you save with subscription checked"
+      }, {
+        "type": "text",
+        "id": "methods_checkbox_pricing",
+        "label": "Method Checkbox Pricing",
+        "default": "Zero commitment, Cancel Anytime",
+        "info": "Use dynamic value [price] to display the price of the subscription and [compare_at_price] to display the compare at price"
+      }, {
+        "type": "text",
+        "id": "methods_checkbox_description",
+        "label": "Method Checkbox Description",
+        "default": "Terms & conditions apply"
+      }, {
+        "type": "text",
+        "id": "methods_selector_label",
+        "label": "Methods Selector Label"
+      }, {
+        "type": "checkbox",
+        "id": "variants_radio",
+        "label": "Variant Radio"
+      }, {
+        "type": "checkbox",
+        "id": "save_tag_after_title",
+        "label": "Save Tag After Title",
+        "default": true
+      }, {
+        "type": "header",
+        "content": "ATC Button"
+      }, {
+        "type": "checkbox",
+        "id": "atc_rounded",
+        "label": "ATC Button Rounded",
+        "default": false
+      }, {
+        "type": "header",
+        "content": "Below ATC Content"
+      }, {
+        "type": "image_picker",
+        "id": "below_atc_content_icon",
+        "label": "Below ATC Content Icon"
+      }, {
+        "type": "text",
+        "id": "below_atc_content_text",
+        "label": "Below ATC Content Text",
+        "default": "safe & secure checkout"
+      }, {
+        "type": "image_picker",
+        "id": "below_atc_content_payments",
+        "label": "Below ATC Content Payments"
+      }, {
+        "type": "header",
+        "content": "Extra"
+      }, {
+        "type": "select",
+        "id": "accordion_icon",
+        "label": "Accordion Icon",
+        "options": [
+          { "value": "circle-checkmark", "label": "Circle Checkmark" },
+          { "value": "checkmark", "label": "Checkmark" }
+        ],
+        "default": "checkmark"
+      }, {
+        "type": "text",
+        "id": "comparisons_title",
+        "label": "Comparisons Title",
+        "default": "What Our Clients Achieved Using nordburn© GLP-1 Booster",
+        "info": "Must have comparison section blocks"
       }
     ],
     "blocks": [
+        {
+            "type": "benefit",
+            "name": "Benefit",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "icon",
+                    "label": "Icon"
+                }, {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Text"
+                }
+            ]
+        },
       {
         "type": "reviews",
         "name": "Reviews",
@@ -1202,6 +1598,33 @@
             "type": "text",
             "id": "name",
             "label": "Name"
+          }, {
+            "type": "select",
+            "id": "review_stars_pos",
+            "label": "Review Stars Position",
+            "options": [
+              { "value": "top", "label": "Top" },
+              { "value": "bottom", "label": "Bottom" }
+            ],
+            "default": "bottom"
+          }, {
+            "type": "image_picker",
+            "id": "author_country_icon",
+            "label": "Author Country Icon"
+          }, {
+            "type": "color",
+            "id": "verified_color",
+            "label": "Verified Color",
+            "default": "#2A7900"
+          }, {
+            "type": "select",
+            "id": "author_details_inline",
+            "label": "Author Details Inline",
+            "default": "spaced-out",
+            "options": [
+              { "value": "inline", "label": "Inline" },
+              { "value": "spaced-out", "label": "Spaced Out" }
+            ]
           }
         ]
       },
@@ -1218,6 +1641,17 @@
             "type": "richtext",
             "id": "content",
             "label": "Content"
+          }
+        ]
+      },
+      {
+        "type": "comparison",
+        "name": "Comparison",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
           }
         ]
       }

@@ -1,0 +1,158 @@
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign sub_variant = current_variant.selling_plan_allocations.first
+
+  assign compare = current_variant.compare_at_price
+  assign price = current_variant.price
+  assign discount_num = compare | minus: price
+  assign discount_perc = discount_num | times: 100 | divided_by: compare
+
+  assign sub_variant_price = sub_variant.price | default: price
+  assign sub_variant_save_price_sub = price | minus: sub_variant_price
+  assign sub_variant_save_perc_sub = sub_variant_save_price_sub | times: 100 | divided_by: price
+
+
+  assign subscription_price = sub_variant_price | money | append: ' ' | append: shop.currency
+  assign regular_price = price | money | prepend: '<s>' | append: ' ' | append: shop.currency | append: '</s>'
+%}
+
+<div class="pdp-frequency frequency-checkbox">
+  <div class="pdp-frequency__checkbox-label" data-frequency="subscription">
+    <div class="pdp-frequency__checkbox-custom active"></div>
+    <div class="pdp-frequency__checkbox-content">
+      {% if title != blank %}
+        <h3 class="pdp-frequency__checkbox-title">{{ title | replace: '[save_perc]', sub_variant_save_perc_sub }}</h3>
+      {% endif %}
+      {% if pricing != blank %}
+        <p class="pdp-frequency__checkbox-pricing">{{ pricing | replace: '[price]', subscription_price | replace: '[compare_at_price]', regular_price }}</p>
+      {% endif %}
+      {% if description != blank %}
+        <p class="pdp-frequency__checkbox-description">{{ description }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+/* ======================= Product Frequency Checkbox ========================= */
+.g-pdp-selector-wrapper > .pdp-frequency.frequency-checkbox {
+  margin-block: 12px 6px;
+}
+.pdp-frequency.frequency-checkbox {
+}
+.pdp-frequency__checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: white;
+  border: 2px dashed var(--accent-color-light);
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+.pdp-frequency__checkbox-custom {
+  display: block !important;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 6px;
+  background: white;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.3s ease;
+}
+.pdp-frequency__checkbox-label:hover .pdp-frequency__checkbox-custom {
+  border-color: var(--accent-color-light);
+}
+.pdp-frequency__checkbox-custom.active {
+  background: var(--accent-color-light);
+  border-color: var(--accent-color-light);
+}
+.pdp-frequency__checkbox-custom.active::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.pdp-frequency__checkbox-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pdp-frequency .pdp-frequency__checkbox-title {
+  color: var(--accent-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+.pdp-frequency .pdp-frequency__checkbox-pricing {
+  color: var(--accent-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+}
+.pdp-frequency .pdp-frequency__checkbox-description {
+  color: #717171;
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .pdp-frequency__checkbox-label {
+      gap: 16px;
+      padding: 16px;
+  }
+  .pdp-frequency__checkbox-custom {
+      width: 24px;
+      height: 24px;
+      margin-top: 4px;
+  }
+  .pdp-frequency__checkbox-custom.active::after {
+      left: 6px;
+      top: 2px;
+      width: 8px;
+      height: 14px;
+  }
+  .pdp-frequency .pdp-frequency__checkbox-title {
+      font-size: 18px;
+  }
+  .pdp-frequency .pdp-frequency__checkbox-pricing {
+      font-size: 16px;
+  }
+  .pdp-frequency .pdp-frequency__checkbox-description {
+      font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .pdp-frequency .pdp-frequency__checkbox-title {
+      font-size: 16px;
+  }
+  .pdp-frequency .pdp-frequency__checkbox-pricing {
+      font-size: 14px;
+  }
+  .pdp-frequency .pdp-frequency__checkbox-description {
+      font-size: 12px;
+  }
+}
+@media (min-width: 1280px) {
+  .pdp-frequency .pdp-frequency__checkbox-title {
+      font-size: 18px;
+  }
+  .pdp-frequency .pdp-frequency__checkbox-pricing {
+      font-size: 16px;
+  }
+  .pdp-frequency .pdp-frequency__checkbox-description {
+      font-size: 14px;
+  }
+}
+</style>

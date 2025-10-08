@@ -1,0 +1,97 @@
+{% assign link_title = link | split: '?' | first | split: '//' | last | split: '/' | slice: 1, 2 | join: ' ' | capitalize %}
+{% assign classes = type | append: ' ' | append: class %}
+
+{% capture cta_arrow %}
+  <svg width="25" height="13" viewBox="0 0 25 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.0625 1.83984L23.75 6.52734M23.75 6.52734L19.0625 11.2148M23.75 6.52734H1.25" stroke="currentColor" stroke-width="1.875" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+{% endcapture %}
+
+<flex-col class="main-cta-wrapper">
+  {% if scroll or action == 'scroll' %}
+    <div class="main-cta ScrollToProduct {{ classes }}" aria-label="Click to Scroll to Product">
+      {% if text != blank %}{{ text }}{% else %}Shop Now{% endif %}
+      {% if arrow %}
+        {{ cta_arrow }}
+      {% endif %}
+    </div>
+  {% elsif action == 'atc' and variant_id != blank %}
+    <div class="main-cta AddToCart {{ classes }}" data-id="{{ variant_id }}" aria-label="Add to Cart">
+      {% if text != blank %}{{ text }}{% else %}Add To Cart{% endif %}
+      {% if arrow %}
+        {{ cta_arrow }}
+      {% endif %}
+    </div>
+  {% else %}
+    <a href="{% if link != blank %}{{ link }}{% else %}/{% endif %}" title="{{ link_title }}" class="main-cta {{ classes }}">
+      {% if text != blank %}{{ text }}{% else %}Shop Now{% endif %}
+      {% if arrow %}
+        {{ cta_arrow }}
+      {% endif %}
+    </a>
+  {% endif %}
+
+  {% if note_text != blank %}
+    <point class="main-cta-note">
+      {% if note_icon != blank %}
+        {% render 'responsive-image' image: note_icon, image_width: 24, custom_alt: note_text %}
+      {% endif %}
+      <p>{{ note_text }}</p>
+    </point>
+  {% endif %}
+</flex-col>
+
+{% comment %}
+USAGE:
+  {% render 'main-cta', text: cta_text, link: product.url, type: cta_type, action: cta_action, variant_id: first_pr.id %}
+
+SCHEMA:
+      }, {
+        "type": "header",
+        "content": "CTA"
+      }, {
+        "type": "checkbox",
+        "id": "cta",
+        "label": "Show CTA",
+        "default": true
+      }, {
+        "type": "select",
+        "id": "cta_action",
+        "label": "CTA Action",
+        "default": "",
+        "options": [
+          { "value": "", "label": "Link" },
+          { "value": "atc", "label": "Add to Cart" },
+          { "value": "scroll", "label": "Scroll to Product" }
+        ]
+      }, {
+        "type": "select",
+        "id": "cta_type",
+        "label": "CTA Type",
+        "default": "accent",
+        "options": [
+          { "value": "", "label": "Light" },
+          { "value": "dark", "label": "Dark" },
+          { "value": "accent", "label": "Accent" }
+        ]
+      }, {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Get My GLP-1 BOOSTER"
+      }, {
+        "type": "checkbox",
+        "id": "cta_arrow",
+        "label": "CTA Arrow",
+        "default": true
+      }, {
+        "type": "image_picker",
+        "id": "cta_note_icon",
+        "label": "CTA Note Icon"
+      }, {
+        "type": "text",
+        "id": "cta_note_text",
+        "label": "CTA Note Text",
+        "default": "safe & secure checkout"
+      }
+{% endcomment %}

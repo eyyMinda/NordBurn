@@ -65,11 +65,15 @@
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
-      {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-      {{ 'component-cart.css' | asset_url | stylesheet_tag }}
-      {{ 'component-totals.css' | asset_url | stylesheet_tag }}
-      {{ 'component-price.css' | asset_url | stylesheet_tag }}
-      {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+      {% if settings.cart_drawer_type == 'kandy' %}
+        {{ 'cart_drawer.css' | asset_url | stylesheet_tag }}
+      {% else %}
+        {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+        {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+        {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+        {{ 'component-price.css' | asset_url | stylesheet_tag }}
+        {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+      {% endif %}
     {%- endif -%}
 
     {%- unless settings.type_body_font.system? -%}
@@ -104,14 +108,20 @@
     </script>
 
 
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <script src="{{ 'jquery-3.7.1.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+    {{ 'slick.min.css' | asset_url | stylesheet_tag }}
+    
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+
+    {{ 'custom_global.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'custom_sitewide.js' | asset_url }}" defer="defer"></script>
     {{ 'g-styles.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'dev-mode.js' | asset_url }}" defer="defer"></script>
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -120,7 +130,11 @@
     </a>
 
     {%- if settings.cart_type == 'drawer' -%}
-      {%- render 'cart-drawer' -%}
+      {% if settings.cart_drawer_type == 'kandy' %}
+        {% section 'cart_drawer' %} 
+      {% else %}
+        {%- render 'cart-drawer' -%}
+      {% endif %}
     {%- endif -%}
 
     {% sections 'header-group' %}
@@ -186,7 +200,11 @@
     {%- endif -%}
 
     {%- if settings.cart_type == 'drawer' -%}
+      {% if settings.cart_drawer_type == 'kandy' %}
+        <script src="{{ 'cart_drawer.js' | asset_url }}" defer="defer"></script>
+      {% else %}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+      {% endif %}
     {%- endif -%}
   </body>
 </html>

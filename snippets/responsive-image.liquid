@@ -1,0 +1,82 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  RESPONSIVE PRODUCT IMAGE
+  ----------------------------------------------------------------------------------------------------------------------
+  Renders a responsive product image with lazy loading, dynamic alt text, and a structured `srcset` for optimized loading 
+  across different screen sizes. Supports optional classes, index attributes, and custom alt text.
+
+  ********************************************
+  Variables Used
+  ********************************************
+  * image (Liquid drop: includes src, width, height, alt, etc.)
+  * image_width (Optional: Defines the max render width for `srcset`)
+  * custom_alt (Optional: Custom alt text; defaults to product.title or image.alt)
+  * eager (Optional: Loads eagerly if the image is a priority)
+  * class (Optional: Additional CSS classes for styling)
+  * data_index (Optional: Adds `data-index` if provided. This refers to the index of the image in a collection or list, used for pointing slick carousel to the right image.)
+
+  ********************************************
+  Image Optimization
+  ********************************************
+  * Uses breakpoints: 400w, 540w, 768w, 1024w, 1366w, 1920w
+  * Ensures images never exceed the defined `image_width`
+  * Lazy loads images to improve page performance
+
+  ********************************************
+  Notes
+  ********************************************
+  * If `image_width` is not defined, defaults to `image.width`
+  * The `srcset` will not include sizes larger than `image_width`
+  * Uses `remove_last: ","` to clean up trailing commas in `srcset`
+  * If multiple breakpoints are defined in `srcset`, `data-srcset` will be used. Otherwise, `data-src` will be used for a single image.
+  
+  ********************************************
+    Example Usage
+  ********************************************
+  {% render 'responsive-image', image: media, custom_alt: custom_alt, image_width: image_width %}
+{%- endcomment -%}
+
+
+{% liquid
+  assign classes = ""
+  if class
+    assign classes = classes | append: class
+  endif
+  assign final_alt = custom_alt | default: product.title | default: image.alt
+
+  assign final_image_width = image_width | default: image.width
+  assign render_size_minus = 12
+  if final_image_width <= 100
+    assign render_size_minus = 0
+  endif
+  assign final_image_width_render = final_image_width | minus: render_size_minus
+
+  assign srcset_sizes = "400, 540, 768, 1024, 1366, 1920" | split: ", "
+  assign srcset = ""
+  assign image_src = image.src | image_url | append: '&width='
+
+  for size in srcset_sizes
+    assign size_int = size | minus: render_size_minus
+    if size_int <= final_image_width
+      assign srcset = srcset | append: image_src | append: size_int | append: " " | append: size | append: "w, "
+    else
+      assign srcset = srcset | append: image_src | append: final_image_width_render | append: " " | append: final_image_width | append: "w, "
+      break
+    endif
+  endfor
+
+  assign srcset = srcset | strip_newlines | strip | remove_last: ","
+%}
+
+<img 
+    {% unless notlazy and eager != true %}loading="{% if eager %}eager{% else %}lazy{% endif %}"{% endunless %}
+    {% if classes != blank %} class="{{ classes }}" {% endif %}
+     alt="{{ final_alt }}" 
+     width="{{ image.width }}" 
+     height="{{ image.height }}" 
+     {% if data_index %} data-index="{{ data_index }}" {% endif %}
+     data-alt="{{ final_alt }}" 
+     sizes="auto" 
+     aspectratio="{{ image.width }}/{{ image.height }}"
+     srcset="{{ srcset }}" />
+    
