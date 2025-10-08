@@ -121,7 +121,16 @@
     <script src="{{ 'custom_sitewide.js' | asset_url }}" defer="defer"></script>
     {{ 'g-styles.css' | asset_url | stylesheet_tag }}
 
-    <script src="{{ 'dev-mode.js' | asset_url }}" defer="defer"></script>
+
+    {% if template contains 'advertorial-lp' %}
+      {{ 'advertorial-lp-1.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+    {% if template contains 'advertorial-side' %}
+      {{ 'advertorial-side-lp.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+
+
+    {% comment %} <script src="{{ 'dev-mode.js' | asset_url }}" defer="defer"></script> {% endcomment %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -143,7 +152,9 @@
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    {% unless template contains 'advertorial' %}
+      {% sections 'footer-group' %}
+    {% endunless %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

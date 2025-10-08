@@ -1,0 +1,307 @@
+a.adv_btn {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: white;
+}
+@media screen and (min-width: 800px) {
+  .shopify-section #lp_advertorial_tion .product_section_holder {
+    max-width: 1024px;
+  }
+  .shopify-section #lp_advertorial_tion .left_container {
+    max-width: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .shopify-section #lp_advertorial_tion .left_container {
+    width: 100%;
+  }
+  .shopify-section #lp_advertorial_tion .right_container {
+    width: 40%;
+    background: #06906b;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    position: sticky;
+  }
+}
+@media screen and (min-width: 1430px) {
+  .shopify-section #lp_advertorial_tion .product_section_holder {
+    max-width: 1500px;
+    gap: 88px;
+  }
+  .shopify-section #lp_advertorial_tion .left_container {
+    max-width: 68%;
+    margin-right: 0;
+  }
+}
+.right_container_announcment {
+  width: 100%;
+  background: #24d160;
+  text-align: center;
+  padding: 12px;
+}
+.right_container_announcment p {
+  color: white;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1em;
+  margin: 0;
+}
+.right_container_inner {
+  padding: 12px;
+}
+.shopify-section #lp_advertorial_tion .right_upsell_heading {
+  font-size: 20px;
+  line-height: 1.4em;
+  margin: 4px auto;
+  margin-bottom: 0;
+  max-width: 300px;
+}
+.right_upsell_usp_payment_container img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-top: 12px;
+}
+.shopify-section #lp_advertorial_tion .right_upsell_usp_payment_container {
+  height: unset;
+  padding: 0 16px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.shopify-section .right_upsell_image {
+  padding: 16px;
+  margin: 0 auto 16px !important;
+}
+.right_upsell_image_cont {
+  width: 100%;
+  /* padding-top: 70%;
+  position: relative;
+  overflow: hidden; */
+}
+/* .right_upsell_image_cont img{
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+.right_upsell_usp_atc_red {
+  --btn-accent-color: #1e9e48;
+  --btn-foreground-color: #ffffff;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: var(--btn-accent-color);
+  color: var(--btn-foreground-color);
+  border-radius: 40px;
+  padding: 16px 16px;
+  display: block;
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: calc(100% - 24px);
+  margin: auto;
+  margin-bottom: 16px;
+  transition: all 150ms ease-in-out;
+}
+.right_upsell_usp_atc_red:hover {
+  opacity: 1;
+  background-color: var(--btn-foreground-color);
+  color: var(--btn-accent-color);
+}
+@media only screen and (max-width: 992px) {
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    margin-top: -12px;
+  }
+}
+
+/* ========================== Advertorial Section Content =============================== */
+.shopify-section #lp_advertorial_tion .title {
+  text-align: start;
+}
+.shopify-section #lp_advertorial_tion .upsell_medium_subtitle {
+  text-align: center;
+}
+.shopify-section #lp_advertorial_tion .left_container .text_container > * {
+  margin-inline: 0;
+}
+.shopify-section #lp_advertorial_tion .left_container .date_reading_time {
+  max-width: 124px;
+  color: black;
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+}
+.shopify-section #lp_advertorial_tion .subtitle_container p,
+.shopify-section #lp_advertorial_tion .usp_title {
+  font-size: 26px;
+  line-height: 30px;
+}
+.shopify-section #lp_advertorial_tion .quote_container {
+  padding: 8px 20px;
+}
+.shopify-section #lp_advertorial_tion .quote_holder p {
+  font-style: normal;
+}
+.shopify-section #lp_advertorial_tion .text_container p strong {
+  color: black;
+}
+.shopify-section #lp_advertorial_tion .text_container h2 {
+  font-size: 26px;
+  line-height: 30px;
+}
+.shopify-section #lp_advertorial_tion .usp_container .heading_container p {
+  color: var(--accent-color);
+  font-size: 22px;
+  line-height: 24px;
+}
+.shopify-section #lp_advertorial_tion .usp_container .normal_container {
+  color: black;
+  font-size: 18px;
+  line-height: 24px;
+}
+@media only screen and (max-width: 800px) {
+  .shopify-section #lp_advertorial_tion .left_container .text_container {
+    margin-inline: 16px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .shopify-section #lp_advertorial_tion .left_container .title {
+    font-size: 40px;
+  }
+  .shopify-section #lp_advertorial_tion .left_container .date_reading_time {
+    max-width: none;
+    font-size: 20px;
+  }
+  .shopify-section #lp_advertorial_tion .subtitle_container p,
+  .shopify-section #lp_advertorial_tion .usp_title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .shopify-section #lp_advertorial_tion .quote_holder p {
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .shopify-section #lp_advertorial_tion .quote_container {
+    padding: 8px 20px;
+  }
+  .shopify-section #lp_advertorial_tion .text_container h2 {
+    font-size: 30px;
+  }
+  .shopify-section #lp_advertorial_tion .subtitle_container {
+    margin-top: 40px;
+  }
+}
+/* ========================== Advertorial Medium Upsell =============================== */
+.shopify-section #lp_advertorial_tion .upsell_medium_quantity {
+  display: none;
+}
+.shopify-section #lp_advertorial_tion .upsell_medium_content {
+  padding: 0;
+}
+.shopify-section #lp_advertorial_tion .desktop_right_container {
+  padding: 16px;
+}
+.shopify-section #lp_advertorial_tion .upsell_medium_content {
+  overflow: hidden;
+}
+.shopify-section #lp_advertorial_tion .mobile_container {
+  padding-bottom: 16px;
+}
+.shopify-section #lp_advertorial_tion .mobile_container .upsell_medium_image {
+  aspect-ratio: 1.8/1;
+  object-fit: cover;
+}
+.shopify-section #lp_advertorial_tion .upsell_medium_atc_btn {
+  background-color: #23d160;
+}
+.shopify-section #lp_advertorial_tion .mobile_container .trustpilot_image {
+  margin-inline: 16px;
+}
+.shopify-section #lp_advertorial_tion .upsell_medium_benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 16px;
+}
+.shopify-section #lp_advertorial_tion .upsell_medium_benefit {
+  color: white;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  margin-block: 0;
+}
+.shopify-section #lp_advertorial_tion .upsell_medium_note {
+  color: white;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+}
+@media only screen and (min-width: 800px) {
+  .shopify-section #lp_advertorial_tion .upsell_medium_container {
+    padding-top: 32px;
+  }
+  .shopify-section #lp_advertorial_tion .desktop_right_container {
+    padding: 32px 16px;
+  }
+  .shopify-section #lp_advertorial_tion .trustpilot_image,
+  .shopify-section #lp_advertorial_tion .upsell_medium_benefits {
+    margin-inline: 0;
+  }
+  .shopify-section #lp_advertorial_tion .upsell_medium_note {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+/* ========================== Homepage Reviews =============================== */
+.shopify-section #lp_advertorial_tion .homepage-reviews .homepage-reviews-title {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  text-align: left;
+}
+.shopify-section #lp_advertorial_tion .homepage-reviews .homepage-rating-based-text {
+  background-color: #306336;
+  line-height: 1.4;
+  padding: 4px 8px;
+}
+.shopify-section #lp_advertorial_tion .homepage-reviews .homepage-review-heading-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.shopify-section #lp_advertorial_tion .homepage-reviews .homepage-review-heading-flex .homepage-review-customer-name {
+  color: black;
+  font-family: "Lato";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.shopify-section #lp_advertorial_tion .homepage-reviews .homepage-review-heading-flex img {
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+@media only screen and (min-width: 992px) {
+  .shopify-section #lp_advertorial_tion .homepage-reviews {
+    padding-top: 48px;
+  }
+  .shopify-section #lp_advertorial_tion .homepage-reviews .homepage-reviews-title {
+    font-size: 30px;
+    line-height: 34px;
+    margin-left: 10px;
+  }
+}

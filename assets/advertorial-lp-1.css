@@ -1,0 +1,260 @@
+a.adv_btn {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: white;
+}
+@media screen and (min-width: 1000px) {
+  .shopify-section #lp_advertorial_tion .left_container {
+    width: 100%;
+    max-width: 100%;
+  }
+  .shopify-section #lp_advertorial_tion .right_container {
+    width: 40%;
+    background: #06906b;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    position: sticky;
+  }
+}
+.right_container_announcment {
+  padding: 12px;
+  background: #24d160;
+  width: 100%;
+  text-align: center;
+}
+.right_container_announcment p {
+  font-size: 22px;
+  color: white;
+  margin: 0;
+  line-height: 1em;
+}
+.right_container_inner {
+  padding: 12px;
+}
+.shopify-section #lp_advertorial_tion .right_upsell_heading {
+  font-size: 20px;
+  line-height: 1.4em;
+  margin: 4px auto;
+  margin-bottom: 0;
+  max-width: 300px;
+}
+.right_upsell_usp_payment_container img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-top: 12px;
+}
+.shopify-section #lp_advertorial_tion .right_upsell_usp_payment_container {
+  height: unset;
+  padding: 0 16px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.shopify-section .right_upsell_image {
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 16px;
+}
+.right_upsell_image_cont {
+  width: 100%;
+  /* padding-top: 70%;
+  position: relative;
+  overflow: hidden; */
+}
+/* .right_upsell_image_cont img{
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+.right_upsell_usp_atc_red {
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  background: #d50001;
+  border-radius: 40px;
+  padding: 16px 16px;
+  display: block;
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: calc(100% - 24px);
+  margin: auto;
+  margin-bottom: 16px;
+}
+
+.homepage-banner .homepage-banner-video-content-container .homepage-banner-video-container {
+  height: 791px;
+  position: relative;
+}
+
+.homepage-banner .homepage-banner-video-content-container .homepage-banner-content-container {
+  width: 100%;
+  padding: 0 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.homepage-banner
+  .homepage-banner-video-content-container
+  .homepage-banner-content-container
+  .homepage-banner-content-holder {
+  max-width: 1460px;
+  width: 100%;
+  margin: auto;
+}
+
+.homepage-banner .homepage-banner-video-content-container .homepage-banner-content-container .homepage-banner-subtitle {
+  margin: 0 auto 12px 0;
+  padding: 6px 16px;
+  font-size: 21px;
+  line-height: 21px;
+  background-color: #0c2016;
+}
+
+.homepage-banner .homepage-banner-video-content-container .homepage-banner-content-container .homepage-banner-title {
+  width: 544px;
+  margin: 0 auto 24px 0;
+  color: #fff;
+  text-align: left;
+  font-size: 65px;
+  line-height: 52px;
+}
+
+.homepage-banner .homepage-banner-video-content-container .homepage-banner-content-container .homepage-banner-text {
+  margin: 0 auto 25px 0;
+  color: #fff;
+  text-align: left;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.homepage-banner .homepage-banner-video-content-container .homepage-banner-content-container .homepage-banner-button {
+  margin: 0;
+  background-color: #fff;
+  color: #012900;
+  width: 367px;
+  height: 59px;
+  font-size: 21px;
+  line-height: 21px;
+}
+
+.homepage-banner .homepage-banner-review-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 47px 40px;
+  max-width: 1460px;
+  width: 100%;
+  margin: auto;
+}
+
+.homepage-banner .homepage-banner-review-container .homepage-banner-trustpilot-container {
+  display: block;
+  margin-right: 196px;
+}
+
+.homepage-banner .homepage-banner-review-container .homepage-banner-trustpilot-container .trustpilot-image-d {
+  display: block;
+  width: 291px;
+  height: 64px;
+}
+
+.homepage-banner .homepage-banner-review-container .homepage-banner-trustpilot-container .trustpilot-image-m {
+  display: none;
+}
+
+.homepage-banner .homepage-banner-review-container .homepage-banner-review-swiper-wrapper {
+  display: block;
+  width: calc(100% - 487px);
+  overflow: hidden;
+}
+
+.homepage-banner
+  .homepage-banner-review-container
+  .homepage-banner-review-swiper-wrapper
+  .homepage-banner-review-content {
+  padding-right: 103px;
+  margin-bottom: 18px;
+  color: #012900;
+  font-family: "ABC Diatype";
+  font-size: 23px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0;
+}
+
+.homepage-banner
+  .homepage-banner-review-container
+  .homepage-banner-review-swiper-wrapper
+  .homepage-banner-customer-name {
+  margin-bottom: 11px;
+  color: #05906c;
+  font-family: "PT Mono";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.homepage-banner
+  .homepage-banner-review-container
+  .homepage-banner-review-swiper-wrapper
+  .homepage-banner-review-pagination-button
+  .homepage-banner-review-swiper-pagination
+  .swiper-pagination-bullet {
+  background-color: #0c2016;
+  width: 45px;
+  height: 3px;
+  margin: 0 5px;
+  border-radius: 0;
+}
+
+@media only screen and (max-width: 992px) {
+  .homepage-banner .homepage-banner-review-container {
+    flex-wrap: wrap;
+    padding: 0 16px;
+    flex-direction: column-reverse;
+  }
+  .homepage-banner .homepage-banner-review-container .homepage-banner-review-swiper-wrapper {
+    width: 100%;
+    margin-top: 16px;
+  }
+  .homepage-banner
+    .homepage-banner-review-container
+    .homepage-banner-review-swiper-wrapper
+    .homepage-banner-review-content {
+    font-size: 16px;
+    padding-right: 0;
+  }
+  .homepage-banner .homepage-banner-review-container .homepage-banner-trustpilot-container .trustpilot-image-d {
+    width: 160px;
+    height: auto;
+    margin-top: 16px;
+  }
+  .homepage-banner
+    .homepage-banner-review-container
+    .homepage-banner-review-swiper-wrapper
+    .homepage-banner-customer-name {
+    font-size: 16px;
+  }
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    margin-top: -12px;
+  }
+  .homepage-banner .homepage-banner-review-container .homepage-banner-review-swiper-wrapper {
+    display: block !important;
+  }
+  .shopify-section .homepage-banner .homepage-banner-review-container {
+    padding-bottom: 22px;
+    padding-top: 32px;
+  }
+}
