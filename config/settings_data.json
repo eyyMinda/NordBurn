@@ -124,6 +124,7 @@
     "predictive_search_show_price": true,
     "currency_code_enabled": true,
     "cart_type": "drawer",
+    "cart_drawer_type": "kandy",
     "cart_drawer_shipping_protection": false,
     "cart_drawer_simple_free_shipping_icon": "shopify://shop_images/Frame_2087326727.svg",
     "show_vendor": false,
@@ -149,7 +150,7 @@
           "upsell_3pm8at": {
             "type": "upsell",
             "settings": {
-              "product": "glp-1-booster",
+              "product": "nordburn-probiotics-biom2",
               "title": "",
               "show_benefits": false,
               "benefit_icon_1": "shopify://shop_images/gridicons_checkmark.svg",
@@ -157,9 +158,9 @@
               "benefit_icon_2": "shopify://shop_images/gridicons_checkmark.svg",
               "benefit_text_2": "Reduces body fat",
               "benefit_icon_3": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_3": "Less sugar cravings",
+              "benefit_text_3": "Reduces body fat",
               "benefit_icon_4": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_4": "Increased metabolic rate"
+              "benefit_text_4": "Reduces body fat"
             }
           },
           "benefit_FVrExp": {
@@ -170,7 +171,10 @@
             }
           }
         },
-        "block_order": ["upsell_3pm8at", "benefit_FVrExp"],
+        "block_order": [
+          "upsell_3pm8at",
+          "benefit_FVrExp"
+        ],
         "settings": {
           "cart_title": "Your Cart",
           "cart_empty_title": "Your Cart Is Empty,",
@@ -193,6 +197,7 @@
           "ratings_text": "4.9/5 (50,000+bottles sold)",
           "progress_bar": false,
           "progress_bar_title": "Add",
+          "cart_items_price_position": "bottom",
           "cart_items_show_discount_label": false,
           "cart_items_show_discount_percentage": true,
           "cart_items_show_selling_plan": false,
@@ -254,6 +259,11 @@
       },
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "2786716548061469553": {
+        "type": "shopify://apps/axon/blocks/app-embed/baa0f014-62ea-462f-a8aa-a94befb1cbad",
         "disabled": false,
         "settings": {}
       }
