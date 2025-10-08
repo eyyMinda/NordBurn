@@ -124,7 +124,7 @@
     "predictive_search_show_price": true,
     "currency_code_enabled": true,
     "cart_type": "drawer",
-    "cart_drawer_type": "default",
+    "cart_drawer_type": "kandy",
     "cart_drawer_shipping_protection": false,
     "cart_drawer_simple_free_shipping_icon": "shopify://shop_images/Frame_2087326727.svg",
     "show_vendor": false,
