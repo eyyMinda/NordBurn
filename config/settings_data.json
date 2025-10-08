@@ -152,15 +152,15 @@
             "settings": {
               "product": "nordburn-probiotics-biom2",
               "title": "",
-              "show_benefits": false,
+              "show_benefits": true,
               "benefit_icon_1": "shopify://shop_images/gridicons_checkmark.svg",
               "benefit_text_1": "Decreases body weight",
               "benefit_icon_2": "shopify://shop_images/gridicons_checkmark.svg",
               "benefit_text_2": "Reduces body fat",
               "benefit_icon_3": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_3": "Less sugar cravings",
+              "benefit_text_3": "",
               "benefit_icon_4": "shopify://shop_images/gridicons_checkmark.svg",
-              "benefit_text_4": "Increased metabolic rate"
+              "benefit_text_4": ""
             }
           },
           "benefit_FVrExp": {
