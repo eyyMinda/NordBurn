@@ -30,7 +30,7 @@
     },
     "gp_section_586151738722091723": {
       "settings": {
-        "checksum": "a779033d1246607f5dff00f1880ec4c16ad91681e38d0f5b1bc35acfcc02b8e5_1_1_1_0__1"
+        "checksum": "e88d6d772416071c3d2842036fe61519b34d48cc36cc11f7fb5040a5d9731705_1_1_1_0__1"
       },
       "type": "gp-section-586151738722091723"
     },
@@ -73,47 +73,35 @@
     },
     "gp_section_586151738722288331": {
       "settings": {
-        "checksum": "a1c6451b20b0395b662c3a34c200ccf02c8c9be23e02156bf8caf12b613430fe_1_1_1_0__1",
+        "checksum": "a2d9c97185b42aab19d8b6574a9632376d21c7281301108b9020c606e10d73e7_1_1_1_0__1",
         "gg0Rh1NWLR8_text": "LIMITED TIME 50% OFF SALE",
         "gg1aYgadFxj_text": "<p>Choose Your Bundle:</p>",
-        "gg2ezUdMCKm_text": "<p>1-Month Experiment</p>",
         "gg7W3KRzldn_text": "<p>Probiotics + GLP-1: A Smarter Path to Weight Loss.</p>",
-        "gg9ZeXTdBxe_text": "<p>($35.00 per bottle)</p>",
-        "ggBUDL1zN01_text": "<p>(3 bottles)</p>",
         "ggCtYqSEXrS_text": "<p>Free shipping</p>",
-        "ggG9NRSRPbB_text": "<p>Complements nordburn GLP1 booster.</p>",
-        "ggHhM1MR_h8_text": "<p>6-Month Treatment</p>",
-        "ggKGVhitpCX_text": "<p>&nbsp; &nbsp;Most Popular &nbsp;&nbsp;</p>",
         "ggLQIggg2lb_text": "<p>50,000+ Happy Customers</p>",
         "ggOcpWc0O4-_text": "<p><strong>Reduces bloating</strong></p>",
-        "ggOeYLS3hIr_text": "<p>(6 bottles)</p>",
         "ggQvh0JBiFh_text": "FREE SHIPPING",
         "ggSv4SN0Gc4_text": "<p><strong>Metabolic health</strong></p>",
-        "ggULQV98GDw_text": "<p>($31.50 per bottle)</p>",
         "ggX5GXIj07l_text": "LIFE TIME WARRANTY",
         "ggaORGWxqZH_label": "Add to cart",
         "ggaORGWxqZH_outOfStockLabel": "Out of stock",
         "ggaORGWxqZH_unavailableLabel": "Unavailable",
         "ggaORGWxqZH_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
         "ggb89bcN0vW_text": "<p><strong>Smoother digestion</strong></p>",
-        "ggeRux4IBTF_text": "<p>Healthy Gut, Steady Weight Loss.</p>",
         "ggegvM7zAyV_text": "<p><strong>Immune support</strong></p>",
-        "ggfYJzxSUCV_text": "<p>($27.96 per bottle)</p>",
-        "ggmla7jq50G_text": "<p>LOW IN STOCK</p>",
-        "ggnRAxgkyPd_text": "<p>3-Month Treatment</p>",
-        "gguWKyXnP9F_text": "<p>(1 bottle)</p>"
+        "ggmla7jq50G_text": "<p>LOW IN STOCK</p>"
       },
       "type": "gp-section-586151738722288331"
     },
     "gp_section_586151738722353867": {
       "settings": {
-        "checksum": "3105d181246f2462e00e4c1849e0bf4e22659ee754770ba29ab7eb891f9a1253_1_1_1_0__1",
+        "checksum": "0a5c2d6f40f27a7691a964602bdfdd376b1b48e29ea6071b72ad163e96706bb4_1_1_1_0__1",
         "ggOz0Ea-8TG_dayLabel": "Days",
         "ggOz0Ea-8TG_hourLabel": "HRS",
         "ggOz0Ea-8TG_minuteLabel": "MIN",
         "ggOz0Ea-8TG_secondLabel": "SEC",
         "ggOz0Ea-8TG_weekLabel": "Weeks",
-        "ggc3tR47UW4_text": "<p>30% OFF + FREESHIPPING</p>",
+        "ggc3tR47UW4_text": "<p>UP TO 35% OFF + FREE SHIPPING</p>",
         "ggvCW4avV-u_text": "<p>LIMITED TIME OFFER - MEGA GLP-1 BUNDLE &nbsp;🎁</p>",
         "section_preload": "true"
       },
@@ -166,11 +154,44 @@
         "gg1Nm6kPuFO_text": "The statements made on this website have not been evaluated by the FDA (U.S. Food &amp; Drug Administration). The products sold on this website are not intended to diagnose, treat, cure, or prevent any disease.<br>The information provided by this website or this company is not a substitute for a face-to-face consultation with your physician, and should not be construed as individual medical advice.<br>&nbsp;"
       },
       "type": "gp-section-586151738722681547"
+    },
+    "gp_section_587895036050408036": {
+      "block_order": [
+        "gp_app_kaching-bundles_gOvTBXMNTZ"
+      ],
+      "blocks": {
+        "gp_app_kaching-bundles_gOvTBXMNTZ": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "settings": {
+            "product": "nordburn-probiotics-biom2"
+          }
+        }
+      },
+      "settings": {
+        "checksum": "044c47a68b2be7dfed87abf671839b0fd1e4608f0125167e28eec7271e4c5124_1_1_1_0__1",
+        "ggG9NRSRPbB_text": "<p>Complements nordburn GLP1 booster.</p>",
+        "ggIkCl-vwQ0_label": "BUY NOW",
+        "ggIkCl-vwQ0_outOfStockLabel": "Out of stock",
+        "ggIkCl-vwQ0_unavailableLabel": "Unavailable",
+        "ggIvP3KXL_S_text": "<p>50,000+ Happy Customers</p>",
+        "ggeRux4IBTF_text": "<p>Healthy Gut, Steady Weight Loss.</p>",
+        "ggiLAl5RaqS_text": "<p>Probiotics + GLP-1: A Smarter Path to Weight Loss.</p>",
+        "ggnhq-qmWGe_label": "BUY NOW",
+        "ggnhq-qmWGe_outOfStockLabel": "Out of stock",
+        "ggnhq-qmWGe_unavailableLabel": "Unavailable",
+        "gguYBwCNR4F_childItem_0": "<p><strong>Reduces bloating</strong></p>",
+        "gguYBwCNR4F_childItem_1": "<p><strong>Smoother digestion</strong></p>",
+        "gguYBwCNR4F_childItem_2": "<p><strong>Immune support</strong></p>",
+        "gguYBwCNR4F_childItem_3": "<p><strong>Metabolic health</strong></p>",
+        "ggz86h-zZGA_childItem_0": "<p>Free shipping enabled</p>"
+      },
+      "type": "gp-section-587895036050408036"
     }
   },
   "order": [
     "gp_section_586151738722353867",
     "gp_section_586151738722288331",
+    "gp_section_587895036050408036",
     "gp_section_586151738722616011",
     "gp_section_586151738722091723",
     "gp_section_586151738722550475",
