@@ -736,7 +736,7 @@
         "image_2": "shopify://shop_images/Screenshot_2025-10-08_at_09.22.42.png",
         "selector_bg_color": "#ffffff",
         "variants_selector_label": "",
-        "methods_selector_type": "radio",
+        "methods_selector_type": "checkbox",
         "methods_checkbox_title": "Save [save_perc]% with Automatic Refills!",
         "methods_checkbox_pricing": "Zero commitment, Cancel Anytime",
         "methods_checkbox_description": "Terms & conditions apply",
