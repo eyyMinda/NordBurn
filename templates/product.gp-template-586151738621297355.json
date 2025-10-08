@@ -10,65 +10,62 @@
 {
   "sections": {
     "gp_section_586151738721960651": {
-      "type": "gp-section-586151738721960651",
       "settings": {
         "checksum": "9166c221c567936184d00f86034c2fdbec045686253a18d836499807b813fe47_1_1_1_0__1",
-        "ggR60oEufBU_text": "Own It. Support Your Gut.",
+        "gg-bh47I0Uy_text": "<strong>Metabolic health</strong>",
+        "gg8jXbeLRNx_text": "<p>Probiotic strains including L. Acidophilus and B. Lactis strengthen immune defenses and overall resilience.</p>",
         "ggHicnqlekS_text": "<p>Power your transformation with clinically studied ingredients for:</p>",
         "ggJUZO-9iAp_text": "Reduced bloating",
-        "ggxL96ifKYO_text": "<p>L. Acidophilus, B. Lactis, and L. Plantarum support digestion and reduce bloating.</p>",
-        "ggjgAyzhNWF_text": "Smoother digestion",
-        "ggTa3tjneBk_text": "<p>Fructooligosaccharides (FOS) and Lactobacillus Paracasei support healthy gut flora and smoother digestion.</p>",
-        "ggsiFy65gWh_text": "Immune support",
-        "gg8jXbeLRNx_text": "<p>Probiotic strains including L. Acidophilus and B. Lactis strengthen immune defenses and overall resilience.</p>",
-        "gg-bh47I0Uy_text": "<strong>Metabolic health</strong>",
-        "ggaD_llE1Hr_text": "<p>Complex Marine Polysaccharide and probiotics work together to support metabolic balance and nutrient absorption.</p>",
         "ggPj5ef4GyZ_label": "Get It Now",
         "ggPj5ef4GyZ_outOfStockLabel": "Out of stocks",
-        "ggPj5ef4GyZ_unavailableLabel": "Unavailable"
-      }
+        "ggPj5ef4GyZ_unavailableLabel": "Unavailable",
+        "ggR60oEufBU_text": "Own It. Support Your Gut.",
+        "ggTa3tjneBk_text": "<p>Fructooligosaccharides (FOS) and Lactobacillus Paracasei support healthy gut flora and smoother digestion.</p>",
+        "ggaD_llE1Hr_text": "<p>Complex Marine Polysaccharide and probiotics work together to support metabolic balance and nutrient absorption.</p>",
+        "ggjgAyzhNWF_text": "Smoother digestion",
+        "ggsiFy65gWh_text": "Immune support",
+        "ggxL96ifKYO_text": "<p>L. Acidophilus, B. Lactis, and L. Plantarum support digestion and reduce bloating.</p>"
+      },
+      "type": "gp-section-586151738721960651"
     },
     "gp_section_586151738722157259": {
-      "type": "gp-section-586151738722157259",
       "settings": {
-        "checksum": "77fb1c445cb382891fe8a1311499e04995612a9fdacab0bccb373d3118080b3c_1_1_1_0__1",
-        "ggpEFPq468J_text": "<p>Others talk. Our formula delivers.</p>",
-        "ggucWCt234D_text": "Why choose us?",
-        "gghPtvgSmcs_text": "<p>Nordburn Biom2</p>",
-        "ggnYMbskr-R_text": "<p>Other probiotics</p>",
-        "ggxVxRrQc8e_text": "<p><strong>40 Billion </strong>CFU potency</p>",
-        "ggctgq5h00u_text": "<p><strong>Advanced delivery </strong>(MAKTREK® Bi-Pass)</p>",
+        "checksum": "82d99270a3d4b64ac6bb13dd8f7c17e275981d371d05ea6195b6a7994c39cc2e_1_1_1_0__1",
+        "ggUaFTLOZZR_text": "<p><strong>Lab</strong> tested</p>",
         "ggWXb4paqnD_text": "<p><strong>Digestive + immune support</strong></p>",
         "ggb2s7NbTvL_text": "<p><strong>Clinically studied </strong>strains</p>",
+        "ggctgq5h00u_text": "<p><strong>Advanced delivery </strong>(MAKTREK® Bi-Pass)</p>",
+        "gghPtvgSmcs_text": "<p>Nordburn Biom2</p>",
+        "ggnYMbskr-R_text": "<p>Other probiotics</p>",
+        "ggpEFPq468J_text": "<p>Others talk. Our formula delivers.</p>",
         "ggq93rIxg5P_text": "<p>Blended in <strong>USA</strong></p>",
-        "ggUaFTLOZZR_text": "<p><strong>Lab</strong> tested</p>",
-        "ggUJhvlZijq_label": "SHOP NOW"
-      }
+        "ggucWCt234D_text": "Why choose us?",
+        "ggxVxRrQc8e_text": "<p><strong>40 Billion </strong>CFU potency</p>"
+      },
+      "type": "gp-section-586151738722157259"
     },
     "gp_section_586151738722222795": {
-      "type": "gp-section-586151738722222795",
       "settings": {
         "checksum": "5311a022cfee0a3fe1772c8b4c71f4186ce0811333e9cfc645a65d055fe59121_1_1_1_0__1",
-        "ggTv2S6ZYoK_text": "FAQs",
-        "ggmjDP8XiXH_text": "<p>Got questions? We’ve got answer...</p>",
         "gg9KDePreR__childItem_0": "<p>How long does it take to see results?</p>",
         "gg9KDePreR__childItem_1": "<p>Who is Nordburn Biom2 suitable for?</p>",
         "gg9KDePreR__childItem_2": "<p>How many capsules should I take per day?</p>",
         "gg9KDePreR__childItem_3": "<p>What makes Nordburn Biom2 different from other probiotics?</p>",
         "gg9KDePreR__childItem_4": "<p>Is it suitable for vegans or vegetarians?</p>",
         "gg9KDePreR__childItem_5": "<p>Can it be used by children?</p>",
-        "ggPiNILmEQx_text": "<p>Best results are expected after 3 months of consistent use. Individual results may vary.</p>",
-        "gggY88w2Bpq_text": "<p>&nbsp;Many customers choose Biom2 alongside Nordburn GLP-1 Booster supplements, which support weight loss, balanced blood sugar, and healthy GLP-1 levels.&nbsp;</p><p>Biom2 is best for:</p><p>-People who experience bloating, gas, or digestive discomfort</p><p>-Anyone wanting smoother, more regular digestion</p><p>-Those looking to strengthen immune defenses</p><p>-Individuals aiming to support metabolism and nutrient absorption</p><p>-Adults who want a high-potency, clinically studied probiotic with advanced delivery for maximum effectiveness</p><p>Always consult a healthcare professional before using this or any supplement.&nbsp;</p>",
         "ggLk-D9-5GD_text": "<p><span style=\"background-color:rgb(250,250,250);color:rgb(29,29,31);font-size:medium;\">Take two (2) capsules a day.</span></p>",
-        "ggxPodhOsaI_text": "<p><br>We use <strong>100% natural ingredients</strong>, not synthetic fillers or harsh chemicals.<br><strong>No prescription needed</strong> — enjoy daily digestive and immune support without barriers.<br>Our formula includes <strong>40 Billion CFU with advanced MAKTREK® Bi-Pass Technology</strong> — ensuring probiotics survive stomach acid for maximum effectiveness.<br>It’s <strong>blended in the USA</strong> under strict quality controls, not from unknown overseas sources.<br>Made with <strong>clinically studied strains and prebiotics</strong>, and <strong>lab tested</strong> to guarantee purity, potency, and results.</p>",
+        "ggPiNILmEQx_text": "<p>Best results are expected after 3 months of consistent use. Individual results may vary.</p>",
         "ggPnblopd-L_text": "<p>No, it contains live probiotics.</p>",
-        "ggWhmcS934i_text": "<p>While all of our products are made of natural ingredients, you should always&nbsp;<span style=\"background-color:transparent;color:inherit;font-size:inherit;\">consult with a healthcare professional before giving it to children under the age of&nbsp;18. Use in children under 12 years is not recommended.</span></p>"
-      }
+        "ggTv2S6ZYoK_text": "FAQs",
+        "ggWhmcS934i_text": "<p>While all of our products are made of natural ingredients, you should always&nbsp;<span style=\"background-color:transparent;color:inherit;font-size:inherit;\">consult with a healthcare professional before giving it to children under the age of&nbsp;18. Use in children under 12 years is not recommended.</span></p>",
+        "gggY88w2Bpq_text": "<p>&nbsp;Many customers choose Biom2 alongside Nordburn GLP-1 Booster supplements, which support weight loss, balanced blood sugar, and healthy GLP-1 levels.&nbsp;</p><p>Biom2 is best for:</p><p>-People who experience bloating, gas, or digestive discomfort</p><p>-Anyone wanting smoother, more regular digestion</p><p>-Those looking to strengthen immune defenses</p><p>-Individuals aiming to support metabolism and nutrient absorption</p><p>-Adults who want a high-potency, clinically studied probiotic with advanced delivery for maximum effectiveness</p><p>Always consult a healthcare professional before using this or any supplement.&nbsp;</p>",
+        "ggmjDP8XiXH_text": "<p>Got questions? We’ve got answer...</p>",
+        "ggxPodhOsaI_text": "<p><br>We use <strong>100% natural ingredients</strong>, not synthetic fillers or harsh chemicals.<br><strong>No prescription needed</strong> — enjoy daily digestive and immune support without barriers.<br>Our formula includes <strong>40 Billion CFU with advanced MAKTREK® Bi-Pass Technology</strong> — ensuring probiotics survive stomach acid for maximum effectiveness.<br>It’s <strong>blended in the USA</strong> under strict quality controls, not from unknown overseas sources.<br>Made with <strong>clinically studied strains and prebiotics</strong>, and <strong>lab tested</strong> to guarantee purity, potency, and results.</p>"
+      },
+      "type": "gp-section-586151738722222795"
     },
     "gp_section_586151738722353867": {
-      "type": "gp-section-586151738722353867",
       "settings": {
-        "section_preload": "true",
         "checksum": "0a5c2d6f40f27a7691a964602bdfdd376b1b48e29ea6071b72ad163e96706bb4_1_1_1_0__1",
         "ggOz0Ea-8TG_dayLabel": "Days",
         "ggOz0Ea-8TG_hourLabel": "HRS",
@@ -76,59 +73,63 @@
         "ggOz0Ea-8TG_secondLabel": "SEC",
         "ggOz0Ea-8TG_weekLabel": "Weeks",
         "ggc3tR47UW4_text": "<p>UP TO 35% OFF + FREE SHIPPING</p>",
-        "ggvCW4avV-u_text": "<p>LIMITED TIME OFFER - MEGA GLP-1 BUNDLE &nbsp;🎁</p>"
-      }
+        "ggvCW4avV-u_text": "<p>LIMITED TIME OFFER - MEGA GLP-1 BUNDLE &nbsp;🎁</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-586151738722353867"
     },
     "gp_section_586151738722419403": {
-      "type": "gp-section-586151738722419403",
       "settings": {
         "checksum": "32b5b2c74dab42519534f53212c84d74cad82f084d060f94b1b28ca8152dbeef_1_1_1_0__1"
-      }
+      },
+      "type": "gp-section-586151738722419403"
     },
     "gp_section_586151738722484939": {
-      "type": "gp-section-586151738722484939",
       "settings": {
         "checksum": "76d8de515ff737c17bceb96554007e4e52481ba6034693cdd48461282323c958_1_1_1_0__1",
         "ggQhZkAIrnp_text": "As Featured In"
-      }
+      },
+      "type": "gp-section-586151738722484939"
     },
     "gp_section_586151738722550475": {
-      "type": "gp-section-586151738722550475",
       "settings": {
         "checksum": "2dc46805f5f9bf2795fd35d06ee6f8ceabff576ae865adad2e37a3b8c1816771_1_1_1_0__1",
-        "gg7_RynEZmb_text": "<p>1200+ 5 Star reviews</p>",
-        "ggoiL9B4L4m_text": "<p>What Our Customers Are Saying</p>",
+        "gg3pqKDFvgP_text": "<p>\"Week 3 on Nordburn's GLP1and &nbsp;Biom2, my bowels are for sure smoother and more regular, see few inches down my waist\".</p>",
         "gg72fm0Zada_text": "<p>“Bought alongside GLP1 supplement as my GP said it boosts the long term effect, so far great results”</p>",
+        "gg7_RynEZmb_text": "<p>1200+ 5 Star reviews</p>",
+        "ggB7it0jTJH_text": "<p><span style=\"color:#242424;\"><strong>JOSHUA J.</strong> </span><span style=\"color:#B4B4B4;font-size:13px;\">/ Financial Advisor</span></p>",
         "ggQ7VlB3wts_text": "<p><span style=\"color:#242424;\"><strong>ANGELA S.</strong></span> <span style=\"color:#B4B4B4;font-size:13px;\">/ Real Estate Broker</span></p>",
         "ggbmKKF6WPu_text": "<p>\"For me this is a game changer. I was bloated like 5m preagnant and within few weeks it is GONE.\"</p>",
-        "ggxP2jyo0gp_text": "<p><span style=\"color:#242424;\"><strong>&nbsp;LAUREN C.</strong></span> <span style=\"color:#B4B4B4;font-size:13px;\">/ Marketing</span></p>",
-        "gg3pqKDFvgP_text": "<p>\"Week 3 on Nordburn's GLP1and &nbsp;Biom2, my bowels are for sure smoother and more regular, see few inches down my waist\".</p>",
-        "ggB7it0jTJH_text": "<p><span style=\"color:#242424;\"><strong>JOSHUA J.</strong> </span><span style=\"color:#B4B4B4;font-size:13px;\">/ Financial Advisor</span></p>"
-      }
+        "ggoiL9B4L4m_text": "<p>What Our Customers Are Saying</p>",
+        "ggxP2jyo0gp_text": "<p><span style=\"color:#242424;\"><strong>&nbsp;LAUREN C.</strong></span> <span style=\"color:#B4B4B4;font-size:13px;\">/ Marketing</span></p>"
+      },
+      "type": "gp-section-586151738722550475"
     },
     "gp_section_586151738722616011": {
-      "type": "gp-section-586151738722616011",
       "settings": {
         "checksum": "09b39ec8731bedac92b7b3dfb3867fb6f84f0b910d067ce9e1b416210b854b6e_1_1_1_0__1",
-        "ggiSxDZiuYT_text": "No BS. Clinically studied ingredients.&nbsp;",
-        "ggvT_ZEzhX8_text": "<p>Nordburn Biom2 &nbsp;contains only clinically studied ingredients, including:</p>",
-        "ggvUHmB7OfQ_text": "<p><strong>Lactobacillus Acidophilus</strong></p>",
-        "ggdqFw1dL0j_text": "<p>Clinical studies show that <i>L. acidophilus</i> can help balance <strong>gut flora</strong>, improve<strong> digestion</strong>, and support <strong>immune</strong> function.</p>",
+        "ggTZN2xeonb_text": "<p>Evidence suggests that <i>L. plantarum</i> may reduce<strong> bloating</strong>, support healthy <strong>digestion</strong>, and improve markers of <strong>metabolic health</strong>.</p>",
         "ggZ59J6GdCJ_text": "<p>Bifidobacterium Lactis</p>",
         "ggZbBB69qpx_text": "<p>Clinical evidence indicates <i>B. lactis</i> may aid <strong>weight management</strong> by improving gut flora balance and reducing waist circumference.</p>",
+        "ggdqFw1dL0j_text": "<p>Clinical studies show that <i>L. acidophilus</i> can help balance <strong>gut flora</strong>, improve<strong> digestion</strong>, and support <strong>immune</strong> function.</p>",
         "ggh1rFKDZVS_text": "<p>Lactobacillus Plantarum</p>",
-        "ggTZN2xeonb_text": "<p>Evidence suggests that <i>L. plantarum</i> may reduce<strong> bloating</strong>, support healthy <strong>digestion</strong>, and improve markers of <strong>metabolic health</strong>.</p>"
-      }
+        "ggiSxDZiuYT_text": "No BS. Clinically studied ingredients.&nbsp;",
+        "ggvT_ZEzhX8_text": "<p>Nordburn Biom2 &nbsp;contains only clinically studied ingredients, including:</p>",
+        "ggvUHmB7OfQ_text": "<p><strong>Lactobacillus Acidophilus</strong></p>"
+      },
+      "type": "gp-section-586151738722616011"
     },
     "gp_section_586151738722681547": {
-      "type": "gp-section-586151738722681547",
       "settings": {
         "checksum": "239d68dd88c3871bceb90fcdf3a29203503f2419c72c6abfb5626e441e4d4dff_1_1_1_0__1",
         "gg1Nm6kPuFO_text": "The statements made on this website have not been evaluated by the FDA (U.S. Food &amp; Drug Administration). The products sold on this website are not intended to diagnose, treat, cure, or prevent any disease.<br>The information provided by this website or this company is not a substitute for a face-to-face consultation with your physician, and should not be construed as individual medical advice.<br>&nbsp;"
-      }
+      },
+      "type": "gp-section-586151738722681547"
     },
     "gp_section_587895036050408036": {
-      "type": "gp-section-587895036050408036",
+      "block_order": [
+        "gp_app_kaching-bundles_gOvTBXMNTZ"
+      ],
       "blocks": {
         "gp_app_kaching-bundles_gOvTBXMNTZ": {
           "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
@@ -137,26 +138,24 @@
           }
         }
       },
-      "block_order": [
-        "gp_app_kaching-bundles_gOvTBXMNTZ"
-      ],
       "settings": {
         "checksum": "89ab134193c2d9e3b493bc0124ac8bbdbd8fb7f8177b53c528bfb662031dcdcd_1_1_1_0__1",
-        "ggIvP3KXL_S_text": "<p>50,000+ Happy Customers</p>",
-        "ggiLAl5RaqS_text": "<p>Probiotics + GLP-1: A Smarter Path to Weight Loss.</p>",
-        "gguYBwCNR4F_childItem_0": "<p><strong>Reduces bloating</strong></p>",
-        "gguYBwCNR4F_childItem_1": "<p><strong>Smoother digestion</strong></p>",
-        "gguYBwCNR4F_childItem_2": "<p><strong>Immune support</strong></p>",
-        "gguYBwCNR4F_childItem_3": "<p><strong>Metabolic health</strong></p>",
         "ggG9NRSRPbB_text": "<p>Complements nordburn GLP1 booster.</p>",
-        "ggeRux4IBTF_text": "<p>Healthy Gut, Steady Weight Loss.</p>",
         "ggIkCl-vwQ0_label": "BUY NOW",
         "ggIkCl-vwQ0_outOfStockLabel": "Out of stock",
         "ggIkCl-vwQ0_unavailableLabel": "Unavailable",
+        "ggIvP3KXL_S_text": "<p>50,000+ Happy Customers</p>",
+        "ggeRux4IBTF_text": "<p>Healthy Gut, Steady Weight Loss.</p>",
+        "ggiLAl5RaqS_text": "<p>Probiotics + GLP-1: A Smarter Path to Weight Loss.</p>",
         "ggnhq-qmWGe_label": "BUY NOW",
         "ggnhq-qmWGe_outOfStockLabel": "Out of stock",
-        "ggnhq-qmWGe_unavailableLabel": "Unavailable"
-      }
+        "ggnhq-qmWGe_unavailableLabel": "Unavailable",
+        "gguYBwCNR4F_childItem_0": "<p><strong>Reduces bloating</strong></p>",
+        "gguYBwCNR4F_childItem_1": "<p><strong>Smoother digestion</strong></p>",
+        "gguYBwCNR4F_childItem_2": "<p><strong>Immune support</strong></p>",
+        "gguYBwCNR4F_childItem_3": "<p><strong>Metabolic health</strong></p>"
+      },
+      "type": "gp-section-587895036050408036"
     }
   },
   "order": [
