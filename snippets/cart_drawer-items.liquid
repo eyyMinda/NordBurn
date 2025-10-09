@@ -16,6 +16,9 @@
       {% liquid
         assign current_product = collections.all.products | where: 'id', item.product_id | first
         assign current_variant = current_product.variants | where: 'id', item.variant_id | first
+        assign product_title = current_product.title | default: item.title
+        assign product_url = current_product.url | default: item.url
+
         assign first_variant_price = current_product.variants.first.price
 
         # Prices
@@ -116,7 +119,9 @@
 
         <div class="cd__item-content">
           <div class="cd__item-header">
-            <p class="cd__item-title">{{ current_product.title | default: item.title }}</p>
+            <a class="cd__item-title" href="{{ product_url }}" title="{{ product_title }}" aria-label="{{ product_title }}">
+              {{ product_title }}
+            </a>
             <div class="cd__item-remove">
               <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0847/3981/7815/files/prime_trash.svg?v=1758745342" alt="x-icon" width="16" height="16">
             </div>

@@ -1,5 +1,21 @@
 {% liquid
   assign ss = section.settings
+  
+  # Calculate dynamic values for fat zone message
+  assign weight_loss_percentage = ss.weight_loss_percentage | default: 9
+  assign weight_loss_amount = ss.default_weight | times: weight_loss_percentage | divided_by: 100 | round
+  assign current_weight = ss.default_weight | default: 220
+  assign current_height_inches = ss.default_height | default: 68
+  assign current_height_feet = current_height_inches | divided_by: 12
+  assign current_height_remaining_inches = current_height_inches | modulo: 12
+  assign current_height_formatted = current_height_feet | append: 'ft ' | append: current_height_remaining_inches | append: 'in'
+  
+  # Replace dynamic values in fat zone message
+  assign fat_zone_message = ss.fat_zone_message | default: "Based on clinical trials, you could lose up to [weightloss-perc]% of your body weight in 3 months you could lose up to <strong>[weightloss-amount]lbs in 3 months*</strong>"
+  assign fat_zone_message = fat_zone_message | replace: '[weightloss-perc]', weight_loss_percentage
+  assign fat_zone_message = fat_zone_message | replace: '[weightloss-amount]', weight_loss_amount
+  assign fat_zone_message = fat_zone_message | replace: '[current-weight]', current_weight
+  assign fat_zone_message = fat_zone_message | replace: '[current-height]', current_height_formatted
 %}
 {{ 'weightloss.css' | asset_url | stylesheet_tag }}
 
@@ -13,10 +29,10 @@
         <div class="weightloss__slider-group">
           <flex class="weightloss__slider-header">
             <label class="weightloss__label">{{ ss.weight_label | default: "What's your current weight?" }}</label>
-            <span class="weightloss__value" id="weight-display">165 lbs</span>
+            <span class="weightloss__value" id="weight-display">{{ ss.default_weight }} lbs</span>
           </flex>
           <div class="weightloss__slider-container">
-            <input type="range" id="weight-slider" class="weightloss__slider" min="100" max="300" value="165" step="1" style="--current-fill: 32.5%;">
+            <input type="range" id="weight-slider" class="weightloss__slider" min="{{ ss.weight_min | default: 100 }}" max="{{ ss.weight_max | default: 500 }}" value="{{ ss.default_weight }}" step="1" style="--current-fill: 32.5%;">
           </div>
         </div>
 
@@ -26,7 +42,7 @@
             <span class="weightloss__value" id="height-display">5ft 8in</span>
           </flex>
           <div class="weightloss__slider-container">
-            <input type="range" id="height-slider" class="weightloss__slider" min="48" max="84" value="68" step="1" style="--current-fill: 55.5%;">
+            <input type="range" id="height-slider" class="weightloss__slider" min="48" max="84" value="{{ ss.default_height }}" step="1" style="--current-fill: 55.5%;">
           </div>
         </div>
       </div>
@@ -38,13 +54,13 @@
           <div class="weightloss__journey-details">
             <div class="weightloss__journey-dates">
               <div class="weightloss__journey-start">
-                <div class="weightloss__journey-date" id="start-date">Aug 2025</div>
-                <div class="weightloss__journey-weight" id="start-weight">215 lbs</div>
+                <div class="weightloss__journey-date" id="start-date">{{ 'now' | date: '%b %Y' }}</div>
+                <div class="weightloss__journey-weight" id="start-weight">{{ ss.default_weight }} lbs</div>
               </div>
               <div class="weightloss__journey-arrow">→</div>
               <div class="weightloss__journey-end">
-                <div class="weightloss__journey-date" id="end-date">Nov 2025</div>
-                <div class="weightloss__journey-weight" id="end-weight">190 lbs</div>
+                <div class="weightloss__journey-date" id="end-date">{{ 'now' | date: '%s' | plus: 7776000 | date: '%b %Y' }}</div>
+                <div class="weightloss__journey-weight" id="end-weight">{{ 100 | minus: ss.weight_loss_percentage | times: ss.default_weight | divided_by: 100 | round }} lbs</div>
               </div>
             </div>
 
@@ -63,48 +79,10 @@
         </div>
 
         <div class="weightloss__chart">
-          <div class="weightloss__chart-container">
-            <div class="weightloss__chart-y-axis">
-              <span>220</span>
-              <span>200</span>
-              <span>180</span>
-              <span>160</span>
-              <span>140</span>
-            </div>
-            
-            <div class="weightloss__chart-area">
-              <svg class="weightloss__chart-svg" viewBox="0 0 400 200">
-                <path class="weightloss__chart-fill" d="M 0 40 L 80 60 L 160 80 L 240 100 L 320 120 L 400 140 L 400 200 L 0 200 Z"></path>
-                <path class="weightloss__chart-line" d="M 0 40 L 80 60 L 160 80 L 240 100 L 320 120 L 400 140"></path>
-                
-                {% for i in (1..6) %}
-                  <circle class="weightloss__chart-point" cx="{{ forloop.index0 | times: 80 }}" cy="{{ 40 | plus: forloop.index0 | times: 20 }}" r="6"></circle>
-                {% endfor %}
-                
-                <text class="weightloss__chart-label" x="80" y="50" text-anchor="middle">-10lbs</text>
-                <text class="weightloss__chart-label" x="160" y="70" text-anchor="middle">-10lbs</text>
-                <text class="weightloss__chart-label" x="240" y="90" text-anchor="middle">-5lbs</text>
-                <text class="weightloss__chart-label" x="320" y="110" text-anchor="middle">-10lbs</text>
-              </svg>
-              
-              <div class="weightloss__chart-start">
-                <div class="weightloss__chart-badge weightloss__chart-badge--red" id="current-weight-badge">215 lbs</div>
-              </div>
-              
-              <div class="weightloss__chart-end">
-                <div class="weightloss__chart-badge weightloss__chart-badge--green" id="target-weight-badge">190 lbs</div>
-              </div>
-            </div>
-            
-            <div class="weightloss__chart-x-axis">
-              <span>Today</span>
-              <span>4 Weeks</span>
-              <span>6 Weeks</span>
-              <span>8 Weeks</span>
-              <span>10 Weeks</span>
-              <span>12 Weeks</span>
-            </div>
-          </div>
+          {% render 'responsive-image', image: ss.chart_image, image_width: 640, class: 'weightloss__chart-image' %}
+          
+          <div class="weightloss__chart-badge weightloss__chart-badge--red" id="current-weight-badge">{{ ss.default_weight }} lbs</div>
+          <div class="weightloss__chart-badge weightloss__chart-badge--green" id="target-weight-badge">{{ 100 | minus: ss.weight_loss_percentage | times: ss.default_weight | divided_by: 100 | round }} lbs</div>
         </div>
       </div>
 
@@ -115,7 +93,7 @@
         </div>
         <div class="weightloss__fat-zone-content">
           <p class="weightloss__fat-zone-text" id="bmi-message">
-            Based on clinical trials, you could lose up to 9% of your body weight in 3 months you could lose up to <span class="weightloss__fat-zone-highlight" id="weight-loss-amount">29.96lbs</span> in 3 months*
+            {{ fat_zone_message }}
           </p>
         </div>
       </div>
@@ -133,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const currentWeightBadge = document.getElementById('current-weight-badge');
   const targetWeightBadge = document.getElementById('target-weight-badge');
   const bmiMessage = document.getElementById('bmi-message');
-  const weightLossAmount = document.getElementById('weight-loss-amount');
   const startDate = document.getElementById('start-date');
   const endDate = document.getElementById('end-date');
   const startWeight = document.getElementById('start-weight');
@@ -156,50 +133,62 @@ document.addEventListener('DOMContentLoaded', function() {
     return months[date.getMonth()] + ' ' + date.getFullYear();
   }
 
+
   function updateDisplay() {
+    if (!weightSlider || !heightSlider) return;
+    
     const weight = parseInt(weightSlider.value);
     const height = parseInt(heightSlider.value);
     const bmi = calculateBMI(weight, height);
-    const weightLoss = Math.round(weight * 0.14 * 100) / 100;
-    const targetWeight = weight - Math.round(weight * 0.14);
+    const weightLossPercentage = {{ ss.weight_loss_percentage | default: 9 }} / 100;
+    const weightLoss = Math.round(weight * weightLossPercentage * 100) / 100;
+    const targetWeight = weight - Math.round(weight * weightLossPercentage);
 
     const currentDate = new Date();
     const futureDate = new Date();
     futureDate.setMonth(currentDate.getMonth() + 3);
 
     // Update slider fill values
-    const weightFill = ((weight - 100) / (300 - 100)) * 100;
+    const weightMin = {{ ss.weight_min | default: 100 }};
+    const weightMax = {{ ss.weight_max | default: 500 }};
+    const weightFill = ((weight - weightMin) / (weightMax - weightMin)) * 100;
     const heightFill = ((height - 48) / (84 - 48)) * 100;
     
     weightSlider.style.setProperty('--current-fill', weightFill + '%');
     heightSlider.style.setProperty('--current-fill', heightFill + '%');
 
-    weightDisplay.textContent = weight + ' lbs';
-    heightDisplay.textContent = formatHeight(height);
-    currentWeightBadge.textContent = weight + ' lbs';
+    if (weightDisplay) weightDisplay.textContent = weight + ' lbs';
+    if (heightDisplay) heightDisplay.textContent = formatHeight(height);
+    if (currentWeightBadge) currentWeightBadge.textContent = weight + ' lbs';
     
-    startDate.textContent = formatDate(currentDate);
-    endDate.textContent = formatDate(futureDate);
-    startWeight.textContent = weight + ' lbs';
+    if (startDate) startDate.textContent = formatDate(currentDate);
+    if (endDate) endDate.textContent = formatDate(futureDate);
+    if (startWeight) startWeight.textContent = weight + ' lbs';
     
     if (bmi >= 26) {
-      targetWeightBadge.textContent = targetWeight + ' lbs';
-      endWeight.textContent = targetWeight + ' lbs';
-      weightLossAmount.textContent = weightLoss + 'lbs';
-      bmiMessage.innerHTML = 'Based on clinical trials, you could lose up to 9% of your body weight in 3 months you could lose up to <span class="weightloss__fat-zone-highlight">' + weightLoss + 'lbs in 3 months*</span>';
+      if (targetWeightBadge) targetWeightBadge.textContent = targetWeight + ' lbs';
+      if (endWeight) endWeight.textContent = targetWeight + ' lbs';
+      
+      // Update fat zone message with dynamic values
+      let dynamicMessage = '{{ ss.fat_zone_message | default: "Based on clinical trials, you could lose up to [weightloss-perc]% of your body weight in 3 months you could lose up to <strong>[weightloss-amount]lbs in 3 months*</strong>" }}';
+      dynamicMessage = dynamicMessage.replace('[weightloss-perc]', weightLossPercentage * 100);
+      dynamicMessage = dynamicMessage.replace('[weightloss-amount]', weightLoss);
+      dynamicMessage = dynamicMessage.replace('[current-weight]', weight);
+      dynamicMessage = dynamicMessage.replace('[current-height]', formatHeight(height));
+      if (bmiMessage) bmiMessage.innerHTML = dynamicMessage;
     } else if (bmi >= 18) {
-      targetWeightBadge.textContent = weight + ' lbs';
-      endWeight.textContent = weight + ' lbs';
-      bmiMessage.textContent = "You're already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance";
+      if (targetWeightBadge) targetWeightBadge.textContent = weight + ' lbs';
+      if (endWeight) endWeight.textContent = weight + ' lbs';
+      if (bmiMessage) bmiMessage.textContent = "{{ ss.healthy_bmi_message }}";
     } else {
-      targetWeightBadge.textContent = weight + ' lbs';
-      endWeight.textContent = weight + ' lbs';
-      bmiMessage.textContent = 'Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use';
+      if (targetWeightBadge) targetWeightBadge.textContent = weight + ' lbs';
+      if (endWeight) endWeight.textContent = weight + ' lbs';
+      if (bmiMessage) bmiMessage.textContent = '{{ ss.low_bmi_message }}';
     }
   }
 
-  weightSlider.addEventListener('input', updateDisplay);
-  heightSlider.addEventListener('input', updateDisplay);
+  if (weightSlider) weightSlider.addEventListener('input', updateDisplay);
+  if (heightSlider) heightSlider.addEventListener('input', updateDisplay);
   
   updateDisplay();
 });
@@ -282,6 +271,9 @@ document.addEventListener('DOMContentLoaded', function() {
       "label": "Ratings Text",
       "visible_if": "{{ section.settings.heading_ratings }}"
     }, {
+      "type": "header",
+      "content": "Content"
+    }, {
       "type": "text",
       "id": "weight_label",
       "label": "Weight Label",
@@ -301,6 +293,69 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "fat_zone_title",
       "label": "Fat Zone Title",
       "default": "FAT LOSS ZONE"
+    }, {
+      "type": "header",
+      "content": "Chart"
+    }, {
+      "type": "image_picker",
+      "id": "chart_image",
+      "label": "Chart Image"
+    }, {
+      "type": "header",
+      "content": "Default Values"
+    }, {
+      "type": "number",
+      "id": "default_weight",
+      "label": "Default Weight (lbs)",
+      "default": 220
+    }, {
+      "type": "number",
+      "id": "default_height",
+      "label": "Default Height (inches)",
+      "default": 68
+    }, {
+      "type": "number",
+      "id": "weight_loss_percentage",
+      "label": "Weight Loss Percentage",
+      "default": 9,
+      "info": "Percentage of body weight that can be lost in 3 months"
+    }, {
+      "type": "range",
+      "id": "weight_min",
+      "label": "Weight Minimum (lbs)",
+      "min": 80,
+      "max": 200,
+      "step": 10,
+      "default": 100,
+      "info": "Minimum weight value for the weight slider"
+    }, {
+      "type": "range",
+      "id": "weight_max",
+      "label": "Weight Maximum (lbs)",
+      "min": 300,
+      "max": 800,
+      "step": 10,
+      "default": 500,
+      "info": "Maximum weight value for the weight slider"
+    }, {
+      "type": "header",
+      "content": "Fat Zone Content"
+    }, {
+      "type": "textarea",
+      "id": "fat_zone_message",
+      "label": "Fat Zone Message",
+      "default": "Based on clinical trials, you could lose up to [weightloss-perc]% of your body weight in 3 months you could lose up to <strong>[weightloss-amount]lbs in 3 months*</strong>",
+      "info": "Wrap in [square-brackets] to display dynamic values. Use [weightloss-perc] for weight loss percentage, [weightloss-amount] for weight loss amount, [current-weight] for current weight, [current-height] for current height. Use HTML tags like <strong> for styling."
+    }, {
+      "type": "textarea",
+      "id": "healthy_bmi_message",
+      "label": "Healthy BMI Message",
+      "default": "You're already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance"
+    }, {
+      "type": "textarea",
+      "id": "low_bmi_message",
+      "label": "Low BMI Message",
+      "default": "Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use"
     }
   ],
   "presets": [

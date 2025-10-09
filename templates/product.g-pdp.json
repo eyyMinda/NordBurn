@@ -199,12 +199,7 @@
           }
         }
       },
-      "block_order": [
-        "marquee_kVcyam",
-        "marquee_Qfp6BQ",
-        "marquee_fRgXMK",
-        "marquee_rgk69G"
-      ],
+      "block_order": ["marquee_kVcyam", "marquee_Qfp6BQ", "marquee_fRgXMK", "marquee_rgk69G"],
       "name": "G As Seen",
       "settings": {
         "bg_color": "#c9c9f2",
@@ -251,13 +246,7 @@
           }
         }
       },
-      "block_order": [
-        "marquee_Hi7Gcq",
-        "marquee_M9r8bh",
-        "marquee_atwakw",
-        "marquee_mnc89V",
-        "marquee_BCDbaV"
-      ],
+      "block_order": ["marquee_Hi7Gcq", "marquee_M9r8bh", "marquee_atwakw", "marquee_mnc89V", "marquee_BCDbaV"],
       "disabled": true,
       "name": "G Marquee",
       "settings": {}
@@ -278,7 +267,16 @@
         "weight_label": "What's your current weight?",
         "height_label": "How tall are you?",
         "chart_title": "Your Weight Loss Journey",
-        "fat_zone_title": "FAT LOSS ZONE"
+        "fat_zone_title": "FAT LOSS ZONE",
+        "chart_image": "shopify://shop_images/Chart.png",
+        "chart_image_width": 800,
+        "default_weight": 220,
+        "default_height": 68,
+        "weight_loss_percentage": 9,
+        "fat_zone_text": "Based on clinical trials, you could lose up to 9% of your body weight in 3 months you could lose up to",
+        "fat_zone_disclaimer": "in 3 months*",
+        "healthy_bmi_message": "You're already in a healthy BMI range. Nordburn can support appetite regulation, gut health, and long-term weight maintenance",
+        "low_bmi_message": "Nordburn is designed to support those with weight loss goals. we recommend consulting a healthcare professional before use"
       }
     },
     "image-slideshow": {
@@ -315,13 +313,7 @@
           }
         }
       },
-      "block_order": [
-        "image_mXr8fD",
-        "image_TWRNfK",
-        "image_edLTYa",
-        "image_WKpJe8",
-        "image_bbLdLQ"
-      ],
+      "block_order": ["image_mXr8fD", "image_TWRNfK", "image_edLTYa", "image_WKpJe8", "image_bbLdLQ"],
       "settings": {
         "background_color": "#c9c9f2",
         "speed": 50,
@@ -380,11 +372,7 @@
           }
         }
       },
-      "block_order": [
-        "columns_3Hfbji",
-        "columns_4RBAfc",
-        "columns_RcUYbK"
-      ],
+      "block_order": ["columns_3Hfbji", "columns_4RBAfc", "columns_RcUYbK"],
       "name": "Nord How To",
       "settings": {
         "bg_color": "#f6f6f6",
@@ -480,16 +468,8 @@
           }
         }
       },
-      "block_order": [
-        "rows_gdRiGy",
-        "rows_i3wjTn",
-        "rows_ezTTC4",
-        "rows_YCdtVJ",
-        "rows_FagKKE"
-      ],
-      "custom_css": [
-        ".g-table {background: #fff;}"
-      ],
+      "block_order": ["rows_gdRiGy", "rows_i3wjTn", "rows_ezTTC4", "rows_YCdtVJ", "rows_FagKKE"],
+      "custom_css": [".g-table {background: #fff;}"],
       "name": "Nord Table",
       "settings": {
         "heading_h1": false,
@@ -688,11 +668,7 @@
           }
         }
       },
-      "block_order": [
-        "columns_y6gJ3w",
-        "columns_CEPHah",
-        "columns_qWc6n7"
-      ],
+      "block_order": ["columns_y6gJ3w", "columns_CEPHah", "columns_qWc6n7"],
       "disabled": true,
       "name": "Nord Real People",
       "settings": {
@@ -730,13 +706,7 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "videos_qQFhyr",
-        "videos_8FitAP",
-        "videos_X6U7dV",
-        "videos_nPYVKg",
-        "videos_QMzkWP"
-      ],
+      "block_order": ["videos_qQFhyr", "videos_8FitAP", "videos_X6U7dV", "videos_nPYVKg", "videos_QMzkWP"],
       "disabled": true,
       "name": "Nord Videos",
       "settings": {

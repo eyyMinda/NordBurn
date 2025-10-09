@@ -41,7 +41,9 @@
           </div>
 
           <flex-col class="cd-upsells__block-info">
-            <p class="cd-upsells__block-title">{{ title }}</p>
+            <a href="{{ product.url }}" title="{{ title }}" aria-label="{{ title }}" class="cd-upsells__block-title">
+              {{ title }}
+            </a>
 
             {% if supply_description != blank %}
               <flex class="cd-upsells__block-variants">
