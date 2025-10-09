@@ -1,0 +1,233 @@
+{% assign ss = section.settings %}
+{% assign sc = section.id | prepend: '#shopify-section-' %}
+{% assign reviews = section.blocks | where: 'type', 'review' %}
+
+{% capture section_content %}
+  {{ 'swiper-reviews.css' | asset_url | stylesheet_tag }}
+  
+  <div class="swiper-reviews">   
+    <div class="swiper-reviews-container">
+      {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+      ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
+  
+      <div class="swiper-reviews-swiper-wrapper">
+        <div class="swiper-reviews-swiper">
+          <div class="swiper-wrapper">
+          {%- for review in reviews -%}
+            {% assign rs = review.settings %}
+            <div class="swiper-slide">
+                <div class="swiper-review">
+                    {% render 'responsive-image' image: rs.image, image_width: 500, custom_alt: rs.author, class: 'swiper-review-image' %}
+                    <div class="swiper-review-content-container">
+                        <div class="swiper-review-content-heading">
+                          <p class="swiper-review-customer-name">{{ rs.author }}</p>
+                          {% render 'responsive-image' image: ss.reviews_stars, image_width: 500, custom_alt: 'Rating stars', class: 'rating-stars' %}
+                        </div>
+                        {%- if rs.rating != blank -%}
+                          <div class="homepage-rating-based-text">{{ rs.rating }}</div>
+                        {%- endif -%}
+                        <div class="swiper-review-text">{{ rs.text }}</div>
+                        {% assign tags = rs.tags | split: ',' %}
+                        <div class="swiper-review-tags">
+                          {% for tag in tags %}
+                            <div class="swiper-review-tag">{{ tag }}</div>
+                          {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+          {%- endfor -%}
+          </div>
+        </div>
+        <div class="swiper-reviews-pagination-button">
+          <div class="swiper-reviews-swiper-scrollbar"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const desktopSlides = {{ ss.desktop_slides | default: 3 }};
+      const homepageReviewsSwiper = new Swiper('.swiper-reviews-swiper', {
+        scrollbar: {
+          el: ".swiper-reviews-swiper-scrollbar",
+        },
+        pagination: {
+          el: ".swiper-reviews-pagination-button .swiper-pagination",
+          type: "custom",
+          renderCustom: function (swiper, current, total) {
+            return (swiper.activeIndex + 1).toString() + '/' + document.querySelectorAll('.swiper-reviews-swiper .swiper-slide').length;
+          }
+        },
+        navigation: {
+            nextEl: '.swiper-reviews-pagination-button .swiper-button-next',
+            prevEl: '.swiper-reviews-pagination-button .swiper-button-prev'
+        },
+        breakpoints: {
+          320: {
+            centeredSlides: true,
+            slidesPerView: 1.26,
+            spaceBetween: 14,
+            loop: true
+          },
+          768: {
+            slidesPerView: 2.3,
+            spaceBetween: 15,
+          },
+          992: {
+            centeredSlides: false,
+            slidesPerView: desktopSlides,
+            spaceBetween: 32,
+            loop: false
+          },
+          1200: {
+            slidesPerView: desktopSlides,
+            spaceBetween: 32,
+          },
+          1500: {
+            slidesPerView: desktopSlides,
+            spaceBetween: 32,
+          },
+          1920: {
+            slidesPerView: desktopSlides,
+            spaceBetween: 32,
+          }
+        }
+      });
+    });
+  </script>
+{% endcapture %}
+
+
+{{- section_content -}}
+{% schema %}
+  {
+    "name": "Swiper Reviews",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#FBFBF7"
+      }, {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
+        "type": "text",
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "Your Transformation Starts Here"
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "Slide your weight and find out how much weight you could lose over 3 months."
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "range",
+        "id": "desktop_slides",
+        "label": "Desktop Slides",
+        "min": 2.2,
+        "max": 4,
+        "step": 0.1,
+        "default": 3
+      }
+    ],
+    "blocks": [
+      {
+        "type": "review",
+        "name": "Review",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Review Image"
+          }, {
+            "type": "text",
+            "id": "author",
+            "label": "Author",
+            "default": "Brady E."
+          }, {
+            "type": "text",
+            "id": "rating",
+            "label": "Rating Text",
+            "default": "Great Product"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "Review Text",
+            "default": "This has officially become part of my daily routine. Love the results so far and getting ready to place second order!"
+          }, {
+            "type": "text",
+            "id": "tags",
+            "label": "Tags",
+            "default": "More Energy,More Stamina",
+            "info": "Seperate tags by comma \",\""
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Swiper Reviews"
+      }
+    ]
+  }
+{% endschema %}

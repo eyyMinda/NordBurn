@@ -1,0 +1,475 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "lp-advertorial-section": {
+      "type": "lp-advertorial-side-section",
+      "blocks": {
+        "trustpilot_review_qB7egL": {
+          "type": "trustpilot-review",
+          "settings": {
+            "image": "shopify://shop_images/Rating.png"
+          }
+        },
+        "title_F6gQXU": {
+          "type": "title",
+          "settings": {
+            "title": "Rediscover Life Without Joint Pain: The Shilajit Solution"
+          }
+        },
+        "date_reading_time_fHkR4a": {
+          "type": "date-reading-time",
+          "disabled": true,
+          "settings": {
+            "text": "by Linda Miller July 27, 2024"
+          }
+        },
+        "image_DPinFN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/elder-man-with-back-pain.png"
+          }
+        },
+        "subtitle_AQDaYw": {
+          "type": "subtitle",
+          "settings": {
+            "text": "<p>A Journey from Pain to Freedom</p>"
+          }
+        },
+        "text_i4TCJ7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For years, mornings had become my least favorite time of day. It started subtly in my late 40s - a dull ache in my knees after climbing a few stairs or an odd stiffness in my hands after a day of gardening. <br/><br/>At first, I brushed it off, thinking it was just fatigue or aging. But over time, the discomfort grew. It wasn’t just about aching joints anymore; it was about losing the ability to enjoy the little things that made life fulfilling.</p>"
+          }
+        },
+        "quote_eabDR6": {
+          "type": "quote",
+          "settings": {
+            "text": "<p>By the time I turned 50, even simple tasks became a challenge.</p>"
+          }
+        },
+        "text_iHbEqT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cooking dinner, playing with my grandkids, or kneeling to plant my favorite flowers left me in unbearable pain. Nights were no better - restless and filled with tossing and turning as I struggled to find a comfortable position. <br/><br/>Doctors recommended over-the-counter remedies, but nothing seemed to work. I started to believe this was my new normal:<strong> a life slowed down and overshadowed by joint pain.</strong><br/><br/>Then one evening, while researching natural remedies, I stumbled upon a fascinating article about <strong>Himalayan Shilajit</strong>. Intrigued by its history and benefits, I decided to give it a try. <br/><br/>What did I have to lose?</p>"
+          }
+        },
+        "quote_Hq7cNt": {
+          "type": "quote",
+          "settings": {
+            "text": "<p>Little did I know, this discovery would transform not just my joints but my entire outlook on life.</p>"
+          }
+        },
+        "subtitle_X6nTt8": {
+          "type": "subtitle",
+          "settings": {
+            "text": "<p>What Is Himalayan Shilajit?</p>"
+          }
+        },
+        "text_xMAF4j": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Himalayan Shilajit</strong> is a rare resin formed over centuries from decomposed plant matter and minerals in the Himalayan mountains. It contains <strong>over 85 essential minerals, including fulvic acid, known for its anti-inflammatory and rejuvenating properties.</strong><br/><br/>What makes this Shilajit exceptional is its sourcing from elevations of <strong>17,000 feet</strong>. At this altitude, the environment is pristine, untouched by pollution. <strong>This ensures the resin’s unparalleled purity and potency. </strong><br/><br/>The extreme elevation also enriches Shilajit with a higher concentration of minerals, making it <strong>one of the most effective remedies for joint discomfort.</strong></p>"
+          }
+        },
+        "image_Jt6iCG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/elder-man-with-back-pain_1.png"
+          }
+        },
+        "simple_upsell_XYkBq8": {
+          "type": "simple-upsell",
+          "disabled": true,
+          "settings": {
+            "button_text": "Get Himalayan Shilajit",
+            "button_url": ""
+          }
+        },
+        "usp_kgGnYG": {
+          "type": "usp",
+          "settings": {
+            "title": "How Does It Work?",
+            "text_inline": true
+          }
+        },
+        "usp_item_ipPgPP": {
+          "type": "usp-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_7229.png",
+            "heading_text": "Fights Inflammation:",
+            "normal_text": "Fulvic acid reduces swelling, the root cause of joint pain."
+          }
+        },
+        "usp_item_dQiQjx": {
+          "type": "usp-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_7230.png",
+            "heading_text": "Rejuvenates Cartilage:",
+            "normal_text": "Supports collagen production to rebuild and protect joint tissue."
+          }
+        },
+        "usp_item_XhdTa9": {
+          "type": "usp-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_7231_0de13a1e-68f3-4cdf-8879-6bfd831f8be2.png",
+            "heading_text": "Strengthens Bones:",
+            "normal_text": "Improves calcium absorption for healthier, more resilient bones."
+          }
+        },
+        "usp_item_djcVbG": {
+          "type": "usp-item",
+          "settings": {
+            "image": "shopify://shop_images/Group_7232_8f280bc7-ceeb-476e-870a-b8209a14c7f2.png",
+            "heading_text": "Boosts Energy:",
+            "normal_text": "Provides a surge of stamina, helping you stay active and mobile."
+          }
+        },
+        "subtitle_BWDetS": {
+          "type": "subtitle",
+          "settings": {
+            "text": "<p>More Than Just Joint Relief</p>"
+          }
+        },
+        "text_hXc8AS": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Himalayan Shilajit isn’t just for your joints. Its powerful blend of minerals and nutrients also:</p>"
+          }
+        },
+        "flex_blocks_yDXJG9": {
+          "type": "flex-blocks",
+          "settings": {
+            "bg_color": "#060346",
+            "item_bg_color": "#d2d9ff",
+            "item_text_color": "#000000"
+          }
+        },
+        "flex_item_NbnTPA": {
+          "type": "flex-item",
+          "settings": {
+            "title": "Supports Immune Health",
+            "text": "Keeps your body resilient against illness and fatigue."
+          }
+        },
+        "flex_item_fFk7CB": {
+          "type": "flex-item",
+          "settings": {
+            "title": "Enhances Mental Clarity",
+            "text": "Fulvic acid and antioxidants work together to sharpen focus and cognitive function."
+          }
+        },
+        "flex_item_4eg7A6": {
+          "type": "flex-item",
+          "settings": {
+            "title": "Improves Circulation",
+            "text": "Helps deliver oxygen and nutrients more effectively, reducing discomfort and stiffness."
+          }
+        },
+        "subtitle_g6MrTH": {
+          "type": "subtitle",
+          "settings": {
+            "text": "<p>My Transformation</p>"
+          }
+        },
+        "text_hXc8AD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Within just two weeks of taking a pea-sized amount of Shilajit daily, I noticed a shift. Mornings became manageable, and I no longer dreaded climbing stairs or bending to pick up toys. <br/><br/>By the end of the month, I was back in my garden, planting without hesitation. I even joined my grandkids for a game of tag - something I hadn’t done in years.</p>"
+          }
+        },
+        "quote_YcPnwD": {
+          "type": "quote",
+          "settings": {
+            "text": "<p>Shilajit didn’t just reduce my pain, it gave me back my freedom and joy.</p>"
+          }
+        },
+        "text_3UQQU4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>I felt like myself again, energized and ready to embrace life.</p>"
+          }
+        },
+        "subtitle_gHWfjU": {
+          "type": "subtitle",
+          "settings": {
+            "text": "<p>Take Back Control of Your Life</p>"
+          }
+        },
+        "text_rRxUGa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If joint pain is holding you back, <strong>Authentic Himalayan Shilajit could be the solution</strong> you’ve been waiting for. Don’t let another day slip away in discomfort. With its natural, time-tested power, you can regain mobility, energy, and confidence.<br/><br/>Whether it’s gardening, hiking, or simply enjoying quality time with loved ones, Shilajit can help you reclaim what joint pain has stolen.<strong> Start with just a pea-sized amount daily and experience the difference for yourself.</strong></p>"
+          }
+        },
+        "quote_BxcPFn": {
+          "type": "quote",
+          "settings": {
+            "text": "<p>Try Authentic Himalayan Shilajit today and take the first step toward a life without limits.</p>"
+          }
+        },
+        "review_slider_nrdG6q": {
+          "type": "review_slider",
+          "settings": {}
+        },
+        "upsell_usp_EcCP8t": {
+          "type": "upsell-usp",
+          "disabled": true,
+          "settings": {
+            "subtitle": "We know. It sounds unreal...",
+            "title": "Try it risk-free and see for yourself.",
+            "stock_notification_limit": 15000,
+            "button_text": "Try it now!",
+            "usp_item_texts": "30-Day Money-Back Guarantee@@@Try Volume for $1.53 / serving@@@Manufactured In The Netherlands@@@Loved by 50,000+ couples globally.",
+            "atc_usp_texts": "Free USA Shipping@@@Quick & Free Delivery",
+            "product": ""
+          }
+        },
+        "upsell_medium_ACUAV6": {
+          "type": "upsell-medium",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "subtitle": "Why Wait? This Offer Won’t Last Forever",
+            "description": "Every day you wait is another day you miss out on feeling like the best version of yourself. Supplies are limited, and this exclusive offer won’t be around forever.",
+            "benefit_text": "",
+            "benefits": "✅ Up to 50% Off@@@✅ 100% Money-Back Guarantee@@@✅ Discreet Shipping",
+            "note": "Take the first step toward reclaiming your vitality today.",
+            "stock_notification_limit": 14991,
+            "button_text": "Claim Up to 50% Off Now",
+            "product": "",
+            "atc_usp_texts": "Free USA Shipping@@@Quick & Free Delivery"
+          }
+        },
+        "right_upsell_yxfUkj": {
+          "type": "right-upsell",
+          "settings": {
+            "announcement_bg_color": "#D2D9FF",
+            "announcement_text_color": "#000000",
+            "bg_color": "#060346",
+            "heading_text_color": "#FFFFFF",
+            "btn_accent_color": "#1E9E48",
+            "btn_foreground_color": "#FFFFFF",
+            "announcement": "GET UP TO 20% OFF TODAY!",
+            "heading": "#1 WAY TO IMPROVE Joint PAIN & STIFFNESS",
+            "image": "shopify://shop_images/Screenshot_2024-08-23_at_17.17.47.png",
+            "payments": "shopify://shop_images/Group_7171_1.png",
+            "product": "authentic-himalayan-shilajit",
+            "button_text": "BUY NOW",
+            "link": "shopify://products/authentic-himalayan-shilajit"
+          }
+        }
+      },
+      "block_order": [
+        "trustpilot_review_qB7egL",
+        "title_F6gQXU",
+        "date_reading_time_fHkR4a",
+        "image_DPinFN",
+        "subtitle_AQDaYw",
+        "text_i4TCJ7",
+        "quote_eabDR6",
+        "text_iHbEqT",
+        "quote_Hq7cNt",
+        "subtitle_X6nTt8",
+        "text_xMAF4j",
+        "image_Jt6iCG",
+        "simple_upsell_XYkBq8",
+        "usp_kgGnYG",
+        "usp_item_ipPgPP",
+        "usp_item_dQiQjx",
+        "usp_item_XhdTa9",
+        "usp_item_djcVbG",
+        "subtitle_BWDetS",
+        "text_hXc8AS",
+        "flex_blocks_yDXJG9",
+        "flex_item_NbnTPA",
+        "flex_item_fFk7CB",
+        "flex_item_4eg7A6",
+        "subtitle_g6MrTH",
+        "text_hXc8AD",
+        "quote_YcPnwD",
+        "text_3UQQU4",
+        "subtitle_gHWfjU",
+        "text_rRxUGa",
+        "quote_BxcPFn",
+        "review_slider_nrdG6q",
+        "upsell_usp_EcCP8t",
+        "upsell_medium_ACUAV6",
+        "right_upsell_yxfUkj"
+      ],
+      "settings": {
+        "btn_accent_color": "#1E9E48",
+        "btn_foreground_color": "#FFFFFF",
+        "sticky_button_text": "BUY NOW",
+        "sticky_btn_url": "shopify://products/authentic-himalayan-shilajit"
+      }
+    },
+    "swiper-reviews": {
+      "type": "swiper-reviews",
+      "blocks": {
+        "review_D6FJ7W": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/User_Image_6cc9d63a-8dcc-4826-a45a-496e7746ff22.png",
+            "author": "Margaret J.",
+            "rating": "Best Sleep Solution",
+            "text": "I want to give a shoutout to NutroTonic's Shilajit! The packaging was beautiful and thoughtful, setting a great tone. I’ve been adding it to my evening tea and, after months of sleep issues, I’m now sleeping much better—sometimes through the night! Thank you, NutroTonic, for creating a product that can make a positive difference. It helped me, and it might help others too!",
+            "tags": "No More Sleep Issues"
+          }
+        },
+        "review_9hjJE4": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/hhf.png",
+            "author": "Gurson S.",
+            "rating": "Great Product",
+            "text": "Changed my life for the best! So much natural energy and motivation. Look forward to having my shilajit once a day from Monday-Friday, sometimes I skip weekend and sometimes I don’t lol! Amazing earthy aroma and taste, I have the resin, the Manuka shilajit gummies and the dropper! I’m a fan for life!!",
+            "tags": "Increased Energy, More Motivation"
+          }
+        },
+        "review_WAXhPN": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/kelly.png",
+            "author": "Kelly B.",
+            "rating": "Love it",
+            "text": "Really enjoying my Shilajit tea! I'm having 1-3 cups a day! My husband has been having a cup a day and he isn't even a tea person. We are already feeling some of the benefits! Great customer service! Usps lost 1/2 my order, and Nutrotonic didn't even hesitate to send a replacement asap! I appreciated that so much!",
+            "tags": "Amazing Customer Support"
+          }
+        },
+        "review_a4gW9g": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/shantell.png",
+            "author": "Shantell F.",
+            "rating": "Feeling much better & stronger",
+            "text": "This stuff is absolutely amazing!!! Makes me feel so good! I had my 78-year-old grandpa try it and I could significantly notice the difference in how he was feeling. 100% recommend.",
+            "tags": "Better Overall Being"
+          }
+        }
+      },
+      "block_order": ["review_D6FJ7W", "review_9hjJE4", "review_WAXhPN", "review_a4gW9g"],
+      "settings": {
+        "bg_color": "#ffffff",
+        "heading": true,
+        "heading_title": "Real Results From Our Clients",
+        "heading_sub_text": "",
+        "heading_text": "",
+        "heading_ratings": true,
+        "heading_ratings_stars": "shopify://shop_images/Stars_full.png",
+        "heading_ratings_text": "(205) 4.7/5 | Client’s Most Favorite Product",
+        "reviews_stars": "shopify://shop_images/Stars_full.png",
+        "desktop_slides": 2.3
+      }
+    },
+    "ingredients": {
+      "type": "ingredients",
+      "blocks": {
+        "ingredient_h773xm": {
+          "type": "ingredient",
+          "settings": {
+            "ingre_title": "Authentic Himalayan Shilajit®",
+            "ingre_points": "Energy Boost,Cognitive Support,Detoxification Aid",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_5.png"
+          }
+        },
+        "ingredient_MJDgjW": {
+          "type": "ingredient",
+          "settings": {
+            "ingre_title": "Manuka Honey MGO+263",
+            "ingre_points": "Medicinal Grade,Immune Support,Antioxidant Rich",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_6.png"
+          }
+        },
+        "ingredient_agdNCk": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "ingre_title": "Organic Allulose",
+            "ingre_points": "Low-Calorie,Blood Sugar,Sweetness Boost",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_1.png"
+          }
+        },
+        "ingredient_YmE8aA": {
+          "type": "ingredient",
+          "settings": {
+            "ingre_title": "Organic Monk Fruit",
+            "ingre_points": "Zero Calories,Natural Sweetener,Blood Sugar-Friendly",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_4.png"
+          }
+        },
+        "ingredient_DXjyAE": {
+          "type": "ingredient",
+          "settings": {
+            "ingre_title": "Tartaric Acid",
+            "ingre_points": "Antioxidant Properties,Digestive Support,Skin Health",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_7.png"
+          }
+        },
+        "ingredient_LGLGqP": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "ingre_title": "Distilled Water",
+            "ingre_points": "Purity Boost,Enhanced Absorption,Neutral Base",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_2.png"
+          }
+        },
+        "ingredient_b8LJjw": {
+          "type": "ingredient",
+          "settings": {
+            "ingre_title": "Blood Orange Oil",
+            "ingre_points": "Antioxidant Rich,Skin Rejuvenation,Anti-Inflammatory",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_3.png"
+          }
+        },
+        "ingredient_BqYMhA": {
+          "type": "ingredient",
+          "settings": {
+            "ingre_title": "Vanilla Bean Powder",
+            "ingre_points": "Natural Flavor,Antioxidant Boost,Skin Benefits",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo_8.png"
+          }
+        },
+        "ingredient_MUCdRR": {
+          "type": "ingredient",
+          "disabled": true,
+          "settings": {
+            "ingre_title": "Pectin",
+            "ingre_points": "Digestive Health,Cholesterol Reduction,Blood Sugar",
+            "ingre_img": "shopify://shop_images/Ingredient_Photo.png"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_h773xm",
+        "ingredient_MJDgjW",
+        "ingredient_agdNCk",
+        "ingredient_YmE8aA",
+        "ingredient_DXjyAE",
+        "ingredient_LGLGqP",
+        "ingredient_b8LJjw",
+        "ingredient_BqYMhA",
+        "ingredient_MUCdRR"
+      ],
+      "disabled": true,
+      "settings": {
+        "bg_color": "#fbfbf7",
+        "heading": true,
+        "heading_title": "Clean, Safe, Powerful Ingredients",
+        "heading_sub_text": "",
+        "heading_text": "Our Shilajit is packed with the most effective ingredients out there, and nothing else.",
+        "ingre_points_icon": "shopify://shop_images/Frame_8164.png",
+        "ingre_popup": "shopify://shop_images/3_7eaa7038-070a-49ad-9403-68e2f16512bd.png"
+      }
+    }
+  },
+  "order": ["lp-advertorial-section", "swiper-reviews", "ingredients"]
+}
