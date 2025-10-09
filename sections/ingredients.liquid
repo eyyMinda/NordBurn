@@ -1,0 +1,306 @@
+{% assign ss = section.settings %}
+{% assign sc = section.id | prepend: '#shopify-section-' %}
+{% assign ingredients = section.blocks | where: 'type', 'ingredient' %}
+
+{%- capture section_content -%}
+<style>
+  {{ sc }} {
+    background: {{ ss.bg_color }};
+    font-family: 'Lato';
+  }
+  {{ sc }} .ingredients {
+    max-width: 1600px;
+    margin-inline: auto;
+    padding: 48px 16px;
+  }
+  {{ sc }} .ingredients .heading-wrapper {
+    padding: 0 0 32px;
+  }
+  {{ sc }} .ingredients__items {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+  }
+  {{ sc }} .ingredients__item {
+    max-width: 430px;
+    display: flex;
+    border: 1px solid #B5D2BF;
+    border-radius: 24px;
+    background: white;
+    align-items: center;
+    padding: 16px;
+    padding-right: 0;
+  }
+  {{ sc }} .ingredients__item-image {
+    flex: none;
+    max-width: 35%;
+  }
+  {{ sc }} .ingredients__item-image img {
+    width: 100%;
+    display: block;
+  }
+  {{ sc }} .ingredients__item-content {
+    flex: 1;
+    padding-left: 16px;
+  }
+  {{ sc }} .ingredients__title {
+    color: #0C2016;
+    font-family: 'Rubik';
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  {{ sc }} .ingredients__points {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  {{ sc }} .ingredients__point {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  {{ sc }} .ingredients__point img {
+    width: 18px;
+  }
+  {{ sc }} .ingredients__point-text {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  {{ sc }} .ingredients__popup-btn {
+    width: fit-content;
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 16px;
+    color: black;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    padding: 16px 24px;
+    margin: 32px auto 0;
+    transition: all 150ms ease;
+  }
+  {{ sc }} .ingredients__popup-btn:hover {
+    background-color: black;
+    border-color: white;
+    color: white;
+  }
+  {{ sc }} .ingredients__modal-overlay {
+    display: none;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    z-index: 2;
+  }
+  {{ sc }} .ingredients__modal {
+    display: none;
+    max-width: 500px;
+    width: calc(100% - 25px);
+    position: fixed;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  {{ sc }} .ingredients__modal:before {
+    content: '';
+    background-size: 100%;
+    background-image: url({{ 'black_close.svg' | asset_url }});
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -42px;
+    filter: invert(1);
+    pointer-events: none;
+    z-index: 2;
+  }
+  {{ sc }} .ingredients__modal img {
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    {{ sc }} .ingredients__items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    {{ sc }} .ingredients {
+      padding: 80px 56px;
+    }
+    {{ sc }} .ingredients__items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    {{ sc }} .ingredients__title {
+      font-size: 24px;
+    }
+    {{ sc }} .ingredients__point-text {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<div class="ingredients">
+  {% render 'heading' heading: true, h1: ss.heading_h1, title: ss.heading_title, align: ss.heading_align, align_mb: ss.heading_align_mb, sub_text: ss.heading_sub_text, text: ss.heading_text,
+  ratings: ss.heading_ratings, ratings_stars: ss.heading_ratings_stars, ratings_logo: ss.heading_ratings_logo, ratings_text: ss.heading_ratings_text,  shop_all: ss.heading_shop_all %}
+
+  <div class="ingredients__items">
+    {% for ingredient in ingredients %}
+      {% assign points = ingredient.settings.ingre_points | split: ',' %}
+      <div class="ingredients__item">
+        <div class="ingredients__item-content">
+          <div class="ingredients__title">{{ ingredient.settings.ingre_title }}</div>
+          <div class="ingredients__points">
+            {% for point in points %}
+              <div class="ingredients__point">
+                <img src="{{ ss.ingre_points_icon | image_url: width: 30 }}" alt="checkmark" width="auto" height="auto">
+                <p class="ingredients__point-text">{{ point }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <div class="ingredients__item-image">
+          <img src="{{ ingredient.settings.ingre_img | image_url: width: 300 }}" alt="ingredient - {{ ingredient.settings.ingre_title }}" width="auto" height="auto">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <div class="ingredients__popup-btn">Full Ingredient List</div>
+</div>
+
+<!-- ingredient popup -->
+<div class="ingredients__modal-overlay"></div>
+<div class="ingredients__modal">
+  <img src="{{ ss.ingre_popup | image_url: width: 1500 }}" alt="ingredient table" width="auto" height="auto">
+</div>
+
+{%- endcapture -%}
+
+{{- section_content | remove: '  ' | strip_newlines -}}
+{% schema %}
+{
+    "name": "Ingredients",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#FBFBF7"
+      }, {
+        "type": "header",
+        "content": "Heading"
+      }, {
+        "type": "checkbox",
+        "id": "heading_h1",
+        "label": "Heading H1"
+      }, {
+        "type": "text",
+        "id": "heading_title",
+        "label": "Heading Title",
+        "default": "Your Transformation Starts Here"
+      }, {
+        "type": "text",
+        "id": "heading_sub_text",
+        "label": "Heading Sub-Text"
+      }, {
+        "type": "text",
+        "id": "heading_text",
+        "label": "Heading Text",
+        "default": "Slide your weight and find out how much weight you could lose over 3 months."
+      }, {
+        "type": "select",
+        "id": "heading_align",
+        "label": "Heading Alignment",
+        "default": "center",
+        "options": [
+          { "value": "start", "label": "Start" }, 
+          { "value": "center", "label": "Center" },
+          { "value": "end", "label": "End" }
+        ]
+      }, {
+        "type": "select",
+        "id": "heading_align_mb",
+        "label": "Heading Alignment Mobile",
+        "default": "center-mb",
+        "options": [
+          { "value": "start-mb", "label": "Start" }, 
+          { "value": "center-mb", "label": "Center" },
+          { "value": "end-mb", "label": "End" }
+        ]
+      }, {
+        "type": "collection",
+        "id": "heading_shop_all",
+        "label": "Shop All"
+      }, {
+        "type": "header",
+        "content": "Ratings"
+      }, {
+        "type": "checkbox",
+        "id": "heading_ratings",
+        "label": "Display Ratings"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_stars",
+        "label": "Ratings Stars",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "heading_ratings_logo",
+        "label": "Ratings Logo",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "text",
+        "id": "heading_ratings_text",
+        "label": "Ratings Text",
+        "visible_if": "{{ section.settings.heading_ratings }}"
+      }, {
+        "type": "image_picker",
+        "id": "ingre_points_icon",
+        "label": "Ingredient Points Icon"
+      }, {
+        "type": "image_picker",
+        "id": "ingre_popup",
+        "label": "Ingredient Popup Image"
+      }
+    ],
+    "blocks": [
+        {
+          "type": "ingredient",
+          "name": "Ingredient",
+          "settings": [
+              {
+                "type": "text",
+                "id": "ingre_title",
+                "label": "Ingredient title",
+                "default": "Pectin"
+              },{
+                "type": "text",
+                "id": "ingre_points",
+                "label": "Ingredient Points",
+                "default": "Digestive Health;Cholesterol Reduction;Blood Sugar",
+                "info": "Separate them by semicolumn \";\""
+              }, {
+                "type": "image_picker",
+                "id": "ingre_img",
+                "label": "Ingredient image"
+              }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "Ingredients"
+      }
+    ]
+}
+{% endschema %}

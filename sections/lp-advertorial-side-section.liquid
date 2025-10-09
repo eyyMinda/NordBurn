@@ -1,0 +1,2623 @@
+{% assign _ss = section.settings %}
+{% assign _section = section.id | split: '__' | last | slice: -4, 4 | prepend: '#lp_advertorial_' %}
+
+{%- capture section_content -%}
+  <style>
+    {{ _section }} .trustpilot_review {
+      margin: 30px auto 8px;
+      padding: 5px 16px;
+      width: 100%;
+      text-align: center;
+    }
+
+    {{ _section }} .trustpilot_review img {
+      max-width: 500px;
+      width: 100%;
+    }
+
+    {{ _section }} .title {
+      margin: 0 14px 11px;
+      color: var(--accent-color);
+      text-align: center;
+      font-family: "Lato";
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .date_reading_time {
+      margin: 0 14px 26px;
+      color: #BFBFBF;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 11px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .image_container {
+      margin: 26px 14px;
+      width: calc(100% - 28px);
+      border-radius: 5px;
+      overflow: hidden;
+      transform: translateZ(0);
+    }
+
+    {{ _section }} .image_container img {
+      width: 100%;
+    }
+
+    {{ _section }} .text_container p {
+      margin: 21px 14px;
+      color: black;
+      font-family: "Lato";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 135%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .text_container p strong {
+      color: #05906C;
+      font-weight: 700;
+    }
+
+    {{ _section }} .quote_container {
+      margin: 21px 14px;
+      border-radius: 5px;
+      background: var(--accent-color);
+      padding: 15px;
+      display: flex;
+      box-shadow: 0px 4px 4px 0px #00000040;
+    }
+
+    {{ _section }} .quote_container::before {
+      content: ' ';
+      display: block;
+      margin-right: 12px;
+      width: 4px;
+      min-width: 4px;
+      height: auto;
+      border-radius: 99px;
+      background: #d2d9ff;
+    }
+
+    {{ _section }} .quote_holder p {
+      margin: 0;
+      color: #FFF;
+      font-family: "Lato";
+      font-size: 19px;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 115%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .quote_holder p strong {
+      color: #d2d9ff;
+    }
+
+    {{ _section }} .warning_container {
+      margin: 24px 14px;
+      border-radius: 5px;
+      background: var(--accent-color);
+      padding: 18px 17px;
+      display: flex;
+    }
+
+    {{ _section }} .warning_container::before {
+      content: ' ';
+      display: block;
+      margin-right: 12px;
+      width: 4px;
+      min-width: 4px;
+      height: auto;
+      border-radius: 99px;
+      background: #FE4643;
+    }
+
+    {{ _section }} .warning_title {
+      color: #FE4643;
+      font-family: "Lato";
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 17px;
+      margin-bottom: 8px;
+    }
+
+    {{ _section }} .warning_text p {
+      margin: 0 0 16px 0;
+      color: #FFF;
+      font-family: "Lato";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .warning_text p:last-child {
+      margin-bottom: 0;
+    }
+
+    {{ _section }} .half_decrease_container {
+      margin: 26px 12px 26px 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    {{ _section }} .half_decrease_container .mobile_image {
+      display: block;
+      margin-right: 14px;
+      width: 87px;
+      min-width: 87px;
+      height: 61px;
+    }
+
+    {{ _section }} .half_decrease_container .desktop_image {
+      display: none;
+    }
+
+    {{ _section }} .half_decrease_container p {
+      margin: 0;
+      color: var(--accent-color);
+      font-family: "Lato";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .subtitle_container {
+      margin: 35px 14px 0;
+    }
+
+    {{ _section }} .subtitle_container p {
+      margin: 0;
+      color: var(--accent-color);
+      font-family: "Lato";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .subtitle_container p strong {
+      color: #05906C;
+    }
+
+    {{ _section }} .text_over_image_container {
+      margin: 26px 14px;
+      height: 350px;
+      position: relative;
+      border-radius: 5px;
+      overflow: hidden;
+      transform: translateZ(0);
+    }
+
+    {{ _section }} .text_over_image_container img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    {{ _section }} .text_over_image_container .text_container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% - 40px);
+      margin: 32px 20px;
+    }
+
+    {{ _section }} .text_over_image_container .main_text {
+      margin-bottom: 16px;
+    }
+
+    {{ _section }} .text_over_image_container .main_text p {
+      margin: 0;
+      color: #37523A;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 110%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .text_over_image_container .main_text p strong {
+      color: #05906C;
+    }
+
+    {{ _section }} .text_over_image_container .normal_text {
+      color: #37523A;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .simple_upsell_container {
+      margin: 24px 14px 21px;
+      padding: 15px;
+      border-radius: 5px;
+      background: #FBFBF7;
+    }
+
+    {{ _section }} .simple_upsell_container img {
+      display: block;
+      margin-bottom: 15px;
+      width: 100%;  
+    }
+
+    {{ _section }} .simple_upsell_button {
+      display: block;
+      text-decoration: none;
+      border-radius: 99px;
+      background: var(--accent-color);
+      text-align: center;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      color: #d2d9ff;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 13px;
+      letter-spacing: 0;
+      cursor: pointer;
+    }
+
+    {{ _section }} .flex-blocks {
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 16px;
+      margin: 24px 14px;
+    }
+    {{ _section }} .flex-item {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      font-family: "Lato";
+      text-align: center;
+      padding: 16px 8px;
+    }
+    {{ _section }} .flex-item > * {
+      max-width: 250px;
+      width: 100%;
+    }
+    {{ _section }} .flex-item__title {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+    {{ _section }} .flex-item__text {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21.6px;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+    
+    {{ _section }} .usp_container {
+      --bg-color: transparent;
+      margin: 24px 14px;
+    }
+
+    {{ _section }} .usp_title {
+      margin-bottom: 24px;
+      color: var(--accent-color);
+      font-family: "Lato";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 17px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .usp_container .usp_item {
+      margin-bottom: 21px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #D1D5DB;
+    }
+
+    {{ _section }} .usp_container .heading_container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    {{ _section }} .usp_container .heading_container img {
+      display: block;
+      width: 35px;
+      min-width: 35px;
+      height: 35px;
+      margin-right: 13px;
+    }
+    {{ _section }} .usp_container .heading_container .usp_item_inline_heading {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    {{ _section }} .usp_container .heading_container p {
+      color: #05906C;
+      font-family: "Poppins";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 13px;
+      letter-spacing: 0;
+      margin-block: 0;
+    }
+
+    {{ _section }} .usp_container .normal_container {
+      color: var(--accent-color);
+      font-family: "Lato";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 135%;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .upsell_usp_container {
+      margin: 40px 14px;
+    }
+
+    {{ _section }} .upsell_usp_subtitle {
+      color: var(--accent-color);
+      text-align: center;
+      font-family: "Lato";
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 15px;
+      margin-bottom: 12px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .upsell_usp_title {
+      color: #05906C;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: 0;
+      margin-bottom: 21px;
+      object-fit: cover;
+    }
+
+    {{ _section }} .upsell_usp_image {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      height: 350px;
+      overflow: hidden;
+      object-fit: cover;
+      margin-bottom: 20px;
+      transform: translateZ(0);
+    }
+
+    {{ _section }} .upsell_usp_items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px 6px;
+      margin-bottom: 21px;
+    }
+
+    {{ _section }} .upsell_usp_item {
+      display: flex;
+      align-items: center;
+    }
+
+    {{ _section }} .upsell_usp_item svg {
+      display: block;
+      width: 21px;
+      min-width: 21px;
+      height: 21px;
+      margin-right: 7px;
+    }
+
+    {{ _section }} .upsell_usp_item svg path {
+      fill: #37523A;
+    }
+
+    {{ _section }} .upsell_usp_item p {
+      margin: 0;
+      color: #000;
+      font-family: "Lato";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 15px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .upsell_usp_quantity {
+      margin: 0 14px 15px;
+    }
+
+    {{ _section }} .upsell_usp_quantity_progress {
+      margin-bottom: 8px;
+      position: relative;
+      width: 100%;
+      height: 6px;
+      border-radius: 99px;
+      border: 1px solid var(--accent-color);
+      background: rgba(47, 19, 19, 0.00);
+    }
+
+    {{ _section }} .upsell_usp_quantity_progress .progress_container {
+      display: block;
+      border-radius: 99px;
+      position: absolute;
+      height: 6px;
+      background: #FE4643;
+      top: -1px;
+      left: -1px;
+    }
+
+    {{ _section }} .upsell_usp_text {
+      color: #000;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 10px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .upsell_usp_text span {
+      color: #FE4643;
+      font-weight: 700;
+    }
+
+    {{ _section }} .upsell_usp_atc_btn_wrapper {
+      margin-bottom: 8px;
+      width: 100%;
+      height: 55px;
+      border-radius: 30px;
+      background: #23D160;
+      position: relative;
+      overflow: hidden;
+      padding: 5px;
+      transform: translateZ(0);
+    }
+
+    {{ _section }} .upsell_usp_atc_btn_wrapper::before {
+      content: '';
+      display: block;
+      background: conic-gradient(#23D160, #23D160, #23D160, #23D160, #FAF6F0, #fff);
+      width: 110%;
+      padding-bottom: 216%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 100%;
+      z-index: 2;
+      animation: button_border_spin 2.5s linear infinite;
+    }
+
+    {{ _section }} .upsell_usp_atc_btn {
+      position: absolute;
+      width: calc(100% - 10px);
+      height: 45px;
+      border-radius: 30px;
+      background: #23D160;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 3;
+      color: #FFF;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 23px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 18px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .upsell_usp_atc_texts {
+      display: flex;
+      margin: 0 auto 15px;
+      width: fit-content;
+      height: 18px;
+    }
+
+    {{ _section }} .upsell_usp_atc_text {
+      display: block;
+      color: var(--accent-color);
+      font-family: "Lato";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      letter-spacing: 0;
+      padding: 0 12px;
+      border-right: 1px solid var(--accent-color);
+    }
+
+    {{ _section }} .upsell_usp_atc_text:first-child {
+      padding-left: 0;
+    }
+
+    {{ _section }} .upsell_usp_atc_text:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+
+    {{ _section }} .upsell_usp_payment_container {
+      display: flex;
+      margin: 0 auto;
+      width: fit-content;
+      height: 24px;
+    }
+
+    {{ _section }} .upsell_usp_payment_item {
+      display: block;
+      width: 36px;
+      height: 24px;
+      border-radius: 2px;
+      margin-right: 8px;
+    }
+
+    {{ _section }} .upsell_usp_payment_item:last-child {
+      margin-right: 0;
+    }
+
+    {{ _section }} .upsell_usp_payment_item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    {{ _section }} .review_container {
+      padding: 38px 14px;
+      background: #FBFBF7;
+    }
+
+    {{ _section }} .review_title {
+      margin: 0 auto 12px;
+      padding: 0 55px;
+      color: var(--accent-color);
+      text-align: center;
+      font-family: "Lato";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .upsell_medium_container {
+      padding: 40px 14px;
+    }
+
+    {{ _section }} .upsell_medium_subtitle {
+      color: var(--accent-color);
+      font-family: "Lato";
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    {{ _section }} .upsell_medium_title {
+      color: #05906C;
+      font-family: "Lato";
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0;
+      margin-bottom: 21px;
+    }
+    {{ _section }} .upsell_medium_description {
+      color: black;
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    {{ _section }} .upsell_medium_content {
+      border-radius: 5px;
+      background: #0C2016;
+      padding: 21px 15px;
+    }
+
+    {{ _section }} .upsell_medium_content .desktop_container {
+      display: none;
+    }
+
+    {{ _section }} .upsell_medium_image {
+      display: block;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    {{ _section }} .upsell_medium_quantity {
+      margin-bottom: 8px;
+    }
+
+    {{ _section }} .upsell_medium_quantity_progress {
+      display: block;
+      height: 6px;
+      position: relative;
+      border-radius: 99px;
+      border: 1px solid #FFF;
+      background: rgba(47, 19, 19, 0.00);
+      margin-bottom: 8px;
+    }
+
+    {{ _section }} .upsell_medium_quantity_progress .progress_container {
+      display: block;
+      border-radius: 99px;
+      position: absolute;
+      height: 6px;
+      background: #FE4643;
+      top: -1px;
+      left: -1px;
+    }
+
+    {{ _section }} .upsell_medium_quantity .upsell_medium_text {
+      color: #FFF;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 10px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .upsell_medium_quantity .upsell_medium_text span {
+      color: #FE4643;
+      font-weight: 700;
+    }
+
+    {{ _section }} .upsell_medium_atc_btn {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      background: #05906C;
+      border-radius: 99px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      text-decoration: none;
+      color: #FFF;
+      text-align: center;
+      font-family: "Lato";
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 13px;
+      letter-spacing: 0;
+      cursor: pointer;
+      margin: 0 auto 8px;
+    }
+
+    {{ _section }} .upsell_medium_atc_texts {
+      display: flex;
+      margin: 0 auto 15px;
+      width: fit-content;
+      height: 18px;
+    }
+
+    {{ _section }} .upsell_medium_atc_text {
+      display: block;
+      color: #fff;
+      font-family: "Lato";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      letter-spacing: 0;
+      padding: 0 12px;
+      border-right: 1px solid #fff;
+    }
+
+    {{ _section }} .upsell_medium_atc_text:first-child {
+      padding-left: 0;
+    }
+
+    {{ _section }} .upsell_medium_atc_text:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+
+    {{ _section }} .upsell_medium_payment_container {
+      display: flex;
+      margin: 0 auto;
+      width: fit-content;
+      height: 24px;
+    }
+
+    {{ _section }} .upsell_medium_payment_item {
+      display: block;
+      width: 36px;
+      height: 24px;
+      border-radius: 2px;
+      margin-right: 8px;
+    }
+
+    {{ _section }} .upsell_medium_payment_item:last-child {
+      margin-right: 0;
+    }
+
+    {{ _section }} .upsell_medium_payment_item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    {{ _section }} .faq_container {
+      margin: 40px 14px;
+    }
+
+    {{ _section }} .faq_title {
+      color: #0C2016;
+      font-family: "Lato";
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      letter-spacing: 0;
+      margin-bottom: 21px;
+    }
+
+    {{ _section }} .faq_items {
+      margin-bottom: 21px;
+    }
+
+    {{ _section }} .faq_item {
+      border-bottom: 1px solid #E8E8E8;
+      margin-bottom: 17px;
+    }
+
+    {{ _section }} .faq_item.faq_hidden {
+      display: none;
+    }
+
+    {{ _section }} .faq_item:last-child {
+      margin-bottom: 0;
+    }
+
+    {{ _section }} .faq_question {
+      margin-bottom: 9px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    {{ _section }} .faq_question p {
+      margin: 0;
+      color: #0C2016;
+      font-family: "Lato";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px;
+      letter-spacing: 0;
+      cursor: pointer;
+    }
+
+    {{ _section }} .faq_button {
+      background-color: #E8E8E8;
+      width: 24px;
+      height: 24px;
+      border-radius: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    {{ _section }} .faq_button svg {
+      display: block;
+      width: 12px;
+      height: 12px;
+    }
+
+    {{ _section }} .faq_button svg:first-child {
+      display: block;
+    }
+
+    {{ _section }} .faq_button svg:last-child {
+      display: none;
+    }
+
+    {{ _section }} .faq_item.active .faq_button svg:first-child {
+      display: none;
+    }
+
+    {{ _section }} .faq_item.active .faq_button svg:last-child {
+      display: block;
+    }
+
+    {{ _section }} .faq_answer {
+      display: none;
+      margin: 0;
+      color: #0C2016;
+      font-family: "Lato";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px;
+      letter-spacing: 0;
+      margin-bottom: 9px;
+    }
+
+    {{ _section }} .faq_see_more {
+      cursor: pointer;
+      text-decoration: underline;
+      color: #000;
+      font-family: "Lato";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 14px;
+      letter-spacing: 0;
+    }
+
+    {{ _section }} .right_container {
+      display: none;
+    }
+
+    {{ _section }} .right_container .shopify-section .page-width {
+      padding: 0;
+    }
+
+    #lp_advertorial_sticky_button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      padding: 11px 5px 10px 5px;
+      justify-content: center;
+      align-items: center;
+      background: #FFF;
+      box-shadow: 0px -15px 24px 0px rgba(1, 41, 0, 0.50);
+      z-index: 5;
+    }
+
+    #lp_advertorial_sticky_button .button_container {
+      --btn-accent-color: var(--accent-color);
+      --btn-foreground-color: #d2d9ff;
+      width: 100%;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      border: 2px solid var(--btn-accent-color);
+      background: var(--btn-accent-color);
+      color: var(--btn-foreground-color);
+      text-align: center;
+      font-family: "Lato";
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 13px;
+      border-radius: 99px;
+      letter-spacing: 0;
+      cursor: pointer;
+      transition: all 150ms ease-in-out;
+    }
+    #lp_advertorial_sticky_button .button_container:hover {
+      background: var(--btn-foreground-color);
+      color: var(--btn-accent-color);
+      opacity: 1;
+    }
+
+    @media screen and (min-width: 800px) {
+      {{ _section }} .product_section_holder {
+        padding: 0 30px;
+        max-width: 800px;
+        width: 100%;
+        margin: 56px auto;
+      }
+
+      {{ _section }} .left_container {
+        max-width: 800px;
+      }
+
+      {{ _section }} .trustpilot_review {
+        margin: 0 auto 16px 0;
+        padding: 6px 0px;
+        width: 100%;
+      }
+
+      {{ _section }} .trustpilot_review img {
+        display: block;
+      }     
+
+      {{ _section }} .title {
+        margin: 0 0 28px;
+        font-size: 48px;
+        text-align: left;
+      }
+
+      {{ _section }} .date_reading_time {
+        margin: 0 0 38px;
+        text-align: left;
+        font-size: 24px;
+        line-height: 17px;
+      }
+
+      {{ _section }} .image_container {
+        margin: 24px 0;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      {{ _section }} .image_container img {
+        width: 100%;
+      }
+
+      {{ _section }} .text_container p {
+        margin: 24px 0 32px;
+        font-size: 22px;
+        line-height: 125%;
+      }
+
+      {{ _section }} .quote_container {
+        margin: 32px 0;
+        padding: 24px 34px;
+      }
+
+      {{ _section }} .quote_container::before {
+        margin-right: 15px;
+        width: 8px;
+        min-width: 8px;
+      }
+
+      {{ _section }} .quote_holder p {
+        font-size: 28px;
+        line-height: 110%;
+      }
+
+      {{ _section }} .warning_container {
+        margin: 38px 0;
+        padding: 24px 34px;
+      }
+
+      {{ _section }} .warning_container::before {
+        margin-right: 24px;
+        width: 8px;
+        min-width: 8px;
+      }
+
+      {{ _section }} .warning_title {
+        font-size: 28px;
+        line-height: 28px;
+        margin-bottom: 13px;
+      }
+
+      {{ _section }} .warning_text p {
+        margin: 0 0 21px 0;
+        font-size: 19px;
+        line-height: 110%;
+      }
+
+      {{ _section }} .warning_text p:last-child {
+        margin-bottom: 0;
+      }
+
+      {{ _section }} .half_decrease_container {
+        margin: 50px 0 32px;
+      }
+
+      {{ _section }} .half_decrease_container .mobile_image {
+        display: none;
+      }
+
+      {{ _section }} .half_decrease_container .desktop_image {
+        display: block;
+        margin-right: 22px;
+        width: 194px;
+        min-width: 194px;
+        height: 101px;
+      }
+
+      {{ _section }} .half_decrease_container p {
+        font-size: 32px;
+      }
+
+      {{ _section }} .subtitle_container {
+        margin: 60px 0 0;
+      }
+
+      {{ _section }} .subtitle_container p {
+        font-size: 42px;
+        line-height: 115%;
+      }
+
+      {{ _section }} .subtitle_container p strong {
+        color: #05906C;
+      }
+
+      {{ _section }} .text_over_image_container {
+        margin: 32px 0;
+        height: 500px;
+        border-radius: 10px;
+      }
+
+      {{ _section }} .text_over_image_container .text_container {
+        width: calc(100% - 96px);
+        margin: 44px 48px;
+      }
+
+      {{ _section }} .text_over_image_container .main_text {
+        margin-bottom: 21px;
+      }
+
+      {{ _section }} .text_over_image_container .main_text p {
+        font-size: 38px;
+      }
+
+      {{ _section }} .text_over_image_container .normal_text {
+        font-size: 21px;
+        line-height: 15px;
+      }
+
+      {{ _section }} .simple_upsell_container {
+        display: none;
+      }
+
+      {{ _section }} .flex-blocks {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: 16px;
+        padding: 32px 16px;
+        margin: 24px 0;
+      }
+      {{ _section }} .flex-item {
+        max-width: 280px;
+      }
+
+      {{ _section }} .usp_container {
+        margin: 60px 0 0;
+      }
+
+      {{ _section }} .usp_title {
+        margin-bottom: 32px;
+        font-size: 42px;
+        line-height: 29px;
+      }
+
+      {{ _section }} .usp_container .usp_item {
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+      }
+
+      {{ _section }} .usp_container .heading_container {
+        margin-bottom: 16px;
+      }
+
+      {{ _section }} .usp_container .heading_container img {
+        width: 60px;
+        min-width: 60px;
+        height: 60px;
+        margin-right: 16px;
+      }
+
+      {{ _section }} .usp_container .heading_container p {
+        font-size: 28px;
+        line-height: 20px;
+      }
+
+      {{ _section }} .usp_container .normal_container {
+        font-size: 22px;
+        line-height: 125%;
+        letter-spacing: 0;
+      }
+
+      {{ _section }} .upsell_usp_container {
+        margin: 60px 0 75px;
+      }
+
+      {{ _section }} .upsell_usp_subtitle {
+        font-size: 32px;
+        line-height: 22px;
+        margin-bottom: 16px;
+      }
+
+      {{ _section }} .upsell_usp_title {
+        font-size: 42px;
+        line-height: 29px;
+        margin-bottom: 24px;
+      }
+
+      {{ _section }} .upsell_usp_image {
+        border-radius: 10px;
+        margin-bottom: 24px;
+        height: 550px;
+      }
+
+      {{ _section }} .upsell_usp_items {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0 20px;
+        margin-bottom: 32px;
+      }
+
+      {{ _section }} .upsell_usp_item {
+        flex-direction: column;
+      }
+
+      {{ _section }} .upsell_usp_item svg {
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+        margin-right: 0;
+        margin-bottom: 12px;
+      }
+
+      {{ _section }} .upsell_usp_item p {
+        font-size: 21px;
+        line-height: 18px;
+        text-align: center;
+      }
+
+      {{ _section }} .upsell_usp_quantity {
+        margin: 0 0 24px;
+      }
+
+      {{ _section }} .upsell_usp_quantity_progress {
+        margin-bottom: 15px;
+        height: 8px;
+      }
+
+      {{ _section }} .upsell_usp_quantity_progress .progress_container {
+        height: 8px;
+      }
+
+      {{ _section }} .upsell_usp_text {
+        font-size: 24px;
+        line-height: 17px;
+      }
+
+      {{ _section }} .upsell_usp_atc_btn_wrapper {
+        margin-bottom: 12px;
+        height: 70px;
+        border-radius: 35px;
+        padding: 10px;
+      }
+
+      {{ _section }} .upsell_usp_atc_btn {
+        position: absolute;
+        width: calc(100% - 20px);
+        height: 50px;
+        border-radius: 35px;
+        font-size: 32px;
+        line-height: 22px;
+      }
+
+      {{ _section }} .upsell_usp_atc_texts {
+        margin: 0 auto 21px;
+        height: 18px;
+      }
+
+      {{ _section }} .upsell_usp_atc_text {
+        font-size: 22px;
+        line-height: 15px;
+        padding: 0 15px;
+      }
+
+      {{ _section }} .upsell_usp_payment_container {
+        height: 35px;
+      }
+
+      {{ _section }} .upsell_usp_payment_item {
+        width: 52px;
+        height: 35px;
+      }
+
+      {{ _section }} .review_container {
+        padding: 45px 28px;
+      }
+
+      {{ _section }} .review_title {
+        margin: 0 auto 32px;
+        padding: 0 3px;
+        max-width: 600px;
+        width: 100%;
+        font-size: 42px;
+        line-height: 36px;
+      }
+
+      {{ _section }} .upsell_medium_container {
+        padding: 60px 0;
+      }
+
+      {{ _section }} .upsell_medium_subtitle {
+        text-align: center;
+        font-size: 32px;
+        line-height: 22px;
+        margin-bottom: 16px;
+      }
+
+      {{ _section }} .upsell_medium_title {
+        text-align: center;
+        font-size: 42px;
+        line-height: 38px;
+        margin-bottom: 32px;
+      }
+      {{ _section }} .upsell_medium_description {
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 12px;
+      }
+
+      {{ _section }} .upsell_medium_content {
+        border-radius: 10px;
+        padding: 32px 26px;
+      }
+
+      {{ _section }} .upsell_medium_content .mobile_container {
+        display: none;
+      }
+
+      {{ _section }} .upsell_medium_content .desktop_container {
+        display: flex;
+      }
+
+      {{ _section }} .desktop_left_image {
+        width: 257px;
+        min-width: 257px;
+        height: auto;
+        align-self: stretch;
+        margin-right: 24px;
+        object-fit: cover;
+      }
+
+      {{ _section }} .desktop_right_container {
+        width: calc(100% - 281px);
+      }
+
+      {{ _section }} .trustpilot_image {
+        display: block;
+        max-width: 412px;
+        width: 100%;
+        margin: 0 auto 12px;
+      }
+
+      {{ _section }} .benefit_text {
+        display: block;
+        max-width: 412px;
+        width: 100%;
+        margin: 0 auto 15px;
+        color: #FFF;
+        text-align: center;
+        font-family: "Lato";
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 27px;
+      }
+
+      {{ _section }} .upsell_medium_quantity_progress {
+        height: 9px;
+        margin-bottom: 16px;
+      }
+
+      {{ _section }} .upsell_medium_quantity_progress .progress_container {
+        height: 9px;
+      }
+
+      {{ _section }} .upsell_medium_quantity .upsell_medium_text {
+        font-size: 17px;
+        line-height: 15px;
+      }
+
+      {{ _section }} .upsell_medium_atc_btn {
+        width: 100%;
+        max-width: unset;
+        padding-top: 21px;
+        padding-bottom: 21px;
+        font-size: 24px;
+        line-height: 17px;
+        margin: 0 auto 12px;
+      }
+
+      {{ _section }} .upsell_medium_atc_texts {
+        margin: 0 auto 16px;
+        height: 18px;
+      }
+
+      {{ _section }} .upsell_medium_atc_text {
+        font-size: 18px;
+        line-height: 15px;
+      }
+
+      {{ _section }} .upsell_medium_payment_container {
+        height: 35px;
+      }
+
+      {{ _section }} .upsell_medium_payment_item {
+        width: 52px;
+        height: 35px;
+      }
+
+      {{ _section }} .faq_container {
+        margin: 60px 0;
+      }
+
+      {{ _section }} .faq_title {
+        font-size: 42px;
+        line-height: 29px;
+        margin-bottom: 32px;
+      }
+
+      {{ _section }} .faq_items {
+        margin-bottom: 32px;
+      }
+
+      {{ _section }} .faq_item {
+        margin-bottom: 21px;
+      }
+
+      {{ _section }} .faq_question {
+        margin-bottom: 16px;
+      }
+
+      {{ _section }} .faq_question p {
+        font-size: 22px;
+        line-height: 15px;
+      }
+
+      {{ _section }} .faq_button {
+        width: 38px;
+        height: 38px;
+        border-radius: 38px;
+      }
+
+      {{ _section }} .faq_button svg {
+        width: 19px;
+        height: 19px;
+      }
+
+      {{ _section }} .faq_answer {
+        font-size: 22px;
+        line-height: 22px;
+        margin-bottom: 16px;
+      }
+
+      {{ _section }} .faq_see_more {
+        font-size: 24px;
+        line-height: 17px;
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      #lp_advertorial_sticky_button {
+        display: none;
+      }
+      {{ _section }} .flex-blocks {
+        gap: 24px;
+        padding: 32px;
+      }
+    }
+
+    {{ _section }}  .right_upsell_usp_atc{
+      position: absolute;
+        display: flex;
+        width: calc(100% - 20px);
+        height: 50px;
+        border-radius: 35px;
+        background: #23D160;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+        z-index: 3;
+        color: #FFF;
+        text-align: center;
+        font-family: "Lato";
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0;
+    }
+     @media screen and (max-width: 992px) {
+       {{ _section }}  .right_upsell_usp_atc{
+         font-size: 26px;
+       }
+     }
+
+    @media screen and (min-width: 1430px) {
+      {{ _section }} .product_section_holder {
+        max-width: 1520px;
+        padding: 56px 30px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+      }
+
+      {{ _section }} .left_container {
+        width: calc(100% - 660px);
+        margin-right: 130px;
+      }
+
+      {{ _section }} .right_container {
+        display: block;
+        width: 530px;
+        border-radius: 10px;
+        background: #112013;
+        height: fit-content;
+        position: sticky;
+        top: 24px;
+      }
+
+      {{ _section }} .right_upsell_heading {
+        margin: 45px 31px 32px;
+        color: var(--White, #FFF);
+        text-align: center;
+        font-family: "Lato";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: 0;
+      }
+
+      {{ _section }} .right_upsell_image {
+        margin: 0 43px 0 102px;
+        position: relative;
+      }
+
+      {{ _section }} .right_upsell_image img {
+        display: block;
+        width: 100%;
+      }
+
+      {{ _section }} .right_upsell_image .discount_container {
+        position: absolute;
+        width: 135px;
+        height: 135px;
+        border-radius: 135px;
+        background: #FFF;
+        box-shadow: 0px 0px 50px 0px #05906C;
+        top: -7px;
+        right: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      {{ _section }} .right_upsell_image .discount_percent {
+        color: #FE4643;
+        text-align: center;
+        font-family: "Lato";
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 35px;
+        letter-spacing: 0;
+        margin-bottom: 6px;
+      }
+
+      {{ _section }} .right_upsell_image .discount_off {
+        color: #FE4643;
+        text-align: center;
+        font-family: "Lato";
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+        letter-spacing: 0;
+      }
+
+      {{ _section }} .right_container .quantity_limit {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        margin: 0 auto 15px;
+      }
+
+      {{ _section }} .right_container .quantity_limit .bullet_container {
+        display: block;
+        width: 21px;
+        min-width: 21px;
+        height: 21px;
+        border-radius: 99px;
+        background: #FF3A44;
+        margin-right: 8px;
+      }
+
+      {{ _section }} .right_container .quantity_limit_container {
+        color: #FFF;
+        font-family: "Lato";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+        letter-spacing: 0;
+      }
+
+      {{ _section }} .right_container .quantity_limit_container .limit_text {
+        font-weight: 700;
+      }
+
+      {{ _section }} .right_container .quantity_limit_container .quantity_text {
+        font-weight: 700;
+        color: #00B67A;
+      }
+
+      {{ _section }} .right_container .right_upsell_usp_atc_btn_wrapper {
+        margin: 0 19px 12px;
+        width: calc(100% - 38px);
+        height: 70px;
+        border-radius: 35px;
+        background: #23D160;
+        position: relative;
+        overflow: hidden;
+        padding: 10px;
+        transform: translateZ(0);
+      }
+
+      {{ _section }} .right_container .right_upsell_usp_atc_btn_wrapper::before {
+        content: '';
+        display: block;
+        background: conic-gradient(#23D160, #23D160, #23D160, #23D160, #FAF6F0, #fff);
+        width: 110%;
+        padding-bottom: 216%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 100%;
+        z-index: 2;
+        animation: button_border_spin 2.5s linear infinite;
+      }
+
+      {{ _section }} .right_container .right_upsell_usp_atc_btn,
+      {{ _section }}  .right_upsell_usp_atc{
+        position: absolute;
+        display: flex;
+        width: calc(100% - 20px);
+        height: 50px;
+        border-radius: 35px;
+        background: #23D160;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+        z-index: 3;
+        color: #FFF;
+        text-align: center;
+        font-family: "Lato";
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0;
+      }
+
+      {{ _section }} .right_upsell_usp_atc_texts {
+        display: flex;
+        margin: 0 auto 21px;
+        width: fit-content;
+        height: 18px;
+      }
+
+      {{ _section }} .right_upsell_usp_atc_text {
+        display: block;
+        color: #fff;
+        font-family: "Lato";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: 0;
+        padding: 0 15px;
+        border-right: 1px solid #fff;
+      }
+
+      {{ _section }} .right_upsell_usp_atc_text:first-child {
+        padding-left: 0;
+      }
+
+      {{ _section }} .right_upsell_usp_atc_text:last-child {
+        padding-right: 0;
+        border-right: none;
+      }
+
+      {{ _section }} .right_upsell_usp_payment_container {
+        display: flex;
+        margin: 0 auto 45px;
+        width: fit-content;
+        height: 35px;
+      }
+
+      {{ _section }} .right_upsell_usp_payment_item {
+        display: block;
+        width: 52px;
+        height: 35px;
+        border-radius: 2px;
+        margin-right: 8px;
+      }
+
+      {{ _section }} .right_upsell_usp_payment_item:last-child {
+        margin-right: 0;
+      }
+
+      {{ _section }} .right_upsell_usp_payment_item img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  </style>
+
+  <div id="lp_advertorial_{{ section.id | split: '__' | last | slice: -4, 4 }}">
+    <div class="product_section_holder">
+      <div class="left_container">
+        {% for block in section.blocks %}
+          {% assign bs = block.settings %}
+          {% case block.type %}
+            {% when 'trustpilot-review' %}
+              <div class="trustpilot_review">
+                <img src="{{ bs.image | img_url: '1000x' }}" alt="review">
+              </div>
+            {% when 'title' %}
+              <div class="title">{{ bs.title }}</div>
+            {% when 'date-reading-time' %}
+              <div class="date_reading_time">{{ bs.text }}</div>
+            {% when 'image' %}
+              <div class="image_container">
+                <img src="{{ bs.image | img_url: '1000x' }}" alt="{{ bs.image.alt }}">
+              </div>
+            {% when 'text' %}
+              <div class="text_container">{{ bs.text }}</div>
+            {% when 'quote' %}
+              <div class="quote_container">
+                <div class="quote_holder">{{ bs.text }}</div>  
+              </div>
+            {% when 'warning-block' %}
+              <div class="warning_container">
+                <div class="warning_holder">
+                  <div class="warning_title">{{ bs.title }}</div>
+                  <div class="warning_text">{{ bs.text }}</div>
+                </div>  
+              </div>
+            {% when 'half-decrease' %}
+              <div class="half_decrease_container">
+                <img class="mobile_image" src="{{ bs.image_m |  img_url: '500x' }}" alt="mobile image">
+                <img class="desktop_image" src="{{ bs.image_d | img_url: '700x' }}" alt="desktop image">
+                <p>{{ bs.main_text }}</p>
+              </div>
+            {% when 'subtitle' %}
+              <div class="subtitle_container">{{ bs.text }}</div>
+            {% when 'text_over_image' %}
+              <div class="text_over_image_container">
+                <img src="{{ bs.image | img_url: '1000x' }}" alt="{{ bs.image.alt }}">
+                <div class="text_container">
+                  <div class="main_text">{{ bs.main_text }}</div>
+                  <div class="normal_text">{{ bs.text }}</div>
+                </div>
+              </div>
+            {% when 'simple-upsell' %}
+              <div class="simple_upsell_container">
+                <img src="{{ bs.image | img_url: '1000x' }}" alt="Simple Upsell Image">
+                <div onclick="slideToUpsellUspSection()" class="simple_upsell_button">{{ bs.button_text }}</div>
+              </div>
+            {% when 'usp' %}
+              <div class="usp_container">
+                <div class="usp_title">{{ bs.title }}</div>
+                {% assign usp_items = section.blocks | where: 'type', 'usp-item' %}
+                {% for usp_item_block in usp_items %}
+                    <div class="usp_item">
+                      <div class="heading_container">
+                        <img src="{{ usp_item_block.settings.image | img_url: '1000x' }}" alt="{{ usp_item_bs.heading_text }}">
+                        {% if bs.text_inline %}
+                          <div class="usp_item_inline_heading">
+                            <p>{{ usp_item_block.settings.heading_text }}</p>
+                            <div class="normal_container">{{ usp_item_block.settings.normal_text }}</div>
+                          </div>
+                        {% else %}
+                          <p>{{ usp_item_block.settings.heading_text }}</p>
+                        {% endif %}
+                      </div>
+                      {% unless bs.text_inline %}
+                        <div class="normal_container">{{ usp_item_block.settings.normal_text }}</div>
+                      {% endunless %}
+                    </div>
+                {% endfor %}
+              </div>
+            {% when 'flex-blocks' %}
+              <div class="flex-blocks" style="background-color: {{ bs.bg_color }};">
+                {% assign flex_items = section.blocks | where: 'type', 'flex-item' %}
+                {% for item in flex_items %}
+                  {% assign is = item.settings %}
+                  <div class="flex-item" style="background-color: {{ bs.item_bg_color }}; color: {{ bs.item_text_color }};">
+                    {% if is.title != blank %}
+                      <div class="flex-item__title">{{ is.title }}</div>
+                    {% endif %}
+                    {% if is.text != blank %}
+                      <div class="flex-item__text">{{ is.text }}</div>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% when 'upsell-usp' %}
+              <div class="upsell_usp_container" id="upsell_usp">
+                <div class="upsell_usp_subtitle">{{ bs.subtitle }}</div>
+                <div class="upsell_usp_title">{{ bs.title }}</div>
+                <img src="{{ bs.image | img_url: '1000x' }}" alt="{{ bs.title }}" class="upsell_usp_image">
+                <div class="upsell_usp_items">
+                  {% assign usp_item_texts = bs.usp_item_texts | split: '@@@' %}
+                  {% for usp_item_text in usp_item_texts %}
+                    <div class="upsell_usp_item">
+                      {% render 'icon-circle-check' %}
+                      <p>{{ usp_item_text }}</p>
+                    </div>
+                  {% endfor %}
+                </div>
+                {% if bs.product.selected_or_first_available_variant.inventory_quantity < bs.stock_notification_limit %}
+                  <style>
+                    {{ _section }} .upsell_usp_quantity_progress .progress_container {
+                      width: {{ 12 | times: 100 | divided_by: 15 }}%;
+                    }
+                  </style>
+                  <div class="upsell_usp_quantity">
+                    <div class="upsell_usp_quantity_progress">
+                      <div class="progress_container"></div>
+                    </div>
+                    <div class="upsell_usp_text">
+                      Urgent! Only <span>12</span> units left in stock!
+                    </div>
+                  </div>
+                {% endif %}
+                <div class="upsell_usp_atc_btn_wrapper">
+
+                  {% if template contains 'advertorial-lp-1' %}
+                    <a href="{% if request.path contains '/pe-adv' %}/pages/advertorial-funnel-subscribe{% elsif template contains 'advertorial-side-lp' %}/pages/offer-funnel{% else %}/pages/advertorial-funnel{% endif %}" class="right_upsell_usp_atc" data-id="{{ bs.product.selected_or_first_available_variant.id }}">{{ bs.button_text }}</a>
+                  {% else %}
+                    <div class="upsell_usp_atc_btn" data-id="{{ bs.product.selected_or_first_available_variant.id }}">{{ bs.button_text }}</div>
+                  {% endif %}
+                  
+                </div>
+                <div class="upsell_usp_atc_texts">
+                  {% assign atc_usp_texts = bs.atc_usp_texts | split: '@@@' %}
+                  {% for atc_usp_text in atc_usp_texts %}
+                    <div class="upsell_usp_atc_text">{{ atc_usp_text }}</div>
+                  {% endfor %}
+                </div>
+                <div class="upsell_usp_payment_container">
+                  {%- for type in shop.enabled_payment_types -%}
+                    <div class="upsell_usp_payment_item">
+                      <img src="{{ type | payment_type_img_url }}" alt="payment type">
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {% when 'review' %}
+              <div class="review_container">
+                <div class="review_title">{{ bs.title }}</div>
+              </div>
+              {% comment %} Appended using jquery
+                <div id="looxReviews" data-product-id="{{product.id}}" class="loox-reviews-default"></div>
+              {% endcomment %}
+            
+            {% when 'review_slider' %}
+              <div class="review_slider_container"></div>
+            {% when 'ingredients' %}
+              <div class="ingredients_container"></div>
+            {% when 'upsell-medium' %}
+              <div class="upsell_medium_container">
+                {% if bs.subtitle != blank %}
+                  <div class="upsell_medium_subtitle">{{ bs.subtitle }}</div>
+                {% endif %}
+                {% if bs.title != blank %}
+                  <div class="upsell_medium_title">{{ bs.title }}</div>
+                {% endif %}
+                {% if bs.description != blank %}
+                  <div class="upsell_medium_description">{{ bs.description }}</div>
+                {% endif %}
+                <div class="upsell_medium_content">
+                  <div class="mobile_container">
+                    <img src="{{ bs.image | img_url: '1000x' }}" alt="{{ bs.title }}" class="upsell_medium_image">
+                    <style>
+                      {{ _section }} .upsell_medium_quantity_progress .progress_container {
+                        width: {{ 12 | times: 100 | divided_by: 15 }}%;
+                      }
+                    </style>
+                    {% if bs.trustpilot_image_mb %}
+                      <img src="{{ bs.trustpilot_image_mb | img_url: '400x' }}" alt="trustpilot rating" class="trustpilot_image">
+                    {% endif %}
+
+                    {% if bs.benefits != blank %}
+                      <div class="upsell_medium_benefits">
+                        {% assign benefits = bs.benefits | split: '@@@' %}
+                        {% for benefit in benefits %}
+                          <p class="upsell_medium_benefit">{{ benefit }}</p>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                    <div class="upsell_medium_quantity">
+                      <div class="upsell_medium_quantity_progress">
+                        <div class="progress_container"></div>
+                      </div>
+                      <div class="upsell_medium_text">
+                        Urgent! Only <span>12</span> units left in stock!
+                      </div>
+                    </div>
+                    {% if bs.note != blank %}
+                      <p class="upsell_medium_note">{{ bs.note }}</p>
+                    {% endif %}
+                    {% if template contains 'advertorial-side-lp' %}
+                      <a class="adv_btn" href="/pages/offer-funnel">
+                        <div class="upsell_medium_atc_btn" data-id="{{ bs.product.selected_or_first_available_variant.id }}" >{{ bs.button_text }}</div>
+                      </a>
+                    {% else %}
+                      <div class="upsell_medium_atc_btn" data-id="{{ bs.product.selected_or_first_available_variant.id }}" onclick="slideToUpsellUspSection()">{{ bs.button_text }}</div>
+                    {% endif %}
+                    <div class="upsell_medium_atc_texts">
+                      {% assign atc_usp_texts = bs.atc_usp_texts | split: '@@@' %}
+                      {% for atc_usp_text in atc_usp_texts %}
+                        <div class="upsell_medium_atc_text">{{ atc_usp_text }}</div>
+                      {% endfor %}
+                    </div>
+                    <div class="upsell_medium_payment_container">
+                      {%- for type in shop.enabled_payment_types -%}
+                        <div class="upsell_medium_payment_item">
+                          <img src="{{ type | payment_type_img_url }}" alt="payment type">
+                        </div>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                  <div class="desktop_container">
+                    <img src="{{ bs.desktop_left_image | img_url: '500x' }}" alt="{{ bs.title }}" class="desktop_left_image">
+                    <div class="desktop_right_container">
+                      {% if bs.trustpilot_image %}
+                        <img src="{{ bs.trustpilot_image | img_url: '800x' }}" alt="trustpilot" class="trustpilot_image">
+                      {% endif %}
+                      <div class="benefit_text">{{ bs.benefit_text }}</div>
+                      <style>
+                        {{ _section }} .upsell_medium_quantity_progress .progress_container {
+                          width: {{ 12 | times: 100 | divided_by: 15 }}%;
+                        }
+                      </style>
+
+                      {% if bs.benefits != blank %}
+                        <div class="upsell_medium_benefits">
+                          {% assign benefits = bs.benefits | split: '@@@' %}
+                          {% for benefit in benefits %}
+                            <p class="upsell_medium_benefit">{{ benefit }}</p>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                      <div class="upsell_medium_quantity">
+                        <div class="upsell_medium_quantity_progress">
+                          <div class="progress_container"></div>
+                        </div>
+                        <div class="upsell_medium_text">
+                          Urgent! Only <span>12</span> units left in stock!
+                        </div>
+                      </div>
+                      {% if bs.note != blank %}
+                        <p class="upsell_medium_note">{{ bs.note }}</p>
+                      {% endif %}
+                      <a class="adv_btn" href="{% if request.path contains '/pe-adv' %}/pages/advertorial-funnel-subscribe{% elsif template contains 'advertorial-side-lp' %}/pages/offer-funnel{% else %}/pages/advertorial-funnel{% endif %}">
+                        <div class="upsell_medium_atc_btn" data-id="{{ bs.product.selected_or_first_available_variant.id }}" >{{ bs.button_text }}</div>
+                      </a>
+                      <div class="upsell_medium_atc_texts">
+                        {% assign atc_usp_texts = bs.atc_usp_texts | split: '@@@' %}
+                        {% for atc_usp_text in atc_usp_texts %}
+                          <div class="upsell_medium_atc_text">{{ atc_usp_text }}</div>
+                        {% endfor %}
+                      </div>
+                      <div class="upsell_medium_payment_container">
+                        {%- for type in shop.enabled_payment_types -%}
+                          <div class="upsell_medium_payment_item">
+                            <img src="{{ type | payment_type_img_url }}" alt="payment type">
+                          </div>
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% when 'faq-block' %}
+              <div class="faq_container">
+                  <div class="faq_title">{{ bs.title }}</div>
+                  <div class="faq_items">
+                      {% assign block_count = 0 %}
+                      {% for faq_block in section.blocks %}
+                          {% if faq_block.type == 'faq' %}
+                          {% assign block_count = block_count | plus: 1 %}
+                          <div class="faq_item {% unless block_count < 7 %}faq_hidden{% endunless %}">
+                              <div class="faq_question">
+                                  <p>{{ faq_bs.question }}</p>
+                                  <div class="faq_button">
+                                      {% render 'icon-plus' %}
+                                      {% render 'icon-minus' %}
+                                  </div>
+                              </div>
+                              <div class="faq_answer">{{ faq_bs.answer }}</div>
+                          </div>
+                          {% endif %}
+                      {% endfor %}
+                  </div>
+                  {% unless block_count < 7 %}
+                      <div class="faq_see_more">See more</div>
+                  {% endunless %}
+              </div>
+            
+          {% endcase %}
+        {% endfor %}
+      </div>
+      
+      {% assign right_upsell = section.blocks | where: 'type', 'right-upsell' | first %}
+      {% assign rs = right_upsell.settings %}
+      {% assign upsell_variant = rs.product.selected_or_first_available_variant.id %}
+      <div class="right_container" style="background-color: {{ rs.bg_color }};">
+        {% if rs.announcement != blank %}
+          <div class="right_container_announcment" style="background-color: {{ rs.announcement_bg_color }};">
+            <p style="color: {{ rs.announcement_text_color }};">{{ rs.announcement }}</p>
+          </div>
+        {% endif %}
+        <div class="right_container_inner">
+          <div class="right_upsell_container">
+            <div class="right_upsell_heading" style="color: {{ rs.heading_text_color }};">{{ rs.heading }}</div>
+            <div class="right_upsell_image">
+              <div class="right_upsell_image_cont">
+                <img src="{{ rs.image | img_url: '500x' }}" alt="right_upsell_image" width="auto" height="auto">
+              </div>
+            </div>
+            <a href="{{ rs.link }}" class="right_upsell_usp_atc_red" data-id="{{ upsell_variant }}" style="--btn-accent-color: {{ rs.btn_accent_color }}; --btn-foreground-color: {{ rs.btn_foreground_color }};">
+              {{ rs.button_text }}
+            </a>
+            {%  if rs.payments %}
+              <div class="right_upsell_usp_payment_container">
+                <img src="{{ rs.payments | img_url: '500x' }}" alt="payments" width="auto" height="auto">
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="lp_advertorial_sticky_button">
+    <a class="adv_btn" href="{{ _ss.sticky_btn_url }}">
+    <div class="button_container" style="--btn-accent-color: {{ _ss.btn_accent_color }}; --btn-foreground-color: {{ _ss.btn_foreground_color }};">{{ _ss.sticky_button_text }}</div>
+    </a>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      $('.faq_question').click(function() {
+        $(this).closest('.faq_item').find('.faq_answer').slideToggle();
+        $(this).closest('.faq_item').toggleClass('active');
+      });
+  
+      $('.faq_see_more').click(function() {
+        $('.faq_item').removeClass('faq_hidden');
+        $(this).hide();
+      });
+  
+      $('.upsell_usp_atc_btn, .right_upsell_usp_atc_btn').click(function() {
+        const id = $(this).data('id');
+        add_to_cart(id, 1, undefined);
+      });
+  
+      const slideToUpsellUspSection = () => {
+        $('html, body').animate({
+          scrollTop: $(`#upsell_usp`).offset().top
+        }, 500);
+      };
+  
+      setTimeout(() => {
+        // Reviews to review_container
+        $('{{ _section }} .review_container').append($('.shopify-section:has(#looxReviews)'));
+        // Review Slider to review_slider_container
+        $('{{ _section }} .review_slider_container').append($('.shopify-section:has(.swiper-reviews)'));
+        // Ingredients to ingredients_container 
+        $('{{ _section }} .ingredients_container').append($('.shopify-section:has(.ingredients)'));
+      }, 1000);
+  
+      let quantity = 32;
+      const quantityTimer = setInterval(() => {
+        quantity = quantity - 2;
+        if (quantity < 12) {
+          quantity = 12;
+          $('.right_upsell_container span.quantity_text').html(quantity);
+          clearInterval(quantityTimer);
+        } else {
+          $('.right_upsell_container span.quantity_text').html(quantity);
+        }
+      }, 5000);
+    })
+  </script>
+{%- endcapture -%}
+
+{{- section_content -}}
+
+{% schema %}
+{
+  "name": "Advertorial Side Section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "btn_accent_color",
+      "label": "Button Accent Color",
+      "default": "#1E9E48"
+    }, {
+      "type": "color",
+      "id": "btn_foreground_color",
+      "label": "Button Foreground Color",
+      "default": "#FFFFFF"
+    }, {
+      "type": "text",
+      "id": "sticky_button_text",
+      "label": "Sticky Button Text",
+      "default": "Get Volume Herbal Supplement"
+    }, {
+      "type": "url",
+      "id": "sticky_btn_url",
+      "label": "Sticky Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Trustpilot Review",
+      "type": "trustpilot-review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "name": "Title",
+      "type": "title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "How to finally ditch medication and get rid of erectile dysfunction 100% naturally, in a matter of hours."
+        }
+      ]
+    },
+    {
+      "name": "Date & Reading Time",
+      "type": "date-reading-time",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "March 10th 2024 | Reading Time: 2 min"
+        }
+      ]
+    },
+    {
+      "name": "Image",
+      "type": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "type": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "name": "Quote",
+      "type": "quote",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "name": "Half Decrease Container",
+      "type": "half-decrease",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_m",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_d",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "text",
+          "id": "main_text",
+          "label": "Main Text",
+          "default": "Half of the Male Population Suffers From Erectile Dysfunction."
+        }
+      ]
+    },
+    {
+      "name": "Subtitle",
+      "type": "subtitle",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "name": "Text Over Image",
+      "type": "text_over_image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "main_text",
+          "label": "Main Text"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "And you’re right, there is."
+        }
+      ]
+    },
+    {
+      "name": "Simple Upsell",
+      "type": "simple-upsell",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Get Volume Herbal Supplement"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button URL"
+        }
+      ]
+    },
+    {
+      "name": "USP",
+      "type": "usp",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Here’s Why You’ll Love Volume:"
+        },
+        {
+          "type": "checkbox",
+          "id": "text_inline",
+          "label": "USP Text is inline with the icon"
+        }
+      ]
+    },
+    {
+      "name": "USP Item",
+      "type": "usp-item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading_text",
+          "label": "Heading Text",
+          "default": "100% NATURAL & CHEMICAL FREE"
+        },
+        {
+          "type": "text",
+          "id": "normal_text",
+          "label": "Normal Text",
+          "default": "The only factor in a supplement more important than function is safety. Volume is made from 100% natural and carefully scientifically tested ingredients."
+        }
+      ]
+    },
+    {
+      "name": "Flex Blocks",
+      "type": "flex-blocks",
+      "settings": [
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#060346"
+        }, {
+          "type": "color",
+          "id": "item_bg_color",
+          "label": "Item Background Color",
+          "default": "#FEFAE0"
+        }, {
+          "type": "color",
+          "id": "item_text_color",
+          "label": "Item Text Color",
+          "default": "#000000"
+        }
+      ]
+    },
+    {
+      "name": "Flex Item",
+      "type": "flex-item",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Supports Immune Health"
+        }, {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Keeps your body resilient against illness and fatigue."
+        }
+      ]
+    },
+    {
+      "name": "Warning Block",
+      "type": "warning-block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Warning: "
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "name": "Upsell with USP",
+      "type": "upsell-usp",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "We know. It sounds unreal..."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Try it risk-free and see for yourself."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "number",
+          "id": "stock_notification_limit",
+          "label": "Stock Notification Limit",
+          "default": 15
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Try it now!"
+        },
+        {
+          "type": "text",
+          "id": "usp_item_texts",
+          "label": "USP Item Texts",
+          "default": "30-Day Money-Back Guarantee@@@Try Volume for $1.53 / serving@@@Manufactured In The Netherlands@@@Loved by 50,000+ couples globally."
+        },
+        {
+          "type": "text",
+          "id": "atc_usp_texts",
+          "label": "ATC USP Texts",
+          "default": "Free USA Shipping@@@Quick & Free Delivery"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    },
+    {
+      "name": "Review Block",
+      "type": "review",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Info",
+          "info": "Reviews section will be appended to this block. ('LooxApp review' section)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Real results from guys like you"
+        }
+      ]
+    },
+    {
+      "name": "Review Slider Container",
+      "type": "review_slider",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Info",
+          "info": "Review slider section will be appended to this block. ('homepage-reviews' section)"
+        }
+      ]
+    },
+    {
+      "name": "Ingredients Container",
+      "type": "ingredients",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Info",
+          "info": "Ingredients section will be appended to this block. ('homepage-ingredients' section)"
+        }
+      ]
+    },
+    {
+      "name": "Medium Upsell",
+      "type": "upsell-medium",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "and make her night, every night. You know what they say - 'Happy wife, happy life."
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Surprise your lady…"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_left_image",
+          "label": "Desktop Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "trustpilot_image",
+          "label": "TrustPilot Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "trustpilot_image_mb",
+          "label": "TrustPilot Mobile"
+        },
+        {
+          "type": "text",
+          "id": "benefit_text",
+          "label": "Benefit Text",
+          "default": "Get rid of erectile dysfunction 100% naturally"
+        },
+        {
+          "type": "text",
+          "id": "benefits",
+          "label": "Benefits"
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Note"
+        },
+        {
+          "type": "number",
+          "id": "stock_notification_limit",
+          "label": "Stock Notification Limit",
+          "default": 15
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Get Volume Herbal Supplement"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "atc_usp_texts",
+          "label": "ATC USP Texts",
+          "default": "Free USA Shipping@@@Quick & Free Delivery"
+        }
+      ]
+    },
+    {
+      "name": "FAQ Block",
+      "type": "faq-block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Frequently Asked Questions"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    },
+    {
+      "name": "Right Upsell Block",
+      "type": "right-upsell",
+      "settings": [
+        {
+          "type": "color",
+          "id": "announcement_bg_color",
+          "label": "Announcement Background Color",
+          "default": "#FEFAE0"
+        }, {
+          "type": "color",
+          "id": "announcement_text_color",
+          "label": "Announcement Text Color",
+          "default": "#000000"
+        }, {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#060346"
+        }, {
+          "type": "color",
+          "id": "heading_text_color",
+          "label": "Heading Text Color",
+          "default": "#FFFFFF"
+        }, {
+          "type": "color",
+          "id": "btn_accent_color",
+          "label": "Button Accent Color",
+          "default": "#1E9E48"
+        }, {
+          "type": "color",
+          "id": "btn_foreground_color",
+          "label": "Button Foreground Color",
+          "default": "#FFFFFF"
+        }, {
+          "type": "text",
+          "id": "announcement",
+          "label": "Announcement Text",
+          "default": "GET UP TO 60% OFF TODAY!"
+        }, {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading Text",
+          "default": "#1 WAY TO IMPROVE ENERGY, FOCUS & PERFORMANCE"
+        }, {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }, {
+          "type": "image_picker",
+          "id": "payments",
+          "label": "Payments Image"
+        }, {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }, {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Try it now!"
+        }, {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertorial Side Section"
+    }
+  ]
+}
+{% endschema %}
