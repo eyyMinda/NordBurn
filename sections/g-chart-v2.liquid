@@ -32,7 +32,7 @@
             <span class="weightloss__value" id="weight-display">{{ ss.default_weight }} lbs</span>
           </flex>
           <div class="weightloss__slider-container">
-            <input type="range" id="weight-slider" class="weightloss__slider" min="100" max="300" value="{{ ss.default_weight }}" step="1" style="--current-fill: 32.5%;">
+            <input type="range" id="weight-slider" class="weightloss__slider" min="{{ ss.weight_min | default: 100 }}" max="{{ ss.weight_max | default: 500 }}" value="{{ ss.default_weight }}" step="1" style="--current-fill: 32.5%;">
           </div>
         </div>
 
@@ -149,7 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
     futureDate.setMonth(currentDate.getMonth() + 3);
 
     // Update slider fill values
-    const weightFill = ((weight - 100) / (300 - 100)) * 100;
+    const weightMin = {{ ss.weight_min | default: 100 }};
+    const weightMax = {{ ss.weight_max | default: 500 }};
+    const weightFill = ((weight - weightMin) / (weightMax - weightMin)) * 100;
     const heightFill = ((height - 48) / (84 - 48)) * 100;
     
     weightSlider.style.setProperty('--current-fill', weightFill + '%');
@@ -317,6 +319,24 @@ document.addEventListener('DOMContentLoaded', function() {
       "label": "Weight Loss Percentage",
       "default": 9,
       "info": "Percentage of body weight that can be lost in 3 months"
+    }, {
+      "type": "range",
+      "id": "weight_min",
+      "label": "Weight Minimum (lbs)",
+      "min": 80,
+      "max": 200,
+      "step": 10,
+      "default": 100,
+      "info": "Minimum weight value for the weight slider"
+    }, {
+      "type": "range",
+      "id": "weight_max",
+      "label": "Weight Maximum (lbs)",
+      "min": 300,
+      "max": 800,
+      "step": 10,
+      "default": 500,
+      "info": "Maximum weight value for the weight slider"
     }, {
       "type": "header",
       "content": "Fat Zone Content"
