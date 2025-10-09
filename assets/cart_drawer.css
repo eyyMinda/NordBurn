@@ -318,6 +318,7 @@ cart-items {
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.15px;
+  text-decoration: none;
   margin: 0;
 }
 .cd__item .cd__item-variants {
@@ -652,6 +653,7 @@ cart-drawer-content > .cd-upsells__out {
   font-size: 14px;
   line-height: 1.45;
   letter-spacing: 0.15px;
+  text-decoration: none;
 }
 .cd-upsells__block-price {
   color: var(--accent-color);

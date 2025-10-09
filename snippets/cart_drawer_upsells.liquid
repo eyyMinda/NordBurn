@@ -37,7 +37,9 @@
             {% render 'responsive-image' image: featured_image, image_width: 200, custom_alt: title %}
             <a class="cd-upsells__block-atc" href="" title="Add to cart" data-id="{{ selected_variant.id }}">{{ ss.upsells_atc_text | default: '+' }}</a>
           </div>
-          <p class="cd-upsells__block-title">{{ title }}</p>
+          <a href="{{ product.url }}" title="{{ title }}" aria-label="{{ title }}" class="cd-upsells__block-title">
+            {{ title }}
+          </a>
 
           <p class="cd-upsells__block-price">
             {% if compare_at_price > price %}
